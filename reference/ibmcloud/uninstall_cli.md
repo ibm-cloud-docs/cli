@@ -75,4 +75,4 @@ The uninstallation steps are different depending on the version of the CLI that 
       ```
       {: pre}
 
-1. Clean up any autocompletion scripts, if you configured them. For more information, see [Enabling shell autocompletion](/docs/cli/reference/ibmcloud?topic=cli-shell-autocomplete#shell-autocomplete).
+1. Clean up any autocompletion scripts, if you configured them. For more information, see [Enabling shell autocompletion](/docs/cli?topic=cli-shell-autocomplete#shell-autocomplete).
