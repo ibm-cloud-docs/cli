@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-12-27"
+  years: 2019, 2024
+lastupdated: "2024-01-18"
 
 keywords: cli, catalogs management, catalog
 
@@ -52,7 +52,7 @@ ibmcloud catalog account add-approval-access [--account-ids IDS] [--object-kind 
 {: codeblock}
 
 ### Command options
-{: #catalog-account-add-approval-options}
+{: #catalog-account-add-approval-access}
 
 --object-kind VALUE
 
@@ -73,7 +73,7 @@ ibmcloud catalog account delete-approval-access [--account-ids IDS] [--object-ki
 {: codeblock}
 
 ### Command options
-{: #catalog-account-add-approval-options}
+{: #catalog-account-delete-approval-access}
 
 --object-kind VALUE
 
@@ -94,7 +94,7 @@ ibmcloud catalog account get-approval-list [--object-kind KIND]
 {: codeblock}
 
 ### Command options
-{: #catalog-account-add-approval-options}
+{: #catalog-account-get-approval-list}
 
 --object-kind VALUE
 
@@ -111,7 +111,7 @@ ibmcloud catalog account get-approval-list-source [--approval-state STATE] [--en
 {: codeblock}
 
 ### Command options
-{: #catalog-account-add-approval-options}
+{: #catalog-account-get-approval-list-source}
 
 --object-kind VALUE
 
@@ -136,7 +136,7 @@ ibmcloud catalog account set-approval-state-source [--account-ids IDS] [--approv
 {: codeblock}
 
 ### Command options
-{: #catalog-account-add-approval-options}
+{: #catalog-account-set-approval-state-source}
 
 --object-kind VALUE
 
@@ -1775,7 +1775,7 @@ ibmcloud catalog utility create-product-from-workspace [--workspace-id ID] [--ap
 
 --workspace-id WORKSPACE ID
 
-:   Provide a {{site.data.keyword.bpshort}} workspace ID. To get the workspace ID, you must create the {{site.data.keyword.bpshort}} workspace. For more information, see [`ibmcloud schematics workspace new`](/docs/schematics?topic=schematics-schematics-cli-reference#schematics-workspace-new). 
+:   Provide a {{site.data.keyword.bpshort}} workspace ID. To get the workspace ID, you must create the {{site.data.keyword.bpshort}} workspace. For more information, see [`ibmcloud schematics workspace new`](/docs/schematics?topic=schematics-schematics-cli-reference#schematics-workspace-new).
 
 ## ibmcloud catalog utility netrc
 {: #generate-netrc}
