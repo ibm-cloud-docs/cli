@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-01-08"
+lastupdated: "2024-01-19"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -1864,7 +1864,7 @@ ibmcloud iam access-policy-assignment ASSIGNMENT_ID [-q, --quiet] [--output FORM
 {: codeblock}
 
 ### Command options
-{: #ibmcloud_iam_access_policy_template_options}
+{: #ibmcloud_iam_access_policy_template_assignment_options}
 
 --output FORMAT
 :   Specify output format. Only 'JSON' is supported.
