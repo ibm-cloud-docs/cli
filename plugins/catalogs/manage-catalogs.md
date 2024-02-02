@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-01"
+lastupdated: "2024-02-02"
 
 keywords: cli, catalogs management, catalog
 
