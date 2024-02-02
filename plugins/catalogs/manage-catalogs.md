@@ -1254,27 +1254,6 @@ ibmcloud catalog offering version categories --catalog dev-catalog --offering de
 ```
 {: codeblock}
 
-
-## ibmcloud catalog offering version get-controls
-{: #version-get-controls}
-
-Run the following command to get the security and compliance controls from a version. Controls are safeguards that are used to meet security and compliance requirements.
-
-```bash
-ibmcloud catalog offering version get-controls [--version-locator VERSION_NUMBER] [--output OUTPUT]
-```
-{: codeblock}
-
-### Command options
-{: #version-get-controls-options}
-
-
---version-locator VERSION_NUMBER
-:   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified version that you want to use.
-
---output FORMAT (optional)
-:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
-
 ## ibmcloud catalog offering version get-claims
 {: #get-claims}
 
