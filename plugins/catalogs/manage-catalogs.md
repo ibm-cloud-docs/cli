@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-18"
+lastupdated: "2024-02-02"
 
 keywords: cli, catalogs management, catalog
 
@@ -1254,138 +1254,135 @@ ibmcloud catalog offering version categories --catalog dev-catalog --offering de
 ```
 {: codeblock}
 
+## ibmcloud catalog offering version get-claims
+{: #get-claims}
 
-## ibmcloud catalog offering version get-controls
-{: #version-get-controls}
-
-Run the following command to get the security and compliance controls from a version. Controls are safeguards that are used to meet security and compliance requirements.
+Run the following command to retrieve the security and compliance information that a version claimed.
 
 ```bash
-ibmcloud catalog offering version get-controls [--version-locator VERSION_NUMBER] [--output OUTPUT]
+  ibmcloud catalog offering version get-claims [--output OUTPUT] [--version-locator LOCATOR]
 ```
 {: codeblock}
 
 ### Command options
-{: #version-get-controls-options}
+{: #get-claims-options}
 
+--version-locator LOCATOR
+:   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified product or version you want to use.
 
---version-locator VERSION_NUMBER
-:   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified version that you want to use.
-
---output FORMAT (optional)
+--output OUTPUT (optional)
 :   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
 
-## ibmcloud catalog offering version add-controls
-{: #version-add-controls}
+## ibmcloud catalog offering version update-claims
+{: #update-claims}
 
-Run the following command to add security and compliance controls to a version. Controls are safeguards that are used to meet security and compliance requirements.
+Run the following command to update the security and compliance claims of a version.
 
 ```bash
-ibmcloud catalog offering version add-controls [--version-locator VERSION_NUMBER] [--controls CONTROLS]
+  ibmcloud catalog offering version update-claims [--claims CLAIMS] [--version-locator LOCATOR]
 ```
 {: codeblock}
 
 ### Command options
-{: #version-add-controls-options}
+{: #update-claims-options}
 
+--claims CLAIMS
+:   Specify the claims data for a version as a JSON object or file.
 
---version-locator VERSION_NUMBER
-:   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified version that you want to use.
+--version-locator LOCATOR
+:   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified product or version you want to use.
 
---controls CONTROLS
-:   Provide the controls as a JSON array. You can provide values as a JSON file or inline JSON. For example, `[{"NIST": "AC-4"}, {"NIST": "AC-2"}]`.
+## ibmcloud catalog offering version scc-apply
+{: #scc-apply}
 
-## ibmcloud catalog offering version delete-controls
-{: #version-delete-controls}
-
-Run the following command to delete security and compliance controls from a version. Controls are safeguards that are used to meet security and compliance requirements.
+Run the following command to add a Security and Compliance Center scan to your version. You must add security and compliance information to your version and validate your version before you can add a scan.
 
 ```bash
-ibmcloud catalog offering version delete-controls [--version-locator VERSION_NUMBER] [--controls CONTROLS]
+  ibmcloud catalog offering version scc-apply [--instance-region REGION] [--scan SCAN] [--service-instance INSTANCE] [--target-account-name NAME] [--target-api-key KEY] [--timeout TIMEOUT] [--version-locator LOCATOR] [--wait WAIT]
 ```
 {: codeblock}
 
 ### Command options
-{: #version-delete-controls-options}
+{: #scc-apply-options}
 
-
---version-locator VERSION_NUMBER
-:   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified version that you want to use.
-
---controls CONTROLS
-:   Provide the controls as a JSON array. You can provide values as a JSON file or inline JSON. For example, `[{"NIST": "AC-4"}, {"NIST": "AC-2"}]`.
-
-## ibmcloud catalog offering version cra
-{: #version-cra}
-
-Run the following command to run a Code Risk Analyzer scan. The Code Risk Analyzer scans your source code and identifies any security vulnerabilities. You must add controls and validate your version before you can run the scan.
-
-```bash
-ibmcloud catalog offering version cra [--version-locator VERSION_NUMBER] [--wait WAIT] [--timeout TIMEOUT]
-```
-{: codeblock}
-
-### Command options
-{: #version-cra-options}
-
---version-locator VERSION_NUMBER
-:   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified version that you want to use.
-
---wait WAIT
-
-:   Wait and track the progress of the {{site.data.keyword.bpshort}} workspace job. If `true`, installation waits. If `false`, the software installs immediately. Default is `true`.
-
---timeout TIMEOUT
-
-:   Specify in seconds how long the {{site.data.keyword.bpshort}} workspace waits before it installs. Default is `180`.
-
-## ibmcloud catalog offering version cra-status
-{: #version-cra-status}
-
-Run the following command to retrieve the status of a Code Risk Analyzer scan.
-
-```bash
-ibmcloud catalog offering version cra-status [--version-locator VERSION_NUMBER] [--output OUTPUT]
-```
-{: codeblock}
-
-### Command options
-{: #version-cra-status-options}
-
---version-locator VERSION_NUMBER
-:   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified version that you want to use.
-
---output FORMAT (optional)
-:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
-
-## ibmcloud catalog offering version scc
-{: #version-scc}
-
-Run the following command to add a scan that you previously ran in Security and Compliance Center to a version. Each scan is limited to a single profile. For more information, see [What is a profile?](/docs/security-compliance?topic=security-compliance-profiles).
-
-You must add controls and validate your version before you can add a scan.
-
-```bash
-ibmcloud catalog offering version scc [--profile PROFILE] [--scan SCAN] [--version-locator VERSION_NUMBER]
-```
-{: codeblock}
-
-### Command options
-{: #version-scc-options}
-
---profile PROFILE
-:   Specifies the ID of the profile that you scanned.
+--instance-region REGION
+:   The region of the instance.
 
 --scan SCAN
-:   Specifies the ID of the Security and Compliance Center scan that you previously ran in Security and Compliance Center.
+:   The ID of a Security and Compliance Center scan.
 
---version-locator VERSION_NUMBER
-:   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified version that you want to use.
+--service-instance INSTANCE
+:   Provide the Security and Compliance Center instance ID.
+
+--target-account-name NAME (optional)
+:   Provide the name of the target account.
+
+--target-api-key KEY (optional)
+:   Provide an API key if you want to use an alternative account (target account) to apply a scan to your source account. For more information, see [Setting up a target account](/docs/account?topic=account-catalog-cross-validation).
+
+--timeout TIMEOUT
+:   Specify in seconds how long you want to wait for the scan to be applied to the version before the command returns. Default value is 600 (10 minutes).
+
+--version-locator LOCATOR
+:   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified product or version you want to use.
+
+--wait WAIT
+:   Wait and track the progress of a scan application. Default is true if flag is not provided. If `true`, the command tracks progress of the scan application. If `false`, the command returns immediately.
+
+## ibmcloud catalog offering version scc-apply-status
+{: #scc-apply-status}
+
+Run the following command to see the status of a Security and Compliance Center scan application to your version.
+
+```bash
+  ibmcloud catalog offering version scc-apply-status [--scan SCAN] [--version-locator LOCATOR]
+```
+{: codeblock}
+
+### Command options
+{: #scc-apply-status-options}
+
+--scan SCAN
+:   The ID of a Security and Compliance Center scan.
+
+--version-locator LOCATOR
+:   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified product or version you want to use.
+
+## ibmcloud catalog offering version get-scans
+{: #get-scans}
+
+Run the following command to retrieve the Security and Compliance Center scans that are added to your version.
+
+```bash
+  ibmcloud catalog offering version get-scans [--instance-region REGION] [--output OUTPUT] [--profiles PROFILES] [--service-instance INSTANCE] [--target-account-name NAME] [--target-api-key KEY]
+```
+{: codeblock}
+
+### Command options
+{: #get-scans-options}
+
+--instance-region REGION
+:   Provide the region of the instance.
+
+--output OUTPUT (optional)
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
+
+--profiles PROFILES
+:   Provide a comma-separated list of profile names with versions, for example, `"IBM Cloud for Financial Services::1.2.0"`.
+
+--service-instance INSTANCE
+:   Provide the Security and Compliance Center instance ID.
+
+--target-account-name NAME (optional)
+:   Provide the name of the target account.
+
+--target-api-key KEY (optional)
+:   Provide an API key if you want to use an alternative account (target account) to apply a scan to your source account. For more information, see [Setting up a target account](/docs/account?topic=account-catalog-cross-validation).
 
 ## ibmcloud catalog offering get-scan-results
 {: #get-scan-results}
 
-Run the following command to generate a report of your version's Code Risk Analyzer and Security and Compliance Center scan results. To generate a full report, you must run the Code Risk Analyzer and Security and Compliance Center scans. For more information, see [ibmcloud catalog offering version cra](#version-cra) and [ibmcloud catalog offering version scc](#version-scc).
+Run the following command to generate a report of your security and compliance scan results. To generate a full report, you must apply a Security and Compliance Center scan. For more information, see [ibmcloud catalog offering version scc-apply](#scc-apply).
 
 ```bash
 ibmcloud catalog offering get-scan-results [--version-locator LOCATOR]
