@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-02"
+lastupdated: "2024-02-26"
 
 keywords: cli, catalogs management, catalog
 
@@ -1723,6 +1723,58 @@ ibmcloud catalog install [--version-locator VERSION_NUMBER] [--cluster CLUSTER_I
 
 --schematics-delete VALUE (optional)
 :   Provide this flag to delete the {{site.data.keyword.bpshort}} workspace after validation and installation.
+
+## ibmcloud catalog pricing
+{: #catalog-pricing}
+
+Run the following command to get pricing information for catalog offerings.
+
+```bash
+ibmcloud catalog pricing [-r, --region REGION] [-k, --kind KIND] [-p, --price PRICE] [--tag TAG] [--country COUNTRY] [--global] [--iam] [--json] [--csv] [-f, --file FILENAME]
+```
+
+### Command options
+{: #catalog-pricing options}
+
+-r, --region (optional)
+:   Filter by geo.
+
+-k, --kind (optional)
+:   Filter by kind of resources. Currently `service` (default), `iaas`, `runtime`, `template`, and `geography` are supported
+
+-p, --price (optional)
+:   Filter by price. Currently `free`, `paygo`, and `subscription` are supported
+
+-t, --tag (optional)
+:   Filter by tag. This flag is repeatable and results in a logical OR of all the tags specified.
+
+--co, --country (optional)
+:   Filter by a country. Output to csv or json may use the value `ALL` to get values for all countries.
+
+--json (optional)
+:   Output JSON response.
+
+--csv (optional)
+:   Output CSV file.
+
+-f, --file (optional)
+:   Specify a filename for the csv output.
+
+--global (optional)
+:   Operate in global scope.
+
+--iam (optional)
+:   Filter by Iam compatible offerings.
+
+### Example
+{: #catalog-pricing-example}
+
+Get pricing information for Virtual Server for VPC for a Pay-As-You-Go account.
+
+```bash
+ibmcloud catalog pricing is.instance [--price paygo]
+```
+{: codeblock}
 
 ## ibmcloud catalog utility create-product-from-workspace
 {: #publish-utility-create}
