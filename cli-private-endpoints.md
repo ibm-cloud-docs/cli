@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-04-10"
+  years: 2021, 2024
+lastupdated: "2023-03-11"
 
 keywords: IBM Cloud CLI, ibmcloud cli, ibmcloud, cli, command line, command-line, developer tools, private endpoints, shell, cli private endpoints
 
@@ -41,9 +41,21 @@ If you don't want to install from the shell because it might use root permission
    ```
    {: codeblock}
 
+* For **Mac**, from an {{site.data.keyword.cloud_notm}} Virtual Private Cloud, copy and paste the following command to a command line and run it:
+   ```curl
+   curl -fsSL https://ibm-cloud-cli-installer-scripts.s3.private.us.cloud-object-storage.appdomain.cloud/osx_vpc | sh
+   ```
+   {: codeblock}
+
 * For **Linux&trade;**, copy and paste the following command to a command line and run it:
    ```curl
    curl -fsSL https://ibm-cloud-cli-installer-scripts.s3.private.us.cloud-object-storage.appdomain.cloud/linux_private | sh
+   ```
+   {: codeblock}
+
+* For **Linux**, from an {{site.data.keyword.cloud_notm}} Virtual Private Cloud, copy and paste the following command to a command line and run it:
+   ```curl
+   curl -fsSL https://ibm-cloud-cli-installer-scripts.s3.private.us.cloud-object-storage.appdomain.cloud/linux_vpc | sh
    ```
    {: codeblock}
 
@@ -54,6 +66,19 @@ If you don't want to install from the shell because it might use root permission
    {: codeblock}
 
    If you encounter errors like `The underlying connection was closed: An unexpected error occurred on a send`, make sure you have .Net Framework 4.5 or later installed. Also, try to enable TLS 1.2 protocol by running the following command:
+
+   ```bash
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+   ```
+   {: codeblock}
+
+* For **Windows&trade;**, from an {{site.data.keyword.cloud_notm}} Virtual Private Cloud, copy and paste the following command to a [Windows&trade; PowerShell](https://msdn.microsoft.com/en-us/powershell/scripting/getting-started/getting-started-with-windows-powershell){: external} command prompt and run it:
+   ```bash
+   iex (New-Object Net.WebClient).DownloadString('https://ibm-cloud-cli-installer-scripts.s3.private.us.cloud-object-storage.appdomain.cloud/powershell_vpc')
+   ```
+   {: codeblock}
+
+   If you encounter errors like `The underlying connection was closed: An unexpected error occurred on a send`, make sure that you have .Net Framework 4.5 or later installed. Also, try to enable TLS 1.2 protocol by running the following command:
 
    ```bash
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
