@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-03-11"
+lastupdated: "2024-03-11"
 
 keywords: IBM Cloud CLI, ibmcloud cli, ibmcloud, cli, command line, command-line, developer tools, private endpoints, shell, cli private endpoints
 
