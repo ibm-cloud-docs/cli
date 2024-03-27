@@ -204,7 +204,7 @@ ibmcloud cbr zone-update ZONE-ID [--name NAME] [--description DESCRIPTION] [--ad
 {: #cbr-zone-update-example}
 
 ```shell
-ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name 'Example Zone Name' --addresses 166.22.23.0-166.22.23.108,3ffe:1900:fe21:4545:: --excluded 166.22.23.100 --excluded 166.22.23.100
+ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name 'Example Zone Name' --addresses 166.22.23.0-166.22.23.108,3ffe:1900:fe21:4545:: --excluded 166.22.23.100
 
 ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name example-zone-with-service-ref --service-ref service_name=kms
 
