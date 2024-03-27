@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2024
+  years: 2022, 2024
 lastupdated: "2024-03-11"
 
 keywords: cli, context-based restrictions plugin
