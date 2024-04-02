@@ -86,11 +86,11 @@ toc:
           - plugins/catalogs/manage-catalogs.md
           - include: ../cis-cli-plugin/cis-cli-plugin.md
           - include: ../databases-cli-plugin/cloud-databases-cli.md
-          - include: ../cloud-functions-cli-plugin/functions-cli.md
+           - include: ../openwhisk/functions-cli.md
           - include: ../Cloudant-cli-plugin/cloudant-cli.md
           - include: ../codeengine/cmd_defs.md
           - include: ../code-risk-analyzer-cli-plugin/cra-cli.md
-          - include: ../container-registry-cli-plugin/container-registry-cli.md
+          - include: ../Registry/container-registry-cli.md
           - plugins/cbr/context-based-restrictions.md
           - include: ../devops-insights-cli-plugin/devops-insights-cli.md
           - include: ../dl-cli-plugin/direct-link-cli.md
@@ -111,9 +111,9 @@ toc:
           - include: ../privileged-access-gateway/pag-cli-commands.md
           - include: ../quantum-computing-cli-plugin/quantum-services-cli.md
           - include: ../satellite/satellite-cli-reference.md
-          - include: ../schematics-cli-plugin/cli-reference.md
-          - include: ../secrets-manager-cli-plugin/secrets-manager-cli.md
-          - include: ../security-compliance-cli-plugin/security-compliance-cli.md
+          - include: ../schematics/cli-reference.md
+          - include: ../secrets-manager/secrets-manager-cli.md
+          - include: ../security-compliance/security-compliance-cli.md
           - include: ../tg-cli-plugin/transit-gateway-cli.md
           - include: ../vpc-infrastructure-cli-plugin/vpc-cli-reference.md
           - include: ../watson-query-cli-plugin/watson-query-cli.md
