@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-22"
+lastupdated: "2024-04-03"
 
 subcollection: cli
 
@@ -146,7 +146,7 @@ ibmcloud project list [--token TOKEN] [--limit LIMIT]
 `--token` (string)
 :   The server uses this parameter to determine the first entry that is returned on the next page. If this parameter is not specified, the logical first page is returned.
 
-    The default value is ``. The maximum length is `512` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
+    The default value is ``. The maximum length is `1536` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
 
 `--limit` (int64)
 :   The maximum number of resources to return. The number of resources that are returned is the same, except for the last page.
@@ -671,88 +671,6 @@ The example response to a request to delete a project.
 ```
 {: screen}
 
-### `ibmcloud project project-resources`
-{: #project-cli-project-resources-command}
-
-List resources that are added to a project.
-Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
-
-```sh
-ibmcloud project project-resources --id ID [--start START] [--limit LIMIT]
-```
-
-
-#### Command options
-{: #project-project-resources-cli-options}
-
-`--id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
-
-`--start` (string)
-:   The last entry that is returned on the page. The server uses this parameter to determine the first entry that is returned on the next page. If this parameter is not specified, the logical first page is returned.
-
-    The default value is ``. The maximum length is `512` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
-
-`--limit` (int64)
-:   The maximum number of resources to return. The number of resources that are returned is the same, except for the last page.
-
-    The default value is `10`. The maximum value is `100`. The minimum value is `1`.
-
-`--all-pages` (bool)
-:   Invoke multiple requests to display all pages of the collection for project-resources.
-
-#### Example
-{: #project-project-resources-examples}
-
-```sh
-ibmcloud project project-resources \
-    --id exampleString \
-    --start exampleString \
-    --limit 10
-```
-{: pre}
-
-#### Example output
-{: #project-project-resources-cli-output}
-
-The example response to a request to get project resources.
-
-```json
-{
-  "resources" : [ {
-    "resource_crn" : "crn:v1:staging:public:toolchain:us-south:a/4e1c48fcf8ac33c0a2441e4139f189ae:bf40ad13-b107-446a-8286-c6d576183bb1::",
-    "resource_name" : "toolchain_instance",
-    "account_id" : "499b176abb3e1c9727df87ae48b27c7b",
-    "location" : "us-south",
-    "resource_type" : "user_deployed",
-    "resource_status" : "active",
-    "resource_group_id" : "5201af285aba49fa97c31ad44967010f",
-    "tags" : [ ],
-    "service_tags" : [ "project::project_id:cfbf9050-ab8e-ac97-b01b-ab5af830be8a" ]
-  }, {
-    "resource_crn" : "crn:v1:staging:public:cloud-object-storage:global:a/4e1c48fcf8ac33c0a2441e4139f189ae:bf40ad13-b107-446a-8286-c6d576183bb1::",
-    "resource_name" : "cos_bucket_instance",
-    "account_id" : "499b176abb3e1c9727df87ae48b27c7b",
-    "location" : "us-south",
-    "resource_type" : "project_deployed",
-    "resource_status" : "active",
-    "resource_group_id" : "3201af285aba49fa97c31ad44967010f",
-    "tags" : [ ],
-    "service_tags" : [ "project::project_id:cfbf9050-ab8e-ac97-b01b-ab5af830be8a" ]
-  } ],
-  "token" : "eyJhY2NvdW50SWQiOiIqIiwidXNlcklk",
-  "first" : {
-    "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a/resources"
-  },
-  "next" : {
-    "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a/resources?&start=eyJhY2NvdW50SWQiOiIqIiwidXNlcklk"
-  }
-}
-```
-{: screen}
-
 ## Environments
 {: #project-environments-cli}
 
@@ -892,7 +810,7 @@ ibmcloud project environments --project-id PROJECT-ID [--token TOKEN] [--limit L
 `--token` (string)
 :   The server uses this parameter to determine the first entry that is returned on the next page. If this parameter is not specified, the logical first page is returned.
 
-    The default value is ``. The maximum length is `512` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
+    The default value is ``. The maximum length is `1536` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
 
 `--limit` (int64)
 :   The maximum number of resources to return. The number of resources that are returned is the same, except for the last page.
@@ -1214,7 +1132,7 @@ Commands for Configurations resource.
 Add a new configuration to a project.
 
 ```sh
-ibmcloud project config-create --project-id PROJECT-ID [--definition DEFINITION | --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE --definition-locator-id DEFINITION-LOCATOR-ID --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-environment-id DEFINITION-ENVIRONMENT-ID --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-settings DEFINITION-SETTINGS --definition-resource-crns DEFINITION-RESOURCE-CRNS] [--schematics SCHEMATICS | --schematics-workspace-crn SCHEMATICS-WORKSPACE-CRN]
+ibmcloud project config-create --project-id PROJECT-ID [--definition DEFINITION | --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE --definition-locator-id DEFINITION-LOCATOR-ID --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-environment-id DEFINITION-ENVIRONMENT-ID --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-settings DEFINITION-SETTINGS --definition-members DEFINITION-MEMBERS --definition-resource-crns DEFINITION-RESOURCE-CRNS] [--schematics SCHEMATICS | --schematics-workspace-crn SCHEMATICS-WORKSPACE-CRN]
 ```
 
 
@@ -1289,6 +1207,13 @@ For more information, see [Creating workspaces and importing your Terraform temp
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-settings=@path/to/file.json`.
 
+[Experimental]{: tag-purple} `--definition-members` ([`StackConfigMember[]`](#cli-stack-config-member-example-schema))
+:   Defines the member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+
+    The maximum length is `100` items. The minimum length is `0` items.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-members=@path/to/file.json`.
+
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
@@ -1348,7 +1273,7 @@ ibmcloud project configs --project-id PROJECT-ID [--token TOKEN] [--limit LIMIT]
 `--token` (string)
 :   The server uses this parameter to determine the first entry that is returned on the next page. If this parameter is not specified, the logical first page is returned.
 
-    The default value is ``. The maximum length is `512` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
+    The default value is ``. The maximum length is `1536` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
 
 `--limit` (int64)
 :   The maximum number of resources to return. The number of resources that are returned is the same, except for the last page.
@@ -1963,6 +1888,447 @@ The example response to a request to get project configuration resources.
 ```
 {: screen}
 
+### `ibmcloud project stack-definition-create`
+{: #project-cli-stack-definition-create-command}
+
+[Experimental]{: tag-purple}
+
+Defines inputs at the stack level that users need to configure along with input values at the member level. These values are included in the catalog entry when the deployable architecture stack is exported to a private catalog and are required for the deployable architecture stack to deploy. You can add a reference to a value, or add the value explicitly at the member level.
+
+```sh
+ibmcloud project stack-definition-create --project-id PROJECT-ID --id ID [--stack-definition STACK-DEFINITION | --stack-definition-inputs STACK-DEFINITION-INPUTS --stack-definition-outputs STACK-DEFINITION-OUTPUTS --stack-definition-members STACK-DEFINITION-MEMBERS]
+```
+
+
+#### Command options
+{: #project-stack-definition-create-cli-options}
+
+`--project-id` (string)
+:   The unique project ID. Required.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--id` (string)
+:   The unique configuration ID. Required.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--stack-definition` ([`StackDefinitionBlockPrototype`](#cli-stack-definition-block-prototype-example-schema))
+:   The definition block for a stack definition. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition=@path/to/file.json`.
+
+`--stack-definition-inputs` ([`StackDefinitionInputVariable[]`](#cli-stack-definition-input-variable-example-schema))
+:   Defines the inputs that users need to configure at the stack level. These inputs are included in the catalog entry when the deployable architecture stack is exported to a private catalog. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
+
+    The maximum length is `100` items. The minimum length is `0` items.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-inputs=@path/to/file.json`.
+
+`--stack-definition-outputs` ([`StackDefinitionOutputVariable[]`](#cli-stack-definition-output-variable-example-schema))
+:   The outputs associated with this stack definition. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
+
+    The maximum length is `100` items. The minimum length is `0` items.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-outputs=@path/to/file.json`.
+
+`--stack-definition-members` ([`StackDefinitionMemberPrototype[]`](#cli-stack-definition-member-prototype-example-schema))
+:   The member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
+
+    The maximum length is `100` items. The minimum length is `0` items.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-members=@path/to/file.json`.
+
+#### Examples
+{: #project-stack-definition-create-examples}
+
+```sh
+ibmcloud project stack-definition-create \
+    --project-id exampleString \
+    --id exampleString \
+    --stack-definition '{"inputs": [{"name": "region", "type": "string", "description": "exampleString", "default": "us-south", "required": true, "hidden": false}], "outputs": [{"name": "vpc_cluster_id", "value": "cluster_id"}], "members": [{"name": "foundation-deployable-architecture", "inputs": [{"name": "region"}]}]}'
+```
+{: pre}
+
+Alternatively, granular options are available for the sub-fields of JSON string options:
+```sh
+ibmcloud project stack-definition-create \
+    --project-id exampleString \
+    --id exampleString \
+    --stack-definition-inputs '[stackDefinitionInputVariable]' \
+    --stack-definition-outputs '[stackDefinitionOutputVariable]' \
+    --stack-definition-members '[stackDefinitionMemberPrototype]'
+```
+{: pre}
+
+#### Example output
+{: #project-stack-definition-create-cli-output}
+
+Sample response from a create stack template operation.
+
+```json
+{
+  "id" : "293c3c36-a094-4115-a12b-de0a9ca6678a",
+  "stack_definition" : {
+    "inputs" : [ {
+      "name" : "region",
+      "type" : "string",
+      "required" : true,
+      "default" : "us-south",
+      "hidden" : false
+    }, {
+      "name" : "resource_group",
+      "type" : "string",
+      "default" : "Default"
+    } ],
+    "outputs" : [ {
+      "name" : "vpc_cluster_id",
+      "value" : "cluster_id"
+    } ],
+    "members" : [ {
+      "name" : "foundation-deployable-architecture",
+      "version_locator" : "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global",
+      "inputs" : [ {
+        "name" : "region",
+        "value" : "us-south"
+      }, {
+        "name" : "cluster_name",
+        "value" : "foundation-cluster"
+      } ]
+    }, {
+      "name" : "middleware-architecture",
+      "version_locator" : "01e1a9ad-534b-4ab9-996a-b8f2a8653d5c.4d86732e-04b9-4dab-bfdc-5b514d86ecd8",
+      "inputs" : [ {
+        "name" : "kube_version",
+        "value" : 1.29
+      } ]
+    } ]
+  },
+  "state" : "draft",
+  "created_at" : "2023-02-22T19:51:23.253Z",
+  "modified_at" : "2023-02-22T19:51:23.253Z",
+  "configuration" : {
+    "id" : "cfbf9050-ab8e-ac97-b01b-ab5af830be8a",
+    "definition" : {
+      "name" : "stack-bottom-up-example"
+    },
+    "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a"
+  },
+  "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a/template"
+}
+```
+{: screen}
+
+### `ibmcloud project stack-definition`
+{: #project-cli-stack-definition-command}
+
+[Experimental]{: tag-purple}
+
+Retrieve the stack definition that is associated to the configuration.
+
+```sh
+ibmcloud project stack-definition --project-id PROJECT-ID --id ID
+```
+
+
+#### Command options
+{: #project-stack-definition-cli-options}
+
+`--project-id` (string)
+:   The unique project ID. Required.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--id` (string)
+:   The unique configuration ID. Required.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+#### Example
+{: #project-stack-definition-examples}
+
+```sh
+ibmcloud project stack-definition \
+    --project-id exampleString \
+    --id exampleString
+```
+{: pre}
+
+#### Example output
+{: #project-stack-definition-cli-output}
+
+Sample response from a create stack template operation.
+
+```json
+{
+  "id" : "293c3c36-a094-4115-a12b-de0a9ca6678a",
+  "stack_definition" : {
+    "inputs" : [ {
+      "name" : "region",
+      "type" : "string",
+      "required" : true,
+      "default" : "us-south",
+      "hidden" : false
+    }, {
+      "name" : "resource_group",
+      "type" : "string",
+      "default" : "Default"
+    } ],
+    "outputs" : [ {
+      "name" : "vpc_cluster_id",
+      "value" : "cluster_id"
+    } ],
+    "members" : [ {
+      "name" : "foundation-deployable-architecture",
+      "version_locator" : "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global",
+      "inputs" : [ {
+        "name" : "region",
+        "value" : "us-south"
+      }, {
+        "name" : "cluster_name",
+        "value" : "foundation-cluster"
+      } ]
+    }, {
+      "name" : "middleware-architecture",
+      "version_locator" : "01e1a9ad-534b-4ab9-996a-b8f2a8653d5c.4d86732e-04b9-4dab-bfdc-5b514d86ecd8",
+      "inputs" : [ {
+        "name" : "kube_version",
+        "value" : 1.29
+      } ]
+    } ]
+  },
+  "state" : "draft",
+  "created_at" : "2023-02-22T19:51:23.253Z",
+  "modified_at" : "2023-02-22T19:51:23.253Z",
+  "configuration" : {
+    "id" : "cfbf9050-ab8e-ac97-b01b-ab5af830be8a",
+    "definition" : {
+      "name" : "stack-bottom-up-example"
+    },
+    "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a"
+  },
+  "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a/template"
+}
+```
+{: screen}
+
+### `ibmcloud project stack-definition-update`
+{: #project-cli-stack-definition-update-command}
+
+[Experimental]{: tag-purple}
+
+Update the stack definition that is associated with the configuration.
+
+```sh
+ibmcloud project stack-definition-update --project-id PROJECT-ID --id ID [--stack-definition STACK-DEFINITION | --stack-definition-inputs STACK-DEFINITION-INPUTS --stack-definition-outputs STACK-DEFINITION-OUTPUTS --stack-definition-members STACK-DEFINITION-MEMBERS]
+```
+
+
+#### Command options
+{: #project-stack-definition-update-cli-options}
+
+`--project-id` (string)
+:   The unique project ID. Required.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--id` (string)
+:   The unique configuration ID. Required.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--stack-definition` ([`StackDefinitionBlockPrototype`](#cli-stack-definition-block-prototype-example-schema))
+:   The definition block for a stack definition. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition=@path/to/file.json`.
+
+`--stack-definition-inputs` ([`StackDefinitionInputVariable[]`](#cli-stack-definition-input-variable-example-schema))
+:   Defines the inputs that users need to configure at the stack level. These inputs are included in the catalog entry when the deployable architecture stack is exported to a private catalog. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
+
+    The maximum length is `100` items. The minimum length is `0` items.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-inputs=@path/to/file.json`.
+
+`--stack-definition-outputs` ([`StackDefinitionOutputVariable[]`](#cli-stack-definition-output-variable-example-schema))
+:   The outputs associated with this stack definition. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
+
+    The maximum length is `100` items. The minimum length is `0` items.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-outputs=@path/to/file.json`.
+
+`--stack-definition-members` ([`StackDefinitionMemberPrototype[]`](#cli-stack-definition-member-prototype-example-schema))
+:   Defines the member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
+
+    The maximum length is `100` items. The minimum length is `0` items.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-members=@path/to/file.json`.
+
+#### Examples
+{: #project-stack-definition-update-examples}
+
+```sh
+ibmcloud project stack-definition-update \
+    --project-id exampleString \
+    --id exampleString \
+    --stack-definition '{"inputs": [{"name": "region", "type": "string", "description": "exampleString", "default": "eu-gb", "required": true, "hidden": false}], "outputs": [{"name": "exampleString", "value": "exampleString"}], "members": [{"name": "foundation-deployable-architecture", "inputs": [{"name": "cluster_name"}]}]}'
+```
+{: pre}
+
+Alternatively, granular options are available for the sub-fields of JSON string options:
+```sh
+ibmcloud project stack-definition-update \
+    --project-id exampleString \
+    --id exampleString \
+    --stack-definition-inputs '[stackDefinitionInputVariable]' \
+    --stack-definition-outputs '[stackDefinitionOutputVariable]' \
+    --stack-definition-members '[stackDefinitionMemberPrototype]'
+```
+{: pre}
+
+#### Example output
+{: #project-stack-definition-update-cli-output}
+
+Sample response from a patch stack template operation.
+
+```json
+{
+  "id" : "293c3c36-a094-4115-a12b-de0a9ca6678a",
+  "stack_definition" : {
+    "inputs" : [ {
+      "name" : "region",
+      "type" : "string",
+      "required" : true,
+      "default" : "eu-gb",
+      "hidden" : false
+    } ],
+    "outputs" : [ {
+      "name" : "vpc_cluster_id",
+      "value" : "cluster_id"
+    } ],
+    "members" : [ {
+      "name" : "foundation-deployable-architecture",
+      "version_locator" : "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global",
+      "inputs" : [ {
+        "name" : "cluster_name",
+        "value" : "foundation-cluster"
+      } ]
+    } ]
+  },
+  "state" : "draft",
+  "created_at" : "2023-02-22T19:51:23.253Z",
+  "modified_at" : "2023-02-22T19:51:23.253Z",
+  "configuration" : {
+    "id" : "cfbf9050-ab8e-ac97-b01b-ab5af830be8a",
+    "definition" : {
+      "name" : "stack-bottom-up-example"
+    },
+    "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a"
+  },
+  "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a/template"
+}
+```
+{: screen}
+
+### `ibmcloud project stack-definition-export`
+{: #project-cli-stack-definition-export-command}
+
+[Experimental]{: tag-purple}
+
+Exports the deployable architecture stack to a private catalog. All member deployable architectures within the stack must be validated and deployed before the stack is exported. The stack definition must also exist before the stack is exported. You can export the stack as a new product, or as a new version of an existing product.
+
+```sh
+ibmcloud project stack-definition-export --project-id PROJECT-ID --id ID [--settings SETTINGS | --settings-catalog-id SETTINGS-CATALOG-ID --settings-target-version SETTINGS-TARGET-VERSION --settings-variation SETTINGS-VARIATION --settings-label SETTINGS-LABEL --settings-tags SETTINGS-TAGS --settings-product-id SETTINGS-PRODUCT-ID]
+```
+
+
+#### Command options
+{: #project-stack-definition-export-cli-options}
+
+`--project-id` (string)
+:   The unique project ID. Required.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--id` (string)
+:   The unique configuration ID. Required.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--settings` ([`StackDefinitionExportRequest`](#cli-stack-definition-export-request-example-schema))
+:   The payload for the private catalog export request. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--settings=@path/to/file.json`.
+
+`--settings-catalog-id` (string)
+:   The catalog ID to publish. This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
+
+    The maximum length is `36` characters. The value must match regular expression `/^[\\-0-9a-zA-Z]+$/`.
+
+`--settings-target-version` (string)
+:   The semver value of this new version of the product. This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
+
+    The maximum length is `60` characters. The minimum length is `5` characters. The value must match regular expression `/^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$/`.
+
+`--settings-variation` (string)
+:   The variation of this new version of the product. This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[a-zA-Z0-9][a-zA-Z0-9-_ ]*$/`.
+
+`--settings-label` (string)
+:   The product label. This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[a-zA-Z0-9][a-zA-Z0-9-_ ]*$/`.
+
+`--settings-tags` ([]string)
+:   Tags associated with the catalog product. This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
+
+    The list items must match regular expression `/^[a-zA-Z0-9][a-zA-Z0-9-_]*$/`. The maximum length is `10` items. The minimum length is `0` items.
+
+`--settings-product-id` (string)
+:   The product ID to publish. This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
+
+    The maximum length is `36` characters. The value must match regular expression `/^[\\-0-9a-zA-Z]+$/`.
+
+#### Examples
+{: #project-stack-definition-export-examples}
+
+```sh
+ibmcloud project stack-definition-export \
+    --project-id exampleString \
+    --id exampleString \
+    --settings '{"catalog_id": "01e1a9ad-534b-4ab9-996a-b8f2a8653d5c", "target_version": "exampleString", "variation": "exampleString", "label": "Stack Deployable Architecture", "tags": ["exampleString","anotherTestString"]}'
+```
+{: pre}
+
+Alternatively, granular options are available for the sub-fields of JSON string options:
+```sh
+ibmcloud project stack-definition-export \
+    --project-id exampleString \
+    --id exampleString \
+    --settings-catalog-id exampleString \
+    --settings-target-version exampleString \
+    --settings-variation exampleString \
+    --settings-label exampleString \
+    --settings-tags exampleString,anotherTestString
+```
+{: pre}
+
+#### Example output
+{: #project-stack-definition-export-cli-output}
+
+Sample response from exporting a stack definition to the private catalog
+
+```json
+{
+  "catalog_id" : "01e1a9ad-534b-4ab9-996a-b8f2a8653d5c",
+  "product_id" : "b60b5876-d074-478a-ac73-f979898c527b",
+  "version_locator" : "01e1a9ad-534b-4ab9-996a-b8f2a8653d5c.f9f73bdb-5c7d-4ea6-82ef-9debc6340df8",
+  "kind" : "terraform",
+  "format" : "stack"
+}
+```
+{: screen}
+
 ### `ibmcloud project config-versions`
 {: #project-cli-config-versions-command}
 
@@ -2350,6 +2716,57 @@ The following example shows the format of the SchematicsWorkspace object.
 
 {
   "workspace_crn" : "crn:v1:staging:public:project:us-south:a/4e1c48fcf8ac33c0a2441e4139f189ae:bf40ad13-b107-446a-8286-c6d576183bb1::"
+}
+```
+{: codeblock}
+
+### StackDefinitionBlockPrototype
+{: #cli-stack-definition-block-prototype-example-schema}
+
+[Experimental]{: tag-purple}
+
+The following example shows the format of the StackDefinitionBlockPrototype object.
+
+```json
+
+{
+  "inputs" : [ {
+    "name" : "region",
+    "type" : "string",
+    "description" : "exampleString",
+    "default" : "us-south",
+    "required" : true,
+    "hidden" : false
+  } ],
+  "outputs" : [ {
+    "name" : "vpc_cluster_id",
+    "value" : "cluster_id"
+  } ],
+  "members" : [ {
+    "name" : "foundation-deployable-architecture",
+    "inputs" : [ {
+      "name" : "region"
+    } ]
+  } ]
+}
+```
+{: codeblock}
+
+### StackDefinitionExportRequest
+{: #cli-stack-definition-export-request-example-schema}
+
+[Experimental]{: tag-purple}
+
+The following example shows the format of the StackDefinitionExportRequest object.
+
+```json
+
+{
+  "catalog_id" : "01e1a9ad-534b-4ab9-996a-b8f2a8653d5c",
+  "target_version" : "exampleString",
+  "variation" : "exampleString",
+  "label" : "Stack Deployable Architecture",
+  "tags" : [ "exampleString", "anotherExampleString" ]
 }
 ```
 {: codeblock}
