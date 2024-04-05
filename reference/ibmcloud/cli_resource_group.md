@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-12-20"
+  years: 2018, 2024
+lastupdated: "2024-02-05"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
@@ -338,7 +338,7 @@ LOCATION (required)
 :   Resource group name
 
 --service-endpoints *SERVICE_ENDPOINTS_TYPE*
-:   Types of the service endpoints. Possible values are 'public', 'private', 'public-and-private'.
+:   Types of the service endpoints. Possible values are 'public', 'private', 'public-and-private'. The default value for service endpoints is the type configured by the service in {{site.data.keyword.cloud}}.
 
 --allow-cleanup
 :   Whether the service instance should be deleted (cleaned up) during the processing of a region instance delete call
