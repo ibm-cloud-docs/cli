@@ -86,7 +86,7 @@ toc:
           - plugins/catalogs/manage-catalogs.md
           - include: ../cis-cli-plugin/cis-cli-plugin.md
           - include: ../databases-cli-plugin/cloud-databases-cli.md
-           - include: ../openwhisk/functions-cli.md
+          - include: ../openwhisk/functions-cli.md
           - include: ../Cloudant-cli-plugin/cloudant-cli.md
           - include: ../codeengine/cmd_defs.md
           - include: ../code-risk-analyzer-cli-plugin/cra-cli.md
