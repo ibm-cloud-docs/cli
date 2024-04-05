@@ -1734,7 +1734,7 @@ ibmcloud catalog pricing [-r, --region REGION] [-k, --kind KIND] [-p, --price PR
 ```
 
 ### Command options
-{: #catalog-pricing options}
+{: #pricing-options}
 
 -r, --region (optional)
 :   Filter by geo.
@@ -1767,7 +1767,7 @@ ibmcloud catalog pricing [-r, --region REGION] [-k, --kind KIND] [-p, --price PR
 :   Filter by Iam compatible offerings.
 
 ### Example
-{: #catalog-pricing-example}
+{: #pricing-example}
 
 Get pricing information for Virtual Server for VPC for a Pay-As-You-Go account.
 
