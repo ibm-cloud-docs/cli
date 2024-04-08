@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-01-19"
+lastupdated: "2024-03-20"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -1465,7 +1465,7 @@ ibmcloud iam role-create ROLE_NAME --display-name DISPLAY_NAME --service-name SE
 ```
 {: codeblock}
 
-## Command options
+### Command options
 {: #ibmcloud_iam_role_create_options}
 
 --display-name DISPLAY_NAME
@@ -1582,51 +1582,6 @@ ibmcloud iam access-policies --type trusted_profile --sort-by created_at
 List all trusted user policies sorted by `last_modified_at` in descending order under the current account:
 ```bash
 ibmcloud iam access-policies --type user --sort-by -last_modified_at
-```
-{: codeblock}
-
-## ibmcloud iam account-policies
-{: #ibmcloud_iam_account_policies}
-
-List all account policies under current account:
-```bash
-ibmcloud iam account-policies [-t, --type access | auth] [--output FORMAT] [-q, --quiet] [--api-version v1 | v2]
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_iam_account_policies_options}
-
--t, --type access | auth
-:   List all policies under current account filtered by policy type. Valid options are: `access` | `auth`
-
---output FORMAT
-:   Specify output format. Only 'JSON' is supported.
-
--q, --quiet
-:   Suppress verbose output.
-
---api-version
-:   Version of the access policy API.
-
-### Examples
-{: #ibmcloud_iam_account_policies_examples}
-
-List all account policies under current account:
-```bash
-ibmcloud iam account-policies
-```
-{: codeblock}
-
-List all authorization policies under current account. Provides the same list as `ibmcloud iam authorization-policies`:
-```bash
-ibmcloud iam account-policies -t auth
-```
-{: codeblock}
-
-List all access policies under current account. Provides the same list as `ibmcloud iam access-policies`:
-```bash
-ibmcloud iam account-policies -t access
 ```
 {: codeblock}
 
@@ -1911,6 +1866,51 @@ ibmcloud iam access-policy-assignments
 ```
 {: codeblock}
 
+## ibmcloud iam account-policies
+{: #ibmcloud_iam_account_policies}
+
+List all account policies under current account:
+```bash
+ibmcloud iam account-policies [-t, --type access | auth] [--output FORMAT] [-q, --quiet] [--api-version v1 | v2]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_account_policies_options}
+
+-t, --type access | auth
+:   List all policies under current account filtered by policy type. Valid options are: `access` | `auth`
+
+--output FORMAT
+:   Specify output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+--api-version
+:   Version of the access policy API.
+
+### Examples
+{: #ibmcloud_iam_account_policies_examples}
+
+List all account policies under current account:
+```bash
+ibmcloud iam account-policies
+```
+{: codeblock}
+
+List all authorization policies under current account. Provides the same list as `ibmcloud iam authorization-policies`:
+```bash
+ibmcloud iam account-policies -t auth
+```
+{: codeblock}
+
+List all access policies under current account. Provides the same list as `ibmcloud iam access-policies`:
+```bash
+ibmcloud iam account-policies -t access
+```
+{: codeblock}
+
 ## ibmcloud iam authorization-policy-create
 {: #ibmcloud_iam_authorization_policy_create}
 
@@ -1999,7 +1999,7 @@ AUTHORIZATION_POLICY_ID
 
 Show details of an authorization policy:
 ```bash
-ibmcloud iam authorization-policy AUTHORIZATION_POLICY_ID
+ibmcloud iam authorization-policy AUTHORIZATION_POLICY_ID [--output FORMAT] [-q, --quiet] [--api-version v1 | v2]
 ```
 {: codeblock}
 
@@ -2008,6 +2008,15 @@ ibmcloud iam authorization-policy AUTHORIZATION_POLICY_ID
 
 AUTHORIZATION_POLICY_ID
 :   ID of authorization policy to show.
+
+--output FORMAT
+:   Specify output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+--api-version
+:   Version of the access policy API.
 
 ## ibmcloud iam authorization-policies
 {: #ibmcloud_iam_authorization_policies}
@@ -2824,7 +2833,6 @@ ibmcloud iam access-group-template-create (TEMPLATE_NAME --access-group-name ACC
 -q, --quiet
 :   Suppress verbose output.
 
-
 ### Examples
 {: #ibmcloud_iam_access_group_template_create_examples}
 
@@ -2832,6 +2840,7 @@ Create an access group template with specified name and access group name
 ```bash
 ibmcloud iam access-group-template-create example-template-name --access-group-name example-access-group -d example-description
 ```
+
 Create an access group template using a JSON file
 ```bash
 ibmcloud iam access-group-template-create --file JSON_FILE
@@ -3896,7 +3905,7 @@ ibmcloud iam trusted-profile-rule-create (NAME|UUID) --name RULE_NAME --type RUL
 ```
 {: codeblock}
 
-To view a full list of valid operator conditions for a claim rule, see [Trusted Profiles API](/apidocs/iam-identity-token-api#create-claim-rule)
+To view a full list of valid operators and claim attribute options for `--conditions`, see [IAM condition properties](/docs/account?topic=account-iam-condition-properties).
 {: note}
 
 ### Command options
@@ -3997,7 +4006,7 @@ ibmcloud iam trusted-profile-rule-update (NAME|ID) (RULE_NAME|RULE_ID) --name RU
 ```
 {: codeblock}
 
-To view a full list of valid operator conditions for a claim rule, see [Trusted Profiles API](/apidocs/iam-identity-token-api#update-claim-rule)
+To view a full list of valid operators and claim attribute options for `--conditions`, see [IAM condition properties](/docs/account?topic=account-iam-condition-properties).
 {: note}
 
 ### Command options
