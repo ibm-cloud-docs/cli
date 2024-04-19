@@ -59,7 +59,7 @@ If you don't want to install from the shell because it might use root permission
    ```
    {: codeblock}
 
-* For **Windows&trade;**, copy and paste the following command to a [Windows&trade; PowerShell](https://msdn.microsoft.com/en-us/powershell/scripting/getting-started/getting-started-with-windows-powershell){: external} command prompt and run it:
+* For **Windows&trade;**, copy and paste the following command to a [Windows&trade; PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.4){: external} command prompt and run it:
    ```bash
    iex (New-Object Net.WebClient).DownloadString('https://ibm-cloud-cli-installer-scripts.s3.private.us.cloud-object-storage.appdomain.cloud/powershell_private')
    ```
@@ -72,7 +72,7 @@ If you don't want to install from the shell because it might use root permission
    ```
    {: codeblock}
 
-* For **Windows&trade;**, from an {{site.data.keyword.cloud_notm}} Virtual Private Cloud, copy and paste the following command to a [Windows&trade; PowerShell](https://msdn.microsoft.com/en-us/powershell/scripting/getting-started/getting-started-with-windows-powershell){: external} command prompt and run it:
+* For **Windows&trade;**, from an {{site.data.keyword.cloud_notm}} Virtual Private Cloud, copy and paste the following command to a [Windows&trade; PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.4){: external} command prompt and run it:
    ```bash
    iex (New-Object Net.WebClient).DownloadString('https://ibm-cloud-cli-installer-scripts.s3.direct.us.cloud-object-storage.appdomain.cloud/powershell_vpc')
    ```
