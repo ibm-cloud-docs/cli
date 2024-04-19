@@ -47,4 +47,4 @@ ibmcloud login
 ```
 {: codeblock}
 
-For more information about environment variables for the {{site.data.keyword.cloud_notm}} CLI, see [Tips and Tricks for Using the {{site.data.keyword.cloud_notm}} CLI](https://www.ibm.com/cloud/blog/tips-and-tricks-for-using-the-ibm-cloud-cli){: external} and [{{site.data.keyword.cloud_notm}} CLI (ibmcloud) environment variables](/docs/cli?topic=cli-ibmcloud_env_var).
+For more information about environment variables for the {{site.data.keyword.cloud_notm}} CLI, see [Tips and Tricks for Using the {{site.data.keyword.cloud_notm}} CLI](https://www.ibm.com/blog/tips-and-tricks-for-using-the-ibm-cloud-cli/){: external} and [{{site.data.keyword.cloud_notm}} CLI (ibmcloud) environment variables](/docs/cli?topic=cli-ibmcloud_env_var).
