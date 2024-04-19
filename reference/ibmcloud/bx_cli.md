@@ -322,7 +322,7 @@ None.
 :   The name, ID, or CRN of the linked trusted IAM profile to be used when obtaining the IAM access token. If provided, the `--cr-token` flag, `IBMCLOUD_CR_TOKEN` environment variable, or `--vpc-cri` flag must also be provided or set. If authenticating as a VPC VSI compute resource, specifying only a trusted profile CRN or ID is supported.
 
 -c ACCOUNT_ID
-:   The ID of the target account. This option is exclusive with the `--no account` option.
+:   The ID of the target account. This option is exclusive with the `--no-account` option.
 
 --no-account
 :   Forced login without the account. This option isn't recommended, and it is exclusive with the `-c` option.
