@@ -18,6 +18,7 @@ subcollection: cli
 The {{site.data.keyword.cloud}} Command Line Interface includes the {{site.data.keyword.dev_cli_short}} (`ibmcloud dev`) or (`ic dev`) commands to manage classic pipelines, Tekton pipelines, and toolchains.
 {: shortdesc}
 
+
 ## help
 {: #help}
 
@@ -399,7 +400,7 @@ The following parameters can be used with the `tekton-trigger` command.
 
 Delete a toolchain. If no toolchain name is provided, you can select one from a list. The list of toolchains depends on the currently targeted resource group and region.
 
-The targeted Resource Group is found in the `IBMCLOUD API Key`. For more information, see [Set or View the target Account, Region or Resource Group](/docs/cli/reference/ibmcloud?topic=cli-ibmcloud_cli#ibmcloud_target).
+The targeted Resource Group is found in the `IBMCLOUD API Key`. For more information, see [Set or View the target Account, Region or Resource Group](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_target).
 ```bash
 ibmcloud dev toolchain-delete [toolchainName] [--force,-f]
 ```
@@ -430,7 +431,7 @@ Command parameters that are entered on the command line take precedence over the
 
 View the details of a toolchain. If no toolchain name is provided, you can select one from a list. 
 
-Uses the targeted resource group in the `IBMCLOUD API Key`. For more information, see [Set or View the target Account, Region or Resource Group](/docs/cli/reference/ibmcloud?topic=cli-ibmcloud_cli#ibmcloud_target).
+Uses the targeted resource group in the `IBMCLOUD API Key`. For more information, see [Set or View the target Account, Region or Resource Group](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_target).
 
 ```bash
 ibmcloud dev toolchain-get [toolchainName] [--output JSON]
@@ -485,7 +486,7 @@ Command parameters that are entered on the command line take precedence over the
 
 View a list of toolchains in the current resource group. 
 
-Uses the targeted Resource Group in the `IBMCLOUD API Key`. For more information, see [Set or View the target Account, Region or Resource Group](/docs/cli/reference/ibmcloud?topic=cli-ibmcloud_cli#ibmcloud_target).
+Uses the targeted Resource Group in the `IBMCLOUD API Key`. For more information, see [Set or View the target Account, Region or Resource Group](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_target).
 
 ```bash
 ibmcloud dev toolchains [--output JSON]
