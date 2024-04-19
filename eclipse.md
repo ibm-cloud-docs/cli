@@ -40,7 +40,7 @@ If you install the {{site.data.keyword.cloud_notm}} CLI in a custom directory, s
 ## Installing the {{site.data.keyword.cloud_notm}} CLI plug-in
 {: #eclipse-ide-install}
 
-The {{site.data.keyword.cloud_notm}} CLI plug-in can be installed from the [Eclipse marketplace](https://marketplace.eclipse.org/content/ibm-cloud-dev-tools-eclipse){: external}. Follow the instructions in the marketplace to complete the installation of the plug-in.
+The {{site.data.keyword.cloud_notm}} CLI plug-in can be installed from the [Eclipse marketplace](https://marketplace.eclipse.org/content/ibm-cloud-cli-plug-eclipse-ide){: external}. Follow the instructions in the marketplace to complete the installation of the plug-in.
 
 ## Reporting issues
 {: #eclipse-ide-report-issues}
