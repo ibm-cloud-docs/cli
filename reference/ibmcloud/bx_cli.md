@@ -225,7 +225,7 @@ None.
 --http-timeout
 :   The timeout value for HTTP requests in seconds. The default value is 60 seconds.
 
---locale<
+--locale
 :   Set a default locale. If no value is specified, the previous locale is deleted.
 
 --trace
