@@ -94,7 +94,7 @@ For more information, see [`ibmcloud plugin install`](/docs/cli?topic=cli-ibmclo
 ## Confirming installed plug-ins
 {: #cli-install-view}
 
-Use the `plugin list` command to confirm that all required plug-ins are installed in {{site.data.keyword.cloud_notm}} CLI. The `plugin list` command returns the following information for each plugin that is installed:
+Use the `plugin list` command to confirm that all required plug-ins are installed in {{site.data.keyword.cloud_notm}} CLI. The `plugin list` command returns the following information for each plug-in that is installed:
 
 * The plug-in name.
 * The current version of the plug-in.
