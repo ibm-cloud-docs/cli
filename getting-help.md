@@ -27,7 +27,7 @@ Have a casual question or just want to talk about all things CLI? Come chat with
 {: #community-help}
 {: support}
 
-Search [Stack Overflow](https://stackoverflow.com/search?q=ibm-cloud){: external} or [IBM Support Forums](https://www.ibm.com/mysupport/s/forumshome){: external} to see whether other users ran into the same problem. When you use these forums to ask a question, tag your question with `ibm-cloud` and `cli` so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
+Search [Stack Overflow](https://stackoverflow.com/search?q=ibm-cloud){: external} or [IBM Support Forums](https://community.ibm.com/community/user/home){: external} to see whether other users ran into the same problem. When you use these forums to ask a question, tag your question with `ibm-cloud` and `cli` so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
 
 ## Contacting support
 {: #contacting-support}
