@@ -100,7 +100,7 @@ toc:
           - include: ../hs-crypto-cli-plugin/hs-crypto-cli.md
           - include: ../dbaas-cli-plugin/dbaas_cli.md
           - include: ../hpvs-cli-plugin/hpvs_cli.md
-          - include: ../key-protect-cli-plugin/key-protect-cli-commands.md
+          - include: ../key-protect/key-protect-cli-commands.md
           - include: ../containers/cli-ks-plugin.md
           - include: ../log-analysis-cli-plugin/log-analysis-cli.md
           - include: ../monitor-cli-plugin/monitor-cli.md
