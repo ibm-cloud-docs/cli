@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-04-03"
+lastupdated: "2024-05-06"
 
 subcollection: cli
 
@@ -46,7 +46,7 @@ Commands for Projects resource.
 Create a new project and asynchronously setup the tools to manage it. Add a deployable architecture by customizing the configuration. After the changes are validated and approved, deploy the resources that the project configures. For more information, see [Creating a project](/docs/secure-enterprise?topic=secure-enterprise-setup-project&interface=ui/docs-draft/secure-enterprise?topic=secure-enterprise-setup-project).
 
 ```sh
-ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-destroy-on-delete DEFINITION-DESTROY-ON-DELETE --definition-description DEFINITION-DESCRIPTION --definition-monitoring-enabled DEFINITION-MONITORING-ENABLED] --location LOCATION --resource-group RESOURCE-GROUP [--configs CONFIGS] [--environments ENVIRONMENTS]
+ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-description DEFINITION-DESCRIPTION --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED] --location LOCATION --resource-group RESOURCE-GROUP [--configs CONFIGS] [--environments ENVIRONMENTS]
 ```
 
 
@@ -123,9 +123,9 @@ ibmcloud project create \
     --configs '[projectConfigPrototype]' \
     --environments '[environmentPrototype]' \
     --definition-name exampleString \
-    --definition-destroy-on-delete true \
+    --definition-destroy-on-delete=true \
     --definition-description exampleString \
-    --definition-monitoring-enabled false
+    --definition-monitoring-enabled=false
 ```
 {: pre}
 
@@ -419,7 +419,7 @@ A sample response for retrieving a project with configurations.
 Update a project by specifying its ID.
 
 ```sh
-ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-destroy-on-delete DEFINITION-DESTROY-ON-DELETE --definition-description DEFINITION-DESCRIPTION --definition-monitoring-enabled DEFINITION-MONITORING-ENABLED]
+ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-description DEFINITION-DESCRIPTION --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED]
 ```
 
 
@@ -467,9 +467,9 @@ Alternatively, granular options are available for the sub-fields of JSON string 
 ibmcloud project update \
     --id exampleString \
     --definition-name exampleString \
-    --definition-destroy-on-delete true \
+    --definition-destroy-on-delete=true \
     --definition-description exampleString \
-    --definition-monitoring-enabled true
+    --definition-monitoring-enabled=true
 ```
 {: pre}
 
@@ -1208,7 +1208,7 @@ For more information, see [Creating workspaces and importing your Terraform temp
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-settings=@path/to/file.json`.
 
 [Experimental]{: tag-purple} `--definition-members` ([`StackConfigMember[]`](#cli-stack-config-member-example-schema))
-:   Defines the member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The member deployabe architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
@@ -1398,7 +1398,7 @@ ibmcloud project config-operation \
 Update a configuration in a project by specifying the ID. [Learn more](/docs/secure-enterprise?topic=secure-enterprise-config-project).
 
 ```sh
-ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEFINITION | --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE --definition-locator-id DEFINITION-LOCATOR-ID --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-environment-id DEFINITION-ENVIRONMENT-ID --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-settings DEFINITION-SETTINGS --definition-resource-crns DEFINITION-RESOURCE-CRNS]
+ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEFINITION | --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE --definition-locator-id DEFINITION-LOCATOR-ID --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-environment-id DEFINITION-ENVIRONMENT-ID --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-settings DEFINITION-SETTINGS --definition-resource-crns DEFINITION-RESOURCE-CRNS --definition-members DEFINITION-MEMBERS]
 ```
 
 
@@ -1469,6 +1469,13 @@ ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEF
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The list items must match regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`. The maximum length is `110` items. The minimum length is `0` items.
+
+[Experimental]{: tag-purple} `--definition-members` ([`StackConfigMember[]`](#cli-stack-config-member-example-schema))
+:   The member deployabe architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+
+    The maximum length is `100` items. The minimum length is `0` items.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-members=@path/to/file.json`.
 
 #### Examples
 {: #project-config-update-examples}
@@ -1581,6 +1588,57 @@ ibmcloud project config-force-approve \
 ```
 {: pre}
 
+#### Example output
+{: #project-config-force-approve-cli-output}
+
+The example response to a request for a deployable architecture configuration draft.
+
+```json
+{
+  "id" : "293c3c36-a094-4115-a12b-de0a9ca39be5",
+  "definition" : {
+    "name" : "env-stage",
+    "description" : "The stage environment configuration.",
+    "locator_id" : "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global",
+    "inputs" : {
+      "account_id" : "ref:/configs/account-stage/inputs/account_id",
+      "resource_group" : "stage",
+      "access_tags" : [ "env:stage" ],
+      "logdna_name" : "The name of the LogDNA stage service instance.",
+      "sysdig_name" : "The name of the SysDig stage service instance."
+    }
+  },
+  "is_draft" : true,
+  "version" : 2,
+  "outputs" : [ {
+    "name" : "resource_group_id"
+  }, {
+    "name" : "logdna_id"
+  }, {
+    "name" : "sysdig_id"
+  } ],
+  "project" : {
+    "id" : "cfbf9050-ab8e-ac97-b01b-ab5af830be8a",
+    "definition" : {
+      "name" : "iaas-infra-prestage-env"
+    },
+    "crn" : "crn:v1:staging:public:project:us-south:a/06580c923e40314421d3b6cb40c01c68:cfbf9050-ab8e-ac97-b01b-ab5af830be8a::",
+    "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a"
+  },
+  "schematics" : {
+    "workspace_crn" : "crn:v1:staging:public:schematics:us-south:a/38acaf4469814090a4e675dc0c317a0d:95ad49de-ab96-4e7d-a08c-45c38aa448e6:workspace:us-south.workspace.service.e0106139"
+  },
+  "state" : "validated",
+  "update_available" : true,
+  "needs_attention_state" : [ ],
+  "created_at" : "2023-02-22T19:51:23.253Z",
+  "modified_at" : "2023-02-22T19:51:23.253Z",
+  "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a/configs/b0c44146-1ef6-40c2-82ba-74d51149770a",
+  "deployment_mode" : "project_deployed"
+}
+```
+{: screen}
+
 ### `ibmcloud project config-approve`
 {: #project-cli-config-approve-command}
 
@@ -1620,6 +1678,57 @@ ibmcloud project config-approve \
 ```
 {: pre}
 
+#### Example output
+{: #project-config-approve-cli-output}
+
+The example response to a request for a deployable architecture configuration draft.
+
+```json
+{
+  "id" : "293c3c36-a094-4115-a12b-de0a9ca39be5",
+  "definition" : {
+    "name" : "env-stage",
+    "description" : "The stage environment configuration.",
+    "locator_id" : "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global",
+    "inputs" : {
+      "account_id" : "ref:/configs/account-stage/inputs/account_id",
+      "resource_group" : "stage",
+      "access_tags" : [ "env:stage" ],
+      "logdna_name" : "The name of the LogDNA stage service instance.",
+      "sysdig_name" : "The name of the SysDig stage service instance."
+    }
+  },
+  "is_draft" : true,
+  "version" : 2,
+  "outputs" : [ {
+    "name" : "resource_group_id"
+  }, {
+    "name" : "logdna_id"
+  }, {
+    "name" : "sysdig_id"
+  } ],
+  "project" : {
+    "id" : "cfbf9050-ab8e-ac97-b01b-ab5af830be8a",
+    "definition" : {
+      "name" : "iaas-infra-prestage-env"
+    },
+    "crn" : "crn:v1:staging:public:project:us-south:a/06580c923e40314421d3b6cb40c01c68:cfbf9050-ab8e-ac97-b01b-ab5af830be8a::",
+    "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a"
+  },
+  "schematics" : {
+    "workspace_crn" : "crn:v1:staging:public:schematics:us-south:a/38acaf4469814090a4e675dc0c317a0d:95ad49de-ab96-4e7d-a08c-45c38aa448e6:workspace:us-south.workspace.service.e0106139"
+  },
+  "state" : "validated",
+  "update_available" : true,
+  "needs_attention_state" : [ ],
+  "created_at" : "2023-02-22T19:51:23.253Z",
+  "modified_at" : "2023-02-22T19:51:23.253Z",
+  "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a/configs/b0c44146-1ef6-40c2-82ba-74d51149770a",
+  "deployment_mode" : "project_deployed"
+}
+```
+{: screen}
+
 ### `ibmcloud project config-validate`
 {: #project-cli-config-validate-command}
 
@@ -1653,6 +1762,57 @@ ibmcloud project config-validate \
 ```
 {: pre}
 
+#### Example output
+{: #project-config-validate-cli-output}
+
+The example response to a request for a deployable architecture configuration draft.
+
+```json
+{
+  "id" : "293c3c36-a094-4115-a12b-de0a9ca39be5",
+  "definition" : {
+    "name" : "env-stage",
+    "description" : "The stage environment configuration.",
+    "locator_id" : "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global",
+    "inputs" : {
+      "account_id" : "ref:/configs/account-stage/inputs/account_id",
+      "resource_group" : "stage",
+      "access_tags" : [ "env:stage" ],
+      "logdna_name" : "The name of the LogDNA stage service instance.",
+      "sysdig_name" : "The name of the SysDig stage service instance."
+    }
+  },
+  "is_draft" : true,
+  "version" : 2,
+  "outputs" : [ {
+    "name" : "resource_group_id"
+  }, {
+    "name" : "logdna_id"
+  }, {
+    "name" : "sysdig_id"
+  } ],
+  "project" : {
+    "id" : "cfbf9050-ab8e-ac97-b01b-ab5af830be8a",
+    "definition" : {
+      "name" : "iaas-infra-prestage-env"
+    },
+    "crn" : "crn:v1:staging:public:project:us-south:a/06580c923e40314421d3b6cb40c01c68:cfbf9050-ab8e-ac97-b01b-ab5af830be8a::",
+    "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a"
+  },
+  "schematics" : {
+    "workspace_crn" : "crn:v1:staging:public:schematics:us-south:a/38acaf4469814090a4e675dc0c317a0d:95ad49de-ab96-4e7d-a08c-45c38aa448e6:workspace:us-south.workspace.service.e0106139"
+  },
+  "state" : "validated",
+  "update_available" : true,
+  "needs_attention_state" : [ ],
+  "created_at" : "2023-02-22T19:51:23.253Z",
+  "modified_at" : "2023-02-22T19:51:23.253Z",
+  "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a/configs/b0c44146-1ef6-40c2-82ba-74d51149770a",
+  "deployment_mode" : "project_deployed"
+}
+```
+{: screen}
+
 ### `ibmcloud project config-deploy`
 {: #project-cli-config-deploy-command}
 
@@ -1685,6 +1845,57 @@ ibmcloud project config-deploy \
     --id exampleString
 ```
 {: pre}
+
+#### Example output
+{: #project-config-deploy-cli-output}
+
+The example response to a request for a deployable architecture configuration draft.
+
+```json
+{
+  "id" : "293c3c36-a094-4115-a12b-de0a9ca39be5",
+  "definition" : {
+    "name" : "env-stage",
+    "description" : "The stage environment configuration.",
+    "locator_id" : "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global",
+    "inputs" : {
+      "account_id" : "ref:/configs/account-stage/inputs/account_id",
+      "resource_group" : "stage",
+      "access_tags" : [ "env:stage" ],
+      "logdna_name" : "The name of the LogDNA stage service instance.",
+      "sysdig_name" : "The name of the SysDig stage service instance."
+    }
+  },
+  "is_draft" : true,
+  "version" : 2,
+  "outputs" : [ {
+    "name" : "resource_group_id"
+  }, {
+    "name" : "logdna_id"
+  }, {
+    "name" : "sysdig_id"
+  } ],
+  "project" : {
+    "id" : "cfbf9050-ab8e-ac97-b01b-ab5af830be8a",
+    "definition" : {
+      "name" : "iaas-infra-prestage-env"
+    },
+    "crn" : "crn:v1:staging:public:project:us-south:a/06580c923e40314421d3b6cb40c01c68:cfbf9050-ab8e-ac97-b01b-ab5af830be8a::",
+    "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a"
+  },
+  "schematics" : {
+    "workspace_crn" : "crn:v1:staging:public:schematics:us-south:a/38acaf4469814090a4e675dc0c317a0d:95ad49de-ab96-4e7d-a08c-45c38aa448e6:workspace:us-south.workspace.service.e0106139"
+  },
+  "state" : "validated",
+  "update_available" : true,
+  "needs_attention_state" : [ ],
+  "created_at" : "2023-02-22T19:51:23.253Z",
+  "modified_at" : "2023-02-22T19:51:23.253Z",
+  "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a/configs/b0c44146-1ef6-40c2-82ba-74d51149770a",
+  "deployment_mode" : "project_deployed"
+}
+```
+{: screen}
 
 ### `ibmcloud project config-undeploy`
 {: #project-cli-config-undeploy-command}
@@ -1764,7 +1975,8 @@ The example response to a request for a deployable architecture configuration dr
   "needs_attention_state" : [ ],
   "created_at" : "2023-02-22T19:51:23.253Z",
   "modified_at" : "2023-02-22T19:51:23.253Z",
-  "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a/configs/b0c44146-1ef6-40c2-82ba-74d51149770a"
+  "href" : "https://projects.api.cloud.ibm.com/v1/projects/cfbf9050-ab8e-ac97-b01b-ab5af830be8a/configs/b0c44146-1ef6-40c2-82ba-74d51149770a",
+  "deployment_mode" : "project_deployed"
 }
 ```
 {: screen}
@@ -1933,7 +2145,7 @@ ibmcloud project stack-definition-create --project-id PROJECT-ID --id ID [--stac
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-outputs=@path/to/file.json`.
 
 `--stack-definition-members` ([`StackDefinitionMemberPrototype[]`](#cli-stack-definition-member-prototype-example-schema))
-:   The member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
+:   Defines the member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
@@ -2565,6 +2777,38 @@ The following example shows the format of the EnvironmentPrototype[] object.
     }
   }
 } ]
+```
+{: codeblock}
+
+### ProjectComplianceProfile
+{: #cli-project-compliance-profile-example-schema}
+
+The following example shows the format of the ProjectComplianceProfile object.
+
+```json
+
+{
+  "id" : "some-profile-id",
+  "instance_id" : "some-instance-id",
+  "instance_location" : "us-south",
+  "attachment_id" : "some-attachment-id",
+  "profile_name" : "some-profile-name"
+}
+```
+{: codeblock}
+
+### ProjectConfigAuth
+{: #cli-project-config-auth-example-schema}
+
+The following example shows the format of the ProjectConfigAuth object.
+
+```json
+
+{
+  "trusted_profile_id" : "Profile-9ac10c5c-195c-41ef-b465-68a6b6dg5f12",
+  "method" : "trusted_profile",
+  "api_key" : "exampleString"
+}
 ```
 {: codeblock}
 
