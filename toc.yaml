@@ -110,7 +110,7 @@ toc:
           - plugins/projects/projects-cli.md
           - include: ../privileged-access-gateway/pag-cli-commands.md
           - include: ../quantum-computing-cli-plugin/quantum-services-cli.md
-          - include: ../satellite/satellite-cli-reference.md
+          - include: ../satellite/satellite-cli-reference-v2.md
           - include: ../schematics/cli-reference.md
           - include: ../secrets-manager/secrets-manager-cli.md
           - include: ../security-compliance/security-compliance-cli.md
