@@ -16,7 +16,7 @@ includes:
   - https://github.ibm.com/cloud-docs/hs-crypto-cli-plugin
   - https://github.ibm.com/cloud-docs/hpvs-cli-plugin
   - https://github.ibm.com/cloud-docs/dbaas-cli-plugin
-  - https://github.ibm.com/cloud-docs/key-protect-cli-plugin
+  - https://github.ibm.com/cloud-docs/key-protect
   - https://github.ibm.com/cloud-docs/containers
   - https://github.ibm.com/cloud-docs/log-analysis-cli-plugin
   - https://github.ibm.com/cloud-docs/monitor-cli-plugin
@@ -30,7 +30,7 @@ includes:
   - https://github.ibm.com/cloud-docs/satellite
   - https://github.ibm.com/cloud-docs/schematics
   - https://github.ibm.com/cloud-docs/secrets-manager
-  - https://github.ibm.com/cloud-docs/security-compliance-
+  - https://github.ibm.com/cloud-docs/security-compliance
   - https://github.ibm.com/cloud-docs/tg-cli-plugin
   - https://github.ibm.com/cloud-docs/vpc-infrastructure-cli-plugin
   - https://github.ibm.com/cloud-docs/watson-query-cli-plugin
