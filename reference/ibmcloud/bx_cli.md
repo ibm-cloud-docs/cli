@@ -422,7 +422,7 @@ Open the URL in the default browser? [Y/n] >
 
 Open the link in a browser to get a passcode. Enter the passcode in the console to log in.
 
-In addition to using the URL link provided by the CLI, you can launch the {{site.data.keyword.cloud_notm}} console and log in. In the {{site.data.keyword.cloud_notm}} console, to the **{{site.data.keyword.avatar}}** icon ![Avatar icon](../icons/i-avatar-icon.svg "Avatar") > **Log in to CLI and API**. Copy the {{site.data.keyword.cloud_notm}} CLI passcode command and enter it. You must use this method to log in to your IBMid with your Google account or if you have connected your cloud account with an {{site.data.keyword.cloud_notm}} App ID instance.
+In addition to using the URL link provided by the CLI, you can launch the {{site.data.keyword.cloud_notm}} console and log in. In the {{site.data.keyword.cloud_notm}} console, to the **{{site.data.keyword.avatar}}** icon ![Avatar icon](../../../icons/i-avatar-icon.svg "Avatar") > **Log in to CLI and API**. Copy the {{site.data.keyword.cloud_notm}} CLI passcode command and enter it. You must use this method to log in to your IBMid with your Google account or if you have connected your cloud account with an {{site.data.keyword.cloud_notm}} App ID instance.
 
 **Log in as an IKS Compute Resource linked to a trusted profile:**
 
