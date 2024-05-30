@@ -72,7 +72,7 @@ ibmcloud sl loadbal order (-n, --name NAME) (-d, --datacenter DATACENTER) (-t, -
 -c, --connections COUNT
 :   Maximum number of connections.
 
---sticky METHOD<
+--sticky METHOD
 :   Sticky session method: cookie or source-ip.
 
 --use-public-subnet
@@ -218,7 +218,7 @@ ibmcloud sl loadbal member-delete (--lb-id LOADBAL_ID) (-m, --member-uuid MEMBER
 ### Command options 
 {: #options-sl_loadbal_member-delete}
 
---lb-id ID (required)<
+--lb-id ID (required)
 :   ID for the load balancer.
 
 -m MEMBER_UUID, --member-uuid MEMBER_UUID (required)
@@ -247,7 +247,7 @@ ibmcloud sl loadbal cancel (--id LOADBAL_ID) [-f, --force]
 --id ID (required)
 :   ID for the load balancer.
 
--f, --force<
+-f, --force
 :   Force operation without confirmation.
  
 ### Examples
