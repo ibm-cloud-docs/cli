@@ -308,6 +308,9 @@ NAME (required)
 --file *FILE*
 :   Save API key information to the specified file.
 
+--action-if-leaked *value*
+:   The action to take if the key is leaked, can be "NONE", "DISABLE", or "DELETE". Default is "Disable"
+
 --lock
 :   Lock the API key when it is created.
 
@@ -349,6 +352,9 @@ UUID (required)
 
 -d *DESCRIPTION* (optional)
 :   The new description of the API key.
+
+--action-if-leaked *value*
+:   The action to take if the key is leaked, can be "NONE", "DISABLE", or "DELETE". Default is "Disable"
 
 ### Examples
 {: #ibmcloud_iam_api_key_update_examples}
@@ -432,10 +438,10 @@ ibmcloud iam api-key-unlock (NAME|UUID) [-f, --force]
 {: #ibmcloud_iam_api_key_unlock_options}
 
 NAME (required)
-:   Name of the API key to be unlocked, exclusive with UUID.
+:   The name of the API key to be unlocked, exclusive with UUID.
 
 UUID (required)
-:   UUID of the API key to be unlocked, exclusive with NAME.
+:   The UUID of the API key to be unlocked, exclusive with NAME.
 
 -f, --force
 :   Unlock an API key without confirmation.
@@ -455,6 +461,78 @@ ibmcloud iam api-key-unlock ApiKey-18f773b0-db53-43f1-ad68-92c667c218fe --force
 ```
 {: codeblock}
 
+## ibmcloud iam api-key-disable
+{: #ibmcloud_iam_api_key_lock}
+
+Disable a platform API key:
+```bash
+ibmcloud iam api-key-disable (NAME|UUID) [-f, --force]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_api_key_lock_options}
+
+NAME (required)
+:   The name of the API key to be disabled, exclusive with UUID.
+
+UUID (required)
+:   The UUID of the API key to be disabled, exclusive with NAME.
+
+-f, --force
+:   Force disable without confirmation.
+
+### Examples
+{: #ibmcloud_iam_api_key_disable_examples}
+
+Disable an API key test-api-key:
+```bash
+ibmcloud iam api-key-disable test-api-key
+```
+{: codeblock}
+
+Disable an API key with given UUID without confirmation:
+```bash
+ibmcloud iam api-key-disable ApiKey-18f773b0-db53-43f1-ad68-92c667c218fe --force
+```
+{: codeblock}
+
+## ibmcloud iam api-key-enable
+{: #ibmcloud_iam_api_key_lock}
+
+Enable a platform API key:
+```bash
+ibmcloud iam api-key-enable (NAME|UUID) [-f, --force]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_api_key_lock_options}
+
+NAME (required)
+:   The name of the API key to be enabled, exclusive with UUID.
+
+UUID (required)
+:   The UUID of the API key to be enabled, exclusive with NAME.
+
+-f, --force
+:   Force enable without confirmation.
+
+### Examples
+{: #ibmcloud_iam_api_key_enable_examples}
+
+Enable API key test-api-key:
+```bash
+ibmcloud iam api-key-enable test-api-key
+```
+{: codeblock}
+
+Enable API key with given UUID without confirmation:
+```bash
+ibmcloud iam api-key-enable ApiKey-18f773b0-db53-43f1-ad68-92c667c218fe --force
+```
+{: codeblock}
+
 ## ibmcloud iam service-api-keys
 {: #ibmcloud_iam_service_api_keys}
 
@@ -471,10 +549,10 @@ ibmcloud iam service-api-keys ([-a, --all], SERVICE_ID_NAME|SERVICE_ID_UUID) [-f
 :   Display all API keys that are associated with all services.
 
 SERVICE_ID_NAME (required)
-:   Name of the service ID, exclusive with SERVICE_ID_UUID.
+:   The name of the service ID, exclusive with SERVICE_ID_UUID.
 
 SERVICE_ID_UUID (required)
-:   UUID of the service ID, exclusive with SERVICE_ID_NAME.
+:   The UUID of the service ID, exclusive with SERVICE_ID_NAME.
 
 -f, --force
 :   Display service API keys without confirmation.
@@ -555,6 +633,9 @@ SERVICE_ID_UUID (required)
 --file FILE
 :   Save API key information to the specified file.
 
+--action-if-leaked *value*
+:   The action to take if the key is leaked, can be "NONE", "DISABLE", or "DELETE". The default is "Disable".
+
 -f, --force
 :   Force creation without confirmation.
 
@@ -592,10 +673,13 @@ SERVICE_ID_UUID (required)
 :   UUID of the service ID, exclusive with SERVICE_ID_NAME.
 
 -n, --name
-:   New name of the service API key.
+:   The new name of the service API key.
 
 -d, --description
-:   New description of the service API key.
+:   The new description of the service API key.
+
+--action-if-leaked *value*
+:   The action to take if the key is leaked, can be "NONE", "DISABLE", or "DELETE". The default is "Disable".
 
 -f, --force
 :   Update without confirmation.
@@ -714,6 +798,78 @@ SERVICE_ID_UUID (required)
 Unlock service API key `sample-key` of service ID `sample-service`:
 ```bash
 ibmcloud iam service-api-key-unlock sample-key sample-service
+```
+{: codeblock}
+
+## ibmcloud iam service-api-key-disable
+{: #ibmcloud_iam_service_api_key_disable}
+
+Disable a service API key:
+```bash
+ibmcloud iam service-api-key-disable (APIKEY_NAME|APIKEY_UUID) (SERVICE_ID_NAME|SERVICE_ID_UUID) [-f, --force]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_service_api_key_disable_options}
+
+APIKEY_NAME (required)
+:   The name of the API key, exclusive with APIKEY_UUID.
+
+APIKEY_UUID (required)
+:   The UUID of the API key, exclusive with APIKEY_NAME.
+
+SERVICE_ID_NAME (required)
+:   The name of the service ID, exclusive with SERVICE_ID_UUID.
+
+SERVICE_ID_UUID (required)
+:   The UUID of the service ID, exclusive with SERVICE_ID_NAME.
+
+-f, --force
+:   Disable without confirmation.
+
+### Examples
+{: #ibmcloud_iam_service_api_key_disable_examples}
+
+Disable service API key `sample-key` of service ID `sample-service`:
+```bash
+ibmcloud iam service-api-key-disable sample-key sample-service
+```
+{: codeblock}
+
+## ibmcloud iam service-api-key-enable
+{: #ibmcloud_iam_service_api_key_enable}
+
+Enable a service API key:
+```bash
+ibmcloud iam service-api-key-enable (APIKEY_NAME|APIKEY_UUID) (SERVICE_ID_NAME|SERVICE_ID_UUID) [-f, --force]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_service_api_key_enable_options}
+
+APIKEY_NAME (required)
+:   The name of the API key, exclusive with APIKEY_UUID.
+
+APIKEY_UUID (required)
+:   The UUID of the API key, exclusive with APIKEY_NAME.
+
+SERVICE_ID_NAME (required)
+:   The name of the service ID, exclusive with SERVICE_ID_UUID.
+
+SERVICE_ID_UUID (required)
+:   The UUID of the service ID, exclusive with SERVICE_ID_NAME.
+
+-f, --force
+:   Enable without confirmation.
+
+### Examples
+{: #ibmcloud_iam_service_api_key_enable_examples}
+
+Enable service API key `sample-key` of service ID `sample-service`:
+```bash
+ibmcloud iam service-api-key-enable sample-key sample-service
 ```
 {: codeblock}
 

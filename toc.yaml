@@ -10,13 +10,11 @@ toc:
     product-page: https://www.ibm.com/products/cli
     path: cli
     label: IBM Cloud CLI
-
   entries:
   - navgroup:
       id: learn
       topics:
       - index.md
-
   - navgroup:
       id: howto
       topics:
@@ -36,7 +34,6 @@ toc:
       - ha-dr.md
       - cri-token-login.md
       - vpc-cri-login.md
-
   - navgroup:
       id: reference
       links:
@@ -48,7 +45,7 @@ toc:
       - topicgroup:
           label: IBM Cloud CLI platform commands
           topics:
-          - reference/ibmcloud/cli_acct_org_role.md
+          - reference/ibmcloud/cli_acct.md
           - reference/ibmcloud/cli_billing.md
           - reference/ibmcloud/cli_catalog.md
           - reference/ibmcloud/cli_enterprise.md
@@ -76,6 +73,16 @@ toc:
           - reference/ibmcloud/cli_user.md
           - reference/ibmcloud/cli_virtual_server.md
           - reference/ibmcloud/cli_vlan.md
+          - reference/ibmcloud/cli_sl_account.md
+          - reference/ibmcloud/cli_sl_bandwidth.md
+          - reference/ibmcloud/cli_sl_dedicatedhost.md
+          - reference/ibmcloud/cli_sl_email.md
+          - reference/ibmcloud/cli_sl_event_log.md
+          - reference/ibmcloud/cli_sl_firewall.md
+          - reference/ibmcloud/cli_sl_licenses.md
+          - reference/ibmcloud/cli_sl_metadata.md
+          - reference/ibmcloud/cli_sl_reports.md
+          - reference/ibmcloud/cli_sl_tags.md
       - idt/commands.md
       - topicgroup:
           label: Plug-ins for the IBM Cloud CLI
@@ -123,7 +130,6 @@ toc:
           - sdk/sdk_BMSClient.md
           - sdk/sdk_network_request.md
       - reference/ibmcloud/env_var_cli.md
-
   - navgroup:
       id: help
       topics:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-05-11"
+lastupdated: "2023-05-17"
 
 keywords: cli, add cli plug-in, remove cli plug-in, cli plug-in, ibmcloud plugin, repo-add, repo-remove, plugin uninstall, plugin update, cli private endpoints
 
@@ -197,7 +197,7 @@ PLUGIN_PATH|PLUGIN_NAME
 -v VERSION (optional)
 :   Version of the plug-in to be installed. Accepts specific semantic version or constraint.
 
--f 
+-f (optional)
 :   Force installs the plug-in without confirmation.
 
 The {{site.data.keyword.cloud_notm}} CLI has the official repository name of `IBM Cloud`.
@@ -256,7 +256,7 @@ ibmcloud plugin install --all -f
 Install multiple plug-ins at the same time:
 
 ```bash
-ibmcloud plugin install container-service@0.1.425 secrets-manager@0.1.25
+ibmcloud plugin install container-service@1.0.506 secrets-manager@0.1.25
 ```
 {: codeblock}
 

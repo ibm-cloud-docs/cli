@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-03-11"
+  years: 2024
+lastupdated: "2024-06-05"
 
 keywords: cli, context-based restrictions plugin
 
@@ -70,19 +70,19 @@ ibmcloud cbr zone-create --name example-zone-with-vpc --vpc crn:v1:staging:publi
 {: #cbr-cli-zone-create-example-output}
 
 ```sh
-id                    9adc34f2867a43452a517b3c2de78b95   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95   
-address_count         4   
-excluded_count        0   
-name                  test   
-account_id            0123456789   
-description              
-addresses             <Array>   
-excluded              -   
-href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95   
-created_at            2024-03-06T22:20:25.000Z   
-created_by_id         iam-ServiceId-0123456789   
-last_modified_at      2024-03-06T22:20:25.000Z   
+id                    9adc34f2867a43452a517b3c2de78b95
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95
+address_count         4
+excluded_count        0
+name                  test
+account_id            0123456789
+description
+addresses             <Array>
+excluded              -
+href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95
+created_at            2024-03-06T22:20:25.000Z
+created_by_id         iam-ServiceId-0123456789
+last_modified_at      2024-03-06T22:20:25.000Z
 last_modified_by_id   iam-ServiceId-0123456789
 ```
 {: codeblock}
@@ -135,8 +135,8 @@ ibmcloud cbr zones
 {: #cbr-cli-zones-example-output}
 
 ```sh
-id                                 name      address_count   
-9adc34f2867a43452a517b3c2de78b95   test      4   
+id                                 name      address_count
+9adc34f2867a43452a517b3c2de78b95   test      4
 12ab34cd56ef78ab90cd12ef34ab56cd   example   2
 ```
 {: codeblock}
@@ -173,19 +173,19 @@ ibmcloud cbr zone 9adc34f2867a43452a517b3c2de78b95
 {: #cbr-cli-zone-example-output}
 
 ```sh
-id                    9adc34f2867a43452a517b3c2de78b95   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95   
-address_count         4   
-excluded_count        0   
-name                  test   
-account_id            0123456789   
-description              
-addresses             <Array>   
-excluded              -   
-href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95   
-created_at            2024-03-06T22:20:25.000Z   
+id                    9adc34f2867a43452a517b3c2de78b95
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95
+address_count         4
+excluded_count        0
+name                  test
+account_id            0123456789
+description
+addresses             <Array>
+excluded              -
+href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95
+created_at            2024-03-06T22:20:25.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-06T22:20:25.000Z   
+last_modified_at      2024-03-06T22:20:25.000Z
 last_modified_by_id   iam-ServiceId-0123456789
 ```
 {: codeblock}
@@ -201,10 +201,10 @@ ibmcloud cbr zone-update ZONE-ID [--name NAME] [--description DESCRIPTION] [--ad
 {: codeblock}
 
 #### Example
-{: #cbr-zone-update-example}
+{: #cbr-cli-zone-update-example}
 
 ```shell
-ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name 'Example Zone Name' --addresses 166.22.23.0-166.22.23.108,3ffe:1900:fe21:4545:: --excluded 166.22.23.100
+ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name 'Example Zone Name' --addresses 166.22.23.0-166.22.23.108,3ffe:1900:fe21:4545:: --excluded 166.22.23.100 --excluded 166.22.23.100
 
 ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name example-zone-with-service-ref --service-ref service_name=kms
 
@@ -213,22 +213,22 @@ ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name example-zone-wi
 {: codeblock}
 
 #### Example output
-{: #cbr-cli-zone-example-output}
+{: #cbr-cli-zone-update-example-output}
 
 ```sh
-id                    9adc34f2867a43452a517b3c2de78b95   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95   
-address_count         2   
-excluded_count        0   
-name                  test update   
-account_id            0123456789   
-description              
-addresses             <Array>   
-excluded              -   
-href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95   
-created_at            2024-03-06T22:20:25.000Z   
+id                    9adc34f2867a43452a517b3c2de78b95
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95
+address_count         2
+excluded_count        0
+name                  test update
+account_id            0123456789
+description
+addresses             <Array>
+excluded              -
+href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95
+created_at            2024-03-06T22:20:25.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-06T22:29:19.000Z   
+last_modified_at      2024-03-06T22:29:19.000Z
 last_modified_by_id   iam-ServiceId-0123456789
 ```
 {: codeblock}
@@ -298,32 +298,32 @@ ibmcloud cbr service-ref-targets
 {: #cbr-cli-service-ref-targets-example-output}
 
 ```sh
-service_name                   service_type       locations   
-ace                            -                  -   
-apprapp                        -                  na, us, dal   
-apprapp-dev                    -                  na, us, dal   
-cloud-object-storage           -                  na, us, sjc   
-cloudantnosqldb                -                  ap, au, syd, +27   
-codeengine                     -                  ap, au, syd, +6   
-compliance                     platform_service   na, us, dal, +1   
-containers-kubernetes          -                  na, us, dal   
-directlink                     -                  -   
-event-notifications            -                  na, us, dal   
-globalcatalog-collection       -                  -   
-iam-groups                     platform_service   -   
-is                             -                  eu, es, mad, +4   
-kms                            -                  -   
-logdna                         -                  ap, au, syd, +17   
-logdnaat                       -                  ap, au, syd, +17   
-messagehub                     -                  eu, uk, lon, +3   
-messagehub-vnext-integration   -                  eu, uk, lon, +3   
-schematics                     -                  eu, de, fra, +6   
-secrets-manager                -                  -   
-server-protect                 -                  eu, es, mad, +4   
-sysdig-monitor                 -                  eu, uk, lon, +3   
-sysdig-secure                  -                  eu, uk, lon, +3   
-toolchain                      -                  ap, au, syd, +6   
-user-management                platform_service   -   
+service_name                   service_type       locations
+ace                            -                  -
+apprapp                        -                  na, us, dal
+apprapp-dev                    -                  na, us, dal
+cloud-object-storage           -                  na, us, sjc
+cloudantnosqldb                -                  ap, au, syd, +27
+codeengine                     -                  ap, au, syd, +6
+compliance                     platform_service   na, us, dal, +1
+containers-kubernetes          -                  na, us, dal
+directlink                     -                  -
+event-notifications            -                  na, us, dal
+globalcatalog-collection       -                  -
+iam-groups                     platform_service   -
+is                             -                  eu, es, mad, +4
+kms                            -                  -
+logdna                         -                  ap, au, syd, +17
+logdnaat                       -                  ap, au, syd, +17
+messagehub                     -                  eu, uk, lon, +3
+messagehub-vnext-integration   -                  eu, uk, lon, +3
+schematics                     -                  eu, de, fra, +6
+secrets-manager                -                  -
+server-protect                 -                  eu, es, mad, +4
+sysdig-monitor                 -                  eu, uk, lon, +3
+sysdig-secure                  -                  eu, uk, lon, +3
+toolchain                      -                  ap, au, syd, +6
+user-management                platform_service   -
 ```
 {: codeblock}
 
@@ -356,14 +356,14 @@ ibmcloud cbr service-ref-target compliance
 {: #cbr-cli-service-ref-target-example-output}
 
 ```sh
-Service Name     compliance         
-Service Type:    platform_service   
-Locations:       
-                 Name               Display Name    Kind   
-                 na                 North America   geography   
-                 us                 United States   country   
-                 dal                Dallas          metro   
-                 wdc                Washington DC   metro   
+Service Name     compliance
+Service Type:    platform_service
+Locations:
+                 Name               Display Name    Kind
+                 na                 North America   geography
+                 us                 United States   country
+                 dal                Dallas          metro
+                 wdc                Washington DC   metro
 ```
 {: codeblock}
 
@@ -394,18 +394,18 @@ ibmcloud cbr rule-create --description 'Example Rule Description' --service-name
 {: #cbr-cli-rule-create-example-output}
 
 ```sh
-id                    2c54cb0fefb0050c88f72d68c400fbec   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec   
-description           test   
-operations            <Nested Object>   
-contexts              <Array>   
-resources             <Array>   
-href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec   
-created_at            2024-03-07T15:36:52.000Z   
+id                    2c54cb0fefb0050c88f72d68c400fbec
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec
+description           test
+operations            <Nested Object>
+contexts              <Array>
+resources             <Array>
+href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec
+created_at            2024-03-07T15:36:52.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-07T15:36:52.000Z   
+last_modified_at      2024-03-07T15:36:52.000Z
 last_modified_by_id   iam-ServiceId-0123456789
-enforcement_mode      enabled   
+enforcement_mode      enabled
 
 ```
 {: codeblock}
@@ -476,9 +476,9 @@ ibmcloud cbr rules
 {: #cbr-cli-rules-example-output}
 
 ```sh
-id                                 description   enforcement_mode   
-2c54cb0fefb0050c88f72d68c400fbec   test          enabled   
-a4135a90bb507bf6d96cf4c6f009d151   example       enabled   
+id                                 description   enforcement_mode
+2c54cb0fefb0050c88f72d68c400fbec   test          enabled
+a4135a90bb507bf6d96cf4c6f009d151   example       enabled
 ```
 {: codeblock}
 
@@ -532,18 +532,18 @@ ibmcloud cbr rule 30fd58c9b75f40e854b89c432318b4a2
 {: #cbr-cli-rule-example-output}
 
 ```sh
-id                    2c54cb0fefb0050c88f72d68c400fbec   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec   
-description           test   
-operations            <Nested Object>   
-contexts              <Array>   
-resources             <Array>   
-href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec   
-created_at            2024-03-07T15:36:52.000Z   
+id                    2c54cb0fefb0050c88f72d68c400fbec
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec
+description           test
+operations            <Nested Object>
+contexts              <Array>
+resources             <Array>
+href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec
+created_at            2024-03-07T15:36:52.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-07T15:36:52.000Z   
+last_modified_at      2024-03-07T15:36:52.000Z
 last_modified_by_id   iam-ServiceId-0123456789
-enforcement_mode      enabled   
+enforcement_mode      enabled
 
 ```
 {: codeblock}
@@ -570,16 +570,16 @@ ibmcloud cbr rule-update 30fd58c9b75f40e854b89c432318b4a2 --description 'Example
 {: #cbr-cli-rule-update-example-output}
 
 ```sh
-id                    2c54cb0fefb0050c88f72d68c400fbec   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec   
-description           updated   
-operations            <Nested Object>   
-contexts              <Array>   
-resources             <Array>   
-href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec   
-created_at            2024-03-07T15:36:52.000Z   
+id                    2c54cb0fefb0050c88f72d68c400fbec
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec
+description           updated
+operations            <Nested Object>
+contexts              <Array>
+resources             <Array>
+href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec
+created_at            2024-03-07T15:36:52.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-07T15:41:18.000Z   
+last_modified_at      2024-03-07T15:41:18.000Z
 last_modified_by_id   iam-ServiceId-0123456789
 enforcement_mode      enabled
 ```
