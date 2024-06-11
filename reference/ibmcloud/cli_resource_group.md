@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-05"
+lastupdated: "2024-06-11"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
@@ -878,7 +878,7 @@ This command is only valid for access management tags. For example:
 
 Attach one or more tags to a resource:
 ```bash
-ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --resource-id RESOURCE_ID ) [--resource-type RESOURCE_TYPE] [--tag-type TAG_TYPE] [--account-id ACCOUNT_ID]
+ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --resource-id RESOURCE_ID ) [--resource-type RESOURCE_TYPE] [--tag-type TAG_TYPE] [--account-id ACCOUNT_ID] [--replace] [--update]
 ```
 {: codeblock}
 
@@ -902,6 +902,12 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 
 --account-id value
 :   The ID of the account that owns the resources to be tagged (required if tag-type is set to service).
+
+--replace
+:   The list of tag names will replace the current list of tag names attached to the resource.
+
+--update
+:   The tag names in the format `key:value` will be updated. The option has no effect on tag names that are not in that format.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -933,7 +939,6 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
     ```
     {: codeblock}
 
-
 * To attach the user tag `MyTag` to a classic infrastructure virtual guest named `MyVM`, first look for the ID of the virtual guest you would like to tag:
     ```bash
     ibmcloud resource search 'fullyQualifiedDomainName:MyVM  _objectType:SoftLayer_Virtual_Guest' -p classic-infrastructure
@@ -951,6 +956,34 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 * To attach the access management tag `project:myproject`, that you previously created, to an instance of IBM Cloud Object Storage called `Project data`, run the following command:
     ```bash
     ibmcloud resource tag-attach --tag-names "project:myproject" --resource-name Project data -—tag-type access
+    ```
+    {: codeblock}
+
+* To update to `production` the value of the `env` user tag on a resource named `MyResource` run the following command:
+
+    ```bash
+    ibmcloud resource tag-attach --tag-names 'env:production' --resource-name 'MyResource' --update
+    ```
+    {: codeblock}
+
+* To update to `production` the value of the `env` access management tag on a resource named `MyResource` run the following command:
+
+    ```bash
+    ibmcloud resource tag-attach --tag-names 'env:production' --resource-name 'MyResource' --update --tag-type access
+    ```
+    {: codeblock}
+
+* To replace all user tags of `MyResource` with a new set of tags `tag1`, `tag2`, and `tag3` run the following command:
+
+    ```bash
+    ibmcloud resource tag-attach --tag-names 'tag1,tag2,tag3' --resource-name 'MyResource' --replace
+    ```
+    {: codeblock}
+
+* To replace all access management tags of `MyResource` with the tag `compliance:hipaa` run the following command:
+
+    ```bash
+    ibmcloud resource tag-attach --tag-names 'compliance:hipaa' --resource-name 'MyResource' --replace --tag-type access
     ```
     {: codeblock}
 
@@ -1014,7 +1047,6 @@ ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --res
     ```
     {: codeblock}
 
-
 * To detach the user tag `MyTag` to a classic infrastructure virtual guest named `MyVM`, first look for the ID of the virtual guest you would like to detach the tag from:
     ```bash
     ibmcloud resource search 'fullyQualifiedDomainName:MyVM  _objectType:SoftLayer_Virtual_Guest' -p classic-infrastructure
@@ -1035,6 +1067,19 @@ ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --res
     ```
     {: codeblock}
 
+* To detach the `env:value` tag from `MyResource`, regardless of its value, run the following command:
+
+    ```bash
+    ibmcloud resource tag-detach --tag-names 'env:*' —resource-name 'MyResource'
+    ```
+    {: codeblock}
+
+* To detach all tags from `MyResource` run the following command:
+
+    ```bash
+    ibmcloud resource tag-detach --tag-names '*' —resource-name 'MyResource'
+    ```
+    {: codeblock}
 
 ## ibmcloud resource tag-delete
 {: #ibmcloud_resource_tag_delete}
