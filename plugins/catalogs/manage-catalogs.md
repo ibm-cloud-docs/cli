@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-02-23"
 
 keywords: cli, catalogs management, catalog
 
@@ -546,13 +546,14 @@ ibmcloud catalog filter options
 ### Command options
 {: #options-filter-options}
 
--- all
+--all
 
 :   Includes industry, solution type, and pricing plan in the list of filters.
 
 --output FORMAT (optional)
 
 :   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
+
 
 ### Output
 {: #options-filter-output}
@@ -573,11 +574,20 @@ Third party   ibm_third_party
 Community     ibm_community
 IBM           ibm_created
 
+Release      ID
+Beta         ibm_beta
+Deprecated   ibm_deprecated
+
 Works with             ID
 SAP Certified          sap_certified
 Quantum Technologies   quantum_tech
 Satellite Enabled      satellite_enabled
 HPC                    hpc
+
+Support                 ID
+Third party supported   support_third_party
+Community supported     support_community
+IBM supported           support_ibm
 
 Delivery method   ID
 Cloud Paks        cloud_pak
@@ -596,15 +606,6 @@ Financial Services Validated   fs_ready
 HIPAA Enabled                  hipaa
 IAM-enabled                    rc_compatible
 Service Endpoint Supported     service_endpoint_supported
-
-Release      ID
-Beta         ibm_beta
-Deprecated   ibm_deprecated
-
-Support                 ID
-Third party supported   support_third_party
-Community supported     support_community
-IBM supported           support_ibm
 
 Category                   ID                   Tags
 Compute                    compute              compute,compute_classic,content,openwhisk,runtime,virtualservers,compute_baremetal
@@ -731,7 +732,6 @@ ibmcloud catalog offering create --catalog 2bdc3974-dfcf-4711-b298-cd238f7d3734 
     "images": [{"id": "r134-f20e2e4e-3133-423c-afa2-365afa14c4dc", "name": "virtual-server-image-s390x", "region": "us-south"}]
 }
 ```
-{: codeblock}
 
 ## ibmcloud catalog offering list
 {: #list-offering}
@@ -920,7 +920,7 @@ ibmcloud catalog offering import-version --catalog CATALOG --offering OFFERING_N
 --vpc-body BODY (optional)
 :   Provide the information to import a virtual server image for VPC, including a name, label, install kind, target kind, version, sha, tags, and metadata.
 
-### Virtual server image for VPC example
+### Virtual server image for VPC Example
 {: #import-version-example}
 
 Import a virtual server image for VPC to an existing offerng with to a catalog with ID `51c9e0db-2911-45a6-adb0-ac5332d27cf2` and offering ID `97cdaf1b-62b2-48e2-8589-10b31023866d`.
@@ -951,7 +951,7 @@ ibmcloud catalog offering import-version --catalog 51c9e0db-2911-45a6-adb0-ac533
         },
         "images": [{"id": "r134-14903434-faf0-4a66-b861-7b35198de393", "name": "virtual-server-image", "region": "us-south"}]
     }
-}'
+}''
 ```
 {: codeblock}
 
@@ -1122,7 +1122,7 @@ ibmcloud catalog offering version validate --version-locator 51c9e0db-2911-45a6-
   "subnet_zone": "us-south-1",
   "ssh_key_id": "r134-0c53e7f2-771f-4d0e-a19e-39f2e6e6949c",
   "vpc_region": "us-south"
-}'
+}
 ```
 {: codeblock}
 
@@ -1270,7 +1270,7 @@ Run the following command to retrieve the security and compliance information th
 --version-locator LOCATOR
 :   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified product or version you want to use.
 
---output OUTPUT (optional)
+--output value (optional)
 :   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
 
 ## ibmcloud catalog offering version update-claims
@@ -1382,7 +1382,7 @@ Run the following command to retrieve the Security and Compliance Center scans t
 ## ibmcloud catalog offering get-scan-results
 {: #get-scan-results}
 
-Run the following command to generate a report of your security and compliance scan results. To generate a full report, you must apply a Security and Compliance Center scan. For more information, see [ibmcloud catalog offering version scc-apply](#scc-apply).
+Run the following command to generate a report of your version's Code Risk Analyzer and Security and Compliance Center scan results. To generate a full report, you must run the Code Risk Analyzer and Security and Compliance Center scans. For more information, see [ibmcloud catalog offering version cra](#version-cra) and [ibmcloud catalog offering version scc](#version-scc).
 
 ```bash
 ibmcloud catalog offering get-scan-results [--version-locator LOCATOR]
@@ -1724,6 +1724,27 @@ ibmcloud catalog install [--version-locator VERSION_NUMBER] [--cluster CLUSTER_I
 --schematics-delete VALUE (optional)
 :   Provide this flag to delete the {{site.data.keyword.bpshort}} workspace after validation and installation.
 
+### Example
+{: #install-software-version-example}
+
+Install software version `1` by using cluster `A`, namespace `install`, and the override values JSON `values.json`.
+
+```bash
+ibmcloud catalog install [--version-locator 1] [--cluster A] [--namespace install] [--override-values values.json]
+```
+{: codeblock}
+
+Override values example format from the `values.json` file:
+
+```bash
+{
+  "username": "install-test-1",
+  "password": "passw0rd"
+}
+```
+{: codeblock}
+
+
 ## ibmcloud catalog pricing
 {: #catalog-pricing}
 
@@ -1775,6 +1796,7 @@ Get pricing information for Virtual Server for VPC for a Pay-As-You-Go account.
 ibmcloud catalog pricing is.instance [--price paygo]
 ```
 {: codeblock}
+
 
 ## ibmcloud catalog utility create-product-from-workspace
 {: #publish-utility-create}
@@ -1907,11 +1929,54 @@ ibmcloud catalog offering unpublish enterprise [--catalog CATALOG][--offering OF
 ### Command options
 {: #unpublish-offering-enterprise-options}
 
+
 --catalog CATALOG
 :   The catalog name or ID.
 
 --offering OFFERING
 :   The product name or ID.
+
+## ibmcloud catalog offering unpublish ibm
+{: #unpublish-offering-ibm}
+
+Run the following command to unpublish a product from {{site.data.keyword.IBM_notm}}. After the product is unpublished, {{site.data.keyword.IBM_notm}} employees cannot create an instance of the product.
+
+```bash
+ibmcloud catalog offering unpublish ibm [--catalog CATALOG][--offering OFFERING]
+```
+{: codeblock}
+
+### Command options
+{: #unpublish-offering-ibm-options}
+
+--catalog CATALOG
+:   The catalog name or ID.
+
+--offering OFFERING
+:   The product name or ID.
+
+
+
+## ibmcloud catalog offering publish ibm
+{: #publish-offering-to-ibm}
+
+Run the following command to publish an offering that is already available in your account to all {{site.data.keyword.IBM_notm}}ers. This part of the publication process creates a tile in the staging and production catalogs that is visible only to {{site.data.keyword.IBM_notm}}ers. By publishing an offering to {{site.data.keyword.IBM_notm}}ers, you can test the offering in production before you make it available to all users in the {{site.data.keyword.cloud_notm}} catalog.
+
+```bash
+ibmcloud catalog offering publish ibm [--catalog CATALOG][--offering OFFERING]
+```
+{: codeblock}
+
+### Command options
+{: #publish-offering-to-ibm-options}
+
+
+--catalog CATALOG
+:   The catalog name or ID.
+
+--offering OFFERING
+:   The product name or ID.
+
 
 ## ibmcloud catalog offering publish public
 {: #publish-offering-to-public}
@@ -1928,7 +1993,6 @@ ibmcloud catalog offering publish public [--catalog CATALOG][--offering OFFERING
 
 ### Command options
 {: #publish-offering-to-public-options}
-
 
 --catalog CATALOG
 :   The catalog name or ID.
@@ -1975,7 +2039,6 @@ ibmcloud catalog offering restore-offering [--catalog CATALOG][--offering OFFERI
 --offering OFFERING
 :   The product name or ID.
 
-
 ## ibmcloud catalog offering version restore-version
 {: #publish-version-restore}
 
@@ -1998,3 +2061,315 @@ ibmcloud catalog offering version restore-version [--catalog CATALOG][--offering
 --include-config (optional)
 
 :   If provided, all configuration values are included and available when you add the product.
+
+
+
+## ibmcloud catalog object create vpe
+{: #create-object}
+
+Run the following command to add an object to a private catalog in the account.
+
+```bash
+ibmcloud catalog object create vpe [--catalog CATALOG] [--crn CRN] [endpoint-type TYPE] [--fqdn FQDN] [--name NAME] [--region REGION]
+```
+{: codeblock}
+
+## Command options
+{: #create-object-options}
+
+--catalog CATALOG
+
+:   Specify the catalog name or ID.
+
+--crn CRN
+
+:   Provide the Cloud Resource Name (CRN).
+
+--endpoint-type TYPE
+
+:   Specify the VPE endpoint type.
+
+--fqdn FQDN
+
+:   Provide a comma-separated list of fully qualified domain names.
+
+--name NAME
+
+:   Specify the name of the object.
+
+--region REGION
+
+:   Specify the region for the VPE endpoint.
+
+## ibmcloud catalog object delete
+{: #delete-object}
+
+Run the following command to delete the object.
+
+```bash
+ibmcloud catalog object delete [--catalog CATALOG] [--name NAME]
+```
+{: codeblock}
+
+### Command options
+{: #delete-object-options}
+
+--catalog CATALOG
+
+:   Specify the catalog name or ID.
+
+--name NAME
+
+:   Provide the name of the object.
+
+## ibmcloud catalog object update vpe
+{: #update-object}
+
+Run the following command to update the object.
+
+```bash
+ibmcloud catalog object update vpe [--catalog CATALOG] [--name NAME] [--crn CRN] [--endpoint-type TYPE] [--fqdn FQDN] [--region REGION]
+```
+{: codeblock}
+
+### Command options
+{: #update-object-options}
+
+--catalog CATALOG
+
+:   Specify the catalog name or ID.
+
+--name NAME
+
+:   Specify the name of the object.
+
+--crn CRN (optional)
+
+:   Provide the Cloud Resource Name (CRN).
+
+--endpoint-type TYPE (optional)
+
+:   Specify the VPE endpoint type.
+
+--fqdn FQDN (optional)
+
+:   Provide a comma-separated list of fully qualified domain names.
+
+--region REGION (optional)
+
+:   Specify the region for the VPE endpoint.
+
+## ibmcloud catalog object get
+{: #get-object}
+
+Run the following command to retrieve information for a particular object.
+
+```bash
+ibmcloud catalog object get [--catalog CATALOG] [--name NAME] [--output OUTPUT]
+```
+{: codeblock}
+
+### Command options
+{: #get-object-options}
+
+--catalog CATALOG
+
+:   Specify the catalog name or ID.
+
+--name NAME
+
+:   Provide the name of the object.
+
+--output OUTPUT (optional)
+
+: Specifies output format. Default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
+
+## ibmcloud catalog object list
+{: #list-object}
+
+Run the following command to retrieve a list of objects in a catalog.
+
+```bash
+ibmcloud catalog object list [--catalog CATALOG] [--output OUTPUT]
+```
+{: codeblock}
+
+### Command options
+{: #list-object-options}
+
+--catalog CATALOG
+
+:   Specify the catalog name or ID.
+
+--output OUTPUT (optional)
+
+:   Specifies output format. Default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
+
+## ibmcloud catalog object search
+{: #search-object}
+
+Run the following command to search objects by using Lucene query syntax.
+
+```bash
+ibmcloud catalog object search [--query QUERY] [--output OUTPUT]
+```
+{: codeblock}
+
+### Command options
+{: #search-object-options}
+
+--query QUERY
+
+:   Provide the Lucene query string.
+
+--output OUTPUT (optional)
+
+:   Specifies output format. Default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
+
+## ibmcloud catalog object ready
+{: #ready-object}
+
+Run the following command to mark your object as ready to share or publish.
+
+```bash
+ibmcloud catalog object ready [--catalog CATALOG] [--name NAME]
+```
+{: codeblock}
+
+### Command options
+{: #ready-object-options}
+
+--catalog CATALOG
+:   Specify the catalog name or ID.
+
+--name NAME
+:   Specify the name of object.
+
+## ibmcloud catalog object enable-sharing
+{: #enable-share-object}
+
+Run the following command to enable sharing of a Partner Center managed object. You must enable sharing before you can share an object to an account or access list.
+
+```bash
+ibmcloud catalog object enable-sharing [--catalog CATALOG] [--name NAME]
+```
+{: codeblock}
+
+### Command options
+{: #enable-share-object-options}
+
+--catalog CATALOG
+:   Specify the catalog name or ID.
+
+--name NAME
+:   Specify the name of object.
+
+
+## ibmcloud catalog object publish
+{: #publish-object}
+
+Run the following command to publish the object to an access list, your account, {{site.data.keyword.IBM_notm}} employees, or {{site.data.keyword.cloud_notm}} catalog for all users to see and use.
+
+```bash
+ibmcloud catalog object publish COMMAND [--catalog CATALOG] [--name NAME]
+```
+{: codeblock}
+
+### Command options
+{: #publish-object-options}
+
+Command
+
+:   Specify where you want to publish the object. Valid values are `accesslist`, `account`, `ibm`, or `public`.
+
+--catalog CATALOG
+
+:   Specify the catalog name or ID.
+
+--name NAME
+
+:   Provide the name of the object.
+
+### Example
+{: #publish-object-example}
+
+Publish an object called `dev-object` that's in the catalog `dev-catalog` to {{site.data.keyword.IBM_notm}} employees.
+```bash
+ibmcloud catalog object publish ibm --catalog dev-catalog --name dev-object
+```
+{: codeblock}
+
+## ibmcloud catalog object access-list add
+{: #add-accesslist-object}
+
+Run the following command to add account IDs to an object's access list.
+
+```bash
+ibmcloud catalog object access-list add [--account-id ID] [--catalog CATALOG] [--name NAME]
+```
+{: codeblock}
+
+### Command options
+{: #add-accesslist-object-options}
+
+--account-id ID
+
+:   Provide a comma-separated list of account IDs.
+
+--catalog CATALOG
+
+:   Specify the catalog name or ID.
+
+--name NAME
+
+:   Specify the name of object.
+
+## ibmcloud catalog object access-list get
+{: #get-accesslist-object}
+
+Run the following command to retrieve information for a particular access list for an object.
+
+```bash
+ibmcloud catalog object access-list get [--catalog CATALOG] [--name NAME] [--output OUTPUT]
+```
+{: codeblock}
+
+### Command options
+{: #get-accesslist-object-options}
+
+--catalog CATALOG
+
+:   Specify the catalog name or ID.
+
+--name NAME
+
+:   Specify the name of object.
+
+--output OUTPUT (optional)
+
+:   Specifies output format. Default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
+
+## ibmcloud catalog object access-list rm
+{: #remove-object-accesslist}
+
+Run the following command to remove account IDs from the object's access list.
+
+```bash
+ibmcloud catalog object access-list rm [--account-id ID] [--catalog CATALOG] [--name NAME]
+```
+{: codeblock}
+
+### Command options
+{: #remove-object-accesslist-options}
+
+--account-id ID
+
+:   Provide a comma-separated list of account IDs.
+
+--catalog CATALOG
+
+:   Specify the catalog name or ID.
+
+--name NAME
+
+:   Specify the name of object.

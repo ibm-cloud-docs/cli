@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-06-02"
+  years: 2018, 2024
+lastupdated: "2024-05-20"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud api, ibmcloud, cli commands, regions, target, update, ibmcloud sl
 
@@ -162,7 +162,7 @@ API_ENDPOINT
 :   Bypass SSL validation of HTTP requests. This option isn't recommended.
 
 --vpc 
-:   Use a VPC connection for a private API endpoint.
+:   Use a VPC connection for a private API endpoint. For more information about configuring to use a VPC connection for a private API endpoint, see [Configuring a private endpoint gateway (required for VPC use)](/docs/cli?topic=cli-service-connection#cli-private-vpc).
 
 --unset
 :   Remove the API endpoint setting.
@@ -330,7 +330,7 @@ None.
 --accept
 :   Accept an invitation to join the targeted account. The provided account must be a valid account ID.
 
--g RESOURCE_GROUP<
+-g RESOURCE_GROUP
 :   The name or ID of the target resource group. Optional.
 
 -r REGION
@@ -343,7 +343,8 @@ None.
 :   Bypass the SSL validation of HTTP requests. This option isn't recommended.
 
 --vpc
-:   Use a VPC connection for a private API endpoint.
+:   Use a VPC connection for a private API endpoint. For more information about logging in by using a VPC connection for a private API endpoint, see [Logging in to the CLI with a private endpoint](/docs/cli?topic=cli-service-connection#cli-private-login). For information about configuring a VPC connection to use a private API endpoint, see [Configuring a private endpoint gateway (required for VPC use)](/docs/cli?topic=cli-service-connection#cli-private-vpc).
+
 
 ### Examples
 {: #login-examples}
@@ -467,7 +468,7 @@ IBMCLOUD_CR_PROFILE=trusted_profile_id_or_crn ibmcloud login --vpc-cri
 ```
 {: codeblock}
 
-For more information about logging in as a VPC VSI compute resource, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=vpc-cri-login).
+For more information about logging in as a VPC VSI compute resource, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
 
 **Accept invitation to join a new account:**
 

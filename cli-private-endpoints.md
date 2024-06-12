@@ -59,7 +59,9 @@ If you don't want to install from the shell because it might use root permission
    ```
    {: codeblock}
 
+
 * For **Windows&trade;**, copy and paste the following command to a [Windows&trade; PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.4){: external} command prompt and run it:
+
    ```bash
    iex (New-Object Net.WebClient).DownloadString('https://ibm-cloud-cli-installer-scripts.s3.private.us.cloud-object-storage.appdomain.cloud/powershell_private')
    ```
@@ -71,6 +73,7 @@ If you don't want to install from the shell because it might use root permission
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    ```
    {: codeblock}
+
 
 * For **Windows&trade;**, from an {{site.data.keyword.cloud_notm}} Virtual Private Cloud, copy and paste the following command to a [Windows&trade; PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.4){: external} command prompt and run it:
    ```bash
@@ -219,7 +222,7 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 
 3. Add to the `PATH` environment variable and enable shell autocompletion.
    * Add the `{YOUR_DIRECTORY}/IBM_CLOUD_CLI` to the `PATH` environment variable.
-   * For shell autocompletion support (Mac and Linux&trade; only), see [Enabling shell autocompletion for IBM Cloud CLI](/docs/cli/reference/ibmcloud?topic=cli-shell-autocomplete#shell-autocomplete).
+   * For shell autocompletion support (Mac and Linux&trade; only), see [Enabling shell autocompletion for IBM Cloud CLI](/docs/cli/reference/ibmcloud?topic=cli-shell-autocomplete).
 
 ### Binary files
 {: #install-custom-binary-files}

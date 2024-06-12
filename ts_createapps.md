@@ -40,6 +40,27 @@ This error is caused by the older CLI version attempting to reach the deprecated
 Download and install or replace the older CLI with the latest CLI version by using these [instructions](/docs/cli?topic=cli-install-ibmcloud-cli).
 {: tsResolve}
 
+## Why do I get a failure with the plugin update or install command after it has downloaded the binary?
+{: #ts-cli-plugin-update-failure}
+{: troubleshoot}
+{: support}
+
+If you are attempting to update or install a plug-in and the default downloads folder for your system lacks access rights, you see an error similar to the following message.
+{: tsSymptoms}
+
+```text
+FAILED
+Unable to obtain plug-in's metadata. Error: fork/exec/tmp/... : permission denied
+```
+{: screen}
+
+This error is caused by the download folder not having exec privileges.
+{: tsCauses}
+
+There are 2 resolutions. First, the download folder can be modified to have the exec privilege. Secondly, instead use the [plugin download command](/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_download) to download and install to an alternate directory. Then use the [plugin install command](/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_install) to install using the downloaded binary file.
+{: tsResolve}
+
+
 ## Why do I get a service broker error when I add the {{site.data.keyword.objectstorageshort}} capability?
 {: #ts-cli-object-storage}
 {: troubleshoot}

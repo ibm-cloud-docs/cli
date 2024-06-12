@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-05"
+lastupdated: "2024-06-11"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
@@ -509,136 +509,12 @@ ibmcloud resource service-instance-unlock my-service-instance
 ```
 {: codeblock}
 
-## ibmcloud resource service-bindings
-{: #ibmcloud_resource_service_bindings}
-
-Show bindings to the service alias.
-```bash
-ibmcloud resource service-bindings SERVICE_ALIAS
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_resource_service_bindings_options}
-
-SERVICE_ALIAS (required)
-:   Service alias name
-
-
-### Examples
-{: #ibmcloud_resource_service_bindings_examples}
-
-Show resource bindings to service alias `my-service-alias`:
-```bash
-ibmcloud resource bindings my-service-alias
-```
-{: codeblock}
-
-## ibmcloud resource service-binding
-{: #ibmcloud_resource_service_binding}
-
-Show details of a service binding.
-```bash
-ibmcloud resource service-binding ALIAS_NAME [--id]
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_resource_service_binding_options}
-
-ALIAS_NAME (required)
-:   Service alias name
-
---id
-:   Display the ID. All other output for the service binding is suppressed. This option is exclusive with '--output'.
-
-
-
-### Examples
-{: #ibmcloud_resource_service_binding_examples}
-
-Show details of service binding between service alias `my-service-alias` and app `my-app`:
-```bash
-ibmcloud resource bindings my-service-alias my-app
-```
-{: codeblock}
-
-## ibmcloud resource service-binding-create
-{: #ibmcloud_resource_service_binding_create}
-
-Create a service binding.
-```bash
-ibmcloud resource service-binding-create SERVICE_ALIAS_NAME ROLE_NAME [-n BINDING_NAME] [--service-id SERVICE_ID] [-p, --parameters @JSON_FILE | JSON_TEXT] [--service-endpoint SERVICE_ENDPOINT_TYPE] [-f, --force]
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_resource_service_binding_create_options}
-
-SERVICE_ALIAS_NAME (required)
-:   Service alias name
-
-ROLE_NAME (required)
-:   Name of the user role
-
---service-id *SERVICE_ID*
-:   Name or UUID of the service ID, which the role belongs to
-
--p, --parameter *@JSON_FILE | JSON_TEXT*
-:   Parameters JSON file or JSON string
-
---service-endpoint *SERVICE_ENDPOINT_TYPE*
-:   Type of the service endpoint. Possible values are 'public', 'private'.
-
--f, --force
-:   Force creation without confirmation
-
-
-
-### Examples
-{: #ibmcloud_resource_service_binding_create_examples}
-
-Create a service binding between service alias `my-service-alias` and app `my-app` with role `Administrator`:
-```bash
-ibmcloud resource service-binding-create my-service-alias my-app Administrator
-```
-{: codeblock}
-
-## ibmcloud resource service-binding-delete
-{: #ibmcloud_resource_service_binding_delete}
-
-Delete a service binding.
-```bash
-ibmcloud resource service-binding-delete SERVICE_ALIAS [-f, --force]
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_resource_service_binding_delete_options}
-
-SERVICE_ALIAS_NAME (required)
-:   Service alias name
-
--f, --force
-:   Force deletion without confirmation
-
-
-
-### Examples
-{: #ibmcloud_resource_service_binding_delete_examples}
-
-Delete the service binding between service alias `my-service-alias` and app `my-app`:
-```bash
-ibmcloud resource service-binding-delete my-service-alias my-app
-```
-{: codeblock}
-
 ## ibmcloud resource service-keys
 {: #ibmcloud_resource_service_keys}
 
-List service keys of service instance or service alias.
+List service keys of service instance.
 ```bash
-ibmcloud resource service-keys [ --instance-id ID | --instance-name NAME | --alias-id ID | --alias-name NAME ]
+ibmcloud resource service-keys [ --instance-id ID | --instance-name NAME ]
 ```
 {: codeblock}
 
@@ -650,13 +526,6 @@ ibmcloud resource service-keys [ --instance-id ID | --instance-name NAME | --ali
 
 --instance-name
 :   Service Instance Name
-
---alias-id
-:   Service Alias ID
-
---alias-name
-:   Service Alias Name
-
 
 
 ### Examples
@@ -716,7 +585,7 @@ ibmcloud resource service-key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/5
 
 Create a service key.
 ```bash
-ibmcloud resource service-key-create NAME [ROLE_NAME] ( --instance-id SERVICE_INSTANCE_ID | --instance-name SERVICE_INSTANCE_NAME | --alias-id SERVICE_ALIAS_ID | --alias-name SERVICE_ALIAS_NAME) [--service-id SERVICE_ID] [-p, --parameters @JSON_FILE | JSON_TEXT] [-g RESOURCE_GROUP] [--service-endpoint SERVICE_ENDPOINT_TYPE] [-f, --force] [-f, --force] [-q, --quiet]
+ibmcloud resource service-key-create NAME [ROLE_NAME] ( --instance-id SERVICE_INSTANCE_ID | --instance-name SERVICE_INSTANCE_NAME) [--service-id SERVICE_ID] [-p, --parameters @JSON_FILE | JSON_TEXT] [-g RESOURCE_GROUP] [--service-endpoint SERVICE_ENDPOINT_TYPE] [-f, --force] [-f, --force] [-q, --quiet]
 ```
 {: codeblock}
 
@@ -734,12 +603,6 @@ ROLE_NAME (optional)
 
 --instance-name *SERVICE_INSTANCE_NAME*
 :   Service instance name.
-
---alias-id *SERVICE_ALIAS_ID*
-:   Service alias ID.
-
---alias-name *SERVICE_ALIAS_NAME*
-:   Service alias name.
 
 --service-id *SERVICE_ID*
 :   Name or UUID of the service ID, which the role belongs to.
@@ -843,172 +706,6 @@ ibmcloud resource service-key-delete my-service-key
 ```
 {: codeblock}
 
-## ibmcloud resource service-aliases
-{: #ibmcloud_resource_service_aliases}
-
-List aliases for a service instance.
-```bash
-ibmcloud resource service-aliases [ --instance-id ID | --instance-name NAME ]
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_resource_service_aliases_options}
-
---instance-id
-:   ID of the belonging service instance.
-
---instance-name
-:   Name of the belonging service instance.
-
-
-
-### Examples
-{: #ibmcloud_resource_service_aliases_examples}
-
-List service aliases for service instance `my-service-instance`:
-```bash
-ibmcloud resource service-aliases my-service-instance
-```
-{: codeblock}
-
-## ibmcloud resource service-alias
-{: #ibmcloud_resource_service_alias}
-
-Show details of a service alias.
-```bash
-ibmcloud resource service-alias ALIAS_NAME [--id]
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_resource_service_alias_options}
-
-ALIAS_NAME (required)
-:   Name of the service alias
-
---id
-:   Display the service alias's ID. All other output for the alias is suppressed. This option is exclusive with '--output'.
-
-
-
-### Examples
-{: #ibmcloud_resource_service_alias_examples}
-
-Show details of service alias `my-service-alias`:
-```bash
-ibmcloud resource service-alias  my-service-alias
-```
-{: codeblock}
-
-## ibmcloud resource service-alias-create
-{: #ibmcloud_resource_service_alias_create}
-
-Create an alias of a service instance.
-```bash
-ibmcloud resource service-alias-create ALIAS_NAME ( --instance-id ID | --instance-name NAME ) [-s SPACE_NAME] [-t, --tags TAGS] [-p, --parameters @JSON_FILE | JSON_TEXT]
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_resource_service_alias_create_options}
-
-ALIAS_NAME (required)
-:   Name of the service alias
-
---instance-id
-:   ID of the belonging service instance.
-
---instance-name
-:   Name of the belonging service instance.
-
--s
-:   Name of the space in which the alias is created. Default is the current space.
-
--t, --tags
-:   Tags list.
-
--p, --parameters
-:   Parameters JSON file or JSON string.
-
-
-
-### Examples
-{: #ibmcloud_resource_service_alias_create_examples}
-
-Create a service alias named `my-service-alias` of service instance `my-service-instance`:
-```bash
-ibmcloud resource service-alias-create my-service-alias --instance-name my-service-instance
-```
-{: codeblock}
-
-## ibmcloud resource service-alias-update
-{: #ibmcloud_resource_service_alias_update}
-
-Update a service alias.
-```bash
-ibmcloud resource service-alias-update ALIAS_NAME [-n, --name NEW_NAME] [-t, --tags TAGS] [-p, --parameters @JSON_FILE | JSON_STRING ][-f, --force]
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_resource_service_alias_update_options}
-
-ALIAS_NAME (required)
-:   Name of the service alias
-
--n, --name
-:   New name of the service alias.
-
--t, --tags
-:   Tags list.
-
--p, --parameters
-:   Parameters JSON file or JSON string.
-
--f, --force
-:   Force update without user confirmation.
-
-
-
-### Examples
-{: #ibmcloud_resource_service_alias_update_examples}
-
-Update service alias `my-service-alias`, change its name to `new-service-alias`:
-```bash
-ibmcloud resource service-alias-update my-service-alias -n new-service-alias
-```
-{: codeblock}
-
-## ibmcloud resource service-alias-delete
-{: #ibmcloud_resource_service_alias_delete}
-
-Delete a service alias.
-```bash
-ibmcloud resource service-alias-delete ALIAS_NAME [-f, --force]
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_resource_service_alias_delete_options}
-
-ALIAS_NAME (required)
-:   Name of the service alias
-
--f, --force
-:   Force deletion without confirmation
-
-
-
-### Examples
-{: #ibmcloud_resource_service_alias_delete_examples}
-
-Delete service alias `my-service-alias`:
-```bash
-ibmcloud resource service-alias-delete my-service-alias
-```
-{: codeblock}
-
 ## ibmcloud resource search
 {: #ibmcloud_resource_search}
 
@@ -1057,7 +754,7 @@ doc.resource_group_id
 :   The ID of the resource group.
 
 type
-:   The resource type. The allowed values are k8-cluster, resource-instance, resource-alias, resource-binding, resource-group, vmware-solutions, cloud-objects-storage-infrastructure, block-storage, file-storage, cloud-backup.
+:   The resource type. The allowed values are k8-cluster, resource-instance, resource-group, vmware-solutions, cloud-objects-storage-infrastructure, block-storage, file-storage, cloud-backup.
 
 creation_date
 :   The date on which the resource is created.
@@ -1080,21 +777,9 @@ ibmcloud resource search "region:us-south AND family:resource_controller"
 ```
 {: codeblock}
 
-Search for resources or aliases in the resource group with the specified ID:
-```bash
-ibmcloud resource search "(type:resource-instance OR type:resource-alias) AND (doc.resource_group_id:c900d9671b235c00461c5e311a8aeced)"
-```
-{: codeblock}
-
 Search for resource groups with name default:
 ```bash
 ibmcloud resource search "name:default AND type:resource-group"
-```
-{: codeblock}
-
-Search for resource bindings for the specified service name:
-```bash
-ibmcloud resource search "service_name:cloud-object-storage AND type:resource-binding"
 ```
 {: codeblock}
 
@@ -1193,7 +878,7 @@ This command is only valid for access management tags. For example:
 
 Attach one or more tags to a resource:
 ```bash
-ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --resource-id RESOURCE_ID ) [--resource-type RESOURCE_TYPE] [--tag-type TAG_TYPE] [--account-id ACCOUNT_ID]
+ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --resource-id RESOURCE_ID ) [--resource-type RESOURCE_TYPE] [--tag-type TAG_TYPE] [--account-id ACCOUNT_ID] [--replace] [--update]
 ```
 {: codeblock}
 
@@ -1217,6 +902,12 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 
 --account-id value
 :   The ID of the account that owns the resources to be tagged (required if tag-type is set to service).
+
+--replace
+:   The list of tag names will replace the current list of tag names attached to the resource.
+
+--update
+:   The tag names in the format `key:value` will be updated. The option has no effect on tag names that are not in that format.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1248,7 +939,6 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
     ```
     {: codeblock}
 
-
 * To attach the user tag `MyTag` to a classic infrastructure virtual guest named `MyVM`, first look for the ID of the virtual guest you would like to tag:
     ```bash
     ibmcloud resource search 'fullyQualifiedDomainName:MyVM  _objectType:SoftLayer_Virtual_Guest' -p classic-infrastructure
@@ -1266,6 +956,34 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 * To attach the access management tag `project:myproject`, that you previously created, to an instance of IBM Cloud Object Storage called `Project data`, run the following command:
     ```bash
     ibmcloud resource tag-attach --tag-names "project:myproject" --resource-name Project data -—tag-type access
+    ```
+    {: codeblock}
+
+* To update to `production` the value of the `env` user tag on a resource named `MyResource` run the following command:
+
+    ```bash
+    ibmcloud resource tag-attach --tag-names 'env:production' --resource-name 'MyResource' --update
+    ```
+    {: codeblock}
+
+* To update to `production` the value of the `env` access management tag on a resource named `MyResource` run the following command:
+
+    ```bash
+    ibmcloud resource tag-attach --tag-names 'env:production' --resource-name 'MyResource' --update --tag-type access
+    ```
+    {: codeblock}
+
+* To replace all user tags of `MyResource` with a new set of tags `tag1`, `tag2`, and `tag3` run the following command:
+
+    ```bash
+    ibmcloud resource tag-attach --tag-names 'tag1,tag2,tag3' --resource-name 'MyResource' --replace
+    ```
+    {: codeblock}
+
+* To replace all access management tags of `MyResource` with the tag `compliance:hipaa` run the following command:
+
+    ```bash
+    ibmcloud resource tag-attach --tag-names 'compliance:hipaa' --resource-name 'MyResource' --replace --tag-type access
     ```
     {: codeblock}
 
@@ -1329,7 +1047,6 @@ ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --res
     ```
     {: codeblock}
 
-
 * To detach the user tag `MyTag` to a classic infrastructure virtual guest named `MyVM`, first look for the ID of the virtual guest you would like to detach the tag from:
     ```bash
     ibmcloud resource search 'fullyQualifiedDomainName:MyVM  _objectType:SoftLayer_Virtual_Guest' -p classic-infrastructure
@@ -1350,6 +1067,19 @@ ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --res
     ```
     {: codeblock}
 
+* To detach the `env:value` tag from `MyResource`, regardless of its value, run the following command:
+
+    ```bash
+    ibmcloud resource tag-detach --tag-names 'env:*' —resource-name 'MyResource'
+    ```
+    {: codeblock}
+
+* To detach all tags from `MyResource` run the following command:
+
+    ```bash
+    ibmcloud resource tag-detach --tag-names '*' —resource-name 'MyResource'
+    ```
+    {: codeblock}
 
 ## ibmcloud resource tag-delete
 {: #ibmcloud_resource_tag_delete}
