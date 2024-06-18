@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-04-26"
+lastupdated: "2024-06-18"
 
 subcollection: cli
 
@@ -46,7 +46,7 @@ Commands for Projects resource.
 Create a new project and asynchronously setup the tools to manage it. Add a deployable architecture by customizing the configuration. After the changes are validated and approved, deploy the resources that the project configures. For more information, see [Creating a project](/docs/secure-enterprise?topic=secure-enterprise-setup-project&interface=ui/docs-draft/secure-enterprise?topic=secure-enterprise-setup-project).
 
 ```sh
-ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-description DEFINITION-DESCRIPTION --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED] --location LOCATION --resource-group RESOURCE-GROUP [--configs CONFIGS] [--environments ENVIRONMENTS]
+ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-description DEFINITION-DESCRIPTION --definition-auto-deploy=DEFINITION-AUTO-DEPLOY --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED] --location LOCATION --resource-group RESOURCE-GROUP [--configs CONFIGS] [--environments ENVIRONMENTS]
 ```
 
 
@@ -61,7 +61,7 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
 `--location` (string)
 :   The IBM Cloud location where a resource is deployed. Required.
 
-    The maximum length is `12` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(us-south|us-east|eu-gb|eu-de)$/`.
+    Allowable values are: `us-south`, `us-east`, `eu-gb`, `eu-de`, `ca-tor`.
 
 `--resource-group` (string)
 :   The resource group name where the project's data and tools are created. Required.
@@ -97,6 +97,11 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
 
     The default value is ``. The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
 
+`--definition-auto-deploy` (bool)
+:   A boolean flag to enable auto deploy. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+
+    The default value is `false`.
+
 `--definition-monitoring-enabled` (bool)
 :   A boolean flag to enable automatic drift detection. Use this field to run a daily check to compare your configurations to your deployed resources to detect any difference. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
@@ -107,11 +112,11 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
 
 ```sh
 ibmcloud project create \
-    --definition '{"name": "acme-microservice", "destroy_on_delete": true, "description": "A microservice to deploy on top of ACME infrastructure.", "monitoring_enabled": false}' \
+    --definition '{"name": "acme-microservice", "destroy_on_delete": true, "description": "A microservice to deploy on top of ACME infrastructure.", "auto_deploy": false, "monitoring_enabled": false}' \
     --location us-south \
     --resource-group Default \
-    --configs '[{"definition": {"compliance_profile": {"id": "exampleString", "instance_id": "exampleString", "instance_location": "exampleString", "attachment_id": "exampleString", "profile_name": "exampleString"}, "locator_id": "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global", "description": "The stage account configuration.", "name": "account-stage", "environment_id": "exampleString", "authorizations": {"trusted_profile_id": "exampleString", "method": "api_key", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}}, "schematics": {"workspace_crn": "crn:v1:staging:public:project:us-south:a/4e1c48fcf8ac33c0a2441e4139f189ae:bf40ad13-b107-446a-8286-c6d576183bb1::"}}]' \
-    --environments '[{"definition": {"description": "exampleString", "name": "exampleString", "authorizations": {"trusted_profile_id": "exampleString", "method": "api_key", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "compliance_profile": {"id": "exampleString", "instance_id": "exampleString", "instance_location": "exampleString", "attachment_id": "exampleString", "profile_name": "exampleString"}}}]'
+    --configs '[{"definition": {"compliance_profile": {"id": "exampleString", "instance_id": "exampleString", "instance_location": "us-south", "attachment_id": "exampleString", "profile_name": "exampleString"}, "locator_id": "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global", "description": "The stage account configuration.", "name": "account-stage", "environment_id": "exampleString", "authorizations": {"trusted_profile_id": "exampleString", "method": "api_key", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}}, "schematics": {"workspace_crn": "crn:v1:staging:public:project:us-south:a/4e1c48fcf8ac33c0a2441e4139f189ae:bf40ad13-b107-446a-8286-c6d576183bb1::"}}]' \
+    --environments '[{"definition": {"description": "exampleString", "name": "exampleString", "authorizations": {"trusted_profile_id": "exampleString", "method": "api_key", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "compliance_profile": {"id": "exampleString", "instance_id": "exampleString", "instance_location": "us-south", "attachment_id": "exampleString", "profile_name": "exampleString"}}}]'
 ```
 {: pre}
 
@@ -125,6 +130,7 @@ ibmcloud project create \
     --definition-name exampleString \
     --definition-destroy-on-delete=true \
     --definition-description exampleString \
+    --definition-auto-deploy=false \
     --definition-monitoring-enabled=false
 ```
 {: pre}
@@ -189,6 +195,7 @@ An example request to list projects.
     "definition" : {
       "description" : "A project example.",
       "name" : "iaas-infra-prestage-env",
+      "auto_deploy" : false,
       "destroy_on_delete" : false,
       "monitoring_enabled" : false
     },
@@ -213,6 +220,7 @@ An example request to list projects.
     "definition" : {
       "description" : "A project example.",
       "name" : "iaas-infra-stage-env",
+      "auto_deploy" : false,
       "destroy_on_delete" : false,
       "monitoring_enabled" : false
     },
@@ -268,6 +276,7 @@ A sample response for retrieving a project with configurations.
   "definition" : {
     "name" : "acme-microservice",
     "description" : "A microservice to deploy on top of ACME infrastructure.",
+    "auto_deploy" : false,
     "destroy_on_delete" : true,
     "monitoring_enabled" : false
   },
@@ -419,7 +428,7 @@ A sample response for retrieving a project with configurations.
 Update a project by specifying its ID.
 
 ```sh
-ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-description DEFINITION-DESCRIPTION --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED]
+ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-auto-deploy=DEFINITION-AUTO-DEPLOY --definition-description DEFINITION-DESCRIPTION --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED]
 ```
 
 
@@ -444,6 +453,9 @@ ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEF
 `--definition-destroy-on-delete` (bool)
 :   The policy that indicates whether the resources are destroyed or not when a project is deleted. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
+`--definition-auto-deploy` (bool)
+:   A boolean flag to enable auto deploy. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+
 `--definition-description` (string)
 :   A brief explanation of the project's use in the configuration of a deployable architecture. You can create a project without providing a description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
@@ -458,7 +470,7 @@ ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEF
 ```sh
 ibmcloud project update \
     --id exampleString \
-    --definition '{"name": "acme-microservice", "destroy_on_delete": true, "description": "A microservice to deploy on top of ACME infrastructure.", "monitoring_enabled": true}'
+    --definition '{"name": "acme-microservice", "destroy_on_delete": true, "auto_deploy": true, "description": "A microservice to deploy on top of ACME infrastructure.", "monitoring_enabled": true}'
 ```
 {: pre}
 
@@ -468,6 +480,7 @@ ibmcloud project update \
     --id exampleString \
     --definition-name exampleString \
     --definition-destroy-on-delete=true \
+    --definition-auto-deploy=true \
     --definition-description exampleString \
     --definition-monitoring-enabled=true
 ```
@@ -487,6 +500,7 @@ A sample response for retrieving a project with configurations.
   "definition" : {
     "name" : "acme-microservice",
     "description" : "A microservice to deploy on top of ACME infrastructure.",
+    "auto_deploy" : false,
     "destroy_on_delete" : true,
     "monitoring_enabled" : false
   },
@@ -1230,7 +1244,7 @@ For more information, see [Creating workspaces and importing your Terraform temp
 ```sh
 ibmcloud project config-create \
     --project-id exampleString \
-    --definition '{"compliance_profile": {"id": "exampleString", "instance_id": "exampleString", "instance_location": "exampleString", "attachment_id": "exampleString", "profile_name": "exampleString"}, "locator_id": "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global", "description": "The stage environment configuration.", "name": "env-stage", "environment_id": "exampleString", "authorizations": {"trusted_profile_id": "exampleString", "method": "api_key", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}}' \
+    --definition '{"compliance_profile": {"id": "exampleString", "instance_id": "exampleString", "instance_location": "us-south", "attachment_id": "exampleString", "profile_name": "exampleString"}, "locator_id": "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global", "description": "The stage environment configuration.", "name": "env-stage", "environment_id": "exampleString", "authorizations": {"trusted_profile_id": "exampleString", "method": "api_key", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}}' \
     --schematics '{"workspace_crn": "crn:v1:staging:public:project:us-south:a/4e1c48fcf8ac33c0a2441e4139f189ae:bf40ad13-b107-446a-8286-c6d576183bb1::"}'
 ```
 {: pre}
@@ -1484,7 +1498,7 @@ ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEF
 ibmcloud project config-update \
     --project-id exampleString \
     --id exampleString \
-    --definition '{"compliance_profile": {"id": "exampleString", "instance_id": "exampleString", "instance_location": "exampleString", "attachment_id": "exampleString", "profile_name": "exampleString"}, "locator_id": "exampleString", "description": "exampleString", "name": "env-stage", "environment_id": "exampleString", "authorizations": {"trusted_profile_id": "exampleString", "method": "api_key", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}}'
+    --definition '{"compliance_profile": {"id": "exampleString", "instance_id": "exampleString", "instance_location": "us-south", "attachment_id": "exampleString", "profile_name": "exampleString"}, "locator_id": "exampleString", "description": "exampleString", "name": "env-stage", "environment_id": "exampleString", "authorizations": {"trusted_profile_id": "exampleString", "method": "api_key", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}}'
 ```
 {: pre}
 
@@ -2108,7 +2122,7 @@ The example response to a request to get project configuration resources.
 Defines inputs at the stack level that users need to configure along with input values at the member level. These values are included in the catalog entry when the deployable architecture stack is exported to a private catalog and are required for the deployable architecture stack to deploy. You can add a reference to a value, or add the value explicitly at the member level.
 
 ```sh
-ibmcloud project stack-definition-create --project-id PROJECT-ID --id ID [--stack-definition STACK-DEFINITION | --stack-definition-inputs STACK-DEFINITION-INPUTS --stack-definition-outputs STACK-DEFINITION-OUTPUTS --stack-definition-members STACK-DEFINITION-MEMBERS]
+ibmcloud project stack-definition-create --project-id PROJECT-ID --id ID [--stack-definition STACK-DEFINITION | --stack-definition-inputs STACK-DEFINITION-INPUTS --stack-definition-outputs STACK-DEFINITION-OUTPUTS]
 ```
 
 
@@ -2144,13 +2158,6 @@ ibmcloud project stack-definition-create --project-id PROJECT-ID --id ID [--stac
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-outputs=@path/to/file.json`.
 
-`--stack-definition-members` ([`StackDefinitionMemberPrototype[]`](#cli-stack-definition-member-prototype-example-schema))
-:   Defines the member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
-
-    The maximum length is `100` items. The minimum length is `0` items.
-
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-members=@path/to/file.json`.
-
 #### Examples
 {: #project-stack-definition-create-examples}
 
@@ -2158,7 +2165,7 @@ ibmcloud project stack-definition-create --project-id PROJECT-ID --id ID [--stac
 ibmcloud project stack-definition-create \
     --project-id exampleString \
     --id exampleString \
-    --stack-definition '{"inputs": [{"name": "region", "type": "string", "description": "exampleString", "default": "us-south", "required": true, "hidden": false}], "outputs": [{"name": "vpc_cluster_id", "value": "cluster_id"}], "members": [{"name": "foundation-deployable-architecture", "inputs": [{"name": "region"}]}]}'
+    --stack-definition '{"inputs": [{"name": "region", "type": "string", "description": "exampleString", "default": "us-south", "required": true, "hidden": false}], "outputs": [{"name": "vpc_cluster_id", "value": "cluster_id"}]}'
 ```
 {: pre}
 
@@ -2168,8 +2175,7 @@ ibmcloud project stack-definition-create \
     --project-id exampleString \
     --id exampleString \
     --stack-definition-inputs '[stackDefinitionInputVariable]' \
-    --stack-definition-outputs '[stackDefinitionOutputVariable]' \
-    --stack-definition-members '[stackDefinitionMemberPrototype]'
+    --stack-definition-outputs '[stackDefinitionOutputVariable]'
 ```
 {: pre}
 
@@ -2332,7 +2338,7 @@ Sample response from a create stack template operation.
 Update the stack definition that is associated with the configuration.
 
 ```sh
-ibmcloud project stack-definition-update --project-id PROJECT-ID --id ID [--stack-definition STACK-DEFINITION | --stack-definition-inputs STACK-DEFINITION-INPUTS --stack-definition-outputs STACK-DEFINITION-OUTPUTS --stack-definition-members STACK-DEFINITION-MEMBERS]
+ibmcloud project stack-definition-update --project-id PROJECT-ID --id ID [--stack-definition STACK-DEFINITION | --stack-definition-inputs STACK-DEFINITION-INPUTS --stack-definition-outputs STACK-DEFINITION-OUTPUTS]
 ```
 
 
@@ -2368,13 +2374,6 @@ ibmcloud project stack-definition-update --project-id PROJECT-ID --id ID [--stac
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-outputs=@path/to/file.json`.
 
-`--stack-definition-members` ([`StackDefinitionMemberPrototype[]`](#cli-stack-definition-member-prototype-example-schema))
-:   Defines the member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
-
-    The maximum length is `100` items. The minimum length is `0` items.
-
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-members=@path/to/file.json`.
-
 #### Examples
 {: #project-stack-definition-update-examples}
 
@@ -2382,7 +2381,7 @@ ibmcloud project stack-definition-update --project-id PROJECT-ID --id ID [--stac
 ibmcloud project stack-definition-update \
     --project-id exampleString \
     --id exampleString \
-    --stack-definition '{"inputs": [{"name": "region", "type": "string", "description": "exampleString", "default": "eu-gb", "required": true, "hidden": false}], "outputs": [{"name": "exampleString", "value": "exampleString"}], "members": [{"name": "foundation-deployable-architecture", "inputs": [{"name": "cluster_name"}]}]}'
+    --stack-definition '{"inputs": [{"name": "region", "type": "string", "description": "exampleString", "default": "eu-gb", "required": true, "hidden": false}], "outputs": [{"name": "exampleString", "value": "exampleString"}]}'
 ```
 {: pre}
 
@@ -2392,8 +2391,7 @@ ibmcloud project stack-definition-update \
     --project-id exampleString \
     --id exampleString \
     --stack-definition-inputs '[stackDefinitionInputVariable]' \
-    --stack-definition-outputs '[stackDefinitionOutputVariable]' \
-    --stack-definition-members '[stackDefinitionMemberPrototype]'
+    --stack-definition-outputs '[stackDefinitionOutputVariable]'
 ```
 {: pre}
 
@@ -2771,7 +2769,7 @@ The following example shows the format of the EnvironmentPrototype[] object.
     "compliance_profile" : {
       "id" : "exampleString",
       "instance_id" : "exampleString",
-      "instance_location" : "exampleString",
+      "instance_location" : "us-south",
       "attachment_id" : "exampleString",
       "profile_name" : "exampleString"
     }
@@ -2823,7 +2821,7 @@ The following example shows the format of the ProjectConfigDefinitionPatch objec
   "compliance_profile" : {
     "id" : "exampleString",
     "instance_id" : "exampleString",
-    "instance_location" : "exampleString",
+    "instance_location" : "us-south",
     "attachment_id" : "exampleString",
     "profile_name" : "exampleString"
   },
@@ -2857,7 +2855,7 @@ The following example shows the format of the ProjectConfigDefinitionPrototype o
   "compliance_profile" : {
     "id" : "exampleString",
     "instance_id" : "exampleString",
-    "instance_location" : "exampleString",
+    "instance_location" : "us-south",
     "attachment_id" : "exampleString",
     "profile_name" : "exampleString"
   },
@@ -2892,7 +2890,7 @@ The following example shows the format of the ProjectConfigPrototype[] object.
     "compliance_profile" : {
       "id" : "exampleString",
       "instance_id" : "exampleString",
-      "instance_location" : "exampleString",
+      "instance_location" : "us-south",
       "attachment_id" : "exampleString",
       "profile_name" : "exampleString"
     },
@@ -2929,6 +2927,7 @@ The following example shows the format of the ProjectPatchDefinitionBlock object
 {
   "name" : "acme-microservice",
   "destroy_on_delete" : true,
+  "auto_deploy" : true,
   "description" : "A microservice to deploy on top of ACME infrastructure.",
   "monitoring_enabled" : true
 }
@@ -2946,6 +2945,7 @@ The following example shows the format of the ProjectPrototypeDefinition object.
   "name" : "acme-microservice",
   "destroy_on_delete" : true,
   "description" : "A microservice to deploy on top of ACME infrastructure.",
+  "auto_deploy" : false,
   "monitoring_enabled" : false
 }
 ```
@@ -2985,12 +2985,6 @@ The following example shows the format of the StackDefinitionBlockPrototype obje
   "outputs" : [ {
     "name" : "vpc_cluster_id",
     "value" : "cluster_id"
-  } ],
-  "members" : [ {
-    "name" : "foundation-deployable-architecture",
-    "inputs" : [ {
-      "name" : "region"
-    } ]
   } ]
 }
 ```
