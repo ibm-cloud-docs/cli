@@ -30,7 +30,7 @@ ibmcloud billing account-usage [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
 {: #ibmcloud_billing_account_usage_options}
 
 -d MONTH_DATE (optional)
-:   Display data for the month that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
+:   Display data for the month and date that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
 
 --output FORMAT (optional)
 :   Specify output format. Accepted inputs are JSON and CSV.
