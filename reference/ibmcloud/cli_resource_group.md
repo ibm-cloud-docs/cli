@@ -736,7 +736,7 @@ ibmcloud resource search LUCENE_QUERY [-o, --offset OFFSET] [-l, --limit LIMIT] 
 ### Searchable attributes
 {: #ibmcloud_resource_search_attributes}
 
-You can search for the following attributes:
+There are many attributes you can search for to scope your search. A few examples are:
 
 name
 :   The user-defined name of the resource.
@@ -747,26 +747,13 @@ region
 service_name
 :   The name of the service as it appears in the Name column of the output of 'ibmcloud catalog service-marketplace'.
 
-family
-:   The cloud component to which your resource belongs. The allowed values are containers, resource_controller, vmware, or ims.
-
-doc.resource_group_id
-:   The ID of the resource group.
-
-type
-:   The resource type. The allowed values are k8-cluster, resource-instance, resource-group, vmware-solutions, cloud-objects-storage-infrastructure, block-storage, file-storage, cloud-backup.
-
 creation_date
 :   The date on which the resource is created.
 
 modification_date
-:   The last modification date of the resource. It is in the format yyyy-mm-ddThh:mm:ssZ
+:   The last modification date of the resource.
 
-_objectType
-:   The type of the classic infrastructure resource. Allowed values are SoftLayer_Virtual_DedicatedHost, SoftLayer_Hardware, SoftLayer_Network_Application_Delivery_Controller, SoftLayer_Network_Subnet_IpAddress, SoftLayer_Network_Vlan, SoftLayer_Network_Vlan_Firewall and SoftLayer_Virtual_Guest.
-
-tags, tagReferences.tag.name
-:   The tag attached to a resource. Use tagReferences.tag.name when searching for tags attached to classic infrastructure resources
+Refer to [Searching for resources](/docs/account?topic=account-searching-for-resources&interface=cli) for the complete list of attributes you can search for.
 
 ### Examples
 {: #ibmcloud_resource_search_examples}
