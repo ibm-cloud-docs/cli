@@ -628,7 +628,7 @@ ibmcloud sl [command] -h
 
 For detailed information about each command, see the related reference topics in this documentation.
 
-The `ibmcloud sl init` command is no longer available as of CLI version `0.14`. To install the most recent CLI version, see [Installing the stand-alone {{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cli-install-ibmcloud-cli#install-ibmcloud-cli).
+The `ibmcloud sl init` command is no longer available as of CLI version `0.14`. To install the most recent CLI version, see [Installing the stand-alone {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli#install-ibmcloud-cli).
 {: note}
 
 ## ibmcloud sl help

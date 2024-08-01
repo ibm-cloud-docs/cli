@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-08-01"
 
 keywords: cli, catalogs management, catalog
 
@@ -81,12 +81,12 @@ ibmcloud catalog account delete-approval-access [--account-ids IDS] [--object-ki
 
 --account-ids VALUE
 
-:   Provide a comma separated list of account IDs prefixed with one of the following.  `-acct-` for regular accounts, `-ent-` for enterprise accounts, and `-entgrp-` for enterprise account groups.
+:   Provide a comma-separated list of account IDs prefixed with one of the following.  `-acct-` for regular accounts, `-ent-` for enterprise accounts, and `-entgrp-` for enterprise account groups.
 
 ## ibmcloud catalog account get-approval-list
 {: #catalog-account-get-list}
 
-Run the following command to get approval list for your catalog account.
+Run the following command to get an approval list for your catalog account.
 
 ```bash
 ibmcloud catalog account get-approval-list [--object-kind KIND]
@@ -159,7 +159,7 @@ ibmcloud catalog account set-approval-state-source [--account-ids IDS] [--approv
 
 Use this command to create a new private catalog in your account. A private catalog is used to organize a set of products, private ones you add, or references to products in the {{site.data.keyword.cloud_notm}} catalog. A user must have access to your private catalog through an IAM access policy and the resource group that contains your private catalog to view and work with the products.
 
-You must target a resource group to create a catalog because the catalog exists in the context of a particular resource group. To get the list of resource groups, you can run the `ibmcloud resource groups` command, and then the `ibmcloud target -g "resource group"` command.
+Target a resource group to create a catalog because the catalog exists in the context of a particular resource group. To get the list of resource groups, you can run the `ibmcloud resource groups` command, and then the `ibmcloud target -g "resource group"` command.
 {: important}
 
 ```bash
@@ -204,7 +204,7 @@ ibmcloud catalog list [--output FORMAT]
 
 --output FORMAT (optional)
 
-:   Specifies output format. Default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
 
 ### Output
 {: #get-catalogs-output}
@@ -239,7 +239,7 @@ ibmcloud catalog get --catalog CATALOG [--output FORMAT]
 
 --output FORMAT (optional)
 
-:   Specifies output format. Default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
 
 ### Output
 {: #get-catalog-output}
@@ -300,35 +300,35 @@ ibmcloud catalog search <QUERY> [--catalog CATALOG] [--type TYPE] [-r, --region 
 
 --kind KIND (optional)
 
-:   Flag is only valid for services search. Provide a comma-separated list of types of products.
+:   The flag is only valid for searching services. Provide a comma-separated list of types of products.
 
 --region REGION (optional)
 
-:   Flag is only valid for services search. Provide a comma-separated list of regions. Run `ibmcloud cs regions` to return a valid list.
+:   The flag is only valid for searching services. Provide a comma-separated list of regions. Run `ibmcloud cs regions` to return a valid list.
 
 --price PRICE (optional)
 
-:   Flag is only valid for services search. Provide a comma-separated list of pricing types.
+:   Flag is only valid for searching services. Provide a comma-separated list of pricing types.
 
 --tag TAG (optional)
 
-:   Flag is only valid for services search. Provide a comma-separated list of tags.
+:   The flag is only valid for searching services. Provide a comma-separated list of tags.
 
 --global (optional)
 
-:   Flag is only valid for services search. Use it to operate in global scope.
+:   The flag is only valid for searching services. Use it to operate in a global scope.
 
 --sort-by TYPE (optional)
 
-:   Flag is only valid for services search and used to order the search result. Available options are `name`, `displayname`, `kind`, `provider`, `created`, and `updated`.
+:   The flag is only valid for searching services and used to order the search result. Available options are `name`, `displayname`, `kind`, `provider`, `created`, and `updated`.
 
 --reverse (optional)
 
-:   Flag is only valid for services search. Use it to reverse the sorting order.
+:   The flag is only valid for searching services. Use it to reverse the sorting order.
 
 --fields FIELDS (optional)
 
-:   Flag is only valid for services search. Customize the table, for example, `--fields name,kind,metadata.service.iam_compatible`.
+:   The flag is only valid for searching services. Customize the table, for example, `--fields name,kind,metadata.service.iam_compatible`.
 
 
 ### Output
@@ -369,7 +369,7 @@ ibmcloud catalog filter get --catalog CATALOG [--output FORMAT]
 
 --output FORMAT (optional)
 
-:   Specifies output format. Default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
 
 
 ### Output
@@ -647,7 +647,7 @@ ibmcloud catalog offering create [--catalog CATALOG_NAME] [--zipurl URL] [--incl
 
 --zipurl URL (optional)
 
-:   URL pointing to .zip file of the product.
+:   URL pointing to the .zip file of the product.
 
 --target-version VERSION
 
@@ -909,7 +909,7 @@ ibmcloud catalog offering import-version --catalog CATALOG --offering OFFERING_N
 :   :   The product name or ID.
 
 --zipurl URL (optional)
-:   URL pointing to the .zip file of the product.
+:   The URL pointing to the .zip file of the product.
 
 --target-version APP_VERSION (optional)
 :   The application version of the \"tgz\" being imported.
@@ -923,7 +923,7 @@ ibmcloud catalog offering import-version --catalog CATALOG --offering OFFERING_N
 ### Virtual server image for VPC Example
 {: #import-version-example}
 
-Import a virtual server image for VPC to an existing offerng with to a catalog with ID `51c9e0db-2911-45a6-adb0-ac5332d27cf2` and offering ID `97cdaf1b-62b2-48e2-8589-10b31023866d`.
+Import a virtual server image for VPC to an existing offering with to a catalog with ID `51c9e0db-2911-45a6-adb0-ac5332d27cf2` and offering ID `97cdaf1b-62b2-48e2-8589-10b31023866d`.
 
 ```bash
 ibmcloud catalog offering import-version --catalog 51c9e0db-2911-45a6-adb0-ac5332d27cf2 --offering 97cdaf1b-62b2-48e2-8589-10b31023866d --vpc-body '{
@@ -958,9 +958,9 @@ ibmcloud catalog offering import-version --catalog 51c9e0db-2911-45a6-adb0-ac533
 ## ibmcloud catalog offering update
 {: #update-offering}
 
-To update a product in your private catalog, you first need get the product and then you can update.
+To update a product in your private catalog, you first need to get the product and then you can update.
 
-Run the `offering get` command. For more information, see [ibmcloud catalog offering get](#get-offering).
+Run the `offering get` command. For more information, see the [ibmcloud catalog offering get](#get-offering).
 
 ```bash
 ibmcloud catalog offering get -c <CATALOGID> -o <OFFERINGID> --output json
@@ -1086,7 +1086,7 @@ vsi_instance_name, vsi_id, vpc_profile, subnet_id, vpc_id, subnet_zone, ssh_key_
 --schematics-delete VALUE (optional)
 :   Provide this flag to delete the {{site.data.keyword.bpshort}} workspace after validation and installation.
 
-### Example validating a product using a cluster
+### Example validating a product that uses a cluster
 {: #validate-example}
 
 Validate a product with the version locator `b636d651-8489-4425-bd6a-f30af1603577.18aad484-c78b-4269-808b-52027621abd4` in a cluster with the ID `bn5ebho206o7fg45f2e0` within a namespace called `test-namespace`. This installation has custom configurations, so the values are provided by using a `values.json` file.
@@ -1295,7 +1295,7 @@ Run the following command to update the security and compliance claims of a vers
 ## ibmcloud catalog offering version scc-apply
 {: #scc-apply}
 
-Run the following command to add a Security and Compliance Center scan to your version. You must add security and compliance information to your version and validate your version before you can add a scan.
+Run the following command to add a Security and Compliance Center scan to your version. Add security and compliance information to your version and validate your version before you can add a scan.
 
 ```bash
   ibmcloud catalog offering version scc-apply [--instance-region REGION] [--scan SCAN] [--service-instance INSTANCE] [--target-account-name NAME] [--target-api-key KEY] [--timeout TIMEOUT] [--version-locator LOCATOR] [--wait WAIT]
@@ -1321,13 +1321,13 @@ Run the following command to add a Security and Compliance Center scan to your v
 :   Provide an API key if you want to use an alternative account (target account) to apply a scan to your source account. For more information, see [Setting up a target account](/docs/account?topic=account-catalog-cross-validation).
 
 --timeout TIMEOUT
-:   Specify in seconds how long you want to wait for the scan to be applied to the version before the command returns. Default value is 600 (10 minutes).
+:   Specify in seconds how long you want to wait for the scan to be applied to the version before the command returns. The default value is 600 (10 minutes).
 
 --version-locator LOCATOR
 :   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified product or version you want to use.
 
 --wait WAIT
-:   Wait and track the progress of a scan application. Default is true if flag is not provided. If `true`, the command tracks progress of the scan application. If `false`, the command returns immediately.
+:   Wait and track the progress of a scan application. Default is true if flag is not provided. If `true`, the command tracks the progress of the scan application. If `false`, the command returns immediately.
 
 ## ibmcloud catalog offering version scc-apply-status
 {: #scc-apply-status}
@@ -1382,7 +1382,7 @@ Run the following command to retrieve the Security and Compliance Center scans t
 ## ibmcloud catalog offering get-scan-results
 {: #get-scan-results}
 
-Run the following command to generate a report of your version's Code Risk Analyzer and Security and Compliance Center scan results. To generate a full report, you must run the Code Risk Analyzer and Security and Compliance Center scans. For more information, see [ibmcloud catalog offering version cra](#version-cra) and [ibmcloud catalog offering version scc](#version-scc).
+Run the following command to generate a report of your version's Code Risk Analyzer and Security and Compliance Center scan results. To generate a full report, you must run the Code Risk Analyzer and Security and Compliance Center scans. For more information, see the [ibmcloud catalog offering version cra](#version-cra) and [ibmcloud catalog offering version scc](#version-scc) commands.
 
 ```bash
 ibmcloud catalog offering get-scan-results [--version-locator LOCATOR]
@@ -1455,7 +1455,7 @@ ibmcloud catalog offering version deprecate-version --version-locator VERSION_NU
 ## ibmcloud catalog offering version refresh-version
 {: #refresh-offering-version}
 
-Run the following command to create a change the source file of a draft version. This command is useful for updating an existing version.
+Run the following command to create a change in the source file of a draft version. This command is useful for updating an existing version.
 
 ```bash
 ibmcloud catalog offering version refresh-version --version-locator VERSION_NUMBER --zipurl URL [--include-config]
@@ -1550,7 +1550,7 @@ ibmcloud catalog offering delete --catalog CATALOG --offering OFFERING
 ## ibmcloud catalog offering publish account
 {: #publish-offering-to-account}
 
-Run the following command to publish a product from your private catalog to an account. After the product is published, users in the account that have access to the private catalog and its containing resource group can create an instance and start using it.
+Run the following command to publish a product from your private catalog to an account. After the product is published, users in the account that have access to the private catalog. Its containing resource group can create an instance and start to use it.
 
 ```bash
 ibmcloud catalog offering publish account [--catalog CATALOG][--offering OFFERING]
@@ -1569,7 +1569,7 @@ ibmcloud catalog offering publish account [--catalog CATALOG][--offering OFFERIN
 ## ibmcloud catalog offering publish allowlist
 {: #publish-offering-allowllist}
 
-Run the following command to publish a product from your private catalog to a set of allowlisted accounts. After the product is published, users in the allowlisted accounts can create an instance and start using it.
+Run the following command to publish a product from your private catalog to a set of allowlisted accounts. After the product is published, users in the allowlisted accounts can create an instance and start to use it.
 
 ```bash
 ibmcloud catalog offering publish allowlist [--catalog CATALOG][--offering OFFERING][--account-ids ACCOUNT-IDS]
@@ -1666,7 +1666,7 @@ ibmcloud catalog offering workspaces [--version-locator VERSION_NUMBER] [output 
 
 --output FORMAT (optional)
 
-:   Specifies output format. Default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
 
 ## ibmcloud catalog install
 {: #install-software-version}
@@ -1727,7 +1727,7 @@ ibmcloud catalog install [--version-locator VERSION_NUMBER] [--cluster CLUSTER_I
 ### Example
 {: #install-software-version-example}
 
-Install software version `1` by using cluster `A`, namespace `install`, and the override values JSON `values.json`.
+Install the software version `1` by using cluster `A`, namespace `install`, and the override values JSON `values.json`.
 
 ```bash
 ibmcloud catalog install [--version-locator 1] [--cluster A] [--namespace install] [--override-values values.json]
@@ -1761,7 +1761,7 @@ ibmcloud catalog pricing [-r, --region REGION] [-k, --kind KIND] [-p, --price PR
 :   Filter by geo.
 
 -k, --kind (optional)
-:   Filter by kind of resources. Currently `service` (default), `iaas`, `runtime`, `template`, and `geography` are supported
+:   Filter by the kind of resources. Currently `service` (default), `iaas`, `runtime`, `template`, and `geography` are supported
 
 -p, --price (optional)
 :   Filter by price. Currently `free`, `paygo`, and `subscription` are supported
@@ -1776,16 +1776,16 @@ ibmcloud catalog pricing [-r, --region REGION] [-k, --kind KIND] [-p, --price PR
 :   Output JSON response.
 
 --csv (optional)
-:   Output CSV file.
+:   Output a CSV file.
 
 -f, --file (optional)
-:   Specify a filename for the csv output.
+:   Specify a file name for the csv output.
 
 --global (optional)
 :   Operate in global scope.
 
 --iam (optional)
-:   Filter by Iam compatible offerings.
+:   Filter by IAM compatible offerings.
 
 ### Example
 {: #pricing-example}
@@ -1801,7 +1801,7 @@ ibmcloud catalog pricing is.instance [--price paygo]
 ## ibmcloud catalog utility create-product-from-workspace
 {: #publish-utility-create}
 
-Run the following command to create a deployable architecture tile from a [{{site.data.keyword.bpshort}} workspace](/docs/schematics?topic=schematics-sch-create-wks&interface=ui) that was created directly from the Git repository. The deployable architecture [creates a project](/docs/cli?topic=cli-projects-cli#project-cli-create-command) to enable you to continue to develop and maintain the deployable architecture with the future version.
+Run the following command to create a deployable architecture tile from a [{{site.data.keyword.bpshort}} workspace](/docs/schematics?topic=schematics-sch-create-wks&interface=ui) that was created directly from the Git repository. The deployable architecture [creates a project](/docs/cli?topic=cli-projects-cli#project-cli-create-command) so that you can continue to develop and maintain the deployable architecture with the future version.
 
 The command requires a `GIT_TOKEN` environment variable to authenticate with your source repository so a catalog manifest can be added. The command pushes to a new branch in the Git repository that is found in the {{site.data.keyword.bpshort}} workspace and creates a release that is used for onboarding.
 
@@ -1815,34 +1815,34 @@ ibmcloud catalog utility create-product-from-workspace [--workspace-id ID] [--ap
 
 --api-key or --ak API KEY
 
-:   Provide an API key that will be used to link the catalog and project. Mutually exclusive with '--trusted-profile-id'.
+:   Provide an API key that is used to link the catalog and project. Mutually exclusive with '--trusted-profile-id'.
 
 --catalog-label CATALOG LABEL (optional)
 
-:   Provide the label of an existing catalog to import into or the name of a new catalog to create. Default is 'Migrated DAs'.
+:   Provide the label of an existing catalog to import into or the name of a new catalog to create. The default is 'Migrated DAs'.
 
 --offering-label OFFERING LABEL (optional)
 
-:    Provide the label of an existing offering to import into or the name of a new offering to create. Default is 'Migrated <workspace_name>'. The label overwrites the existing offering label if the workspace is created from a catalog offering.
+:    Provide the label of an existing offering to import into or the name of a new offering to create. The default is 'Migrated <workspace_name>'. The label overwrites the existing offering label if the workspace is created from a catalog offering.
 
 --project-name NAME (optional)
 
-:   Provide a project name that will be linked to the onboarded catalog. If the project does not exist it will be created. Default name is 'Dev Migration Project'.
+:   Provide a project name that is linked to the onboarded catalog. If the project does not exist, it is created. The default name is 'Dev Migration Project'.
 
 --project-resource-group (optional)
-:   Provide a resource group for the project that will be created. Default resource group is 'Default'.
+:   Provide a resource group for the project that is created. The default resource group is 'Default'.
 
 --target-version VERSION (optional)
 
-:   Provide the target version for the migrated offering. Default is '1.0.0'.
+:   Provide the target version for the migrated offering. The default is '1.0.0'.
 
 --trusted-profile-id or --tpi TRUSTED PROFILE ID
 
-:   Provide a trusted profile ID that will be used to link the catalog and project. Mutually exclusive with '--api-key'.
+:   Provide a trusted profile ID that is used to link the catalog and project. Mutually exclusive with '--api-key'.
 
 --variation-label VARIATION LABEL (optional)
 
-:   Provide a variation label for the version to be onboarded. Default is 'Standard'. The label overwrites the existing version label if the workspace is created from a catalog offering.
+:   Provide a variation label for the version to be onboarded. The default is 'Standard'. The label overwrites the existing version label if the workspace is created from a catalog offering.
 
 --workspace-id WORKSPACE ID
 
@@ -1983,7 +1983,7 @@ ibmcloud catalog offering publish ibm [--catalog CATALOG][--offering OFFERING]
 
 Run the following command to publish your private offering to the {{site.data.keyword.cloud_notm}} catalog for all users to see and use. To get to this step in the publication process, you must first publish the offering to your account and to all IBMers to complete the testing process. After your testing is complete, you can run this command.
 
-This option requires approval. As soon as your approval is complete, your tile is available for all {{site.data.keyword.cloud_notm}} customers.
+This option requires approval. When your approval is complete, your tile is available for all {{site.data.keyword.cloud_notm}} customers.
 {: important}
 
 ```bash
@@ -2042,7 +2042,7 @@ ibmcloud catalog offering restore-offering [--catalog CATALOG][--offering OFFERI
 ## ibmcloud catalog offering version restore-version
 {: #publish-version-restore}
 
-Run the following command to restore a previously deprecated version of a product in the {{site.data.keyword.cloud_notm}} catalog. Restoring it places the version in draft state. After you validate it, you can restore the original version to the published state that it was in before it was deprecated.
+Run the following command to restore a previously deprecated version of a product in the {{site.data.keyword.cloud_notm}} catalog. Restoring it places the version in a draft state. After you validate it, you can restore the original version to the published state that it was in before it was deprecated.
 
 ```bash
 ibmcloud catalog offering version restore-version [--catalog CATALOG][--offering OFFERING] [--include-config]
@@ -2182,7 +2182,7 @@ ibmcloud catalog object get [--catalog CATALOG] [--name NAME] [--output OUTPUT]
 
 --output OUTPUT (optional)
 
-: Specifies output format. Default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
+: Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
 
 ## ibmcloud catalog object list
 {: #list-object}
@@ -2203,7 +2203,7 @@ ibmcloud catalog object list [--catalog CATALOG] [--output OUTPUT]
 
 --output OUTPUT (optional)
 
-:   Specifies output format. Default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
 
 ## ibmcloud catalog object search
 {: #search-object}
@@ -2224,7 +2224,7 @@ ibmcloud catalog object search [--query QUERY] [--output OUTPUT]
 
 --output OUTPUT (optional)
 
-:   Specifies output format. Default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
 
 ## ibmcloud catalog object ready
 {: #ready-object}
@@ -2243,12 +2243,12 @@ ibmcloud catalog object ready [--catalog CATALOG] [--name NAME]
 :   Specify the catalog name or ID.
 
 --name NAME
-:   Specify the name of object.
+:   Specify the name of the object.
 
 ## ibmcloud catalog object enable-sharing
 {: #enable-share-object}
 
-Run the following command to enable sharing of a Partner Center managed object. You must enable sharing before you can share an object to an account or access list.
+Run the following command to enable sharing of a Partner Center managed object. Enable sharing before you can share an object to an account or access list.
 
 ```bash
 ibmcloud catalog object enable-sharing [--catalog CATALOG] [--name NAME]
@@ -2262,7 +2262,7 @@ ibmcloud catalog object enable-sharing [--catalog CATALOG] [--name NAME]
 :   Specify the catalog name or ID.
 
 --name NAME
-:   Specify the name of object.
+:   Specify the name of the object.
 
 
 ## ibmcloud catalog object publish
@@ -2322,7 +2322,7 @@ ibmcloud catalog object access-list add [--account-id ID] [--catalog CATALOG] [-
 
 --name NAME
 
-:   Specify the name of object.
+:   Specify the name of the object.
 
 ## ibmcloud catalog object access-list get
 {: #get-accesslist-object}
@@ -2343,7 +2343,7 @@ ibmcloud catalog object access-list get [--catalog CATALOG] [--name NAME] [--out
 
 --name NAME
 
-:   Specify the name of object.
+:   Specify the name of the object.
 
 --output OUTPUT (optional)
 
@@ -2372,4 +2372,4 @@ ibmcloud catalog object access-list rm [--account-id ID] [--catalog CATALOG] [--
 
 --name NAME
 
-:   Specify the name of object.
+:   Specify the name of the object.
