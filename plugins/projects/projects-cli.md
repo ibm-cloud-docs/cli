@@ -43,7 +43,7 @@ Commands for Projects resource.
 ### `ibmcloud project create`
 {: #project-cli-create-command}
 
-Create a new project and asynchronously setup the tools to manage it. Add a deployable architecture by customizing the configuration. After the changes are validated and approved, deploy the resources that the project configures. For more information, see [Creating a project](/docs/secure-enterprise?topic=secure-enterprise-setup-project&interface=ui/docs-draft/secure-enterprise?topic=secure-enterprise-setup-project).
+Create a project and asynchronously setup the tools to manage it. Add a deployable architecture by customizing the configuration. After the changes are validated and approved, deploy the resources that the project configures. For more information, see [Creating a project](/docs/secure-enterprise?topic=secure-enterprise-setup-project&interface=ui/docs-draft/secure-enterprise?topic=secure-enterprise-setup-project).
 
 ```sh
 ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-description DEFINITION-DESCRIPTION --definition-auto-deploy=DEFINITION-AUTO-DEPLOY --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED] --location LOCATION --resource-group RESOURCE-GROUP [--configs CONFIGS] [--environments ENVIRONMENTS]
@@ -56,7 +56,7 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
 `--definition` ([`ProjectPrototypeDefinition`](#cli-project-prototype-definition-example-schema))
 :   The definition of the project. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition=@path/to/file.json`.
 
 `--location` (string)
 :   The IBM Cloud location where a resource is deployed. Required.
@@ -73,19 +73,19 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
 
     The default value is `[]`. The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--configs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--configs=@path/to/file.json`.
 
 `--environments` ([`EnvironmentPrototype[]`](#cli-environment-prototype-example-schema))
 :   The project environment. These environments are included in the response of creating a project only if an environment array is specified in the request payload.
 
     The default value is `[]`. The maximum length is `20` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--environments=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--environments=@path/to/file.json`.
 
 `--definition-name` (string)
-:   The name of the project.  It's unique within the account across regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The name of the project. It's unique within the account across regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]+$/`.
+    The maximum length is `128` characters. The minimum length is `1` character. The value must match the regular expression `/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]+$/`.
 
 `--definition-destroy-on-delete` (bool)
 :   The policy that indicates whether the resources are undeployed or not when a project is deleted. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -98,7 +98,7 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
     The default value is ``. The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
 
 `--definition-auto-deploy` (bool)
-:   A boolean flag to enable auto deploy. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   A boolean flag to enable auto deploys. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The default value is `false`.
 
@@ -139,7 +139,7 @@ ibmcloud project create \
 {: #project-cli-list-command}
 
 List existing projects. Projects are sorted by ID.
-Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
+Note: If the `--all-pages` option is not set, the command retrieves only a single page of the collection.
 
 ```sh
 ibmcloud project list [--token TOKEN] [--limit LIMIT]
@@ -160,7 +160,7 @@ ibmcloud project list [--token TOKEN] [--limit LIMIT]
     The default value is `10`. The maximum value is `100`. The minimum value is `1`.
 
 `--all-pages` (bool)
-:   Invoke multiple requests to display all pages of the collection for list.
+:   Start multiple requests to display all pages of the collection for list.
 
 #### Example
 {: #project-list-examples}
@@ -443,7 +443,7 @@ ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEF
 `--definition` ([`ProjectPatchDefinitionBlock`](#cli-project-patch-definition-block-example-schema))
 :   The definition of the project. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition=@path/to/file.json`.
 
 `--definition-name` (string)
 :   The name of the project.  It's unique within the account across regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -454,7 +454,7 @@ ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEF
 :   The policy that indicates whether the resources are destroyed or not when a project is deleted. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
 `--definition-auto-deploy` (bool)
-:   A boolean flag to enable auto deploy. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   A boolean flag to enable auto deploys. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
 `--definition-description` (string)
 :   A brief explanation of the project's use in the configuration of a deployable architecture. You can create a project without providing a description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -711,7 +711,7 @@ ibmcloud project environment-create --project-id PROJECT-ID [--definition DEFINI
 `--definition` ([`EnvironmentDefinitionRequiredProperties`](#cli-environment-definition-required-properties-example-schema))
 :   The environment definition. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition=@path/to/file.json`.
 
 `--definition-description` (string)
 :   The description of the environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -726,17 +726,17 @@ ibmcloud project environment-create --project-id PROJECT-ID [--definition DEFINI
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
 :   The authorization details. You can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-authorizations=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-authorizations=@path/to/file.json`.
 
 `--definition-inputs` (generic map)
 :   The input variables that are used for configuration definition and environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-inputs=@path/to/file.json`.
 
 `--definition-compliance-profile` ([`ProjectComplianceProfile`](#cli-project-compliance-profile-example-schema))
 :   The profile that is required for compliance. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-compliance-profile=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-compliance-profile=@path/to/file.json`.
 
 #### Examples
 {: #project-environment-create-examples}
@@ -806,7 +806,7 @@ The sample environment response.
 {: #project-cli-environments-command}
 
 List all available environments. For more information, see [Creating an environment](/docs/secure-enterprise?topic=secure-enterprise-create-env).
-Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
+Note: If the `--all-pages` option is not set, the command retrieves only a single page of the collection.
 
 ```sh
 ibmcloud project environments --project-id PROJECT-ID [--token TOKEN] [--limit LIMIT]
@@ -832,7 +832,7 @@ ibmcloud project environments --project-id PROJECT-ID [--token TOKEN] [--limit L
     The default value is `10`. The maximum value is `100`. The minimum value is `1`.
 
 `--all-pages` (bool)
-:   Invoke multiple requests to display all pages of the collection for environments.
+:   Start multiple requests to display all pages of the collection for environments.
 
 #### Example
 {: #project-environments-examples}
@@ -997,7 +997,7 @@ ibmcloud project environment-update --project-id PROJECT-ID --id ID [--definitio
 `--definition` ([`EnvironmentDefinitionPropertiesPatch`](#cli-environment-definition-properties-patch-example-schema))
 :   The environment definition that is used for updates. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition=@path/to/file.json`.
 
 `--definition-description` (string)
 :   The description of the environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -1012,17 +1012,17 @@ ibmcloud project environment-update --project-id PROJECT-ID --id ID [--definitio
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
 :   The authorization details. You can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-authorizations=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-authorizations=@path/to/file.json`.
 
 `--definition-inputs` (generic map)
 :   The input variables that are used for configuration definition and environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-inputs=@path/to/file.json`.
 
 `--definition-compliance-profile` ([`ProjectComplianceProfile`](#cli-project-compliance-profile-example-schema))
 :   The profile that is required for compliance. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-compliance-profile=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-compliance-profile=@path/to/file.json`.
 
 #### Examples
 {: #project-environment-update-examples}
@@ -1126,7 +1126,7 @@ ibmcloud project environment-delete \
 #### Example output
 {: #project-environment-delete-cli-output}
 
-The sample environment delete response.
+The sample `environment delete` response.
 
 ```json
 {
@@ -1143,7 +1143,7 @@ Commands for Configurations resource.
 ### `ibmcloud project config-create`
 {: #project-cli-config-create-command}
 
-Add a new configuration to a project.
+Add a configuration to a project.
 
 ```sh
 ibmcloud project config-create --project-id PROJECT-ID [--definition DEFINITION | --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE --definition-locator-id DEFINITION-LOCATOR-ID --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-environment-id DEFINITION-ENVIRONMENT-ID --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-settings DEFINITION-SETTINGS --definition-members DEFINITION-MEMBERS --definition-resource-crns DEFINITION-RESOURCE-CRNS] [--schematics SCHEMATICS | --schematics-workspace-crn SCHEMATICS-WORKSPACE-CRN]
@@ -1161,33 +1161,33 @@ ibmcloud project config-create --project-id PROJECT-ID [--definition DEFINITION 
 `--definition` ([`ProjectConfigDefinitionPrototype`](#cli-project-config-definition-prototype-example-schema))
 :   This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition=@path/to/file.json`.
 
 `--schematics` ([`SchematicsWorkspace`](#cli-schematics-workspace-example-schema))
 :   A Schematics workspace to use for deploying this deployable architecture.
 > If you are importing data from an existing Schematics workspace that is not backed by cart, then you must provide a `locator_id`. If you are using a Schematics workspace that is backed by cart, a `locator_id` is not required because the Schematics workspace has one.
 >
-There are 3 scenarios:
+3 scenarios exist:
 > 1. If only a `locator_id` is specified, a new Schematics workspace is instantiated with that `locator_id`.
 > 2. If only a schematics `workspace_crn` is specified, a `400` is returned if a `locator_id` is not found in the existing schematics workspace.
-> 3. If both a Schematics `workspace_crn` and a `locator_id` are specified, a `400`code  is returned if the specified `locator_id` does not agree with the `locator_id` in the existing Schematics workspace.
+> 3. If both a Schematics `workspace_crn` and a `locator_id` are specified, a `400`code is returned if the specified `locator_id` does not agree with the `locator_id` in the existing Schematics workspace.
 >
 For more information, see [Creating workspaces and importing your Terraform template](/docs/schematics?topic=schematics-sch-create-wks). This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--schematics=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--schematics=@path/to/file.json`.
 
 `--definition-compliance-profile` ([`ProjectComplianceProfile`](#cli-project-compliance-profile-example-schema))
 :   The profile that is required for compliance. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-compliance-profile=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-compliance-profile=@path/to/file.json`.
 
 `--definition-locator-id` (string)
-:   A unique concatenation of the catalog ID and the version ID that identify the deployable architecture in the catalog. I you're importing from an existing Schematics workspace that is not backed by cart, a `locator_id` is required. If you're using a Schematics workspace that is backed by cart, a `locator_id` is not necessary because the Schematics workspace has one.
-> There are 3 scenarios:
+:   A unique concatenation of the catalog ID and the version ID that identify the deployable architecture in the catalog. If you're importing from an existing Schematics workspace that is not backed by cart, a `locator_id` is required. If you're using a Schematics workspace that is backed by cart, a `locator_id` is not necessary because the Schematics workspace has one.
+> 3 scenarios exist:
 > 1. If only a `locator_id` is specified, a new Schematics workspace is instantiated with that `locator_id`.
 > 2. If only a schematics `workspace_crn` is specified, a `400` is returned if a `locator_id` is not found in the existing schematics workspace.
 > 3. If both a Schematics `workspace_crn` and a `locator_id` are specified, a `400` message is returned if the specified `locator_id` does not agree with the `locator_id` in the existing Schematics workspace.
-> For more information of creating a Schematics workspace, see [Creating workspaces and importing your Terraform template](/docs/schematics?topic=schematics-sch-create-wks). This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+> For more information about creating a Schematics workspace, see [Creating workspaces and importing your Terraform template](/docs/schematics?topic=schematics-sch-create-wks). This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `512` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[\\.0-9a-z-A-Z_-]+$/`.
 
@@ -1209,24 +1209,24 @@ For more information, see [Creating workspaces and importing your Terraform temp
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
 :   The authorization details. You can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-authorizations=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-authorizations=@path/to/file.json`.
 
 `--definition-inputs` (generic map)
 :   The input variables that are used for configuration definition and environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-inputs=@path/to/file.json`.
 
 `--definition-settings` (generic map)
 :   The Schematics environment variables to use to deploy the configuration. Settings are only available if they are specified when the configuration is initially created. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-settings=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-settings=@path/to/file.json`.
 
 [Experimental]{: tag-purple} `--definition-members` ([`StackConfigMember[]`](#cli-stack-config-member-example-schema))
-:   The member deployabe architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-members=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-members=@path/to/file.json`.
 
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -1269,7 +1269,7 @@ ibmcloud project config-create \
 {: #project-cli-configs-command}
 
 Retrieve the collection of configurations.
-Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
+Note: If the `--all-pages` option is not set, the command retrieves only a single page of the collection.
 
 ```sh
 ibmcloud project configs --project-id PROJECT-ID [--token TOKEN] [--limit LIMIT]
@@ -1295,7 +1295,7 @@ ibmcloud project configs --project-id PROJECT-ID [--token TOKEN] [--limit LIMIT]
     The default value is `10`. The maximum value is `100`. The minimum value is `1`.
 
 `--all-pages` (bool)
-:   Invoke multiple requests to display all pages of the collection for configs.
+:   Start multiple requests to display all pages of the collection for configs.
 
 #### Example
 {: #project-configs-examples}
@@ -1432,20 +1432,20 @@ ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEF
 `--definition` ([`ProjectConfigDefinitionPatch`](#cli-project-config-definition-patch-example-schema))
 :   This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition=@path/to/file.json`.
 
 `--definition-compliance-profile` ([`ProjectComplianceProfile`](#cli-project-compliance-profile-example-schema))
 :   The profile that is required for compliance. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-compliance-profile=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-compliance-profile=@path/to/file.json`.
 
 `--definition-locator-id` (string)
-:   A unique concatenation of the catalog ID and the version ID that identify the deployable architecture in the catalog. I you're importing from an existing Schematics workspace that is not backed by cart, a `locator_id` is required. If you're using a Schematics workspace that is backed by cart, a `locator_id` is not necessary because the Schematics workspace has one.
+:   A unique concatenation of the catalog ID and the version ID that identify the deployable architecture in the catalog. If you're importing from an existing Schematics workspace that is not backed by cart, a `locator_id` is required. If you're using a Schematics workspace that is backed by cart, a `locator_id` is not necessary because the Schematics workspace has one.
 > There are 3 scenarios:
 > 1. If only a `locator_id` is specified, a new Schematics workspace is instantiated with that `locator_id`.
 > 2. If only a schematics `workspace_crn` is specified, a `400` is returned if a `locator_id` is not found in the existing schematics workspace.
 > 3. If both a Schematics `workspace_crn` and a `locator_id` are specified, a `400` message is returned if the specified `locator_id` does not agree with the `locator_id` in the existing Schematics workspace.
-> For more information of creating a Schematics workspace, see [Creating workspaces and importing your Terraform template](/docs/schematics?topic=schematics-sch-create-wks). This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+> For more information about creating a Schematics workspace, see [Creating workspaces and importing your Terraform template](/docs/schematics?topic=schematics-sch-create-wks). This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `512` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[\\.0-9a-z-A-Z_-]+$/`.
 
@@ -1467,17 +1467,17 @@ ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEF
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
 :   The authorization details. You can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-authorizations=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-authorizations=@path/to/file.json`.
 
 `--definition-inputs` (generic map)
 :   The input variables that are used for configuration definition and environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-inputs=@path/to/file.json`.
 
 `--definition-settings` (generic map)
 :   The Schematics environment variables to use to deploy the configuration. Settings are only available if they are specified when the configuration is initially created. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-settings=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-settings=@path/to/file.json`.
 
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -1485,11 +1485,11 @@ ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEF
     The list items must match regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`. The maximum length is `110` items. The minimum length is `0` items.
 
 [Experimental]{: tag-purple} `--definition-members` ([`StackConfigMember[]`](#cli-stack-config-member-example-schema))
-:   The member deployabe architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-members=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-members=@path/to/file.json`.
 
 #### Examples
 {: #project-config-update-examples}
@@ -1830,7 +1830,7 @@ The example response to a request for a deployable architecture configuration dr
 ### `ibmcloud project config-deploy`
 {: #project-cli-config-deploy-command}
 
-Deploy a project's configuration. This operation is asynchronous and can be tracked by using the get project configuration API with full metadata.
+Deploy a project's configuration. This operation is asynchronous and can be tracked by using the `get project configuration` API with full metadata.
 
 ```sh
 ibmcloud project config-deploy --project-id PROJECT-ID --id ID
@@ -1914,7 +1914,7 @@ The example response to a request for a deployable architecture configuration dr
 ### `ibmcloud project config-undeploy`
 {: #project-cli-config-undeploy-command}
 
-Undeploy a project's configuration resources. The operation undeploys all the resources that are deployed with the specific configuration. You can track it by using the get project configuration API with full metadata.
+Undeploy a project's configuration resources. The operation undeploys all the resources that are deployed with the specific configuration. You can track it by using the `get project configuration` API with full metadata.
 
 ```sh
 ibmcloud project config-undeploy --project-id PROJECT-ID --id ID
@@ -2025,11 +2025,11 @@ ibmcloud project config-sync --project-id PROJECT-ID --id ID [--schematics SCHEM
 There are 3 scenarios:
 > 1. If only a `locator_id` is specified, a new Schematics workspace is instantiated with that `locator_id`.
 > 2. If only a schematics `workspace_crn` is specified, a `400` is returned if a `locator_id` is not found in the existing schematics workspace.
-> 3. If both a Schematics `workspace_crn` and a `locator_id` are specified, a `400`code  is returned if the specified `locator_id` does not agree with the `locator_id` in the existing Schematics workspace.
+> 3. If both a Schematics `workspace_crn` and a `locator_id` are specified, a `400`code is returned if the specified `locator_id` does not agree with the `locator_id` in the existing Schematics workspace.
 >
 For more information, see [Creating workspaces and importing your Terraform template](/docs/schematics?topic=schematics-sch-create-wks). This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--schematics=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--schematics=@path/to/file.json`.
 
 `--schematics-workspace-crn` (string)
 :   An IBM Cloud resource name that uniquely identifies a resource. This option provides a value for a sub-field of the JSON option 'schematics'. It is mutually exclusive with that option.
@@ -2119,7 +2119,7 @@ The example response to a request to get project configuration resources.
 
 [Experimental]{: tag-purple}
 
-Defines inputs at the stack level that users need to configure along with input values at the member level. These values are included in the catalog entry when the deployable architecture stack is exported to a private catalog and are required for the deployable architecture stack to deploy. You can add a reference to a value, or add the value explicitly at the member level.
+Defines inputs at the stack level that users need to configure along with input values at the member level. These values are included in the catalog entry when the deployable architecture stack is exported to a private catalog. They are required for the deployable architecture stack to deploy. You can add a reference to a value, or add the value explicitly at the member level.
 
 ```sh
 ibmcloud project stack-definition-create --project-id PROJECT-ID --id ID [--stack-definition STACK-DEFINITION | --stack-definition-inputs STACK-DEFINITION-INPUTS --stack-definition-outputs STACK-DEFINITION-OUTPUTS]
@@ -2142,21 +2142,21 @@ ibmcloud project stack-definition-create --project-id PROJECT-ID --id ID [--stac
 `--stack-definition` ([`StackDefinitionBlockPrototype`](#cli-stack-definition-block-prototype-example-schema))
 :   The definition block for a stack definition. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--stack-definition=@path/to/file.json`.
 
 `--stack-definition-inputs` ([`StackDefinitionInputVariable[]`](#cli-stack-definition-input-variable-example-schema))
 :   Defines the inputs that users need to configure at the stack level. These inputs are included in the catalog entry when the deployable architecture stack is exported to a private catalog. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--stack-definition-inputs=@path/to/file.json`.
 
 `--stack-definition-outputs` ([`StackDefinitionOutputVariable[]`](#cli-stack-definition-output-variable-example-schema))
 :   The outputs associated with this stack definition. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-outputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--stack-definition-outputs=@path/to/file.json`.
 
 #### Examples
 {: #project-stack-definition-create-examples}
@@ -2358,21 +2358,21 @@ ibmcloud project stack-definition-update --project-id PROJECT-ID --id ID [--stac
 `--stack-definition` ([`StackDefinitionBlockPrototype`](#cli-stack-definition-block-prototype-example-schema))
 :   The definition block for a stack definition. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--stack-definition=@path/to/file.json`.
 
 `--stack-definition-inputs` ([`StackDefinitionInputVariable[]`](#cli-stack-definition-input-variable-example-schema))
 :   Defines the inputs that users need to configure at the stack level. These inputs are included in the catalog entry when the deployable architecture stack is exported to a private catalog. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--stack-definition-inputs=@path/to/file.json`.
 
 `--stack-definition-outputs` ([`StackDefinitionOutputVariable[]`](#cli-stack-definition-output-variable-example-schema))
 :   The outputs associated with this stack definition. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-outputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--stack-definition-outputs=@path/to/file.json`.
 
 #### Examples
 {: #project-stack-definition-update-examples}
@@ -2467,7 +2467,7 @@ ibmcloud project stack-definition-export --project-id PROJECT-ID --id ID [--sett
 `--settings` ([`StackDefinitionExportRequest`](#cli-stack-definition-export-request-example-schema))
 :   The payload for the private catalog export request. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--settings=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--settings=@path/to/file.json`.
 
 `--settings-catalog-id` (string)
 :   The catalog ID to publish. This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
@@ -2475,7 +2475,7 @@ ibmcloud project stack-definition-export --project-id PROJECT-ID --id ID [--sett
     The maximum length is `36` characters. The value must match regular expression `/^[\\-0-9a-zA-Z]+$/`.
 
 `--settings-target-version` (string)
-:   The semver value of this new version of the product. This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
+:   The server value of this new version of the product. This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
 
     The maximum length is `60` characters. The minimum length is `5` characters. The value must match regular expression `/^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$/`.
 

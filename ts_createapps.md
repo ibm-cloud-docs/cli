@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-04-28"
+  years: 2015, 2024
+lastupdated: "2024-08-02"
 
 keywords: cli, troubleshoot cli, debug app cli, developer tools debug, ibmcloud cli debug, ibmcloud help, ibmcloud dev help, cli debug, command line, command-line, developer tools troubleshoot
 
@@ -17,7 +17,7 @@ content-type: troubleshoot
 # Troubleshooting for the {{site.data.keyword.cloud_notm}} CLI
 {: #troubleshoot}
 
-See solutions to common problems with using the {{site.data.keyword.cloud}} Command Line Interface. In many cases, you can recover from these problems by following a few easy steps.
+See solutions to common problems with using the {{site.data.keyword.cloud}} Command Line Interface. Often, you can recover from these problems by following a few easy steps.
 {: shortdesc}
 
 ## Why do I get a failure when updating the CLI, updating a plug-in, or installing a plug-in?
@@ -40,7 +40,7 @@ This error is caused by the older CLI version attempting to reach the deprecated
 Download and install or replace the older CLI with the latest CLI version by using these [instructions](/docs/cli?topic=cli-install-ibmcloud-cli).
 {: tsResolve}
 
-## Why do I get a failure with the plugin update or install command after it has downloaded the binary?
+## Why do I get a failure with the plug-in update or install command after it has downloaded the binary?
 {: #ts-cli-plugin-update-failure}
 {: troubleshoot}
 {: support}
@@ -57,7 +57,7 @@ Unable to obtain plug-in's metadata. Error: fork/exec/tmp/... : permission denie
 This error is caused by the download folder not having exec privileges.
 {: tsCauses}
 
-There are 2 resolutions. First, the download folder can be modified to have the exec privilege. Secondly, instead use the [plugin download command](/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_download) to download and install to an alternate directory. Then use the [plugin install command](/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_install) to install using the downloaded binary file.
+There are 2 resolutions. First, the download folder can be modified to have the exec privilege. Second, instead use the [plugin download command](/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_download) to download and install to an alternate directory. Then use the [plugin install command](/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_install) to install by using the downloaded binary file.
 {: tsResolve}
 
 
@@ -96,5 +96,5 @@ FAILED
 The `ibmcloud catalog search` command was moved to a separate plug-in in v1.0.0.
 {: tsCauses}
 
-To use this command, you must install the catalogs-management plug-in. For more information, see [Catalogs management CLI plug-in](/docs/cli?topic=cli-manage-catalogs-plugin).
+To use this command, you must install the catalogs-management plug-in. For more information, see the [Catalogs management CLI plug-in](/docs/cli?topic=cli-manage-catalogs-plugin).
 {: tsResolve}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-12-20"
+  years: 2015, 2024
+lastupdated: "2024-08-02"
 
 keywords: command line interface, cli, getting started, getting started with IBM Cloud CLI, getting started with IBM Cloud CLI and developer tools tutorial, IBM Cloud Developer Tools CLI, ibmcloud cli, download cli, cloud cli, cloud command line, developer tools, dev tools, install cloud cli, getting started cli, ibm cloud cli, IBM Cloud CLI installer, installing IBM Cloud CLI, install IBM Cloud CLI
 content-type: tutorial
@@ -21,7 +21,7 @@ subcollection: cli
 {: toc-services=""} 
 {: toc-completion-time="30m"}
 
-In this tutorial, you install the the latest version of the stand-alone {{site.data.keyword.cloud}} Command Line Interface.
+In this tutorial, you install the latest version of the stand-alone {{site.data.keyword.cloud}} Command Line Interface.
 {: shortdesc}
 
 Want to start working with the {{site.data.keyword.cloud_notm}} CLI? Try out {{site.data.keyword.cloud-shell_notm}}, which gives you a personal cloud-based shell workspace with the full {{site.data.keyword.cloud_notm}} CLI and tons of command line tools - no installation needed. To get started, click the {{site.data.keyword.cloud-shell_short}} icon ![{{site.data.keyword.cloud-shell_notm}} icon](../icons/terminal-cloud-shell.svg) in the {{site.data.keyword.cloud_notm}} console menu bar. For more information, see [Getting started with {{site.data.keyword.cloud-shell_notm}}](/docs/cloud-shell?topic=cloud-shell-getting-started).
@@ -102,7 +102,7 @@ If your credentials are rejected, you might be using a federated ID. To log in w
 ## Next steps
 {: #next-steps}
 
-If you installed the CLI plug-ins and tools, you can start using {{site.data.keyword.cloud_notm}} resources and services on the CLI. For more information, see [General IBM Cloud CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli). Also, keep in mind the [Getting help and support](/docs/cli?topic=cli-getting-help) page if you have questions or problems.
+If you installed the CLI plug-ins and tools, you can start to use {{site.data.keyword.cloud_notm}} resources and services on the CLI. For more information, see [General IBM Cloud CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli). Also, keep in mind the [Getting help and support](/docs/cli?topic=cli-getting-help) page if you have questions or problems.
 
 Stay up to date with the {{site.data.keyword.cloud_notm}} CLI by subscribing to the [{{site.data.keyword.cloud_notm}} CLI releases repository](https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/){: external}. You'll receive notifications about new {{site.data.keyword.cloud_notm}} CLI releases.
 

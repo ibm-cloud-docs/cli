@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-03-29"
+lastupdated: "2024-08-02"
 
 keywords: cli, ibmcloud account cli, managing accounts cli, managing users cli, account, account update command
 
@@ -30,7 +30,7 @@ ibmcloud account show
 ### Examples
 {: #ibmcloud_account_show_examples}
 
-Show details of currently targeted account:
+Show details of the currently targeted account:
 ```bash
 ibmcloud account show
 ```
@@ -89,7 +89,7 @@ s, --start-date *START_DATE*
 :   Start date. List audit logs after the start date. Supported formats are yyyy-MM-ddTHH:mm:ss.
 
 u, --user-name *USER_NAME*
-:   User name. List audit logs with the user name.
+:   User name. List audit logs with the username.
 
 ### Examples
 {: #classic_account_audit_logs_examples}
@@ -145,7 +145,7 @@ ibmcloud account users [-c, --account-id ACCOUNT_ID]
 {: #ibmcloud_account_users_options}
 
 -c (optional)
-:   Account ID. If not specified, default to current account.
+:   Account ID. If not specified, default to the current account.
 
 ## ibmcloud account user-remove
 {: #ibmcloud_account_user_remove}
@@ -163,7 +163,7 @@ USER_ID (required)
 :   User ID
 
 -c ACCOUNT_ID
-:   Account ID. If not specified, default to current account.
+:   Account ID. If not specified, default to the current account.
 
 -f, --force
 :   Force removal without confirmation.
@@ -244,7 +244,7 @@ ibmcloud account user-preference-update (--position NEW_POSITION)
 ## ibmcloud account user-status
 {: #ibmcloud_account_user_status}
 
-Show user's status:
+Show the user's status:
 ```bash
 ibmcloud account user-status [USER_ID] [--output FORMAT] [-q, --quiet]
 ```
@@ -254,10 +254,10 @@ ibmcloud account user-status [USER_ID] [--output FORMAT] [-q, --quiet]
 {: #ibmcloud_account_user_status_options}
 
 USER_ID
-:   User ID. If not specified, default to current user.
+:   User ID. If not specified, default to the current user.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -265,7 +265,7 @@ USER_ID
 ## ibmcloud account user-status-update
 {: #ibmcloud_account_user_status_update}
 
-Update user's status:
+Update the user's status:
 ```bash
 ibmcloud account user-status-update USER_ID NEW_STATUS [--output FORMAT] [-q, --quiet]
 ```
@@ -281,7 +281,7 @@ NEW_STATUS (required)
 :   Set a user's status, such as `SUSPENDED` or `ACTIVE`. For more information, see [User account status](https://cloud.ibm.com/apidocs/user-management#user-states) for a list of possible statuses. This option can also take in values in lowercase such as `suspended` or `active`.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.

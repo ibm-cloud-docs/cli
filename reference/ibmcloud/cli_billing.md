@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-09-09"
+  years: 2018, 2024
+lastupdated: "2024-08-02"
 
 keywords: cli, ibmcloud billing, view account, view usage, account usage, resource groups, resources, org-usage
 
@@ -29,11 +29,11 @@ ibmcloud billing account-usage [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
 ### Command options
 {: #ibmcloud_billing_account_usage_options}
 
--d MONTH_DATE (optional)
-:   Display data for the month and date that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
+-d {YEAR-MONTH} (optional)
+:   Display data for the month that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
 
---output FORMAT (optional)
-:   Specify output format. Accepted inputs are JSON and CSV.
+--output {FORMAT TYPE} (optional)
+:   Specify the output format. Accepted inputs are JSON and CSV.
 
 -q, --quiet (optional)
 :   Suppress verbose output.
@@ -60,11 +60,11 @@ ibmcloud billing org-usage ORG_NAME [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
 ORG_NAME (required)
 :   Name of the org.
 
--d MONTH_DATE (optional)
-:   Display data for the month and date that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
+-d {YEAR-MONTH} (optional)
+:   Display data for the month that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
 
---output FORMAT (optional)
-:   Specify output format. Only JSON is supported.</dd>
+--output {FORMAT} (optional)
+:   Specify the output format. Only JSON is supported.</dd>
 
 -q, --quiet (optional)
 :   Suppress verbose output.
@@ -83,11 +83,11 @@ ibmcloud billing resource-group-usage GROUP_NAME [-d YYYY-MM] [--output FORMAT] 
 GROUP_NAME (required)
 :    Name of the resource group.
 
--d MONTH_DATE (optional)
-:   Display data for the month and date that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
+-d {YEAR-MONTH} (optional)
+:   Display data for the month that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
 
---output FORMAT (optional)
-:   Specify output format. Only JSON is supported.
+--output {FORMAT} (optional)
+:   Specify the output format. Only JSON is supported.
 
 -q, --quiet (optional)
 :   Suppress verbose output.
@@ -103,17 +103,17 @@ ibmcloud billing resource-instances-usage [-o ORG] [-g RESOURCE_GROUP] [-d YYYY-
 ### Command options
 {: #ibmcloud_billing_resource_instances_usage_options}
 
--o ORG_NAME (optional)
+-o {ORG_NAME} (optional)
 :   Filter instances by organization.
 
--g GROUP_NAME
+-g {GROUP_NAME}
 :   Filter instance by resource group.
 
--d MONTH_DATE (optional)
-:   Display data for month and date that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
+-d {YEAR-MONTH} (optional)
+:   Display data for month that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
 
---output FORMAT (optional)
-:   Specify output format. Accepted inputs are JSON and CSV.
+--output {FORMAT} (optional)
+:   Specify the output format. Accepted inputs are JSON and CSV.
 
 -q, --quiet (optional)
 :   Suppress verbose output.
@@ -129,26 +129,26 @@ ibmcloud billing enterprise-usage [--account-group ACCOUNT_GROUP_NAME | --accoun
 ### Command options
 {: #ibmcloud_billing_enterprise_usage_options}
 
---account ACCOUNT_NAME (optional)
+--account {ACCOUNT_NAME} (optional)
 :   Name of target account.
 
---account-id ACCOUNT_ID (optional)
+--account-id {ACCOUNT_ID} (optional)
 :   ID of target account.
 
---account-group ACCOUNT_GROUP_NAME (optional)
+--account-group {ACCOUNT_GROUP_NAME} (optional)
 :   Name of target account group.
 
---account-group-id ACCOUNT_GROUP_ID (optional)
+--account-group-id {ACCOUNT_GROUP_ID} (optional)
 :   ID of target account group.
 
 --children (optional)
 :   Show children usage reports.
 
---month MONTH (optional)
-:   Target month. Default to current month.
+--month {MONTH} (optional)
+:   Target month. Default to the current month.
 
---output FORMAT (optional)
-:   Specify output format. Only JSON is supported.
+--output {FORMAT} (optional)
+:   Specify the output format. Only JSON is supported.
 
 -q, --quiet (optional)
 :   Suppress verbose output.

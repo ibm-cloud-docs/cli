@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2019
-lastupdated: "2019-06-03"
+  years: 2016, 2024
+lastupdated: "2024-08-02"
 
 keywords: cli, bmscore, bmscore sdk, network request, ios network cli, android network cli, cordova network cli, mobile network request, mobile cli
 
@@ -21,7 +21,7 @@ You can use the `BMSCore` SDK to make network requests to any resource.
 ## Android
 {: #request-android}
 
-1. Make sure you've [imported the Client SDK and initialized it](/docs/cli/sdk?topic=cli-sdk_BMSClient#init-BMSClient-android) in your Android application.
+1. Make sure you [imported the Client SDK and initialized it](/docs/cli/sdk?topic=cli-sdk_BMSClient#init-BMSClient-android) in your Android application.
 
 2. Make a network request.
 
@@ -53,7 +53,7 @@ For complete usage examples, see the `BMSCore` GitHub [README](https://github.co
 ## iOS
 {: #request-ios}
 
-1. Make sure that you have [imported the Client SDK and initialized it](/docs/cli/sdk?topic=cli-sdk_BMSClient#init-BMSClient-ios) in your iOS app.
+1. Make sure that you [imported the Client SDK and initialized it](/docs/cli/sdk?topic=cli-sdk_BMSClient#init-BMSClient-ios) in your iOS app.
 
 2. Create a network request.
 
@@ -91,7 +91,7 @@ For complete usage examples, see the `BMSCore` GitHub [README](https://github.co
 	```
 	{: codeblock}
 
-The `Request` class is a simple way to make an HTTP request and get the response after the request is completed. If you want more flexibility and control than what you can get from the `Request` class, you can use the `BMSURLSession` class. Some features of the `BMSURLSession` class include monitoring progress of uploads, and pausing or canceling requests. To get the responses, you can select either completion handlers or delegates.
+The `Request` class is a simple way to make an HTTP request and get the response after the request is completed. If you want more flexibility and control than what you can get from the `Request` class, you can use the `BMSURLSession` class. Some features of the `BMSURLSession` class include monitoring the progress of uploads, and pausing or canceling requests. To get the responses, you can select either completion handlers or delegates.
 
 The `BMSURLSession` class is available for iOS only.
 
@@ -100,7 +100,7 @@ For complete usage examples, see the `BMSCore` GitHub [README](https://github.co
 ## Cordova
 {: #request-cordova}
 
-1. Make sure that you have [imported the Client SDK and initialized it](/docs/cli/sdk?topic=cli-sdk_BMSClient#init-BMSClient-cordova) in your Cordova app.
+1. Make sure that you [imported the Client SDK and initialized it](/docs/cli/sdk?topic=cli-sdk_BMSClient#init-BMSClient-cordova) in your Cordova app.
 
 2. Create a network request.
 

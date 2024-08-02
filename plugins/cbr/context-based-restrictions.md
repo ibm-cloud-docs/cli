@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-06-05"
+  years: "2024"
+lastupdated: "2024-08-02"
 
 keywords: cli, context-based restrictions plugin
 
@@ -15,7 +15,7 @@ subcollection: cli
 # Context-based restrictions CLI plug-in
 {: #cbr-plugin}
 
-The {{site.data.keyword.cloud}} context-based restrictions command-line interface (CLI) provides extra capabilities for context-based restrictions. You can use this CLI plug-in to manage access restrictions for {{site.data.keyword.cloud}} resources based on the network location of access requests.
+The {{site.data.keyword.cloud}} context-based restrictions command line interface (CLI) provides extra capabilities for context-based restrictions. You can use this CLI plug-in to manage access restrictions for {{site.data.keyword.cloud}} resources based on the network location of access requests.
 {: shortdesc}
 
 ## Before you begin
@@ -97,10 +97,10 @@ last_modified_by_id   iam-ServiceId-0123456789
 :   The description of the zone.
 
 `--addresses` (string)
-:   The list of addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma delimited format. IPv4 and IPv6 are supported.
+:   The list of addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma-delimited format. IPv4 and IPv6 are supported.
 
 `--excluded` (string)
-:   The list of excluded addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma delimited format.
+:   The list of excluded addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma-delimited format.
 
 `--service-ref` (string)
 :   The service refs in the zone. Input in the form `service_name=VALUE,service_name=VALUE,...`.
@@ -243,10 +243,10 @@ last_modified_by_id   iam-ServiceId-0123456789
 :   The description of the zone.
 
 `--addresses` (string)
-:   The list of addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma delimited format. IPv4 and IPv6 are supported.
+:   The list of addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma-delimited format. IPv4 and IPv6 are supported.
 
 `--excluded` (string)
-:   The list of excluded addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma delimited format.
+:   The list of excluded addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma-delimited format.
 
 `--service-ref` (string)
 :   The service refs in the zone. Input in the form `name=value,name=value,...`.
@@ -448,7 +448,7 @@ enforcement_mode      enabled
 :   The access tags of the resource in the form of `name:value,name:value,...`.
 
 `--enforcement-mode` (string)
-:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more information about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
 
 `--file` (string)
 :   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-rule-request){: external}.
@@ -486,7 +486,7 @@ a4135a90bb507bf6d96cf4c6f009d151   example       enabled
 {: #cbr-rules-cli-options}
 
 `--enforcement-mode` (string)
-:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more information about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
 
 `--region` (string)
 :   The `region` resource attribute.
@@ -622,7 +622,7 @@ enforcement_mode      enabled
 :   The access tags of the resource in the form of `name:value,name:value,...`.
 
 `--enforcement-mode` (string)
-:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more information about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
 
 `--file` (string)
 :   The supplied file is used to update the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule update API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#replace-rule-request){: external}.

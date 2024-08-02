@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-06-02"
+  years: 2018, 2024
+lastupdated: "2024-08-02"
 
 keywords: cli, catalog offerings, search catalog, ibmcloud catalog, ibmcloud catalog search, catalog entry, query templates, runtimes, geolocations, datacenter, catalog template, catalog locations
 
@@ -18,7 +18,7 @@ subcollection: cli
 Use the following commands from the {{site.data.keyword.cloud}} Command Line Interface to manage the {{site.data.keyword.cloud_notm}} catalog entries, query templates, runtimes, and geolocations of data centers.
 {: shortdesc}
 
-There are extra CLI commands and capabilities for catalogs. You can use the Catalogs management CLI plug-in to manage your private catalogs and onboard new private software. For more information, see [Catalogs management CLI plug-in](/docs/cli?topic=cli-manage-catalogs-plugin). 
+You can use extra CLI commands and capabilities for catalogs. Use the Catalogs management CLI plug-in to manage your private catalogs and onboard new private software. For more information, see the [Catalogs management CLI plug-in](/docs/cli?topic=cli-manage-catalogs-plugin). 
 {: note}
   
 ## ibmcloud catalog entry
@@ -64,7 +64,7 @@ ibmcloud catalog entry-create [-c PARAMETERS_AS_JSON] [-p, --parent PARENT] [--g
 :   Parent ID of the object
 
 -c
-:   Valid JSON object that contains catalog-specific configuration parameters, provided either inline or in a file. For a list of supported configuration parameters, see documentation for the particular catalog entry.
+:   Valid JSON object that contains catalog-specific configuration parameters, provided either inline or in a file. For a list of supported configuration parameters, see the documentation for the particular catalog entry.
 
 --global
 :   Operate in global scope
@@ -91,7 +91,7 @@ ibmcloud catalog entry-update ID [-c PARAMETERS_AS_JSON] [--global]
 {: #ibmcloud_catalog_entry_update_options}
 
 -c
-:   Valid JSON object that contains catalog-specific configuration parameters, provided either inline or in a file. For a list of supported configuration parameters, see documentation for the particular catalog entry.
+:   Valid JSON object that contains catalog-specific configuration parameters, provided either inline or in a file. For a list of supported configuration parameters, see the documentation for the particular catalog entry.
 
 --global
 :   Operate in global scope
@@ -187,7 +187,7 @@ ibmcloud catalog entry-visibility-set ID [--includes-add LIST] [--includes-remov
 :   Changing the restriction of the visibility object to 'Public'.
   
 -c
-:   Valid JSON object that contains catalog-specific configuration parameters, provided either inline or in a file. For a list of supported configuration parameters, see documentation for the particular catalog entry.
+:   Valid JSON object that contains catalog-specific configuration parameters, provided either inline or in a file. For a list of supported configuration parameters, see the documentation for the particular catalog entry.
 
 --global
 :   Operate in global scope

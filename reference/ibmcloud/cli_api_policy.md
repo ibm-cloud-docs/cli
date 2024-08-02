@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-03-20"
+lastupdated: "2024-08-02"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -149,7 +149,7 @@ ibmcloud iam service-id-update sample-test -n sample-test-2 -f
 ```
 {: codeblock}
 
-Update description of service `sample-test`:
+Update description of the service `sample-test`:
 ```bash
 ibmcloud iam service-id-update sample-test -d 'hello, friend!'
 ```
@@ -282,7 +282,7 @@ ibmcloud iam api-keys [--uuid]
 {: #ibmcloud_iam_api_keys_options}
 
 --uuid
-:   Show UUID of the API key.
+:   Show the UUID of the API key.
 
 ## ibmcloud iam api-key-create
 {: #ibmcloud_iam_api_key_create}
@@ -309,7 +309,7 @@ NAME (required)
 :   Save API key information to the specified file.
 
 --action-if-leaked *value*
-:   The action to take if the key is leaked, can be "NONE", "DISABLE", or "DELETE". Default is "Disable"
+:   The action to take if the key is leaked, can be "NONE", "DISABLE", or "DELETE". The default is "Disable".
 
 --lock
 :   Lock the API key when it is created.
@@ -317,7 +317,7 @@ NAME (required)
 ### Examples
 {: #ibmcloud_iam_api_key_create_examples}
 
-Create an API key and save to a file:
+Create an API key and save it to a file:
 ```bash
 ibmcloud iam api-key-create MyKey -d "this is my API key" --file key_file
 ```
@@ -354,7 +354,7 @@ UUID (required)
 :   The new description of the API key.
 
 --action-if-leaked *value*
-:   The action to take if the key is leaked, can be "NONE", "DISABLE", or "DELETE". Default is "Disable"
+:   The action to take if the key is leaked, can be "NONE", "DISABLE", or "DELETE". The default is "Disable"
 
 ### Examples
 {: #ibmcloud_iam_api_key_update_examples}
@@ -402,7 +402,7 @@ ibmcloud iam api-key-lock (NAME|UUID) [-f, --force]
 {: #ibmcloud_iam_api_key_lock_options}
 
 NAME (required)
-:   Name of the API key to be locked, exclusive with UUID.
+:   The name of the API key to be locked, exclusive with UUID.
 
 UUID (required)
 :   UUID of the API key to be locked, exclusive with NAME.
@@ -560,7 +560,7 @@ SERVICE_ID_UUID (required)
 ### Examples
 {: #ibmcloud_iam_service_api_keys_examples}
 
-List all API keys of service `sample-service`:
+List all API keys of the service `sample-service`:
 ```bash
 ibmcloud iam service-api-keys sample-service
 ```
@@ -591,7 +591,7 @@ SERVICE_ID_UUID (required)
 :   UUID of the service ID, exclusive with SERVICE_ID_NAME.
 
 --uuid
-:   Display the UUID of service API key.
+:   Display the UUID of the service API key.
 
 -f, --force
 :   Display service API key without confirmation.
@@ -687,7 +687,7 @@ SERVICE_ID_UUID (required)
 ### Examples
 {: #ibmcloud_iam_service_api_key_update_examples}
 
-Rename service API key `sample-key` to `new-sample-key`:
+Rename the service API key `sample-key` to `new-sample-key`:
 ```bash
 ibmcloud iam service-api-key-update sample-key sample-service -n new-sample-key
 ```
@@ -916,7 +916,7 @@ POLICY_ID (required)
 :   ID of the policy.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -946,7 +946,7 @@ ibmcloud iam user-policy-create USER_NAME {--file JSON_FILE | --roles ROLE_NAME1
 {: #ibmcloud_iam_user_policy_create_options}
 
 USER_NAME (required)
-:   User name to whom the policy belongs to.
+:   User name to whom the policy belongs.
 
 --file *FILE* (optional)
 :   JSON file of policy definition. You can use advanced operators in a JSON policy document to grant access to resources that satisfy specific naming conventions. For more information about using advanced operators to create wildcard policies, see [Assigning access by using wildcard policies](/docs/account?topic=account-wildcard).
@@ -982,7 +982,7 @@ USER_NAME (required)
 :   Set resource attributes in the form of `name=value,name=value....`
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1093,7 +1093,7 @@ POLICY_ID (required)
 :   Set resource attributes in the form of 'name=value,name=value....'
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1134,13 +1134,13 @@ ibmcloud iam user-policy-update name@example.com user-policy-id --roles Operator
 ```
 {: codeblock}
 
-Update user policy to give `name@example.com` `Viewer` role for members of resource group `sample-resource-group`:
+Update user policy to give `name@example.com` `Viewer` role for members of the resource group `sample-resource-group`:
 ```bash
 ibmcloud iam user-policy-update name@example.com user-policy-id --roles Viewer --resource-group-name sample-resource-group
 ```
 {: codeblock}
 
-Update user policy to give `name@example.com` `Viewer` role for members of resource group with ID `dda27e49d2a1efca58083a01dfde18f6`:
+Update user policy to give `name@example.com` `Viewer` role for members of a resource group with ID `dda27e49d2a1efca58083a01dfde18f6`:
 ```bash
 ibmcloud iam user-policy-update name@example.com user-policy-id --roles Viewer --resource-group-id dda27e49d2a1efca58083a01dfde18f6
 ```
@@ -1206,7 +1206,7 @@ SERVICE_ID (required)
 :   Display service policies without confirmation.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1249,7 +1249,7 @@ POLICY_ID (required)
 :   ID of the service policy.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -f, --force (optional)
 :   Display service policy without confirmation.
@@ -1327,13 +1327,13 @@ SERVICE_ID (required)
 :   Set resource attributes in the form of 'name=value,name=value....'
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
 
 -f, --force
-:   Create service policy without confirmation.
+:   Create a service policy without confirmation.
 
 --api-version
 :   Version of the access policy API.
@@ -1365,7 +1365,7 @@ ibmcloud iam service-policy-create test --roles Viewer
 ```
 {: codeblock}
 
-Grant service `test` the `Viewer` role and a custom role `Responder` for all `sample` service instances in account:
+Grant service `test` the `Viewer` role and a custom role `Responder` for all `sample` service instances in the account:
 ```bash
 ibmcloud iam service-policy-create test --roles Viewer,Responder --service-name sample
 ```
@@ -1429,7 +1429,7 @@ POLICY_ID (required)
 :   Set resource attributes in the form of 'name=value,name=value....'
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1467,7 +1467,7 @@ ibmcloud iam service-policy-update test 140798e2-8ea7db3 --roles Viewer
 ```
 {: codeblock}
 
-Update service policy `140798e2-8ea7db3` to grant service `test` the `Viewer` role and a custom role `Responder` for all `sample` service instances in account:
+Update the service policy `140798e2-8ea7db3` to grant service `test` the `Viewer` role and a custom role `Responder` for all `sample` service instances in account:
 ```bash
 ibmcloud iam service-policy-update test 140798e2-8ea7db3 --roles Viewer,Responder --service-name sample
 ```
@@ -1504,7 +1504,7 @@ POLICY_ID (required)
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 --api-version
 :   Version of the access policy API.
@@ -1637,7 +1637,7 @@ ibmcloud iam role-create ROLE_NAME --display-name DISPLAY_NAME --service-name SE
 :   The description of the role.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1682,13 +1682,13 @@ ibmcloud iam access-policies [-t, --type user | service_id | access_group | trus
 {: #ibmcloud_iam_access_policies_options}
 
 -t, --type ACCESS_POLICY_TYPE
-:   List all access policies under current account filtered by policy type. Valid options are: `user` | `service_id` | `access_group` | `trusted_profile`
+:   List all access policies under the current account filtered by policy type. Valid options are: `user` | `service_id` | `access_group` | `trusted_profile`
 
 --sort-by ATTRIBUTE
 :   Sort the policies based on attributes. Valid options are: id | type | href | created_at | created_by_id | last_modified_at | last_modified_by_id | state. Prepend a minus (for example, `-id`, `-type`) for reverse sorting.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1729,13 +1729,13 @@ ibmcloud iam access-policies --type trusted_profile
 ```
 {: codeblock}
 
-List all trusted profile access policies sorted by `created_at` in ascending order under the current account:
+List all trusted profile access policies that are sorted by `created_at` in ascending order under the current account:
 ```bash
 ibmcloud iam access-policies --type trusted_profile --sort-by created_at
 ```
 {: codeblock}
 
-List all trusted user policies sorted by `last_modified_at` in descending order under the current account:
+List all trusted user policies that are sorted by `last_modified_at` in descending order under the current account:
 ```bash
 ibmcloud iam access-policies --type user --sort-by -last_modified_at
 ```
@@ -1744,7 +1744,7 @@ ibmcloud iam access-policies --type user --sort-by -last_modified_at
 ## ibmcloud iam access-policy-template
 {: #ibmcloud_iam_access_policy_template}
 
-Show details of an access policy template under current account:
+Show details of an access policy template under the current account:
 ```bash
 ibmcloud iam access-policy-template (TEMPLATE_ID | TEMPLATE_NAME) [--output FORMAT] [-q, --quiet]
 ```
@@ -1754,7 +1754,7 @@ ibmcloud iam access-policy-template (TEMPLATE_ID | TEMPLATE_NAME) [--output FORM
 {: #ibmcloud_iam_access_policy_template_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1783,7 +1783,7 @@ ibmcloud iam access-policy-templates [--output FORMAT] [-q, quiet]
 {: #ibmcloud_iam_access_policy_templates_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1839,7 +1839,7 @@ ibmcloud iam access-policy-template-version (TEMPLATE_ID | TEMPLATE_NAME) TEMPLA
 {: #ibmcloud_iam_access_policy_template_version_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1897,7 +1897,7 @@ ibmcloud iam access-policy-template-update (TEMPLATE_ID | TEMPLATE_NAME) TEMPLAT
 :   JSON file of access policy template definition
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1978,7 +1978,7 @@ ibmcloud iam access-policy-assignment ASSIGNMENT_ID [-q, --quiet] [--output FORM
 {: #ibmcloud_iam_access_policy_template_assignment_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -1997,7 +1997,7 @@ ibmcloud iam access-policy-assignment AccessPolicyAssignment-adee40a7f8324d6fbcd
 ## ibmcloud iam access-policy-assignments
 {: #ibmcloud_iam_access_policy_assignments}
 
-List all access policy assignments on current account:
+List all access policy assignments on the current account:
 ```bash
 ibmcloud iam access-policy-templates [--output FORMAT] [-q, --quiet]
 ```
@@ -2007,7 +2007,7 @@ ibmcloud iam access-policy-templates [--output FORMAT] [-q, --quiet]
 {: #ibmcloud_iam_access_policy_assignments_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2038,7 +2038,7 @@ ibmcloud iam account-policies [-t, --type access | auth] [--output FORMAT] [-q, 
 :   List all policies under current account filtered by policy type. Valid options are: `access` | `auth`
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2089,7 +2089,7 @@ ROLE_NAME1,ROLE_NAME2...
 :   The roles that provide access for the source service.
 
 --source-service-instance-name SOURCE_SERVICE_INSTANCE_NAME
-:   Source service instance name, mutually exclusive with `--source-service-instance-id` and `--source-service-account`. If source service instance not specified, all instances of source service will be authorized to access.
+:   Source service instance name, mutually exclusive with `--source-service-instance-id` and `--source-service-account`. If source service instance is not specified, all instances of the source service are authorized to access.
 
 --source-service-instance-id SOURCE_SERVICE_INSTANCE_ID
 :   Source service instance ID, mutually exclusive with `--source-service-instance-name`. If not specified, all instances of the source service are authorized to access.
@@ -2124,7 +2124,7 @@ ROLE_NAME1,ROLE_NAME2...
 :   JSON file of policy definition.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2166,7 +2166,7 @@ AUTHORIZATION_POLICY_ID
 :   ID of authorization policy to show.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2205,7 +2205,7 @@ ibmcloud iam access-groups [-u USER_NAME | -s SERVICE_ID_NAME | -p (PROFILE_NAME
 :   List access groups the trusted profile belongs to. This option is exclusive to '-s' and '-u'.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2434,7 +2434,7 @@ ibmcloud iam access-group-service-ids example_group
 ## ibmcloud iam access-group-service-id-add
 {: #ibmcloud_iam_access_group_service_id_add}
 
-Add service ID to an access group:
+Add a service ID to an access group:
 ```bash
 ibmcloud iam access-group-service-id-add GROUP_NAME SERVICE_ID_NAME [SERVICE_ID_NAME2...]
 ```
@@ -2508,7 +2508,7 @@ GROUP_NAME (required)
 :   Name of the access group.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2525,7 +2525,7 @@ ibmcloud iam access-group-trusted-profiles example_group
 ## ibmcloud iam access-group-trusted-profile-add
 {: #ibmcloud_iam_access_group_trusted_profile_add}
 
-Add trusted profile(s) to an access group:
+Add trusted profiles to an access group:
 ```bash
 ibmcloud iam access-group-trusted-profile-add GROUP_NAME (PROFILE_NAME | PROFILE_ID) [PROFILE_NAME2 | PROFILE_ID2...] [--output FORMAT] [-q, --quiet]
 ```
@@ -2535,13 +2535,13 @@ ibmcloud iam access-group-trusted-profile-add GROUP_NAME (PROFILE_NAME | PROFILE
 {: #ibmcloud_iam_access_group_trusted_profile_add_options}
 
 GROUP_NAME (required)
-:   Name of the access group.
+:   The name of the access group.
 
 PROFILE_NAME | PROFILE_ID (required)
-:   Name(s) or ID(s) of the trusted profiles to add to the access group.
+:   The names or IDs of the trusted profiles to add to the access group.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2635,7 +2635,7 @@ GROUP_NAME
 :   Name of the access group.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2671,7 +2671,7 @@ POLICY_ID
 :   The ID of the policy to retrieve.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2682,7 +2682,7 @@ POLICY_ID
 ### Examples
 {: #ibmcloud_iam_access_group_policy_examples}
 
-Show details of policy `51b9717e-76b0-4f6a-bda7-b8132431f926` of access group `example_group`:
+Show details of the policy `51b9717e-76b0-4f6a-bda7-b8132431f926` of access group `example_group`:
 ```bash
 ibmcloud iam access-group-policy example_group 51b9717e-76b0-4f6a-bda7-b8132431f926
 ```
@@ -2737,7 +2737,7 @@ ibmcloud iam access-group-policy-create GROUP_NAME {--file @JSON_FILE | --roles 
 :   Set resource attributes in the form of 'name=value,name=value....'
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2778,13 +2778,13 @@ ibmcloud iam access-group-policy-create example_group --roles Operator --resourc
 ```
 {: codeblock}
 
-Give `example_group` `Viewer` role for the members of resource group `sample-resource-group`:
+Give `example_group` `Viewer` role for the members of the resource group `sample-resource-group`:
 ```bash
 ibmcloud iam access-group-policy-create example_group --roles Viewer --resource-group-name sample-resource-group
 ```
 {: codeblock}
 
-Give `example_group` `Viewer` role for the members of resource group with ID `dda27e49d2a1efca58083a01dfde18f6`:
+Give `example_group` `Viewer` role for the members of the resource group with ID `dda27e49d2a1efca58083a01dfde18f6`:
 ```bash
 ibmcloud iam access-group-policy-create example_group --roles Viewer --resource-group-id dda27e49d2a1efca58083a01dfde18f6
 ```
@@ -2860,7 +2860,7 @@ ibmcloud iam access-group-policy-update GROUP_NAME POLICY_ID {--file JSON_FILE |
 :   Set resource attributes in the form of 'name=value,name=value....'
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2871,7 +2871,7 @@ ibmcloud iam access-group-policy-update GROUP_NAME POLICY_ID {--file JSON_FILE |
 ### Examples
 {: #ibmcloud_iam_access_group_policy_update_examples}
 
-Update access group policy `b8638ceb-5c4d-4d58-ae06-7ad95a10c4d4` with the one in policy JSON file:
+Update the access group policy `b8638ceb-5c4d-4d58-ae06-7ad95a10c4d4` with the one in policy JSON file:
 ```bash
 ibmcloud iam access-group-policy-update example_group b8638ceb-5c4d-4d58-ae06-7ad95a10c4d4 -f @policy.json
 ```
@@ -2901,7 +2901,7 @@ ibmcloud iam access-group-policy-update example_group b8638ceb-5c4d-4d58-ae06-7a
 ```
 {: codeblock}
 
-Update access group policy `b8638ceb-5c4d-4d58-ae06-7ad95a10c4d4` to give `example_group` `Viewer` role for members of resource group `sample-resource-group`:
+Update access group policy `b8638ceb-5c4d-4d58-ae06-7ad95a10c4d4` to give `example_group` `Viewer` role for members of the resource group `sample-resource-group`:
 ```bash
 ibmcloud iam access-group-policy-update example_group b8638ceb-5c4d-4d58-ae06-7ad95a10c4d4 --roles Viewer --resource-group-name sample-resource-group
 ```bash
@@ -2919,7 +2919,7 @@ ibmcloud iam access-group-policy-update example_group b8638ceb-5c4d-4d58-ae06-7a
 ```
 {: codeblock}
 
-Update access group policy `b8638ceb-5c4d-4d58-ae06-7ad95a10c4d4` to give `example_group` `Viewer` role for all resources in account:
+Update access group policy `b8638ceb-5c4d-4d58-ae06-7ad95a10c4d4` to give `example_group` `Viewer` role for all resources in the account:
 ```bash
 ibmcloud iam access-group-policy-update example_group b8638ceb-5c4d-4d58-ae06-7ad95a10c4d4 --roles Viewer
 ```
@@ -2984,7 +2984,7 @@ ibmcloud iam access-group-template-create (TEMPLATE_NAME --access-group-name ACC
 :   Description of the template
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -2997,7 +2997,7 @@ Create an access group template with specified name and access group name
 ibmcloud iam access-group-template-create example-template-name --access-group-name example-access-group -d example-description
 ```
 
-Create an access group template using a JSON file
+Create an access group template by using a JSON file
 ```bash
 ibmcloud iam access-group-template-create --file JSON_FILE
 ```
@@ -3016,7 +3016,7 @@ ibmcloud iam access-group-template (TEMPLATE_ID | TEMPLATE_NAME) [--output FORMA
 {: #ibmcloud_iam_access_group_template_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3043,7 +3043,7 @@ ibmcloud iam access-group-template-version (TEMPLATE_ID | TEMPLATE_NAME) TEMPLAT
 {: #ibmcloud_iam_access_group_template_version_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3172,7 +3172,7 @@ ibmcloud iam access-group-template-versions (TEMPLATE_ID | TEMPLATE_NAME) [-q, -
 {: #ibmcloud_iam_access_group_template_versions_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3199,7 +3199,7 @@ ibmcloud iam access-group-templates [-q, --quiet] [--output FORMAT]
 {: #ibmcloud_iam_access_group_templates_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3226,7 +3226,7 @@ ibmcloud iam access-group-assignment [--output FORMAT]
 {: #ibmcloud_iam_access_group_assignment_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3319,7 +3319,7 @@ ibmcloud iam access-group-assignment-update example-assignment-id
 ## ibmcloud iam access-group-assignments
 {: #ibmcloud_iam_access_group_assignments}
 
-Get all access group assignments in current account
+Get all access group assignments in your current account
 ```bash
 ibmcloud iam access-group-assignments [-q, --quiet] [--output FORMAT]
 ```
@@ -3329,7 +3329,7 @@ ibmcloud iam access-group-assignments [-q, --quiet] [--output FORMAT]
 {: #ibmcloud_iam_access_group_assignments_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3362,7 +3362,7 @@ NAME (required)
 :   Description of the profile.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3370,7 +3370,7 @@ NAME (required)
 ### Examples
 {: #ibmcloud_iam_trusted_profile_create_examples}
 
-Create trusted profile with name `sample-test` and description "sample trusted profile":
+Create a trusted profile with name `sample-test` and description "sample trusted profile":
 ```bash
 ibmcloud iam trusted-profile-create sample-test -d "sample trusted profile"
 ```
@@ -3392,10 +3392,10 @@ NAME|ID (required)
 :   Name or ID of the profile.
 
 --id
-:   Show ID of the profile only.
+:   Show the ID of the profile only.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3431,7 +3431,7 @@ ibmcloud iam trusted-profiles [--id | --output FORMAT] [-q, --quiet]
 :   Show ID of profiles only.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3464,10 +3464,10 @@ NAME|ID (required)
 :   New name of the trusted profile.
 
 -d, --description NEW_DESCRIPTION
-:   New description of the profile. Providing an empty description will clear the description of the profile.
+:   New description of the profile. Providing an empty description clears the description of the profile.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -f, --force
 :   Force failure if multiple profiles are found.
@@ -3533,7 +3533,7 @@ ibmcloud iam trusted-profile-policy-create (NAME|ID) {--file JSON_FILE | -r, --r
 {: #ibmcloud_iam_trusted_profile_policy_create_options}
 
 NAME|ID (required)
-:   Name or ID of the profile to assign the new policy to
+:   The name or ID of the profile to assign the new policy to
 
 --account-management
 :   Give access to all account management services.
@@ -3551,7 +3551,7 @@ NAME|ID (required)
 :   Force failure if multiple profiles are found.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 --region REGION
 :   Region of the policy definition. This option is exclusive with '--file'. For supported regions, run 'ibmcloud regions'.
@@ -3626,7 +3626,7 @@ POLICY_ID (required)
 :   Force failure if multiple profiles are found.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3662,7 +3662,7 @@ NAME|ID (required)
 :   Force failure if multiple profiles are found.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3692,7 +3692,7 @@ ibmcloud iam trusted-profile-policy-update (NAME|ID) POLICY_ID {--file JSON_FILE
 {: #ibmcloud_iam_trusted_profile_policy_update_options}
 
 NAME|ID (required)
-:   Name or ID of the profile to assign the new policy to update.
+:   The name or ID of the profile to assign the new policy to update.
 
 POLICY_ID (required)
 :   The ID of the policy to update.
@@ -3710,7 +3710,7 @@ POLICY_ID (required)
 :   Force failure if multiple profiles are found.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 --region REGION
 :   Region of the policy definition. This option is exclusive with '--file'. For supported regions, run 'ibmcloud regions'.
@@ -3773,7 +3773,7 @@ ibmcloud iam trusted-profile-policy-delete (NAME|ID) POLICY_ID [-f, --force] [-q
 {: #ibmcloud_iam_trusted_profile_policy_delete_options}
 
 NAME|ID (required)
-:   Name or ID of the profile which contains the policy to delete.
+:   The name or ID of the profile that contains the policy to delete.
 
 POLICY_ID (required)
 :   The ID of the policy to delete.
@@ -3809,10 +3809,10 @@ ibmcloud iam trusted-profile-link-create (NAME|ID) --name LINK_NAME --cr-type CR
 {: #ibmcloud_iam_trusted_profile_link_create_options}
 
 NAME|ID (required)
-:   Name or ID of the profile to link the compute resource to.
+:   The name or ID of the profile to link the compute resource to.
 
 --name
-:   Name for the link.
+:   The name for the link.
 
 --cr-type (required)
 :   The compute resource type. VSI for Virtual Service Instance on VPC, IKS_SA for Service Accounts on Kubernetes clusters, or ROKS_SA for managed Red Hat OpenShift.
@@ -3827,7 +3827,7 @@ NAME|ID (required)
 :   Name of the service account for IKS_SA or ROKS_SA, required if IKS_SA or ROKS_SA.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -f, --force
 :   Force failure if multiple profiles are found.
@@ -3839,19 +3839,19 @@ NAME|ID (required)
 ### Examples
 {: #ibmcloud_iam_trusted_profile_link_create_examples}
 
-Create link named `my_link` for trusted profile `my-profile` for an `IKS_SA` compute resource with service account name `default`, `default` namespace, and `my_compute_resource_crn` CRN:
+Create a link named `my_link` for trusted profile `my-profile` for an `IKS_SA` compute resource with service account name `default`, `default` namespace, and `my_compute_resource_crn` CRN:
 ```bash
 ibmcloud iam trusted-profile-link-create my_profile --name my_link --cr-type IKS_SA --link-name default  --link-namespace default --link-crn my_compute_resource_crn
 ```
 {: codeblock}
 
-Create link named `my_link` for trusted profile ID `Profile-bdf62c30-35dd-4852-bcb8-2f0dd3929701` for an `IKS_SA` compute resource with service account name `default` in the namespace `my_namespace` and with a CRN of `my_resource_crn`:
+Create a link that is named `my_link` for trusted profile ID `Profile-bdf62c30-35dd-4852-bcb8-2f0dd3929701` for an `IKS_SA` compute resource with service account name `default` in the namespace `my_namespace` and with a CRN of `my_resource_crn`:
 ```bash
 ibmcloud iam trusted-profile-link-create Profile-bdf62c30-35dd-4852-bcb8-2f0dd3929701 --name my_link --cr-type IKS_SA --link-name default --link-namespace my_namespace --link-crn my_resource_crn
 ```
 {: codeblock}
 
-Create link named `my_link` for trusted profile ID `Profile-bdf62c30-35dd-4852-bcb8-2f0dd3929701` for a `VSI` compute resource with a CRN of `my_resource_crn`:
+Create a link named `my_link` for trusted profile ID `Profile-bdf62c30-35dd-4852-bcb8-2f0dd3929701` for a `VSI` compute resource with a CRN of `my_resource_crn`:
 ```bash
 ibmcloud iam trusted-profile-link-create Profile-bdf62c30-35dd-4852-bcb8-2f0dd3929701 --name my_link --cr-type VSI --link-crn my_resource_crn
 ```
@@ -3870,13 +3870,13 @@ ibmcloud iam trusted-profile-links (NAME|ID) [--id | --output FORMAT] [-f, --for
 {: #ibmcloud_iam_trusted_profile_links_options}
 
 NAME|ID (required)
-:   Name or ID of the trusted profile to retrieve links.
+:   The name or ID of the trusted profile to retrieve links.
 
 --id
 :   Show ID of links only.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -f, --force
 :   Force failure if multiple profiles are found.
@@ -3887,7 +3887,7 @@ NAME|ID (required)
 ### Examples
 {: #ibmcloud_iam_trusted_profile_links_examples}
 
-Display ID of all links in the trusted profile `my-profile`:
+Display the ID of all links in the trusted profile `my-profile`:
 ```bash
 ibmcloud iam trusted-profile-links my-profile --id
 ```
@@ -3912,7 +3912,7 @@ ibmcloud iam trusted-profile-link-delete (NAME|ID) (LINK_NAME|LINK_ID) [-f, --fo
 {: #ibmcloud_iam_trusted_profile_link_delete_options}
 
 NAME|ID (required)
-:   Name or ID of the profile which contains the link to delete.
+:   The name or ID of the profile that contains the link to delete.
 
 LINK_NAME|LINK_ID (required)
 :   Name or ID of the link to delete.
@@ -3957,7 +3957,7 @@ IDENTITY_IDENTIFIER|IDENTITY_ID (required)
 :   Show ID of the identity only.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -3981,10 +3981,10 @@ NAME|ID (required)
 :   The type of identifiers to retrieve for the trusted profile. USER for a user IAM ID, SERVICEID for a service ID, or CRN for a service CRN
 
 --id
-:   Show ID of the identities only.
+:   Show the ID of the identities only.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -f, --force
 :   Force a failure if multiple profiles are found.
@@ -4006,7 +4006,7 @@ ibmcloud iam trusted-profile-identity-create (NAME|ID) --id IDENTIFIER_TO_CONNEC
 {: #ibmcloud_iam_trusted_profile_identity_create_options}
 
 NAME|ID (required)
-:   Name or ID of the profile to connect the identity to.
+:   The name or ID of the profile to connect the identity to.
 
 --id (required)
 :   ID for the identity.
@@ -4018,7 +4018,7 @@ NAME|ID (required)
 :   Optional description for the connection to the trusted profile
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -4036,7 +4036,7 @@ ibmcloud iam trusted-profile-identity-delete (NAME|ID) (IDENTITY_IDENTIFIER|IDEN
 {: #ibmcloud_iam_trusted_profile_identity_delete_options}
 
 NAME|ID (required)
-:   Name or ID of the profile to disconnect the identity from.
+:   The name or ID of the profile to disconnect the identity from.
 
 IDENTITY_IDENTIFIER|IDENTITY_ID (required)
 :   Identifier or ID of the Identity to disconnect.
@@ -4074,22 +4074,22 @@ NAME|ID (required)
 :   'Profile-SAML' for a SAML rule or 'Profile-CR' for a compute resource rule
 
 --conditions (required)
-:   List of conditions, provided as comma separated list of triple values "claim:CLAIM,operator:OPERATOR,value:VALUE". To specify mutiple conditions, specify the flag multiple times --conditions "claim:CLAIM1,operator:OPERATOR1,value:VALUE1" --conditions "claim:CLAIM2,operator:OPERATOR2,value:VALUE2".
+:   List of conditions, provided as a comma-separated list of triple values "claim:CLAIM,operator:OPERATOR,value:VALUE". To specify multiple conditions, specify the flag multiple times --conditions "claim:CLAIM1,operator:OPERATOR1,value:VALUE1" --conditions "claim:CLAIM2,operator:OPERATOR2,value:VALUE2".
 
 --expiration
-:   Specify an expiration in seconds for SAML rules. Must not be provided for trusts established to Compute Resources (type = Profile-CR).
+:   Specify an expiration in seconds for SAML rules. Must not be provided for trusts that are established to Compute Resources (type = Profile-CR).
 
 --name
 :   Name for the rule.
 
 --cr-type
-:   The compute resource type the rule applies to, required only if type is specified as 'Profile-CR'. Values are VSI for Virtual Service Instance on VPC, IKS_SA for Service Accounts on Kubernetes clusters, or ROKS_SA for managed Red Hat OpenShift.
+:   The compute resource type that the rule applies to is required only if type is specified as 'Profile-CR'. Values are VSI for Virtual Service Instance on VPC, IKS_SA for Service Accounts on Kubernetes clusters, or ROKS_SA for managed Red Hat OpenShift.
 
 --realm-name
-:   Issuer Id for trusts established via IBMid with federation, or appid:// for trusts established via App ID federation. Must not be provided for trusts established to Compute Resources (type = Profile-CR).
+:   The issuer ID for trusts established via IBMid with federation, or `appid://` for trusts established by using App ID federation. Must not be provided for trusts that are established to Compute Resources (type = Profile-CR).
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -f, --force
 :   Force failure if multiple profiles are found.
@@ -4136,7 +4136,7 @@ NAME|ID (required)
 :   Name or ID of the trusted profile to retrieve rules for.
 
 --output FORMAT.
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -f, --force
 :   Force failure if multiple profiles are found.
@@ -4147,7 +4147,7 @@ NAME|ID (required)
 ### Examples
 {: #ibmcloud_iam_trusted_profile_rules_examples}
 
-Display all rules in trusted profile `my-profile`:
+Display all rules in the trusted profile `my-profile`:
 ```bash
 ibmcloud iam trusted-profile-rules my-profile
 ```
@@ -4169,7 +4169,7 @@ To view a full list of valid operators and claim attribute options for `--condit
 {: #ibmcloud_iam_trusted_profile_rule_update_options}
 
 NAME|ID (required)
-:   Name or ID of the trusted profile to to update a rule for.
+:   The name or ID of the trusted profile to update a rule for.
 
 RULE_NAME|RULE_ID (required)
 :   The name or ID of the rule to update.
@@ -4178,22 +4178,22 @@ RULE_NAME|RULE_ID (required)
 :   'Profile-SAML' for a SAML rule or 'Profile-CR' for a compute resource rule.
 
 --conditions
-:   List of conditions, provided as comma separated list of triple values "claim:CLAIM,operator:OPERATOR,value:VALUE". To specify mutiple conditions, specify the flag multiple times --conditions "claim:CLAIM1,operator:OPERATOR1,value:VALUE1" --conditions "claim:CLAIM2,operator:OPERATOR2,value:VALUE2".
+:   List of conditions, provided as a comma-separated list of triple values "claim:CLAIM,operator:OPERATOR,value:VALUE". To specify multiple conditions, specify the flag multiple times --conditions "claim:CLAIM1,operator:OPERATOR1,value:VALUE1" --conditions "claim:CLAIM2,operator:OPERATOR2,value:VALUE2".
 
 --cr-type
-:   The compute resource type the rule applies to, required only if type is specified as 'Profile-CR'. Values are VSI for Virtual Service Instance on VPC, IKS_SA for Service Accounts on Kubernetes clusters, or ROKS_SA for managed Red Hat OpenShift.
+:   The compute resource type that the rule applies to is required only if type is specified as 'Profile-CR'. Values are VSI for Virtual Service Instance on VPC, IKS_SA for Service Accounts on Kubernetes clusters, or ROKS_SA for managed Red Hat OpenShift.
 
 --expiration
-:   Specify an expiration in seconds for SAML rules. Must not be provided for trusts established to Compute Resources (type = Profile-CR).
+:   Specify an expiration in seconds for SAML rules. Must not be provided for trusts that are established to Compute Resources (type = Profile-CR).
 
 --name
 :   New name for the rule.
 
 --realm-name
-:   Issuer Id for trusts established via IBMid with federation, or appid:// for trusts established via App ID federation. Must not be provided for trusts established to Compute Resources (type = Profile-CR).
+:   Issuer Id for trusts established via IBMid with federation, or `appid://` for trusts established via App ID federation. Must not be provided for trusts that are established to Compute Resources (type = Profile-CR).
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -f, --force
 :   Force failure if multiple rules are found.
@@ -4242,7 +4242,7 @@ ibmcloud iam trusted-profile-rule-delete (NAME|ID) (RULE_NAME|RULE_ID) [-f, --fo
 {: #ibmcloud_iam_trusted_profile_rule_delete_options}
 
 NAME|ID (required)
-:   Name or ID of the profile which contains the rule to delete.
+:   The name or ID of the profile that contains the rule to delete.
 
 RULE_NAME|RULE_ID (required)
 :   The name or ID of the rule to delete.
@@ -4265,7 +4265,7 @@ ibmcloud iam trusted-profile-rule-delete my-profile my-rule -f
 ## ibmcloud iam trusted-profile-templates
 {: #ibmcloud_iam_trusted_profile_templates}
 
-List all profile templates in current account
+List all profile templates in your current account
 ```bash
 ibmcloud iam trusted-profile-templates [--output FORMAT] [-q, --quiet]
 ```
@@ -4278,7 +4278,7 @@ ibmcloud iam trusted-profile-templates [--output FORMAT] [-q, --quiet]
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ### Examples
 {: #ibmcloud_iam_trusted_profile_templates_examples}
@@ -4329,7 +4329,7 @@ ibmcloud iam trusted-profile-template-version example-template-name 1
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ## ibmcloud iam trusted-profile-template-version-commit
 {: #ibmcloud_iam_trusted_profile_template_version_commit}
@@ -4384,7 +4384,7 @@ ibmcloud iam trusted-profile-template-version-create example-template-name --fil
 ## ibmcloud iam trusted-profile-template-version-delete
 {: #ibmcloud_iam_trusted_profile_template_version_delete}
 
-Delete a specificed version of a trusted profile template
+Delete a specified version of a trusted profile template
 ```bash
 ibmcloud iam trusted-profile-template-version-delete TEMPLATE_ID TEMPLATE_VERSION
 ```
@@ -4448,7 +4448,7 @@ ibmcloud iam trusted-profile-template-versions TEMPLATE_ID | TEMPLATE_NAME
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ### Examples
 {: #ibmcloud_iam_trusted_profile_template_versions_examples}
@@ -4475,7 +4475,7 @@ ibmcloud iam trusted-profile-assignment ASSIGNMENT_ID
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ### Examples
 {: #ibmcloud_iam_trusted_profile_assignment_examples}
@@ -4567,7 +4567,7 @@ ibmcloud iam trusted-profile-assignment-update example-template-id 1
 ## ibmcloud iam trusted-profile-assignments
 {: #ibmcloud_iam_trusted_profile_assignments}
 
-Get all trusted profile assignments in current account
+Get all trusted profile assignments in your current account
 ```bash
 ibmcloud iam trusted-profile-assignments
 ```
@@ -4577,7 +4577,7 @@ ibmcloud iam trusted-profile-assignments
 {: #ibmcloud_iam_trusted_profile_assignments_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -4604,7 +4604,7 @@ ibmcloud iam account-settings [--output FORMAT] [-q, --quiet]
 {: #ibmcloud_iam_account_settings_options}
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -4612,7 +4612,7 @@ ibmcloud iam account-settings [--output FORMAT] [-q, --quiet]
 ## ibmcloud iam account-settings-update
 {: #ibmcloud_iam_account_settings_update}
 
-Update settings under current acount:
+Update settings under current account:
 
 ```bash
 ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_SETTING] [--restrict-create-platform-apikey RESTRICTION_SETTING] [--allowed-ip-addresses ADDRESS_LIST] [--mfa MFA] [--session-expiration-in-seconds SECONDS_EXP] [--session-invalidation-in-seconds SECONDS_INV] [--max-sessions-per-identity SESSIONS_MAX] [--output FORMAT] [-q, --quiet]
@@ -4629,7 +4629,7 @@ ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_S
 :   The restriction level on API Key creation (one of `RESTRICTED`, `NOT_RESTRICTED`, or `NOT_SET`).
 
 --allowed-ip-addresses ADDRESS_LIST
-:   The IP addresses and subnets from which IAM tokens can be created (default is "").
+:   The IP addresses and subnets from which IAM tokens can be created (the default is "").
 
 --session-expiration-in-seconds SECONDS_EXP
 :   The number of seconds after which the session expires (can also be `NOT_SET`, which resets the value to default).
@@ -4644,7 +4644,7 @@ ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_S
 :   The type of MFA on the account (one of `NONE`, `TOTP`, `TOTP4ALL`, `LEVEL1`, `LEVEL2`, or `LEVEL3`).
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -4682,7 +4682,7 @@ ibmcloud iam account-settings-template (TEMPLATE_ID | TEMPLATE_NAME) [-q,--quiet
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ### Examples
 {: #ibmcloud_iam_account_settings_template_examples}
@@ -4710,12 +4710,12 @@ ibmcloud iam account-settings-templates [-q,--quiet] [--output JSON]
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ### Examples
 {: #ibmcloud_iam_account_settings_templates_examples}
 
-List account settings templates on current account
+List account settings templates on your current account
 
 ```bash
 ibmcloud iam account-settings-templates
@@ -4744,12 +4744,12 @@ ibmcloud iam account-settings-template-create TEMPLATE_NAME [-d, --description D
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ### Examples
 {: #ibmcloud_iam_account_settings_template_create_examples}
 
-Create an account settings template on current account
+Create an account settings template on your current account
 
 ```bash
 ibmcloud iam account-settings-template-create AccountSettingsEditorTemplate --fie /path/to/account_settings_template.json
@@ -4772,7 +4772,7 @@ ibmcloud iam account-settings-template-version (TEMPLATE_ID | TEMPLATE_NAME) TEM
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ### Examples
 {: #ibmcloud_iam_account_settings_template_version_examples}
@@ -4800,7 +4800,7 @@ ibmcloud iam account-settings-template-versions (TEMPLATE_ID | TEMPLATE_NAME) [-
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ### Examples
 {: #ibmcloud_iam_account_settings_template_versions_examples}
@@ -4831,12 +4831,12 @@ ibmcloud iam account-settings-template-version-create {(TEMPLATE_ID |TEMPLATE_NA
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ### Examples
 {: #ibmcloud_iam_account_settings_template_version_create_examples}
 
-Create a new version of account settings template `AccountSettingsEditorTemplate`
+Create a new version of the account settings template `AccountSettingsEditorTemplate`
 
 ```bash
 ibmcloud iam account-settings-template-version-create AccountSettingsEditorTemplate --file /path/to/account_settings_template.json
@@ -4940,7 +4940,7 @@ ibmcloud iam account-settings-assignments [--output FORMAT] [-q, --quiet]
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ### Examples
 {: #ibmcloud_iam_account_settings_assignments_examples}
@@ -4967,7 +4967,7 @@ ibmcloud iam account-settings-assignment ASSIGNMENT_ID [-q,--quiet] [--output FO
 :   Suppress verbose output.
 
 --output FORMAT
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 ### Examples
 {: #ibmcloud_iam_account_settings_assignment_examples}
@@ -4996,13 +4996,13 @@ ibmcloud iam account-settings-assignment-create TEMPLATE_NAME TEMPLATE_VERSION T
 ### Examples
 {: #ibmcloud_iam_account_settings_template_assignment_create_examples}
 
-Assign account settings template template to account
+Assign account settings template to account
 ```bash
 ibmcloud iam account-settings-assignment-create TemplateTest 1 Account f7fc6938256e46e1a25ee09e14ca9c20
 ```
 {: codeblock}
 
-Assign account settings template template to account group
+Assign account settings template to account group
 ```bash
 ibmcloud iam account-settings-assignment-create TemplateTest 1 AccountGroup 955fc2274567474f8da802d5c376504b
 ```
@@ -5011,7 +5011,7 @@ ibmcloud iam account-settings-assignment-create TemplateTest 1 AccountGroup 955f
 ## ibmcloud iam account-settings-assignment-update
 {: #ibmcloud_iam_account_settings_assignment-update}
 
-Update an assignment in order to retry failed assignments or migrate resources to a new version:
+Update an assignment to retry failed assignments or migrate resources to a new version:
 ```bash
 ibmcloud iam account-settings-assigment-update ASSIGNMENT_ID TEMPLATE_VERSION [-q,--quiet]
 ```
@@ -5036,7 +5036,7 @@ ibmcloud iam account-settings-assignment-update AccountSettingsAssignment-63d65e
 ## ibmcloud iam account-settings-assignment-delete
 {: #ibmcloud_iam_account_settings_assignment-delete}
 
-Delete an account settings assignment. This will remove any resources created by this assignment:
+Delete an account settings assignment. This action removes any resources that this assignment creates :
 ```bash
 ibmcloud iam account-settings-assigment-delete ASSIGNMENT_ID [-q, --quiet]
 ```

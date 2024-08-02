@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-05-20"
+lastupdated: "2024-08-02"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud api, ibmcloud, cli commands, regions, target, update, ibmcloud sl
 
@@ -32,7 +32,7 @@ Endpoint
 :   Use the [`ibmcloud api` command](#ibmcloud_api) to set an API endpoint.
 
 Log in
-:   Use the [`ibmcloud login` command](#ibmcloud_login) to log in. If you log in with a federated ID, use the `--sso` option to authenticate with a one time passcode. Or use the `--apikey` option to authenticate with an API key.
+:   Use the [`ibmcloud login` command](#ibmcloud_login) to log in. If you log in with a federated ID, use the `--sso` option to authenticate with a one-time passcode. Or use the `--apikey` option to authenticate with an API key.
 
 Target
 :   Use the [`ibmcloud target` command](#ibmcloud_target) to set or view the target account or region.
@@ -237,7 +237,7 @@ You can specify only one of the options at a time.
 ### Examples
 {: #config-examples}
 
-Set HTTP request timeout to 30 seconds:
+Set the HTTP request timeout to 30 seconds:
 
 ```bash
 ibmcloud config --http-timeout 30
@@ -319,7 +319,7 @@ None.
 :   Log in as a VPC VSI compute resource identity. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
 
 --profile PROFILE_ID, PROFILE_NAME, or PROFILE_CRN
-:   The name, ID, or CRN of the linked trusted IAM profile to be used when obtaining the IAM access token. If provided, the `--cr-token` flag, `IBMCLOUD_CR_TOKEN` environment variable, or `--vpc-cri` flag must also be provided or set. If authenticating as a VPC VSI compute resource, specifying only a trusted profile CRN or ID is supported.
+:   The name, ID, or CRN of the linked trusted IAM profile to be used when you obtain the IAM access token. If provided, the `--cr-token` flag, `IBMCLOUD_CR_TOKEN` environment variable, or `--vpc-cri` flag must also be provided or set. If you're authenticating as a VPC VSI compute resource, specifying only a trusted profile CRN or ID is supported.
 
 -c ACCOUNT_ID
 :   The ID of the target account. This option is exclusive with the `--no-account` option.
@@ -328,7 +328,7 @@ None.
 :   Forced login without the account. This option isn't recommended, and it is exclusive with the `-c` option.
 
 --accept
-:   Accept an invitation to join the targeted account. The provided account must be a valid account ID.
+:   Accept an invitation to join the targeted account. The account provided must be a valid account ID.
 
 -g RESOURCE_GROUP
 :   The name or ID of the target resource group. Optional.
@@ -363,9 +363,9 @@ ibmcloud login -a private.cloud.ibm.com
 ```
 {: codeblock}
 
-Two regions are currently supported: `us-south` and `us-east`.
+Two regions are supported: `us-south` and `us-east`.
 
-**Log in with a user name and password, and set a target account:**
+**Log in with a username and password, and set a target account:**
 
 ```bash
 ibmcloud login -u username -p password -c MyAccountID
@@ -423,9 +423,9 @@ Open the URL in the default browser? [Y/n] >
 
 Open the link in a browser to get a passcode. Enter the passcode in the console to log in.
 
-In addition to using the URL link provided by the CLI, you can launch the {{site.data.keyword.cloud_notm}} console and log in. In the {{site.data.keyword.cloud_notm}} console, to the **{{site.data.keyword.avatar}}** icon ![Avatar icon](../../../icons/i-avatar-icon.svg "Avatar") > **Log in to CLI and API**. Copy the {{site.data.keyword.cloud_notm}} CLI passcode command and enter it. You must use this method to log in to your IBMid with your Google account or if you have connected your cloud account with an {{site.data.keyword.cloud_notm}} App ID instance.
+In addition to using the URL link provided by the CLI, you can start the {{site.data.keyword.cloud_notm}} console and log in. In the {{site.data.keyword.cloud_notm}} console, to the **{{site.data.keyword.avatar}}** icon ![Avatar icon](../../../icons/i-avatar-icon.svg "Avatar") > **Log in to CLI and API**. Copy the {{site.data.keyword.cloud_notm}} CLI passcode command and enter it. Use this method to log in to your IBMid with your Google account or if you connected your cloud account with an {{site.data.keyword.cloud_notm}} App ID instance.
 
-**Log in as an IKS Compute Resource linked to a trusted profile:**
+**Log in as an IBM Kubernetes Service Compute Resource linked to a trusted profile:**
 
 ```text
 ibmcloud login --cr-token token-string --profile trusted_profile_name_id_or_crn
@@ -447,9 +447,9 @@ IBMCLOUD_CR_TOKEN=@filename IBMCLOUD_CR_PROFILE=trusted_profile_name_id_or_crn i
 ```
 {: codeblock}
 
-For more information about logging in as an IKS compute resource, see [Logging in with a Compute Resource token](/docs/cli?topic=cli-cri-login).
+For more information about logging in as an IBM Kubernetes Service compute resource, see [Logging in with a Compute Resource token](/docs/cli?topic=cli-cri-login).
 
-**Log in as a VPC VSI Compute Resource using the default trusted profile linked during instance provisioning:**
+**Log in as a VPC VSI Compute Resource by using the default trusted profile linked during instance provisioning:**
 
 ```text
 ibmcloud login --vpc-cri
@@ -470,7 +470,7 @@ IBMCLOUD_CR_PROFILE=trusted_profile_id_or_crn ibmcloud login --vpc-cri
 
 For more information about logging in as a VPC VSI compute resource, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
 
-**Accept invitation to join a new account:**
+**Accept an invitation to join a new account:**
 
 ```bash
 ibmcloud login -c TargetedAccountID --accept
@@ -520,7 +520,7 @@ ibmcloud target [-r REGION_NAME | --unset-region] [-c ACCOUNT_ID] [-g RESOURCE_G
 {: #target-prereqs}
 
 * Use the `ibmcloud api` command to set an API endpoint.
-* Use the `ibmcloud login` command to log in. If you are logging in with a federated ID, use the `--sso` option to authenticate with a one time passcode, or use the `--apikey` option to authenticate with an API key.
+* Use the `ibmcloud login` command to log in. If you are logging in with a federated ID, use the `--sso` option to authenticate with a one-time passcode, or use the `--apikey` option to authenticate with an API key.
 
 ### Command options
 {: #target-options}
@@ -628,7 +628,7 @@ ibmcloud sl [command] -h
 
 For detailed information about each command, see the related reference topics in this documentation.
 
-The `ibmcloud sl init` command is no longer available as of CLI version `0.14`. To install the most recent CLI version, see [Installing the stand-alone {{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cli-install-ibmcloud-cli#install-ibmcloud-cli).
+The `ibmcloud sl init` command is no longer available as of CLI version `0.14`. To install the most recent CLI version, see [Installing the stand-alone {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli#install-ibmcloud-cli).
 {: note}
 
 ## ibmcloud sl help

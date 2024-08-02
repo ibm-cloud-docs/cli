@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-04-28"
+  years: 2020, 2024
+lastupdated: "2024-08-02"
 
 keywords: command line interface, cli, cli support, cli forum, cli slack, cli chat, cli help, developer tools, ibmcloud dev commands, ic dev commands, commands
 
@@ -27,11 +27,11 @@ Have a casual question or just want to talk about all things CLI? Come chat with
 {: #community-help}
 {: support}
 
-Search [Stack Overflow](https://stackoverflow.com/search?q=ibm-cloud){: external} or [IBM Support Forums](https://community.ibm.com/community/user/home){: external} to see whether other users ran into the same problem. When you use these forums to ask a question, tag your question with `ibm-cloud` and `cli` so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
+Search [Stack Overflow](https://stackoverflow.com/search?q=ibm-cloud){: external} or [IBM Support Forums](https://community.ibm.com/community/user/home){: external} to see whether other users ran into the same problem. When you use these forums to ask a question, tag your question with `ibm-cloud` and `cli` so that the {{site.data.keyword.cloud_notm}} development teams see it.
 
 ## Contacting support
 {: #contacting-support}
 
-First, check the status of the {{site.data.keyword.cloud_notm}} platform and resources by going to the [Status page](https://cloud.ibm.com/status){: external} to see whether there's a known incident.
+First, check the status of the {{site.data.keyword.cloud_notm}} platform and resources by going to the [Status page](https://cloud.ibm.com/status){: external} to see whether a known incident occurred.
 
 If your problem isn't listed and you can't resolve the problem with help from the community, you can open a support case. For information about opening a support case or case severities and response times, see [Working with support cases](/docs/get-support?topic=get-support-open-case) or [Escalating support cases](/docs/get-support?topic=get-support-escalation).
