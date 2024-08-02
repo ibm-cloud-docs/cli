@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-15"
+  years: 2020, 2024
+lastupdated: "2024-08-02"
 
 keywords: cli, classic infrastructure, load balancer, loadbal
 
@@ -95,7 +95,7 @@ ibmcloud sl loadbal order -n my-lb -d DALLAS10 -t PublicToPrivate -s 1234567 --f
 ## ibmcloud sl loadbal order-options
 {: #sl_loadbal_order-options}
 
-List options for order a load balancer:
+List options for ordering a load balancer:
 ```bash
 ibmcloud sl loadbal order-options [-d, --datacenter DATACENTER]
 ```
@@ -104,7 +104,7 @@ ibmcloud sl loadbal order-options [-d, --datacenter DATACENTER]
 {: #options-sl_loadbal_order-options}
 
 -d, --datacenter NAME
-:   Show only the selected data center. Use shortname (dal13) format.
+:   Show only the selected data center. Use the shortname (dal13) format.
  
 ### Examples
 {: #examples-sl_loadbal_order-options}
@@ -132,7 +132,7 @@ ibmcloud sl loadbal protocol-add (--id LOADBAL_ID) [--front-protocol PROTOCOL] [
 :   Protocol type to use for incoming connections: [HTTP|HTTPS|TCP]. Default: HTTP
 
 --back-protocol TYPE
-:   Protocol type to use when connecting to backend servers: [HTTP|HTTPS|TCP]. Defaults to whatever --front-protocol is.
+:   Protocol type to use when you're connecting to backend servers: [HTTP|HTTPS|TCP]. Defaults to whatever --front-protocol is.
 
 --front-port PORT
 :   Internet side port. Default: 80

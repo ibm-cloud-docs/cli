@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-09-09"
+  years: 2018, 2024
+lastupdated: "2024-08-02"
 
 keywords: cli, ibmcloud billing, view account, view usage, account usage, resource groups, resources, org-usage
 
@@ -33,7 +33,7 @@ ibmcloud billing account-usage [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
 :   Display data for the month that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
 
 --output {FORMAT TYPE} (optional)
-:   Specify output format. Accepted inputs are JSON and CSV.
+:   Specify the output format. Accepted inputs are JSON and CSV.
 
 -q, --quiet (optional)
 :   Suppress verbose output.
@@ -64,7 +64,7 @@ ORG_NAME (required)
 :   Display data for the month that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
 
 --output {FORMAT} (optional)
-:   Specify output format. Only JSON is supported.</dd>
+:   Specify the output format. Only JSON is supported.</dd>
 
 -q, --quiet (optional)
 :   Suppress verbose output.
@@ -87,7 +87,7 @@ GROUP_NAME (required)
 :   Display data for the month that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
 
 --output {FORMAT} (optional)
-:   Specify output format. Only JSON is supported.
+:   Specify the output format. Only JSON is supported.
 
 -q, --quiet (optional)
 :   Suppress verbose output.
@@ -113,7 +113,7 @@ ibmcloud billing resource-instances-usage [-o ORG] [-g RESOURCE_GROUP] [-d YYYY-
 :   Display data for month that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
 
 --output {FORMAT} (optional)
-:   Specify output format. Accepted inputs are JSON and CSV.
+:   Specify the output format. Accepted inputs are JSON and CSV.
 
 -q, --quiet (optional)
 :   Suppress verbose output.
@@ -145,10 +145,10 @@ ibmcloud billing enterprise-usage [--account-group ACCOUNT_GROUP_NAME | --accoun
 :   Show children usage reports.
 
 --month {MONTH} (optional)
-:   Target month. Default to current month.
+:   Target month. Default to the current month.
 
 --output {FORMAT} (optional)
-:   Specify output format. Only JSON is supported.
+:   Specify the output format. Only JSON is supported.
 
 -q, --quiet (optional)
 :   Suppress verbose output.
