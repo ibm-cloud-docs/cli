@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2023
-lastupdated: "2023-06-08"
+  years: 2015, 2024
+lastupdated: "2024-08-02"
 
 keywords: extend cli, ibmcloud repo-plugins, repo-plugins, plug-in, plugin, ibmcloud cli, ibmcloud, cli, command line, command-line, developer tools, plugin install
 
@@ -98,7 +98,7 @@ Use the `plugin list` command to confirm that all required plug-ins are installe
 
 * The plug-in name.
 * The current version of the plug-in.
-* Whether a more recent version of the plugin is available.
+* Whether a more recent version of the plug-in is available.
 * Whether the plug-in version supports private endpoint use.
 
 ```bash
@@ -109,7 +109,7 @@ ibmcloud plugin list
 ## Updating installed plug-ins
 {: #cli-update-plugin}
 
-Use the `plugin update` command to update the plug-ins that are installed in {{site.data.keyword.cloud_notm}} CLI. The `plugin update` command returns the following information for each plugin that is installed:
+Use the `plugin update` command to update the plug-ins that are installed in {{site.data.keyword.cloud_notm}} CLI. The `plugin update` command returns the following information for each plug-in that is installed:
 
 * The current plug-in version.
 * The latest plug-in version that is available.

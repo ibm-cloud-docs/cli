@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud CLI docs",
-    "lastupdated": "2023-12-26",
+    "lastupdated": "2024-08-02",
     "introduction": "Use IBM Cloud's powerful CLIs and tooling to interact with your applications, containers, infrastructure, and other services",
     "section_devtools": {
       "cli": "/docs/cli?topic=cli-ibmcloud_cli"

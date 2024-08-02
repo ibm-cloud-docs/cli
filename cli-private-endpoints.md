@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-04-03"
+lastupdated: "2024-08-02"
 
 keywords: IBM Cloud CLI, ibmcloud cli, ibmcloud, cli, command line, command-line, developer tools, private endpoints, shell, cli private endpoints
 
@@ -23,7 +23,7 @@ The CLI uses the private endpoint support that is provided by the {{site.data.ke
 ## Before you begin
 {: #cli-private-endpoints-prereqs}
 
-You must first enable virtual routing and forwarding in your account, and then you can enable the use of {{site.data.keyword.cloud_notm}} private service endpoints. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint). In addition to enabling VRF, you must be on a private network on `ibmcloud`. For more information, see [how to connect to the {{site.data.keyword.cloud_notm}} VPN](/docs/iaas-vpn?topic=iaas-vpn-getting-started).
+First, enable virtual routing and forwarding in your account, and then you can enable the use of {{site.data.keyword.cloud_notm}} private service endpoints. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint). In addition to enabling VRF, you must be on a private network on `ibmcloud`. For more information, see [how to connect to the {{site.data.keyword.cloud_notm}} VPN](/docs/iaas-vpn?topic=iaas-vpn-getting-started).
 
 To learn more about private connections on {{site.data.keyword.cloud_notm}}, see [Secure access to services by using service endpoints](/docs/account?topic=account-service-endpoints-overview).
 
@@ -67,7 +67,7 @@ If you don't want to install from the shell because it might use root permission
    ```
    {: codeblock}
 
-   If you encounter errors like `The underlying connection was closed: An unexpected error occurred on a send`, make sure you have .Net Framework 4.5 or later installed. Also, try to enable TLS 1.2 protocol by running the following command:
+   If you encounter errors like `The underlying connection was closed: An unexpected error occurred on a send`, make sure that you have .Net Framework 4.5 or later installed. Also, try to enable TLS 1.2 protocol by running the following command:
 
    ```bash
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2021
-lastupdated: "2021-10-05"
+  years: 2016, 2024
+lastupdated: "2024-08-02"
 
 keywords: cli, bmscclient, bmscore sdk, network request, ios, android, studio, cordova, client sdk, sdk
 
@@ -38,7 +38,7 @@ You can either download and import the `BMSCore` package to your Android Studio 
    ```
    {: codeblock}
 
-   You must initialize the `BMSClient` with the `bluemixRegion` parameter. In the initializer, the `bluemixRegion` value specifies which {{site.data.keyword.cloud_notm}} deployment you are using, for example, `BMSClient.REGION_US_SOUTH`, `BMSClient.REGION_UK`, or `BMSClient.REGION_SYDNEY`.
+   Initialize the `BMSClient` with the `bluemixRegion` parameter. In the initializer, the `bluemixRegion` value specifies which {{site.data.keyword.cloud_notm}} deployment you are using, for example, `BMSClient.REGION_US_SOUTH`, `BMSClient.REGION_UK`, or `BMSClient.REGION_SYDNEY`.
 
 ## Initializing your iOS app
 {: #init-BMSClient-ios}
@@ -91,12 +91,12 @@ You can use [CocoaPods](https://cocoapods.org){: external} or [Carthage](https:/
    ```
    {: codeblock}
 
-   You must initialize the `BMSClient` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.cloud_notm}} deployment you're using, for example, `BMSClient.Region.usSouth`, `BMSClient.Region.unitedKingdom`, or `BMSClient.Region.sydney`.
+   Initialize the `BMSClient` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.cloud_notm}} deployment you're using, for example, `BMSClient.Region.usSouth`, `BMSClient.Region.unitedKingdom`, or `BMSClient.Region.sydney`.
 
 ## Initializing your Cordova app
 {: #init-BMSClient-cordova}
 
-1. Add the Cordova plugin by running the following command from your Cordova app root directory:
+1. Add the Cordova plug-in by running the following command from your Cordova app root directory:
 
    ```bash
    cordova plugin add bms-core
@@ -110,11 +110,11 @@ You can use [CocoaPods](https://cocoapods.org){: external} or [Carthage](https:/
    ```
    {: codeblock}
 
-   You must initialize the `BMSClient` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.cloud_notm}} deployment you're using, for example, `BMSClient.REGION_US_SOUTH`, `BMSClient.REGION_UK`, or `BMSClient.REGION_SYDNEY`.
+   Initialize the `BMSClient` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.cloud_notm}} deployment you're using, for example, `BMSClient.REGION_US_SOUTH`, `BMSClient.REGION_UK`, or `BMSClient.REGION_SYDNEY`.
 
 ## Related Links
 {: #BMSClient-rellinks notoc}
 
 * [BMSCore Android SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-core){: external}
 * [BMSCore iOS SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-core){: external}
-* [BMSCore Cordova Plugin](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core){: external}
+* [BMSCore Cordova plug-in](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core){: external}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-03-17"
+  years: 2018, 2024
+lastupdated: "2024-08-02"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud, cli commands, update, environment variables
 
@@ -46,12 +46,12 @@ Control the time limit in seconds for HTTP requests.
 ## IBMCLOUD_API_KEY=api_key_value
 {: #IBMCLOUD_API_KEY}
 
-Use the `ibmcloud login` command to authenticate by using an API key. The key can be specified directly as value or by referencing the name of the file that contains the key by using `@filename`.
+Use the `ibmcloud login` command to authenticate by using an API key. The key can be specified directly as a value or by referencing the name of the file that contains the key by using `@filename`.
 
 ## IBMCLOUD_CR_TOKEN=cr_token_value
 {: #IBMCLOUD_CR_TOKEN}
 
-The compute resource token used for login, which can either be a token string or a path to a `@file`.
+The compute resource token is used for login, which can either be a token string or a path to a `@file`.
 
 ## IBMCLOUD_CR_PROFILE=profile_value
 {: #IBMCLOUD_CR_PROFILE}

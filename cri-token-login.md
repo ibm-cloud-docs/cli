@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-04-26"
+  years: 2021, 2024
+lastupdated: "2024-08-02"
 
 keywords: cli, command line, command-line, login, cli login, compute resource, token, iks, trusted profiles, cri, IBM Cloud
 
@@ -15,7 +15,7 @@ subcollection: cli
 # Logging in with a Compute Resource Token
 {: #cri-login}
 
-You can use a trusted profile to set up fine-grained authorization for applications that are running in compute resources. As a result, you aren't required to create service IDs or API keys for the compute resources. The {{site.data.keyword.cloud_notm}} CLI supports logging in and authenticating to {{site.data.keyword.cloud_notm}} using a {{site.data.keyword.cloud_notm}} Kubernetes Service compute resource. For instructions about logging in as a Virtual Server Instance for VPC compute resource using the {{site.data.keyword.cloud_notm}} CLI, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
+You can use a trusted profile to set up fine-grained authorization for applications that are running in compute resources. As a result, you aren't required to create service IDs or API keys for the compute resources. The {{site.data.keyword.cloud_notm}} CLI supports logging in and authenticating to {{site.data.keyword.cloud_notm}} by using a {{site.data.keyword.cloud_notm}} Kubernetes Service compute resource. For instructions about logging in as a Virtual Server Instance for VPC compute resource by using the {{site.data.keyword.cloud_notm}} CLI, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
 {: shortdesc}
 
 For more information about managing trusted profiles and establishing trust with compute resources, see [Establishing trust with compute resources](/docs/account?topic=account-create-trusted-profile&interface=ui#create-profile-compute).
@@ -23,12 +23,12 @@ For more information about managing trusted profiles and establishing trust with
 ## Using the CLI to log in
 {: #cri-cli-login}
 
-To use the {{site.data.keyword.cloud_notm}} CLI Kubernetes Service compute resource login feature, you must give application pods that run in your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster access to {{site.data.keyword.cloud_notm}} services. For more information, see [Authorizing pods in your cluster to {{site.data.keyword.cloud_notm}} services with IAM trusted profiles](/docs/containers?topic=containers-pod-iam-identity&interface=ui). For Red Hat OpenShift clusters, see [Authorizing pods in your OpenShift cluster to {{site.data.keyword.cloud_notm}} services with IAM trusted profiles](/docs/openshift?topic=openshift-pod-iam-identity&interface=ui).
+To use the {{site.data.keyword.cloud_notm}} CLI Kubernetes Service compute resource login feature, you must give application pods that run in your {{site.data.keyword.cloud_notm}} Kubernetes Service cluster access to {{site.data.keyword.cloud_notm}} services. For more information, see [Authorizing pods in your cluster to {{site.data.keyword.cloud_notm}} services with IAM trusted profiles](/docs/containers?topic=containers-pod-iam-identity&interface=ui). For Red Hat OpenShift clusters, see [Authorizing pods in your Red Hat OpenShift cluster to {{site.data.keyword.cloud_notm}} services with IAM trusted profiles](/docs/openshift?topic=openshift-pod-iam-identity&interface=ui).
 
 ### Using a Compute Resource Token to log in with the CLI
 {: #tokenflag_login}
 
-When you use the compute resource token option to log in with a service account projected token, you specify the compute resource token parameter to enter at login.
+When you use the compute resource token option to log in with a service account-projected token, you specify the compute resource token parameter to enter at login.
 
 You can log in with a compute resource token with the CLI in any of the following ways:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-05"
+lastupdated: "2024-08-02"
 
 keywords: isolation for IBM Cloud CLI, service endpoints for IBM Cloud CLI, private network for IBM Cloud CLI, network isolation in IBM Cloud CLI, non-public routes for IBM Cloud CLI, private connection for IBM Cloud CLI, private endpoints, regions that support private endpoints, private service endpoints, cli private endpoints
 
@@ -27,7 +27,7 @@ If your deployment uses the VPC environment of {{site.data.keyword.cloud_notm}},
 ## Enabling virtual routing and forwarding
 {: #cli-private-vrf}
 
-You must first enable virtual routing and forwarding in your account, and then you can enable the use of {{site.data.keyword.cloud_notm}} private service endpoints. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
+First, enable virtual routing and forwarding in your account, and then you can enable the use of {{site.data.keyword.cloud_notm}} private service endpoints. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
 
 To learn more about private connections on {{site.data.keyword.cloud_notm}}, see [Secure access to services using service endpoints](/docs/account?topic=account-service-endpoints-overview).
 

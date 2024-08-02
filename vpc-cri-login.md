@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-02-10"
+  years: 2022, 2024
+lastupdated: "2024-08-02"
 
 keywords: cli, command line, command-line, login, cli login, compute resource, compute resource identity, compute resource identities, vsi, vpc, trusted profiles, cri
 
@@ -15,7 +15,7 @@ subcollection: cli
 # Logging in as a Virtual Server Instance Compute Resource Identity
 {: #vsi-cri-login}
 
-You can use a trusted profile to set up fine-grained authorization for applications that are running in compute resources. As a result, you aren't required to create service IDs or API keys for the compute resources. The {{site.data.keyword.cloud_notm}} CLI supports logging in and authenticating to {{site.data.keyword.cloud_notm}} using a {{site.data.keyword.cloud_notm}} Virtual Server Instance (VSI) for VPC compute resource.
+You can use a trusted profile to set up fine-grained authorization for applications that are running in compute resources. As a result, you aren't required to create service IDs or API keys for the compute resources. The {{site.data.keyword.cloud_notm}} CLI supports logging in and authenticating to {{site.data.keyword.cloud_notm}} by using a {{site.data.keyword.cloud_notm}} Virtual Server Instance (VSI) for VPC compute resource.
 {: shortdesc}
 
 For more information about managing trusted profiles and establishing trust with compute resources, see [Establishing trust with compute resources](/docs/account?topic=account-create-trusted-profile&interface=ui#create-profile-compute).
@@ -23,7 +23,7 @@ For more information about managing trusted profiles and establishing trust with
 ## Using the CLI to log in
 {: #vpc-cli-login}
 
-To use the {{site.data.keyword.cloud_notm}} CLI Virtual Server Instance for VPC compute resource identity login feature, you must enable the Instance Metadata service for VPC service on the VSI and link the instance to a trusted profile. For more information about enabling the Instance Metadata service, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about&interface=ui). Once enabled and the VSI has been linked to a trusted profile, the CLI can use the [Instance Identity token service](/docs/vpc?topic=vpc-imd-about&interface=ui#imd-vpc-access-token) to acquire a JSON web token and exchange it for an IAM token.
+To use the {{site.data.keyword.cloud_notm}} CLI Virtual Server Instance for VPC compute resource identity login feature, you must enable the Instance Metadata service for VPC service on the VSI and link the instance to a trusted profile. For more information about enabling the Instance Metadata service, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about&interface=ui). After it's enabled and the VSI is linked to a trusted profile, the CLI can use the [Instance Identity token service](/docs/vpc?topic=vpc-imd-about&interface=ui#imd-vpc-access-token) to acquire a JSON web token and exchange it for an IAM token.
 
 Certain {{site.data.keyword.cloud_notm}} Kubernetes Service CLI commands are currently not supported when logged in as a VPC compute resource including [ibmcloud ks cluster config](/docs/containers?topic=containers-kubernetes-service-cli#cs_cluster_config).
 {: note}
@@ -31,9 +31,9 @@ Certain {{site.data.keyword.cloud_notm}} Kubernetes Service CLI commands are cur
 ### Log in with the CLI
 {: #vpcvsiflag_login}
 
-When you use the VPC VSI option to log in, you can optionally specify the trusted profile parameter to enter at login. If provided, the CLI will use this trusted profile to authenticate to IBM Cloud. Otherwise, the VSI's default linked trusted profile linked during instance provisioning will be used.
+When you use the VPC VSI option to log in, you can optionally specify the trusted profile parameter to enter at login. If provided, the CLI uses this trusted profile to authenticate to IBM Cloud. Otherwise, the VSI's default linked trusted profile that is linked during instance provisioning is used.
 
-You can log in as a VSI compute resource using the CLI in any of the following ways:
+You can log in as a VSI compute resource by using the CLI in any of the following ways:
 
 * Provide a trusted profile by parameter:
    1. Specify the `--vpc-cri` option with the `ibmcloud login` command.
@@ -56,9 +56,9 @@ You can log in as a VSI compute resource using the CLI in any of the following w
    ```
    {: codeblock}
 
-If your [VPC instance metadata service](/docs/vpc?topic=vpc-imd-about) is configured for secure access, override the default URL for the service before logging in by setting the environment variable `IBMCLOUD_CR_VPC_URL=https://api.metadata.cloud.ibm.com`.
+If your [VPC instance metadata service](/docs/vpc?topic=vpc-imd-about) is configured for secure access, override the default URL for the service before you log in by setting the environment variable `IBMCLOUD_CR_VPC_URL=https://api.metadata.cloud.ibm.com`.
 
-If you wish to log in as a VSI compute resource using private endpoints for VPC, you must also provide the ``--vpc`` flag
+If you want to log in as a VSI compute resource by using private endpoints for VPC, you must also provide the ``--vpc`` flag
 and set the API endpoint to ``private.cloud.ibm.com``. In the example, the trusted profile was provided by setting the environment variable `IBMCLOUD_CR_PROFILE=profile_id_or_crn`:
  ```bash
    ibmcloud login --vpc-cri --vpc -a private.cloud.ibm.com
