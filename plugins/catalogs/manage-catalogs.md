@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-01"
+lastupdated: "2024-08-02"
 
 keywords: cli, catalogs management, catalog
 
@@ -60,7 +60,7 @@ ibmcloud catalog account add-approval-access [--account-ids IDS] [--object-kind 
 
 --account-ids VALUE
 
-:   Provide a comma separated list of account IDs prefixed with one of the following.  `-acct-` for regular accounts, `-ent-` for enterprise accounts, and `-entgrp-` for enterprise account groups.
+:   Provide a comma-separated list of account IDs prefixed with one of the following.  `-acct-` for regular accounts, `-ent-` for enterprise accounts, and `-entgrp-` for enterprise account groups.
 
 ## ibmcloud catalog account delete-approval-access
 {: #catalog-account-delete-approval}
@@ -128,7 +128,7 @@ ibmcloud catalog account get-approval-list-source [--approval-state STATE] [--en
 ## ibmcloud catalog account set-approval-state-source
 {: #catalog-account-set-source}
 
-Run the following command to set the approval state for target accounts pointing to a source.
+Run the following command to set the approval state for target accounts that point to a source.
 
 ```bash
 ibmcloud catalog account set-approval-state-source [--account-ids IDS] [--approval-state STATE] [--enterprise-id ID] [--object-kind KIND]
@@ -308,7 +308,7 @@ ibmcloud catalog search <QUERY> [--catalog CATALOG] [--type TYPE] [-r, --region 
 
 --price PRICE (optional)
 
-:   Flag is only valid for searching services. Provide a comma-separated list of pricing types.
+:   The flag is only valid for searching services. Provide a comma-separated list of pricing types.
 
 --tag TAG (optional)
 
@@ -416,7 +416,7 @@ ibmcloud catalog filter create [--catalog CATALOG] [--category CATEGORY] [--comp
 
 --include-all BOOLEAN (optional)
 
-:   Default is true if flag not provided. Valid values are `true` and `false`. If set to true, the filter defaults to include the entire public catalog, and subsequent filters are excluded. If set to false, the filter excludes the entire public catalog, and subsequent flags are included. For more information, see [Managing catalog settings](/docs/account?topic=account-filter-account).
+:   Default is true if flag is not provided. Valid values are `true` and `false`. If set to true, the filter defaults to include the entire public catalog, and subsequent filters are excluded. If set to false, the filter excludes the entire public catalog, and subsequent flags are included. For more information, see [Managing catalog settings](/docs/account?topic=account-filter-account).
 
 --offering-format FORMAT (optional)
 
