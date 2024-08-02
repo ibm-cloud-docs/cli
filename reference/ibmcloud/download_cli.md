@@ -15,7 +15,7 @@ subcollection: cli
 # Installing the stand-alone {{site.data.keyword.cloud_notm}} CLI
 {: #install-ibmcloud-cli}
 
-The {{site.data.keyword.cloud}} Command Line Interface provides commands for managing resources in {{site.data.keyword.cloud_notm}}. When you install the standalone {{site.data.keyword.cloud_notm}} CLI, you get only the CLI itself without any recommended plug-ins or tools.
+The {{site.data.keyword.cloud}} Command Line Interface provides commands for managing resources in {{site.data.keyword.cloud_notm}}. When you install the stand-alone {{site.data.keyword.cloud_notm}} CLI, you get only the CLI itself without any recommended plug-ins or tools.
 {: shortdesc}
 
 If you want to install both the latest {{site.data.keyword.cloud_notm}} CLI and other recommended plug-ins and tools for developing applications for {{site.data.keyword.cloud_notm}}, see [Getting started with the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started) and [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
@@ -53,7 +53,7 @@ Use the following steps to install the latest stand-alone {{site.data.keyword.cl
 
 To install the latest CLI for your OS from the shell manually, use the following command for your OS:
 
-   If you don't want to install from the shell because it might utilize root permissions, you can [download and run the installer](/docs/cli?topic=cli-install-ibmcloud-cli#ibmcloud-cli-installer).
+   If you don't want to install from the shell because it might use root permissions, you can [download and run the installer](/docs/cli?topic=cli-install-ibmcloud-cli#ibmcloud-cli-installer).
    {: tip}
 
 * For **Mac**, copy and paste the following command to a terminal and run it:
@@ -74,7 +74,7 @@ To install the latest CLI for your OS from the shell manually, use the following
    ```
    {: codeblock}
 
-   If you encounter errors like `The underlying connection was closed: An unexpected error occurred on a send`, make sure you have .Net Framework 4.5 or later installed. Also try to enable TLS 1.2 protocol by running the following command:
+   If you encounter errors like `The underlying connection was closed: An unexpected error occurred on a send`, make sure that you have .Net Framework 4.5 or later installed. Also try to enable TLS 1.2 protocol by running the following command:
   
    ```bash
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -125,7 +125,7 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 ## Updating the {{site.data.keyword.cloud_notm}} CLI
 {: #update-ibmcloud-cli}
 
-You must use the latest version of the CLI. If you aren't using the latest version, run the following command to update your CLI:
+Use the latest version of the CLI. If you aren't using the latest version, run the following command to update your CLI:
 
 ```bash
 ibmcloud update

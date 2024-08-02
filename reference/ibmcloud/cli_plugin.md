@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-05-17"
+  years: 2018, 2024
+lastupdated: "2024-08-02"
 
 keywords: cli, add cli plug-in, remove cli plug-in, cli plug-in, ibmcloud plugin, repo-add, repo-remove, plugin uninstall, plugin update, cli private endpoints
 
@@ -134,7 +134,7 @@ ibmcloud plugin repo-plugin IBM-Containers -r sample-repo
 ```
 {: codeblock}
 
-List details of plug-in "IBM-Containers" in default repository
+List details of plug-in "IBM-Containers" in the default repository
 
 ```bash
 ibmcloud plugin repo-plugin IBM-Containers -r sample-repo
@@ -144,7 +144,7 @@ ibmcloud plugin repo-plugin IBM-Containers -r sample-repo
 ## ibmcloud plugin list
 {: #ibmcloud_plugin_list}
 
-List all installed plug-ins in {{site.data.keyword.cloud_notm}} CLI. Each plug-in returns the current version installed, whether there is a more recent version available for update, and if the version of the plug-in installed supports private endpoint use.
+List all installed plug-ins in {{site.data.keyword.cloud_notm}} CLI. Each plug-in returns the current version that is installed, whether there is a more recent version available for update, and if the version of the plug-in installed supports private endpoint use.
 
 ```bash
 ibmcloud plugin list
@@ -195,7 +195,7 @@ PLUGIN_PATH|PLUGIN_NAME
 :   The name of the repository where the plug-in binary is located. If no repository is specified, the command uses the default plug-in repository `IBM Cloud`.
 
 -v VERSION (optional)
-:   Version of the plug-in to be installed. Accepts specific semantic version or constraint.
+:   The version of the plug-in to be installed. Accepts specific semantic version or constraint.
 
 -f (optional)
 :   Force installs the plug-in without confirmation.
@@ -225,7 +225,7 @@ ibmcloud plugin install container-service -r "IBM Cloud"
 ```
 {: codeblock}
 
-or you can run:
+Or you can run:
 
 ```bash
 ibmcloud plugin install container-service
@@ -387,7 +387,7 @@ ibmcloud plugin update -r "IBM Cloud"
 ```
 {: codeblock}
 
-or you can run:
+Or you can run:
 
 ```bash
 ibmcloud plugin update
