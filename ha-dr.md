@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-15"
+  years: 2020, 2024
+lastupdated: "2024-08-05"
 
-keywords: HA for IBM Cloud CLI, DR for IBM Cloud CLI, high availability for IBM Cloud CLI, disaster recovery for IBM Cloud CLI, failover for IBM Cloud CLI
+keywords: HA for IBM Cloud CLI, DR for IBM Cloud CLI, high availability for IBM Cloud CLI, disaster recovery for IBM Cloud CLI, failover for IBM Cloud CLI, high availability, disaster recovery
 
 subcollection: cli
 
