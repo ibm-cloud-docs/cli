@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-08-05"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -462,7 +462,7 @@ ibmcloud iam api-key-unlock ApiKey-18f773b0-db53-43f1-ad68-92c667c218fe --force
 {: codeblock}
 
 ## ibmcloud iam api-key-disable
-{: #ibmcloud_iam_api_key_lock}
+{: #ibmcloud_iam_api_key_disable}
 
 Disable a platform API key:
 ```bash
@@ -471,7 +471,7 @@ ibmcloud iam api-key-disable (NAME|UUID) [-f, --force]
 {: codeblock}
 
 ### Command options
-{: #ibmcloud_iam_api_key_lock_options}
+{: #ibmcloud_iam_api_key_disable_options}
 
 NAME (required)
 :   The name of the API key to be disabled, exclusive with UUID.
@@ -498,7 +498,7 @@ ibmcloud iam api-key-disable ApiKey-18f773b0-db53-43f1-ad68-92c667c218fe --force
 {: codeblock}
 
 ## ibmcloud iam api-key-enable
-{: #ibmcloud_iam_api_key_lock}
+{: #ibmcloud_iam_api_key_enable}
 
 Enable a platform API key:
 ```bash
@@ -507,7 +507,7 @@ ibmcloud iam api-key-enable (NAME|UUID) [-f, --force]
 {: codeblock}
 
 ### Command options
-{: #ibmcloud_iam_api_key_lock_options}
+{: #ibmcloud_iam_api_key_enable_options}
 
 NAME (required)
 :   The name of the API key to be enabled, exclusive with UUID.
