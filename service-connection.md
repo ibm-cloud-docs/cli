@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-08-06"
 
 keywords: isolation for IBM Cloud CLI, service endpoints for IBM Cloud CLI, private network for IBM Cloud CLI, network isolation in IBM Cloud CLI, non-public routes for IBM Cloud CLI, private connection for IBM Cloud CLI, private endpoints, regions that support private endpoints, private service endpoints, cli private endpoints
 
@@ -67,7 +67,7 @@ A list of all {{site.data.keyword.cloud_notm}} services that are configurable th
 To ensure basic CLI capability against the private endpoint, you must configure the gateway to include these services:
 * Account Management: Endpoint URL `(https://private.accounts.cloud.ibm.com)`{: external}
 * Cloud Object Storage (use `direct`): [Endpoint URL](/docs/cloud-object-storage?topic=cloud-object-storage-endpoints)
-* Identity and Access Management: [Endpoint URL](apidocs/iam-identity-token-api#endpoints)
+* Identity and Access Management: [Endpoint URL](/apidocs/iam-identity-token-api#endpoints)
 * Global Catalog: [Endpoint URL](/apidocs/resource-catalog/global-catalog#endpoint-url)
 * Global Search: [Endpoint URL](/apidocs/search#endpoint-url)
 * Global Tagging: [Endpoint URL](/apidocs/tagging#endpoint-url)
