@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-05-19"
+  years: 2019, 2024
+lastupdated: "2024-08-05"
 
 keywords: cli, cli faq, debug cli, cli help, ibmcloud cli help, ibmcloud help, cli private endpoints
 
@@ -112,3 +112,5 @@ Regions that support private endpoints are `us-east` and `us-south`.
 A region must be targeted when a private endpoint is set in the {{site.data.keyword.cloud_notm}} CLI.
 
 For more information about regions, see [Locations for resource deployment](/docs/overview?topic=overview-locations) and [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region).
+
+

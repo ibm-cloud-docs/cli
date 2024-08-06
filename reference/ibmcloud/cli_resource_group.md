@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-01"
+lastupdated: "2024-08-05"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
@@ -320,7 +320,7 @@ NAME (required)
 :   Name of the service instance
 
 SERVICE_NAME or SERVICE_ID (required)
-:   Name or ID of the service. To list service offerings, use the `ibmcloud catalog service-marketplace`[command](/docs/cli/reference/ibmcloud?topic=cli-ibmcloud_catalog#ibmcloud_catalog_service_marketplace).
+:   Name or ID of the service. To list service offerings, use the `ibmcloud catalog service-marketplace`[command](/docs/cli/ibmcloud?topic=cli-ibmcloud_catalog#ibmcloud_catalog_service_marketplace).
 
 SERVICE_PLAN_NAME or SERVICE_PLAN_ID (required)
 :   Name or ID of the service plan

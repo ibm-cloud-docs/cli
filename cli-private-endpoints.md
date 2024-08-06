@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-08-06"
 
 keywords: IBM Cloud CLI, ibmcloud cli, ibmcloud, cli, command line, command-line, developer tools, private endpoints, shell, cli private endpoints
 
@@ -222,7 +222,6 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 
 3. Add to the `PATH` environment variable and enable shell autocompletion.
    * Add the `{YOUR_DIRECTORY}/IBM_CLOUD_CLI` to the `PATH` environment variable.
-   * For shell autocompletion support (Mac and Linux&trade; only), see [Enabling shell autocompletion for IBM Cloud CLI](/docs/cli/reference/ibmcloud?topic=cli-shell-autocomplete).
 
 ### Binary files
 {: #install-custom-binary-files}
