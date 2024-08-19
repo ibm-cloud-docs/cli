@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-08-16"
 
 keywords: cli, ibmcloud account cli, managing accounts cli, managing users cli, account, account update command
 
@@ -35,6 +35,32 @@ Show details of the currently targeted account:
 ibmcloud account show
 ```
 {: codeblock}
+
+## ibmcloud account list 
+{: #ibmcloud_account_list}
+
+### List accounts
+{: #ibmcloud_account_list_accounts}
+
+```bash
+ibmcloud account list [--active | --exclude EXCLUDE_STATES] [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_account_list_options}
+
+--active 
+:   Active. List only the accounts that are active. Exclude states: `CANCEL_PENDING`, `CANCELED`, and `SUSPENDED`
+
+--exclude value *EXCLUDE_VALUE*
+:   Exclude value. Comma-delimited list of account states to exclude. Example: `SUSPENDED,CANCEL_PENDING`
+
+-o, --output
+:   Specify output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
 
 ## ibmcloud account update
 {: #ibmcloud_account_update}
