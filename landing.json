@@ -1,11 +1,9 @@
 {
-    "title": "IBM Cloud Command Line Interface docs",
-    "lastupdated": "2024-09-03",
+    "title": "IBM Cloud Developer Tools CLI",
     "introduction": "Use IBM Cloud's powerful CLIs and tooling to interact with your applications, containers, infrastructure, and other services",
-    "section_devtools": {
-      "cli": "/docs/cli?topic=cli-ibmcloud_cli"
-    },
-    "section_recommended": [
+
+    "section_topics": {
+      "links": [
       {
         "title": "Getting started with the IBM Cloud CLI",
         "description": "Install the IBM Cloud Command Line Interface, along with the option to install popular plug-ins and tools so that you can work with apps.",
@@ -35,11 +33,24 @@
         "description": "See the release notes, and download the installers and binaries for the IBM Cloud CLI.",
         "href": "https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/"
       }
+    ]
+  },
+    "section_highlights": [
+      {
+        "title": "Resource title",
+        "description": "Short description of resource content.",
+        "href": "https://www.example.ibm.com/link/to/resource",
+        "type": "blog"
+      },
+      {
+        "title": "Db2 Optimization Techniques for SAP Database Migration to the Cloud",
+        "description": "This IBM Redbook provides in-depth recommendations for the source system database export.",
+        "href": "https://www.redbooks.ibm.com/abstracts/sg248531.html",
+        "type": "redbook",
+        "recommended": true
+      }
     ],
-    "section_learn": {
-      "developer": "https://developer.ibm.com/depmodels/cloud/",
-      "architecture": "https://www.ibm.com/architectures/hybrid",
-      "training": "https://www.ibm.com/training/cloud",
-      "community": "https://ic-devops-slack-invite.us-south.devops.cloud.ibm.com/"
+    "section_devtools": {
+      "cli": "/docs/cli?topic=cli-ibmcloud_cli"
     }
   }
