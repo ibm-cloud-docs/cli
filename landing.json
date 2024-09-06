@@ -1,55 +1,33 @@
 {
     "title": "IBM Cloud Developer Tools CLI",
     "introduction": "Use IBM Cloud's powerful CLIs and tooling to interact with your applications, containers, infrastructure, and other services",
-
     "section_topics": {
       "links": [
       {
         "title": "Getting started with the IBM Cloud CLI",
-        "description": "Install the IBM Cloud Command Line Interface, along with the option to install popular plug-ins and tools so that you can work with apps.",
         "href": "/docs/cli?topic=cli-getting-started"
       },
       {
         "title": "IBM Cloud CLI commands",
-        "description": "IBM Cloud CLI commands to create, manage, deploy, debug, and test applications.",
         "href": "/docs/cli?topic=cli-idt-cli"
       },
       {
         "title": "Extending IBM Cloud CLI with plug-ins",
-        "description": "IBM Cloud CLI supports a plug-in framework to extend its capability. Install a plug-in from a repository, a URL, or install a plug-in binary locally.",
         "href": "/docs/cli?topic=cli-plug-ins"
       },            {
         "title": "Getting started with IBM Cloud Shell",
-        "description": "IBM Cloud Shell is a cloud-based shell workspace that's preconfigured with the full IBM Cloud CLI and several plug-ins and tools.",
         "href": "/docs/cloud-shell?topic=cloud-shell-getting-started"
       },
       {
         "title": "Troubleshooting for the IBM Cloud CLI",
-        "description": "See solutions to common problems with using the IBM Cloud Command Line Interface.",
         "href": "/docs/cli?topic=cli-troubleshoot"
       },
       {
         "title": "Release notes and downloads for the IBM Cloud CLI",
-        "description": "See the release notes, and download the installers and binaries for the IBM Cloud CLI.",
         "href": "https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/"
       }
     ]
   },
-    "section_highlights": [
-      {
-        "title": "Resource title",
-        "description": "Short description of resource content.",
-        "href": "https://www.example.ibm.com/link/to/resource",
-        "type": "blog"
-      },
-      {
-        "title": "Db2 Optimization Techniques for SAP Database Migration to the Cloud",
-        "description": "This IBM Redbook provides in-depth recommendations for the source system database export.",
-        "href": "https://www.redbooks.ibm.com/abstracts/sg248531.html",
-        "type": "redbook",
-        "recommended": true
-      }
-    ],
     "section_devtools": {
       "cli": "/docs/cli?topic=cli-ibmcloud_cli"
     }
