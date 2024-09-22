@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-09-12"
+lastupdated: "2024-09-22"
 
 keywords: cli, ibmcloud billing, view account, view usage, account usage, resource groups, resources, org-usage
 
@@ -41,9 +41,9 @@ ibmcloud billing account-usage [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
 ### Examples
 {: #ibmcloud_billing_account_usage_examples}
 
-Show current account's usage and cost report in 2016-06:
+Show current account's usage and cost report in 2024-06:
 ```bash
-ibmcloud billing account-usage -d 2016-06
+ibmcloud billing account-usage -d 2024-06
 ```
 
 ## ibmcloud billing resource-group-usage
