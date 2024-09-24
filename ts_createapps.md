@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-09-04"
 
 keywords: cli, troubleshoot cli, debug app cli, developer tools debug, ibmcloud cli debug, ibmcloud help, ibmcloud dev help, cli debug, command line, command-line, developer tools troubleshoot
 
@@ -54,10 +54,14 @@ Unable to obtain plug-in's metadata. Error: fork/exec/tmp/... : permission denie
 ```
 {: screen}
 
-This error is caused by the download folder not having exec privileges.
+This error is caused by the download folder or the temp folder on your system not having exec privileges.
 {: tsCauses}
 
-There are 2 resolutions. First, the download folder can be modified to have the exec privilege. Second, instead use the [plugin download command](/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_download) to download and install to an alternate directory. Then use the [plugin install command](/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_install) to install by using the downloaded binary file.
+There are multiple resolutions depending on your scenario: 
+
+- If the problem is with a download folder accessed with the `plugin download` command, modify the folder to have exec privileges. 
+- If the problem is with the default download folder and you are unable to change the permissions, use the [plugin download command](/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_download) to download to an alternate directory. Then use the [plugin install command](/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_install) to install by using the downloaded binary file. 
+- If the temp folder on your system lacks executable privileges and cannot be modified, specify a different temp folder during plug-in installation or update. Set the environment variable `$TMPDIR` for Mac or Linux, and `%TMP%` for Windows.
 {: tsResolve}
 
 

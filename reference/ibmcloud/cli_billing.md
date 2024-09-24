@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-09-22"
 
 keywords: cli, ibmcloud billing, view account, view usage, account usage, resource groups, resources, org-usage
 
@@ -41,33 +41,10 @@ ibmcloud billing account-usage [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
 ### Examples
 {: #ibmcloud_billing_account_usage_examples}
 
-Show current account's usage and cost report in 2016-06:
+Show current account's usage and cost report in 2024-06:
 ```bash
-ibmcloud billing account-usage -d 2016-06
+ibmcloud billing account-usage -d 2024-06
 ```
-
-## ibmcloud billing org-usage
-{: #ibmcloud_billing_org_usage}
-
-Show monthly usage for an org (account admin or org billing manager only):
-```bash
-ibmcloud billing org-usage ORG_NAME [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
-```
-
-### Command options
-{: #ibmcloud_billing_org_usage_options}
-
-ORG_NAME (required)
-:   Name of the org.
-
--d {YEAR-MONTH} (optional)
-:   Display data for the month that is specified by using the YYYY-MM format. If not specified, usage of the current month is shown.
-
---output {FORMAT} (optional)
-:   Specify the output format. Only JSON is supported.</dd>
-
--q, --quiet (optional)
-:   Suppress verbose output.
 
 ## ibmcloud billing resource-group-usage
 {: #ibmcloud_billing_resource_group_usage}
