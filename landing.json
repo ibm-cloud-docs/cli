@@ -1,6 +1,7 @@
 {
-    "title": "IBM Cloud Developer Tools CLI",
-    "introduction": "Use IBM Cloud's powerful CLIs and tooling to interact with your applications, containers, infrastructure, and other services",
+    "title": "IBM Cloud Command Line Interface (CLI)",
+    "lastupdated": "2024-09-24",
+    "introduction": "Use IBM Cloud's powerful CLIs and tooling to interact with your applications, containers, infrastructure, and other services.",
     "section_topics": {
       "links": [
       {
