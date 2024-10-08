@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-10-08"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud api, ibmcloud, cli commands, regions, target, update, ibmcloud sl
 
@@ -24,9 +24,6 @@ The following commands are supported by the {{site.data.keyword.cloud_notm}} CLI
 {: #global-prereqs}
 
 The prerequisites for each command describe which actions are required before you run the command. The prerequisites can include one or more of the following actions:
-
-Docker
-:   Install the Docker CLI.
 
 Endpoint
 :   Use the [`ibmcloud api` command](#ibmcloud_api) to set an API endpoint.
@@ -108,6 +105,9 @@ Display help for the `dev` command:
 ibmcloud help dev
 ```
 {: codeblock}
+
+
+
 
 ## ibmcloud version
 {: #ibmcloud_version}
