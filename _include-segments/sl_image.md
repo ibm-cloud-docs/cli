@@ -25,7 +25,7 @@ ibmcloud sl image datacenter IDENTIFIER [flags]
 :    To add Datacenter
 
 --remove
-:    To remove Datacenter
+:    Datacenter to remove
 
 ## ibmcloud sl image delete
 {: #sl_image_delete}
@@ -184,4 +184,3 @@ Deny sharing of an image template with another account.
 ibmcloud sl image share-deny IDENTIFIER ACCOUNT ID
 ```
 {: codeblock}
-

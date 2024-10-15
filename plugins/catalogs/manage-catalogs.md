@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-10-15"
 
 keywords: cli, catalogs management, catalog
 
@@ -148,7 +148,7 @@ ibmcloud catalog account set-approval-state-source [--account-ids IDS] [--approv
 
 --account-ids VALUE
 
-:   Provide a comma separated list of account IDs prefixed with one of the following.  `-acct-` for regular accounts, `-ent-` for enterprise accounts, and `-entgrp-` for enterprise account groups.
+:   Provide a comma-separated list of account IDs prefixed with one of the following. `-acct-` for regular accounts, `-ent-` for enterprise accounts, and `-entgrp-` for enterprise account groups.
 
 --enterprise-id VALUE (optional)
 
@@ -369,7 +369,7 @@ ibmcloud catalog filter get --catalog CATALOG [--output FORMAT]
 
 --output FORMAT (optional)
 
-:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
 
 
 ### Output
@@ -552,7 +552,7 @@ ibmcloud catalog filter options
 
 --output FORMAT (optional)
 
-:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
 
 
 ### Output
@@ -1242,7 +1242,7 @@ ibmcloud catalog offering version categories [--catalog CATALOG] [--offering OFF
 :   The product name or ID.
 
 --output FORMAT (optional)
-:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
 
 ### Example
 {: #categories-offering-example}
@@ -1365,7 +1365,7 @@ Run the following command to retrieve the Security and Compliance Center scans t
 :   Provide the region of the instance.
 
 --output OUTPUT (optional)
-:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
 
 --profiles PROFILES
 :   Provide a comma-separated list of profile names with versions, for example, `"IBM Cloud for Financial Services::1.2.0"`.
@@ -1413,7 +1413,7 @@ ibmcloud catalog offering version create-draft --version-locator VERSION_NUMBER 
 :   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified product or version you want to use.
 
 --output FORMAT (optional)
-:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
 
 ## ibmcloud catalog offering version delete-version
 {: #offering-delete-version}
@@ -1433,7 +1433,7 @@ ibmcloud catalog offering version delete-version --version-locator VERSION_NUMBE
 :   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified product or version you want to use.
 
 --output FORMAT (optional)
-:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON, for example, `--output json`.
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`.
 
 ## ibmcloud catalog offering version deprecate-version
 {: #publish-version-deprecate}
@@ -1470,7 +1470,7 @@ ibmcloud catalog offering version refresh-version --version-locator VERSION_NUMB
 :   To get the version locator for the product, run the `ibmcloud catalog offering list` command and locate the specified product or version you want to use.
 
 --zipurl URL
-:   URL pointing to the .zip file of the product.
+:   The URL pointing to the compressed file of the product.
 
 --include-config (optional)
 :   If provided, all configuration values are included and available when you add the product.
@@ -1770,10 +1770,10 @@ ibmcloud catalog pricing [-r, --region REGION] [-k, --kind KIND] [-p, --price PR
 :   Filter by tag. This flag is repeatable and results in a logical OR of all the tags specified.
 
 --co, --country (optional)
-:   Filter by a country. Output to csv or json may use the value `ALL` to get values for all countries.
+:   Filter by a country. Output to CSV or JSON may use the value `ALL` to get values for all countries.
 
 --json (optional)
-:   Output JSON response.
+:   Output a JSON response.
 
 --csv (optional)
 :   Output a CSV file.
@@ -2347,7 +2347,7 @@ ibmcloud catalog object access-list get [--catalog CATALOG] [--name NAME] [--out
 
 --output OUTPUT (optional)
 
-:   Specifies output format. Default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
+:   Specifies output format. The default is terminal compatible and the only supported alternative is JSON. For example, `--output json`
 
 ## ibmcloud catalog object access-list rm
 {: #remove-object-accesslist}

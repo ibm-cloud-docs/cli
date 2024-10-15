@@ -46,7 +46,7 @@ ibmcloud sl hardware bandwidth IDENTIFIER [flags]
 --e, end
 :    End date for bandwidth reporting
 
---q, quite
+--q, quiet
 :    Only show the summary table.
 
 --r, rollup
@@ -596,7 +596,7 @@ ibmcloud sl hardware toggle-ipmi IDENTIFIER [flags]
 
 Update server firmware
 
-
+Update server firmware. By default will update all available server components.
 
 ```bash
 ibmcloud sl hardware update-firmware IDENTIFIER [flags]
@@ -606,8 +606,23 @@ ibmcloud sl hardware update-firmware IDENTIFIER [flags]
 
 **Command options**:
 
+--b, bios
+:    Update BIOS firmware
+
 --f, force
 :    Force operation without confirmation
+
+--d, harddrive
+:    Update Hard Drive firmware
+
+--i, ipmi
+:    Update IPMI firmware
+
+--n, network
+:    Update Network Card firmware
+
+--r, raid
+:    Update RAID firmware
 
 ## ibmcloud sl hardware vlan-add
 {: #sl_hardware_vlan_add}
@@ -648,4 +663,3 @@ This command will only show VLANs not yet trunked to this server.
 ibmcloud sl hardware vlan-trunkable IDENTIFIER
 ```
 {: codeblock}
-

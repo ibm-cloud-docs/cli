@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-05"
+lastupdated: "2024-10-15"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -634,7 +634,7 @@ SERVICE_ID_UUID (required)
 :   Save API key information to the specified file.
 
 --action-if-leaked *value*
-:   The action to take if the key is leaked, can be "NONE", "DISABLE", or "DELETE". The default is "Disable".
+:   The action to take if the key is leaked. The options are "NONE", "DISABLE", or "DELETE". The default option is "Disable".
 
 -f, --force
 :   Force creation without confirmation.
@@ -946,7 +946,7 @@ ibmcloud iam user-policy-create USER_NAME {--file JSON_FILE | --roles ROLE_NAME1
 {: #ibmcloud_iam_user_policy_create_options}
 
 USER_NAME (required)
-:   User name to whom the policy belongs.
+:   Username to whom the policy belongs.
 
 --file *FILE* (optional)
 :   JSON file of policy definition. You can use advanced operators in a JSON policy document to grant access to resources that satisfy specific naming conventions. For more information about using advanced operators to create wildcard policies, see [Assigning access by using wildcard policies](/docs/account?topic=account-wildcard).
@@ -1024,13 +1024,13 @@ ibmcloud iam user-policy-create name@example.com --roles Operator --resource-typ
 ```
 {: codeblock}
 
-Give `name@example.com` `Viewer` role for the members of resource group `sample-resource-group`:
+Give `name@example.com` `Viewer` role for the members of the resource group `sample-resource-group`:
 ```bash
 ibmcloud iam user-policy-create name@example.com --roles Viewer --resource-group-name sample-resource-group
 ```
 {: codeblock}
 
-Give `name@example.com` `Viewer` role for the members of resource group with ID `dda27e49d2a1efca58083a01dfde18f6`:
+Give `name@example.com` `Viewer` role for the members of the resource group with ID `dda27e49d2a1efca58083a01dfde18f6`:
 ```bash
 ibmcloud iam user-policy-create name@example.com --roles Viewer --resource-group-id dda27e49d2a1efca58083a01dfde18f6
 ```
@@ -1055,14 +1055,14 @@ ibmcloud iam user-policy-update USER_NAME POLICY_ID {--file JSON_FILE | [--roles
 {: #ibmcloud_iam_user_policy_update_options}
 
 USER_NAME (required)
-:   User name to whom the policy belongs to.
+:   Username to whom the policy belongs.
 
 POLICY_ID (required)
 :   ID of the policy to update.
 --file *FILE* (optional)
 :   JSON file of policy definition.
 
---roles *ROLE_NAME1,ROLE_NAME2...* (optional)
+--roles *ROLE_NAME1,ROLE_NAME2...* (Optional)
 :   Role names of the policy definition. For supported roles of a specific service, run `ibmcloud iam roles --service SERVICE_NAME` option. This option is exclusive with the `--file` option.
 
 --service-name *SERVICE_NAME* (optional)
@@ -1467,7 +1467,7 @@ ibmcloud iam service-policy-update test 140798e2-8ea7db3 --roles Viewer
 ```
 {: codeblock}
 
-Update the service policy `140798e2-8ea7db3` to grant service `test` the `Viewer` role and a custom role `Responder` for all `sample` service instances in account:
+Update the service policy `140798e2-8ea7db3` to grant service `test` the `Viewer` role and a custom role `Responder` for all `sample` service instances in the account:
 ```bash
 ibmcloud iam service-policy-update test 140798e2-8ea7db3 --roles Viewer,Responder --service-name sample
 ```
@@ -2549,7 +2549,7 @@ PROFILE_NAME | PROFILE_ID (required)
 ### Examples
 {: #ibmcloud_iam_access_group_trusted_profile_add_examples}
 
-Add trusted profile `my-profile` to access group `example_group`:
+Add a trusted profile `my-profile` to access group `example_group`:
 ```bash
 ibmcloud iam access-group-trusted-profile-add example_group my-profile
 ```
@@ -3420,12 +3420,15 @@ ibmcloud iam trusted-profile Profile-cb258cb9-8de3-4ac0-9aec-b2b2d27ac976
 
 List trusted profiles under current account
 ```bash
-ibmcloud iam trusted-profiles [--id | --output FORMAT] [-q, --quiet]
+ibmcloud iam trusted-profiles [--can-assume] [--id | --output FORMAT] [-q, --quiet]
 ```
 {: codeblock}
 
 ### Command options
 {: #ibmcloud_iam_trusted_profiles_options}
+
+--can-assume
+:   Show profiles that can be assumed with the current account only.
 
 --id
 :   Show ID of profiles only.
@@ -3442,6 +3445,69 @@ ibmcloud iam trusted-profiles [--id | --output FORMAT] [-q, --quiet]
 List ID of all trusted profiles under current account:
 ```bash
 ibmcloud iam trusted-profiles --id
+```
+{: codeblock}
+
+List trusted profiles that can be assumed with the current account:
+
+```bash
+ibmcloud iam trusted-profiles --can-assume
+```
+{: codeblock}
+
+## ibmcloud iam trusted-profile-assume
+{: #ibmcloud_iam_trusted_profile_assume}
+
+Assume a trusted profile:
+```bash
+ibmcloud iam trusted-profile-assume [NAME|ID] [--output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_trusted_profile_assume_options}
+
+NAME|ID
+:   The name or ID of the profile to assume.
+--output FORMAT
+:   The specified output format. Only 'JSON' is supported.
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_trusted_profile_assume_examples}
+
+Assume a trusted profile with name `sample-test`:
+```bash
+ibmcloud iam trusted-profile-assume sample-test
+```
+View the currently assumed trusted profile:
+```bash
+ibmcloud iam trusted-profile-assume
+```
+{: codeblock}
+
+## ibmcloud iam trusted-profile-leave
+{: #ibmcloud_iam_trusted_profile_leave}
+
+Leave a trusted profile:
+```bash
+ibmcloud iam trusted-profile-leave [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_trusted_profile_leave_options}
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_trusted_profile_leave_examples}
+
+Leave a trusted profile previously assumed:
+```bash
+ibmcloud iam trusted-profile-leave
 ```
 {: codeblock}
 
@@ -4615,7 +4681,7 @@ ibmcloud iam account-settings [--output FORMAT] [-q, --quiet]
 Update settings under current account:
 
 ```bash
-ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_SETTING] [--restrict-create-platform-apikey RESTRICTION_SETTING] [--allowed-ip-addresses ADDRESS_LIST] [--mfa MFA] [--session-expiration-in-seconds SECONDS_EXP] [--session-invalidation-in-seconds SECONDS_INV] [--max-sessions-per-identity SESSIONS_MAX] [--output FORMAT] [-q, --quiet]
+ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_SETTING] [--restrict-create-platform-apikey RESTRICTION_SETTING] [--allowed-ip-addresses ADDRESS_LIST] [--unset-allowed-ip-addresses] [--mfa MFA] [--session-expiration-in-seconds SECONDS_EXP] [--session-invalidation-in-seconds SECONDS_INV] [--max-sessions-per-identity SESSIONS_MAX] [--output FORMAT] [-q, --quiet]
 ```
 {: codeblock}
 
@@ -4630,6 +4696,9 @@ ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_S
 
 --allowed-ip-addresses ADDRESS_LIST
 :   The IP addresses and subnets from which IAM tokens can be created (the default is "").
+
+--unset-allowed-ip-addresses
+:   Clear all IP address restrictions 
 
 --session-expiration-in-seconds SECONDS_EXP
 :   The number of seconds after which the session expires (can also be `NOT_SET`, which resets the value to default).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-10-15"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud api, ibmcloud, cli commands, regions, target, update, ibmcloud sl
 
@@ -18,15 +18,12 @@ subcollection: cli
 The {{site.data.keyword.cloud}} Command Line Interface provides a set of commands that are grouped by namespace for users to interact with {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
-The following commands are supported by the {{site.data.keyword.cloud_notm}} CLI, including their names, arguments, options, prerequisites, descriptions, and examples.
+ The {{site.data.keyword.cloud_notm}} CLI supports the following commands, including their names, arguments, options, prerequisites, descriptions, and examples.
 
 ## Global prerequisites
 {: #global-prereqs}
 
 The prerequisites for each command describe which actions are required before you run the command. The prerequisites can include one or more of the following actions:
-
-Docker
-:   Install the Docker CLI.
 
 Endpoint
 :   Use the [`ibmcloud api` command](#ibmcloud_api) to set an API endpoint.
@@ -108,6 +105,8 @@ Display help for the `dev` command:
 ibmcloud help dev
 ```
 {: codeblock}
+
+
 
 ## ibmcloud version
 {: #ibmcloud_version}
@@ -319,7 +318,7 @@ None.
 :   Log in as a VPC VSI compute resource identity. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
 
 --profile PROFILE_ID, PROFILE_NAME, or PROFILE_CRN
-:   The name, ID, or CRN of the linked trusted IAM profile to be used when you obtain the IAM access token. If provided, the `--cr-token` flag, `IBMCLOUD_CR_TOKEN` environment variable, or `--vpc-cri` flag must also be provided or set. If you're authenticating as a VPC VSI compute resource, specifying only a trusted profile CRN or ID is supported.
+:   The name, ID, or CRN of the linked trusted IAM profile is used when you obtain the IAM access token. If provided, the `--cr-token` flag, `IBMCLOUD_CR_TOKEN` environment variable, or `--vpc-cri` flag must also be provided or set. If you're authenticating as a VPC VSI compute resource, specifying only a trusted profile CRN or ID is supported.
 
 -c ACCOUNT_ID
 :   The ID of the target account. This option is exclusive with the `--no-account` option.
@@ -328,7 +327,7 @@ None.
 :   Forced login without the account. This option isn't recommended, and it is exclusive with the `-c` option.
 
 --accept
-:   Accept an invitation to join the targeted account. The account provided must be a valid account ID.
+:   Accept an invitation to join the targeted account. The account that is provided must be a valid account ID.
 
 -g RESOURCE_GROUP
 :   The name or ID of the target resource group. Optional.

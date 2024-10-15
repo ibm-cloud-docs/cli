@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-16"
+lastupdated: "2024-10-15"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
@@ -42,7 +42,7 @@ ibmcloud resource groups
 ```
 {: codeblock}
 
-List default group of currently targeted account:
+List the default group of currently targeted account:
 ```bash
 ibmcloud resource groups --default
 ```
@@ -224,7 +224,7 @@ ibmcloud resource service-instances [--service-name SERVICE_NAME] [--location LO
 {: #ibmcloud_resource_service_instances_options}
 
 --service-name *SERVICE_NAME*
-:   Name of belonging service
+:   Name of belonging to service
 
 --location *LOCATION*
 :   Filter by location
@@ -248,7 +248,7 @@ ibmcloud resource service-instances [--service-name SERVICE_NAME] [--location LO
 :   Starting resource position number
 
 --output FORMAT
-:   Specify output format. Only JSON is supported now.
+:   Specify the output format. Only JSON is supported now.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -291,7 +291,7 @@ ID (required), exclusive with NAME
 :   Filter by location
 
 --id
-:   Display the ID of service instance
+:   Display the ID of the service instance
 
 
 
@@ -338,7 +338,7 @@ LOCATION (required)
 :   Resource group name
 
 --service-endpoints *SERVICE_ENDPOINTS_TYPE*
-:   Types of the service endpoints. Possible values are 'public', 'private', 'public-and-private'. The default value for service endpoints is the type configured by the service in {{site.data.keyword.cloud}}.
+:   Types of the service endpoints. Possible values are 'public', 'private', 'public-and-private'. The default value for service endpoints is the type that is configured by the service in {{site.data.keyword.cloud}}.
 
 --allow-cleanup
 :   Whether the service instance should be deleted (cleaned up) during the processing of a region instance delete call
@@ -351,7 +351,7 @@ LOCATION (required)
 ### Examples
 {: #ibmcloud_resource_service_instance_create_examples}
 
-Create a service instance that is named `my-service-instance`, that uses service plan `test-service-plan` of service `test-service` on location `eu-gb`:
+Create a service instance that is named `my-service-instance` that uses service plan `test-service-plan` of service `test-service` on location `eu-gb`:
 ```bash
 ibmcloud resource service-instance-create my-service-instance test-service test-service-plan eu-gb
 ```
@@ -407,7 +407,7 @@ ibmcloud resource service-instance-update my-service-instance -n new-service-ins
 ## ibmcloud resource service-instance-delete
 {: #ibmcloud_resource_service_instance_delete}
 
-Delete service instance. If provisioning is in progress, the command attempts to cancel the provisioning process. Some services might not support cancellation.
+Delete the service instance. If provisioning is in progress, the command attempts to cancel the provisioning process. Some services might not support cancellation.
 ```bash
 ibmcloud resource service-instance-delete (NAME|ID) [-f, --force] [--recursive]
 ```
@@ -477,7 +477,7 @@ ibmcloud resource service-instance-lock my-service-instance
 ## ibmcloud resource service-instance-unlock
 {: #ibmcloud_resource_service_instance_unlock}
 
-Unlock service instance.
+Unlock the service instance.
 ```bash
 ibmcloud resource service-instance-unlock ( NAME | ID ) [-g RESOURCE_GROUP] [-f, --force]
 ```
@@ -559,7 +559,7 @@ ID
 :   Resource group name
 
 --id
-:   Display the ID of service key. This option is exclusive with '--output'.
+:   Display the ID of the service key. This option is exclusive with '--output'.
 
 -g RESOURCE_GROUP
 :   Resource group name
@@ -596,7 +596,7 @@ NAME (required)
 :   Name of the key.
 
 ROLE_NAME (optional)
-:   Name of the IAM service role. The specified role cannot be one of the default platform roles. You can verify eligibility of any role for use with this option by running `ibmcloud iam roles --service <your-service>` and checking that `serviceRole` appears in the role's CRN.
+:   Name of the IAM service role. The specified role cannot be one of the default platform roles. You can verify the eligibility of any role for use with this option by running `ibmcloud iam roles --service <your-service>` and checking that `serviceRole` appears in the role's CRN.
 
 --instance-id *SERVICE_INSTANCE_ID*
 :   Service instance ID.
@@ -605,7 +605,7 @@ ROLE_NAME (optional)
 :   Service instance name.
 
 --service-id *SERVICE_ID*
-:   Name or UUID of the service ID, which the role belongs to.
+:   Name or UUID of the service ID, which the role belongs to. Can be set only when `ROLE_NAME` is omitted or is set to `None`.
 
 -p, --parameters *@JSON_FILE | JSON_TEXT*
 :   Parameters JSON file or JSON string.
@@ -719,7 +719,7 @@ ibmcloud resource search LUCENE_QUERY [-o, --offset OFFSET] [-l, --limit LIMIT] 
 {: #ibmcloud_resource_search_options}
 
 -ir, --is-reclaimed
-:   Search for account resources that have been reclaimed. By default the search returns only active resources, however you can set is-reclaimed to any to search for resources whether they have been reclaimed or not. Set this option to `true` to apply the search criteria only to reclaimed resources. Set this option to `false` to search only for active resources. `false` is the default behavior.
+:   Search for account resources that have been reclaimed. However, by default the search returns only active resources. You can set is-reclaimed to any to search for resources whether they are reclaimed or not. Set this option to `true` to apply the search criteria only to reclaimed resources. Set this option to `false` to search only for active resources. `false` is the default behavior.
 
 -o, -offset
 :   Starting resource position number
@@ -758,7 +758,7 @@ For the complete list of attributes that you can search for, see [Searching for 
 ### Examples
 {: #ibmcloud_resource_search_examples}
 
-Search for Resource Controller resources in the specified location (i.e. in us-south region):
+Search for Resource Controller resources in the specified location (that is, in us-south region):
 ```bash
 ibmcloud resource search "region:us-south AND family:resource_controller"
 ```
@@ -814,22 +814,22 @@ ibmcloud resource tags [-o, --offset OFFSET] [-l, --limit LIMIT]  [-p, --provide
 :   Number of resources to return (maximum 1000) (default: 100).
 
 --provider value, -p value
-:   Display Classic Infrastructure resources, only value allowed is: classic-infrastructure. Use it for resources of type SoftLayer_Hardware, SoftLayer_Network_Application_Delivery_Controller, SoftLayer_Network_Subnet_IpAddress or SoftLayer_Network_Vlan.
+:   Display Classic Infrastructure resources, the only value that is allowed is: classic-infrastructure. Use it for resources of type SoftLayer_Hardware, SoftLayer_Network_Application_Delivery_Controller, SoftLayer_Network_Subnet_IpAddress or SoftLayer_Network_Vlan.
 
 --details value, -d value
 :   Show additional attributes for each tag, only value allowed is true.
 
 --attached value, -a value
-:   Show only filtered attached tags to a resource, only value allowed is true.
+:   Show only filtered tags attached to a resource, only value allowed is true.
 
 --tag-type value
-:   Type of the tag. Only allowed values are: user, service or access (default value : user).
+:   Type of the tag. Only allowed values are: user, service, or access (default value : user).
 
 --account-id value
 :   The ID of the account that owns the tags that you want to list (required if tag-type is set to service).
 
 --output value
-:   Specify output format. Only JSON is supported now.
+:   Specify the output format. Only JSON is supported now.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -847,7 +847,7 @@ ibmcloud resource tag-create --tag-names TAG_NAMES
 {: #ibmcloud_resource_tag_create_options}
 
 --tag-names value
-:   Comma separated list of tag names.
+:   Comma-separated list of tag names.
 
 -q, --quiet
 :   Suppress verbose output.
@@ -876,7 +876,7 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 :   Comma-separated list of tag names.
 
 --resource-name value
-:   Name of the resource on which the tags should be attached.
+:   The name of the resource on which the tags must be attached.
 
 --resource-id value
 :   CRN of the resource on which the tags should be attached (for Classic Infrastructure resource, it is the ID of the resource).
@@ -891,7 +891,7 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 :   The ID of the account that owns the resources to be tagged (required if tag-type is set to service).
 
 --replace
-:   The list of tag names will replace the current list of tag names attached to the resource.
+:   The list of tag names replaces the current list of tag names that are attached to the resource.
 
 --update
 :   The tag names in the format `key:value` will be updated. The option has no effect on tag names that are not in that format.
@@ -990,7 +990,7 @@ ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --res
 :   Comma-separated list of tag names.
 
 --resource-name value
-:   Name of the resource on which the tags should be attached.
+:   The name of the resource on which the tags should be attached.
 
 --resource-id value
 :   CRN of the resource on which the tags should be attached (for Classic Infrastructure resource, it is the ID of the resource).
@@ -999,7 +999,7 @@ ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --res
 :   Resource type on which the tags should be attached (required for Classic Infrastructure resource of type SoftLayer_Hardware, SoftLayer_Network_Application_Delivery_Controller, SoftLayer_Network_Subnet_IpAddress or SoftLayer_Network_Vlan only).
 
 --tag-type value
-:   Type of the tag. Only allowed values are: user, service or access (default value : user).
+:   Type of the tag. Only allowed values are: user, service, or access (default value : user).
 
 --account-id value
 :   The ID of the account that owns the resources to be detached (required if tag-type is set to service).
@@ -1084,10 +1084,10 @@ ibmcloud resource tag-delete (--tag-name TAG_NAME | -a, --all  [-f, --force]) [-
 :   Tag name to be deleted.
 
 --provider value, -p value
-:   Delete the tag in the specified provider (only supported value is classic-infrastructure). Use it for resources of type SoftLayer_Hardware, SoftLayer_Network_Application_Delivery_Controller, SoftLayer_Network_Subnet_IpAddress or SoftLayer_Network_Vlan.
+:   Delete the tag in the specified provider (the only supported value is classic-infrastructure). Use it for resources of type SoftLayer_Hardware, SoftLayer_Network_Application_Delivery_Controller, SoftLayer_Network_Subnet_IpAddress or SoftLayer_Network_Vlan.
 
 --tag-type value
-:   Type of the tag. Only allowed values are: user, service or access (default value : user).
+:   Type of the tag. Only allowed values are: user, service, or access (default value : user).
 
 account-id value
 :   The ID of the account that owns the tags to be deleted (required if tag-type is set to service).
@@ -1096,7 +1096,7 @@ account-id value
 :   Delete the tags without confirmation.
 
 --all, -a
-:   Delete all tags not attatched to any resources.
+:   Delete all tags that are not attached to any resources.
 
 -q, --quiet
 :   Suppress verbose output.

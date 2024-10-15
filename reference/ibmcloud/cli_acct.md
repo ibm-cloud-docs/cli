@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-16"
+lastupdated: "2024-10-15"
 
 keywords: cli, ibmcloud account cli, managing accounts cli, managing users cli, account, account update command
 
@@ -57,7 +57,7 @@ ibmcloud account list [--active | --exclude EXCLUDE_STATES] [-o, --output FORMAT
 :   Exclude value. Comma-delimited list of account states to exclude. Example: `SUSPENDED,CANCEL_PENDING`
 
 -o, --output
-:   Specify output format. Only 'JSON' is supported.
+:   Specify the output format. Only 'JSON' is supported.
 
 -q, --quiet
 :   Suppress verbose output.

@@ -224,7 +224,7 @@ The following parameters can be used with the `tekton-logs` command.
 #### `run-id` (required)
 {: #run-id}
 
-* Parameter that identifies the pipeline run for the log retrieval.
+* A parameter that identifies the pipeline run for the log retrieval.
 * Usage: `ibmcloud dev tekton-logs [PIPELINE_ID]  --run-id [pipelinerunID]`
 
 #### `task-name`
@@ -263,7 +263,7 @@ The following parameters can be used with the `tekton-pipeline-cancel` command.
 #### `run-id` (required)
 {: #tekton-pipeline-cancel-run-id}
 
-* Parameter that identifies the pipeline run to cancel.
+* A parameter that identifies the pipeline run to cancel.
 * Usage: `ibmcloud dev tekton-pipeline-cancel [PIPELINE_ID] --run-id [pipelinerunID]`
 
 #### `trace`

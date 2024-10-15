@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-06"
+lastupdated: "2024-10-15"
 
 subcollection: cli
 
@@ -66,7 +66,7 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
 `--resource-group` (string)
 :   The resource group name where the project's data and tools are created. Required.
 
-    The maximum length is `64` characters. The minimum length is `0` characters. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]*$/`.
+    The maximum length is `64` characters. The minimum length is `0` characters. The value must match the regular expression `/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]*$/`.
 
 `--configs` ([`ProjectConfigPrototype[]`](#cli-project-config-prototype-example-schema))
 :   The project configurations. These configurations are included in the response of creating a project only if a configuration array is specified in the request payload.
@@ -448,13 +448,13 @@ ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEF
 `--definition-name` (string)
 :   The name of the project.  It's unique within the account across regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]+$/`.
+    The maximum length is `128` characters. The minimum length is `1` character. The value must match the regular expression `/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]+$/`.
 
 `--definition-destroy-on-delete` (bool)
 :   The policy that indicates whether the resources are destroyed or not when a project is deleted. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
 `--definition-auto-deploy` (bool)
-:   A boolean flag to enable auto deploys. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   A Boolean flag to enable auto deploys. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
 `--definition-description` (string)
 :   A brief explanation of the project's use in the configuration of a deployable architecture. You can create a project without providing a description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -462,7 +462,7 @@ ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEF
     The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
 
 `--definition-monitoring-enabled` (bool)
-:   A boolean flag to enable automatic drift detection. Use this field to run a daily check to compare your configurations to your deployed resources to detect any difference. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   A Boolean flag to enable automatic drift detection. Use this field to run a daily check to compare your configurations to your deployed resources to detect any difference. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
 #### Examples
 {: #project-update-examples}
@@ -721,7 +721,7 @@ ibmcloud project environment-create --project-id PROJECT-ID [--definition DEFINI
 `--definition-name` (string)
 :   The name of the environment. It's unique within the account across projects and regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]+$/`.
+    The maximum length is `128` characters. The minimum length is `1` character. The value must match the regular expression `/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]+$/`.
 
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
 :   The authorization details. You can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -1007,7 +1007,7 @@ ibmcloud project environment-update --project-id PROJECT-ID --id ID [--definitio
 `--definition-name` (string)
 :   The name of the environment. It's unique within the account across projects and regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]+$/`.
+    The maximum length is `128` characters. The minimum length is `1` character. The value must match the regular expression `/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]+$/`.
 
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
 :   The authorization details. You can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -1231,12 +1231,12 @@ For more information, see [Creating workspaces and importing your Terraform temp
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The list items must match regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`. The maximum length is `110` items. The minimum length is `0` items.
+    The list items must match the regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`. The maximum length is `110` items. The minimum length is `0` items.
 
 `--schematics-workspace-crn` (string)
 :   An IBM Cloud resource name that uniquely identifies a resource. This option provides a value for a sub-field of the JSON option 'schematics'. It is mutually exclusive with that option.
 
-    The maximum length is `512` characters. The minimum length is `4` characters. The value must match regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`.
+    The maximum length is `512` characters. The minimum length is `4` characters. The value must match the regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`.
 
 #### Examples
 {: #project-config-create-examples}
@@ -1482,7 +1482,7 @@ ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEF
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The list items must match regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`. The maximum length is `110` items. The minimum length is `0` items.
+    The list items must match the regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`. The maximum length is `110` items. The minimum length is `0` items.
 
 [Experimental]{: tag-purple} `--definition-members` ([`StackConfigMember[]`](#cli-stack-config-member-example-schema))
 :   The member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -2034,7 +2034,7 @@ For more information, see [Creating workspaces and importing your Terraform temp
 `--schematics-workspace-crn` (string)
 :   An IBM Cloud resource name that uniquely identifies a resource. This option provides a value for a sub-field of the JSON option 'schematics'. It is mutually exclusive with that option.
 
-    The maximum length is `512` characters. The minimum length is `4` characters. The value must match regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`.
+    The maximum length is `512` characters. The minimum length is `4` characters. The value must match the regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`.
 
 #### Examples
 {: #project-config-sync-examples}

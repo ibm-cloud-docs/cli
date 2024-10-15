@@ -580,7 +580,15 @@ ibmcloud sl loadbal order-options [flags]
 
 Add a new load balancer protocol
 
-ibmcloud sl loadbal protocol-add (--id LOADBAL_ID) [--front-protocol PROTOCOL] [back-protocol PROTOCOL] [--front-port PORT] [--back-port PORT] [-m, --method METHOD] [-c, --connections CONNECTIONS] [--sticky cookie | source-ip] [--client-timeout SECONDS] [--server-timeout SECONDS]
+Creates a new mapping between incoming traffic to the loadbalancer and the backend servers.
+Use '{COMMAND_NAME}  sl security cert-list' to get IDs for the --ssl-id option.
+See: https://cloud.ibm.com/docs/loadbalancer-service?topic=loadbalancer-service-about-ibm-cloud-load-balancer for more details
+
+**Examples**:
+
+	ibmcloud sl loadbal protocol-add --id 1115129 --front-port 443 --front-protocol HTTPS --back-port 80 --back-protocol HTTP --ssl-id 335659 --client-timeout 60 --connections 100
+	Creates a new protocol on Load Balancer 1115129 that terminates SSL on port 443, mapping to a backend port 80 HTTP. Using SSL cert 335659
+
 
 ```bash
 ibmcloud sl loadbal protocol-add [flags]
@@ -617,6 +625,9 @@ ibmcloud sl loadbal protocol-add [flags]
 --server-timeout
 :    Server side timeout setting, in seconds
 
+--ssl-id
+:    Identifier of the SSL certificate to attach to this protocol. Only valid for HTTPS.
+
 --sticky
 :    Use 'cookie' or 'source-ip' to stick
 
@@ -649,7 +660,12 @@ ibmcloud sl loadbal protocol-delete [flags]
 
 Edit load balancer protocol
 
-ibmcloud sl loadbal protocol-edit (--id LOADBAL_ID) (--protocol-uuid PROTOCOL_UUID) [--front-protocol PROTOCOL] [back-protocol PROTOCOL] [--front-port PORT] [--back-port PORT] [-m, --method METHOD] [-c, --connections CONNECTIONS] [--sticky cookie | source-ip] [--client-timeout SECONDS] [--server-timeout SECONDS]
+Use 'ibmcloud sl loadbal detail' to find the --protocol-uuid values for a loadbalancer
+**Examples**:
+
+	ibmcloud sl loadbal protocol-add --id 1115129 --protocol-uuid 8ec8911a-c32d-4678-89fe-979f182c822f --ssl-id 123
+	This command changes the SSL certificate
+
 
 ```bash
 ibmcloud sl loadbal protocol-edit [flags]
@@ -688,6 +704,9 @@ ibmcloud sl loadbal protocol-edit [flags]
 
 --server-timeout
 :    Server side timeout setting, in seconds
+
+--ssl-id
+:    Identifier of the SSL certificate to attach to this protocol. Only valid for HTTPS.
 
 --sticky
 :    Use 'cookie' or 'source-ip' to stick

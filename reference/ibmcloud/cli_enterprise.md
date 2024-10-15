@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-07-13"
+  years: 2018, 2024
+lastupdated: "2024-10-15"
 
 keywords: cli, ibmcloud enterprise, view enterprise, view enterprise account, view enterprise account group., enterprise, account-group, account-group-create, account-group-update, account-delete
 
@@ -69,7 +69,7 @@ ibmcloud enterprise show
 ## ibmcloud enterprise account-group-create
 {: #ibmcloud_enterprise_account_group_create}
 
-Create an account group.
+Create an account group
 ```bash
 ibmcloud enterprise account-group-create NAME [--parent-account-group ACCOUNT_GROUP_NAME] [--primary-contact-id PRIMARY_CONTACT_USER_ID]
 ```
@@ -214,7 +214,7 @@ ibmcloud enterprise account-move (-n, --name NAME | --id ID) (--parent-account-g
 :   ID of parent account group. This option is exclusive with `--parent-account-group` and `--parent-enterprise`.
 
 --parent-enterprise (required)
-:   Set enterprise as the parent. This option is exclusive with `--parent-account-group` and `--parent-account-group-id`.
+:   Set the enterprise as the parent. This option is exclusive with `--parent-account-group` and `--parent-account-group-id`.
 
 ## ibmcloud enterprise account-show
 {: #ibmcloud_enterprise_account_show}

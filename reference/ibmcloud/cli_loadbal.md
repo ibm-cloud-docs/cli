@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-10-15"
 
 keywords: cli, classic infrastructure, load balancer, loadbal
 
@@ -484,7 +484,7 @@ ibmcloud sl loadbal l7pool-add (--id LOADBAL_ID) (-n, --name NAME) [-m, --method
 :   Health check interval between checks. [default: 5]
 
 --health-retry COUNT
-:   Health check number of times before marking as DOWN. [default: 2]
+:   Health check this number of times before marking as DOWN. [default: 2]
 
 --health-time TIMEOUT
 :   Health check timeout. [default: 2]
@@ -574,7 +574,7 @@ ibmcloud sl loadbal l7pool-edit (--pool-uuid L7POOL_UUID) [-m, --method METHOD] 
 :   Health check interval between checks. [default: 5]
 
 --health-retry COUNT
-:   Health check number of times before marking as DOWN. [default: 2]
+:   Health check this number of times before marking as DOWN. [default: 2]
 
 --health-time TIMEOUT
 :   Health check timeout. [default: 2]

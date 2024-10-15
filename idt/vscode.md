@@ -12,15 +12,13 @@ subcollection: cli
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.cloud_notm}} CLI for Microsoft Visual Studio Code
+# {{site.data.keyword.cloud_notm}} CLI for Microsoft&trade; Visual Studio Code
 {: #ibm-dev-tools-for-vscode}
 
 The {{site.data.keyword.cloud}} CLI extension for Microsoft&reg; Visual Studio Code provides access to capabilities from the {{site.data.keyword.cloud_notm}} Command Line Interface directly within the VS Code editor’s command palette.
 {: shortdesc}
 
-The extension supports the deployment of applications into VMs by using [{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-getting-started) or [Red Hat OpenShift on {{site.data.keyword.cloud_notm}}](/docs/openshift?topic=openshift-getting-started). The extension can be used for managing toolchains  and more – all without the need to leave the editor’s context.
-
-![Screen capture of the {{site.data.keyword.cloud_notm}} CLI extension download screen.](../images/vscode.png "Extension download screen within Visual Studio Code"){: caption="Figure 1. Extension download screen within Visual Studio Code." caption-side="bottom"}
+![Screen capture of the {{site.data.keyword.cloud_notm}} CLI extension download screen.](../images/vscode.png "Extension download screen within Visual Studio Code"){: caption="Extension download screen within Visual Studio Code." caption-side="bottom"}
 
 ## Dependencies
 {: #vscode-dependencies}
