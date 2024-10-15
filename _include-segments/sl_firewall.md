@@ -48,8 +48,6 @@ ibmcloud sl firewall cancel IDENTIFIER [flags]
 
 Detail information about a firewall
 
-ibmcloud sl firewall detail IDENTIFIER [OPTIONS]
-
 **Examples**:
  
 ibmcloud sl firewall detail vs:12345
@@ -92,4 +90,3 @@ List all firewalls on your account
 ibmcloud sl firewall list
 ```
 {: codeblock}
-

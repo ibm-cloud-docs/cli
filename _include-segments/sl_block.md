@@ -225,7 +225,6 @@ ibmcloud sl block replica-failover IDENTIFIER REPLICA_ID
 
 List suitable replication datacenters for the given volume
 
-ibmcloud sl block replica-locations VOLUME_ID [OPTIONS]
 
 **Examples**:
 
@@ -387,8 +386,7 @@ ibmcloud sl block snapshot-disable IDENTIFIER [flags]
 
 Enable snapshots for a given volume on the specified schedule
 
-ibmcloud sl block snapshot-enable VOLUME_ID [OPTIONS]
-
+See https://sldn.softlayer.com/reference/services/SoftLayer_Network_Storage/enableSnapshots/ for more details about these options.
 **Examples**:
 
    ibmcloud sl block snapshot-enable 12345678 -s WEEKLY -c 5 -m 0 --hour 2 -d 0
@@ -404,7 +402,7 @@ ibmcloud sl block snapshot-enable IDENTIFIER [flags]
 
 --d, day-of-week
 :    Day of the week when snapshots should be taken, integer between 0 to 6. 
-      0 means Sunday,1 means Monday,2 means Tuesday,3 means Wendesday,4 means Thursday,5 means Friday,6 means Saturday
+	      0 means Sunday,1 means Monday,2 means Tuesday,3 means Wendesday,4 means Thursday,5 means Friday,6 means Saturday
 
 --r, hour
 :    Hour of the day when snapshots should be taken, integer between 0 to 23
@@ -413,10 +411,10 @@ ibmcloud sl block snapshot-enable IDENTIFIER [flags]
 :    Minute of the hour when snapshots should be taken, integer between 0 to 59
 
 --c, retention-count
-:    Number of snapshots to retain [required]
+:    Number of snapshots to retain
 
 --s, schedule-type
-:    Snapshot schedule [required], options are: HOURLY,DAILY,WEEKLY
+:    Snapshot schedule, options are: INTERVAL, HOURLY, DAILY, WEEKLY
 
 ## ibmcloud sl block snapshot-get-notification-status
 {: #sl_block_snapshot_get_notification_status}
@@ -436,7 +434,6 @@ ibmcloud sl block snapshot-get-notification-status IDENTIFIER
 
 List block storage snapshots
 
-ibmcloud sl block snapshot-list VOLUME_ID [OPTIONS]
 
 **Examples**:
 
@@ -459,7 +456,8 @@ ibmcloud sl block snapshot-list IDENTIFIER [flags]
 
 Order snapshot space for a block storage volume
 
-ibmcloud sl block snapshot-order VOLUME_ID [OPTIONS]
+See https://cloud.ibm.com/docs/BlockStorage?topic=BlockStorage-getting-started for sizing options.
+ibmcloud sl block volume-options' to get available options.
 
 **Examples**:
 
@@ -481,7 +479,7 @@ ibmcloud sl block snapshot-order IDENTIFIER [flags]
 :    Performance Storage IOPs, between 100 and 6000 in multiples of 100
 
 --s, size
-:    Size of snapshot space to create in GB  [required]
+:    Size of snapshot space to create in GB
 
 --t, tier
 :    Endurance Storage Tier (IOPS per GB) of the block volume for which space is ordered [optional], options are: 0.25,2,4,10
@@ -494,7 +492,6 @@ ibmcloud sl block snapshot-order IDENTIFIER [flags]
 
 Restore block volume using a given snapshot
 
-ibmcloud sl block snapshot-restore VOLUME_ID SNAPSHOT_ID
 
 **Examples**:
 

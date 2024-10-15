@@ -42,6 +42,7 @@ toc:
           href: https://cloud.ibm.com/media/docs/downloads/IBM%20Cloud%20CLI%20quick%20reference.pdf
       topics:
       - reference/ibmcloud/bx_cli.md
+      - reference/ibmcloud/cli_plugin.md
       - topicgroup:
           label: IBM Cloud CLI platform commands
           topics:
@@ -50,7 +51,6 @@ toc:
           - reference/ibmcloud/cli_catalog.md
           - reference/ibmcloud/cli_enterprise.md
           - reference/ibmcloud/cli_api_policy.md
-          - reference/ibmcloud/cli_plugin.md
           - reference/ibmcloud/cli_resource_group.md
       - topicgroup:
           label: IBM Cloud CLI classic infrastructure commands

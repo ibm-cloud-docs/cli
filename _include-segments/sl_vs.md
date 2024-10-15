@@ -54,7 +54,7 @@ ibmcloud sl vs bandwidth IDENTIFIER [flags]
 --e, end
 :    End date for bandwidth reporting
 
---q, quite
+--q, quiet
 :    Only show the summary table.
 
 --r, rollup
@@ -776,12 +776,8 @@ ibmcloud sl vs power-on IDENTIFIER [flags]
 
 Check if a virtual server instance is ready for use
 
-ibmcloud sl vs ready IDENTIFIER [OPTIONS]
-
-**Examples**:
-
-   ibmcloud sl vs ready 12345678 --wait 30
-   This command checks virtual server instance with ID 12345678 status to see if it is ready for use continuously and waits up to 30 seconds.
+Will periodically check the status of a virtual server's active transaction.
+When the transcation is finished the virtual server should be ready for use.
 
 ```bash
 ibmcloud sl vs ready IDENTIFIER [flags]

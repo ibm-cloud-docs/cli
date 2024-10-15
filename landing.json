@@ -1,7 +1,7 @@
 {
     "version": 2,
     "title": "IBM Cloud Command Line Interface (CLI)",
-    "lastupdated": "2024-10-07",
+    "lastupdated": "2024-10-15",
     "introduction": "Use IBM Cloud's powerful CLIs and tooling to interact with your applications, containers, infrastructure, and other services.",
     "section_topics": {
       "links": [

@@ -215,7 +215,7 @@ ibmcloud sl user list [flags]
 **Command options**:
 
 --column
-:    Column to display. options are: id,username,email,displayName,2FA,classicAPIKey,status,hardwareCount,virtualGuestCount. This option can be specified multiple times
+:    Column to display. options are: 2FA, classicAPIKey, displayName, email, hardwareCount, id, status, username, virtualGuestCount, vpn. This option can be specified multiple times
 
 ## ibmcloud sl user notifications
 {: #sl_user_notifications}
@@ -259,7 +259,8 @@ ibmcloud sl user permission-edit IDENTIFIER [flags]
 
 View user permissions
 
-
+Some permissions here may also be managed by the IBM IAM service.
+See https://cloud.ibm.com/docs/account?topic=account-migrated_permissions for more details.
 
 ```bash
 ibmcloud sl user permissions USER_ID
