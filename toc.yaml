@@ -42,7 +42,7 @@ toc:
           href: https://cloud.ibm.com/media/docs/downloads/IBM%20Cloud%20CLI%20quick%20reference.pdf
       topics:
       - reference/ibmcloud/bx_cli.md
-      - reference/ibmcloud/cli_plugin.md
+      - plugins/cbr/context-based-restrictions.md
       - topicgroup:
           label: IBM Cloud CLI platform commands
           topics:
@@ -51,13 +51,36 @@ toc:
           - reference/ibmcloud/cli_catalog.md
           - reference/ibmcloud/cli_enterprise.md
           - reference/ibmcloud/cli_api_policy.md
+          - reference/ibmcloud/cli_plugin.md
           - reference/ibmcloud/cli_resource_group.md
+          - plugins/catalogs/manage-catalogs.md
+          - plugins/projects/projects-cli.md
+          - include: ../satellite/satellite-cli-reference-v2.md
       - topicgroup:
-          label: IBM Cloud CLI classic infrastructure commands
+          label: IBM Cloud CLI container commands
           topics:
+          - include: ../containers/cli-ks-plugin.md
+          - include: ../codeengine/cmd_defs.md
+          - include: ../Registry/container-registry-cli.md
+      - topicgroup:
+          label: IBM Cloud CLI databases commands
+          topics:
+          - include: ../databases-cli-plugin/cloud-databases-cli.md
+          - include: ../Cloudant-cli-plugin/cloudant-cli.md
+          - include: ../dbaas-cli-plugin/dbaas_cli.md
+          - include: ../EventStreams/eventstreams-cli.md
+      - topicgroup:
+          label: IBM Cloud CLI infrastructure commands
+          topics:
+          - include: ../cis-cli-plugin/cis-cli-plugin.md
+          - include: ../cloud-object-storage-cli-plugin/cloud-object-storage-cli-reference.md
+          - include: ../dl-cli-plugin/direct-link-cli.md
+          - include: ../dns-svcs-cli-plugin/dns-svcs-cli-plugin.md
+          - reference/ibmcloud/cli_dns.md
+          - include: ../tg-cli-plugin/transit-gateway-cli.md
+          - include: ../vpc-infrastructure-cli-plugin/vpc-cli-reference.md
           - reference/ibmcloud/cli_block_storage.md
           - reference/ibmcloud/cli_call_api.md
-          - reference/ibmcloud/cli_dns.md
           - reference/ibmcloud/cli_file_storage.md
           - reference/ibmcloud/cli_global_ip.md
           - reference/ibmcloud/cli_hardware.md
@@ -83,47 +106,38 @@ toc:
           - reference/ibmcloud/cli_sl_metadata.md
           - reference/ibmcloud/cli_sl_reports.md
           - reference/ibmcloud/cli_sl_tags.md
-      - idt/commands.md
       - topicgroup:
-          label: Plug-ins for the IBM Cloud CLI
+          label: IBM Cloud CLI observability commands
           topics:
           - include: ../activity-tracker-cli-plugin/activity-tracker-cli.md
-          - include: ../analytics-engine-cli-plugin/analytics-engine-serverless-cli.md
-          - include: ../app-configuration-cli-plugin/app-configuration-cli.md
-          - plugins/catalogs/manage-catalogs.md
-          - include: ../cis-cli-plugin/cis-cli-plugin.md
-          - include: ../databases-cli-plugin/cloud-databases-cli.md
-          - include: ../openwhisk/functions-cli.md
-          - include: ../Cloudant-cli-plugin/cloudant-cli.md
-          - include: ../codeengine/cmd_defs.md
-          - include: ../code-risk-analyzer-cli-plugin/cra-cli.md
-          - include: ../Registry/container-registry-cli.md
-          - plugins/cbr/context-based-restrictions.md
-          - include: ../devops-insights-cli-plugin/devops-insights-cli.md
-          - include: ../dl-cli-plugin/direct-link-cli.md
-          - include: ../dns-svcs-cli-plugin/dns-svcs-cli-plugin.md
-          - include: ../event-notifications-cli-plugin/event-notifications-cli.md
-          - include: ../EventStreams/eventstreams-cli.md
-          - include: ../hs-crypto-cli-plugin/hs-crypto-cli.md
-          - include: ../dbaas-cli-plugin/dbaas_cli.md
-          - include: ../hpvs-cli-plugin/hpvs_cli.md
-          - include: ../key-protect/key-protect-cli-commands.md
-          - include: ../containers/cli-ks-plugin.md
           - include: ../log-analysis-cli-plugin/log-analysis-cli.md
+          - include: ../metrics-router-cli/metrics-router-cli.md
           - include: ../monitor-cli-plugin/monitor-cli.md
-          - include: ../cloud-object-storage-cli-plugin/cloud-object-storage-cli-reference.md
-          - include: ../openpages-cli-plugin/openpages_cli.md
-          - include: ../power-iaas-cli-plugin/power-iaas-cli.md
-          - plugins/projects/projects-cli.md
-          - include: ../privileged-access-gateway/pag-cli-commands.md
-          - include: ../quantum-computing-cli-plugin/quantum-services-cli.md
-          - include: ../satellite/satellite-cli-reference-v2.md
+          - include: ../openshift/observability-reference.md
+      - topicgroup:
+          label: IBM Cloud CLI platform automation commands
+          topics:
+          - include: ../app-configuration-cli-plugin/app-configuration-cli.md
+          - idt/commands.md
+          - include: ../devops-insights-cli-plugin/devops-insights-cli.md
+          - include: ../event-notifications-cli-plugin/event-notifications-cli.md
           - include: ../schematics/cli-reference.md
-          - include: ../secrets-manager/secrets-manager-cli.md
+      - topicgroup:
+          label: IBM Cloud CLI security commands
+          topics:
+          - include: ../hs-crypto-cli-plugin/hs-crypto-cli.md
+          - include: ../hpvs-cli-plugin/hpvs_cli.md
           - include: ../security-compliance/security-compliance-cli.md
-          - include: ../tg-cli-plugin/transit-gateway-cli.md
-          - include: ../vpc-infrastructure-cli-plugin/vpc-cli-reference.md
+          - include: ../secrets-manager/secrets-manager-cli.md
+          - include: ../key-protect/key-protect-cli-commands.md
+          - include: ../privileged-access-gateway/pag-cli-commands.md
+          - include: ../code-risk-analyzer-cli-plugin/cra-cli.md
+      - topicgroup:
+          label: Additional services
+          topics:
+          - include: ../analytics-engine-cli-plugin/analytics-engine-serverless-cli.md
           - include: ../watson-query-cli-plugin/watson-query-cli.md
+          - include: ../openpages-cli-plugin/openpages_cli.md
       - topicgroup:
           label: SDKs for Mobile
           topics:
