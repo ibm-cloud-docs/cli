@@ -7,7 +7,7 @@ toc:
     audience: platform
     href: /docs/cli
     console-page: /shell
-    product-page: https://www.ibm.com/products/cli
+    product-page: https://www.ibm.com/cloud
     path: cli
     label: IBM Cloud CLI
   entries:
