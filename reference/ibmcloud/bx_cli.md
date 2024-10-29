@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-10-29"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud api, ibmcloud, cli commands, regions, target, update, ibmcloud sl
 
@@ -160,7 +160,7 @@ API_ENDPOINT
 --skip-ssl-validation
 :   Bypass SSL validation of HTTP requests. This option isn't recommended.
 
---vpc 
+--vpc
 :   Use a VPC connection for a private API endpoint. For more information about configuring to use a VPC connection for a private API endpoint, see [Configuring a private endpoint gateway (required for VPC use)](/docs/cli?topic=cli-service-connection#cli-private-vpc).
 
 --unset
@@ -203,7 +203,7 @@ ibmcloud api --unset
 Writes default values to the configuration file.
 
 ```bash
-ibmcloud config --http-timeout TIMEOUT_IN_SECONDS | --trace (true|false|path/to/file) | 
+ibmcloud config --http-timeout TIMEOUT_IN_SECONDS | --trace (true|false|path/to/file) |
          --color (true|false) | --locale (LOCALE|CLEAR) | --check-version (true|false)
 ```
 
@@ -416,7 +416,7 @@ Then, the CLI provides a URL link and prompts you for the passcode:
 
 ```text
 Get One Time Code from https://identity-1.us-south.iam.cloud.ibm.com/identity/passcode to proceed.
-Open the URL in the default browser? [Y/n] > 
+Open the URL in the default browser? [Y/n] >
 ```
 {: screen}
 
