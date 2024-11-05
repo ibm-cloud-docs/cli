@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-11-05"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud api, ibmcloud, cli commands, regions, target, update, ibmcloud sl
 
@@ -227,6 +227,9 @@ None.
 --locale
 :   Set a default locale. If no value is specified, the previous locale is deleted.
 
+--sso-otp
+:   Set the style of single sign-on (SSO) one-time passcode (OTP) retrieval. The default value is `manual` and requires user interaction. The `auto` setting will launch the default browser automatically and accept the token.
+
 --trace
 :   Trace HTTP requests to the terminal or specified file. Valid values are `true` or `false`.
 
@@ -275,6 +278,13 @@ Clear the locale settings:
 
 ```bash
 ibmcloud config --locale CLEAR
+```
+{: codeblock}
+
+Enable automatic SSO one-time passcode acceptance:
+
+```bash
+ibmcloud config --sso-otp auto
 ```
 {: codeblock}
 
