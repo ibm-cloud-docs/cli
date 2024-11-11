@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-11-11"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
@@ -753,7 +753,7 @@ creation_date
 modification_date
 :   The last modification date of the resource.
 
-For the complete list of attributes that you can search for, see [Searching for resources](/docs/account?topic=account-searching-for-resources&interface=cli) .
+For the complete list of attributes that you can search for, see [Searching for resources](/docs/account?topic=account-manage_resource&interface=cli#searching-for-resources).
 
 ### Examples
 {: #ibmcloud_resource_search_examples}
