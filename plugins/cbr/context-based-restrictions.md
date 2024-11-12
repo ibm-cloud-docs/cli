@@ -2,7 +2,7 @@
 
 copyright:
   years: "2024"
-lastupdated: "2024-08-02"
+lastupdated: "2024-11-11"
 
 keywords: cli, context-based restrictions plugin
 
@@ -111,7 +111,6 @@ last_modified_by_id   iam-ServiceId-0123456789
 
 `--file` (string)
 :   The supplied file is used to create the zone. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the zone create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-zone-request){: external}.
-
 
 ### `ibmcloud cbr zones`
 {: #cbr-cli-zones-command}

@@ -120,7 +120,7 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 
 3. Add to the `PATH` environment variable and enable shell autocompletion.
    * Add the `{YOUR_DIRECTORY}/IBM_CLOUD_CLI` to the `PATH` environment variable.
-   * For shell autocompletion support (Mac and Linux&trade; only), see [Enabling shell autocompletion for IBM Cloud CLI](/docs/cli/ibmcloud?topic=cli-shell-autocomplete).
+   * For shell autocompletion support (Mac and Linux&trade; only), see [Enabling shell autocompletion for IBM Cloud CLI](/docs/cli?topic=cli-shell-autocomplete).
 
 ## Updating the {{site.data.keyword.cloud_notm}} CLI
 {: #update-ibmcloud-cli}
