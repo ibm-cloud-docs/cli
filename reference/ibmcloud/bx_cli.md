@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud api, ibmcloud, cli commands, regions, target, update, ibmcloud sl
 
@@ -18,7 +18,7 @@ subcollection: cli
 The {{site.data.keyword.cloud}} Command Line Interface provides a set of commands that are grouped by namespace for users to interact with {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
- The {{site.data.keyword.cloud_notm}} CLI supports the following commands, including their names, arguments, options, prerequisites, descriptions, and examples.
+The {{site.data.keyword.cloud_notm}} CLI supports the following commands, including their names, arguments, options, prerequisites, descriptions, and examples.
 
 ## Global prerequisites
 {: #global-prereqs}
