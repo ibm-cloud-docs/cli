@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-11-20"
 
 subcollection: cli
 
@@ -2360,14 +2360,14 @@ ibmcloud project stack-definition-update --project-id PROJECT-ID --id ID [--stac
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--stack-definition=@path/to/file.json`.
 
-`--stack-definition-inputs` ([`StackDefinitionInputVariable[]`](#cli-stack-definition-input-variable-example-schema))
+`--stack-definition-inputs` ([`StackDefinitionInputVariable[]`](#project-stack-definition-create-examples))
 :   Defines the inputs that users need to configure at the stack level. These inputs are included in the catalog entry when the deployable architecture stack is exported to a private catalog. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--stack-definition-inputs=@path/to/file.json`.
 
-`--stack-definition-outputs` ([`StackDefinitionOutputVariable[]`](#cli-stack-definition-output-variable-example-schema))
+`--stack-definition-outputs` ([`StackDefinitionOutputVariable[]`](#project-stack-definition-create-cli-output))
 :   The outputs associated with this stack definition. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
