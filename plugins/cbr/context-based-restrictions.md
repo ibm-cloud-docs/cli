@@ -2,7 +2,7 @@
 
 copyright:
   years: "2024"
-lastupdated: "2024-11-11"
+lastupdated: "2024-12-09"
 
 keywords: cli, context-based restrictions plugin
 
@@ -50,7 +50,7 @@ Operations on network zones.
 This operation creates a network zone for the specified account.
 
 ```sh
-ibmcloud cbr zone-create [--name NAME] [--description DESCRIPTION] [--addresses ADDRESSES] [--excluded EXCLUDED] [--vpc VPC] [--service-ref SERVICE-REF] [--file FILE]
+ibmcloud cbr zone-create [--name NAME] [--description DESCRIPTION] [--addresses ADDRESSES] [--vpc VPC] [--service-ref SERVICEREF] [--excluded EXCLUDED] [--empty-address-list] [--file FILE]
 ```
 {: codeblock}
 
@@ -60,7 +60,7 @@ ibmcloud cbr zone-create [--name NAME] [--description DESCRIPTION] [--addresses 
 ```sh
 ibmcloud cbr zone-create --name example-zone --description "Example zone description" --addresses 192.0.2.1,3ffe:1900:fe21:4545::,192.2.3.5-192.2.3.10,3ffe:1900:fe21:4547::-3ffe:1900:fe21:6767:
 
-ibmcloud cbr zone-create --name example-zone-with-service-ref --service-ref service_name=kms
+ibmcloud cbr zone-create --name example-zone-with-service-ref --service-ref service_name=kms,location=us-south
 
 ibmcloud cbr zone-create --name example-zone-with-vpc --vpc crn:v1:staging:public:is:us-south:a/12ab34cd56ef78ab90cd12ef34ab56cd::vpc:r123-abc456de-f789-abc1-23de-f456abc789ab
 ```
@@ -70,19 +70,19 @@ ibmcloud cbr zone-create --name example-zone-with-vpc --vpc crn:v1:staging:publi
 {: #cbr-cli-zone-create-example-output}
 
 ```sh
-id                    9adc34f2867a43452a517b3c2de78b95
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95
-address_count         4
-excluded_count        0
-name                  test
-account_id            0123456789
-description
-addresses             <Array>
-excluded              -
-href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95
-created_at            2024-03-06T22:20:25.000Z
+id                    9adc34f2867a43452a517b3c2de78b95   
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95   
+address_count         7   
+excluded_count        0   
+name                  test   
+account_id            0123456789   
+description              
+Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References                                                                    
+Excluded              No addresses       
+href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95   
+created_at            2024-03-06T22:20:25.000Z   
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-06T22:20:25.000Z
+last_modified_at      2024-03-06T22:20:25.000Z   
 last_modified_by_id   iam-ServiceId-0123456789
 ```
 {: codeblock}
@@ -97,10 +97,7 @@ last_modified_by_id   iam-ServiceId-0123456789
 :   The description of the zone.
 
 `--addresses` (string)
-:   The list of addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma-delimited format. IPv4 and IPv6 are supported.
-
-`--excluded` (string)
-:   The list of excluded addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma-delimited format.
+:   The list of addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma delimited format. IPv4 and IPv6 are supported.
 
 `--service-ref` (string)
 :   The service refs in the zone. Input in the form `service_name=VALUE,service_name=VALUE,...`.
@@ -108,6 +105,12 @@ last_modified_by_id   iam-ServiceId-0123456789
 
 `--vpc` (string)
 :   The VPCs allowed in the zone. Input in the form `value,value,...`.
+
+`--excluded` (string)
+:   The list of excluded addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma delimited format.
+
+`--empty-address-list` (bool)
+:   Explicitly specifies that the zone will have no addresses. This cannot be used in tandem with the `addresses`, `service-ref`, `vpc`, or `excluded` flags.
 
 `--file` (string)
 :   The supplied file is used to create the zone. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the zone create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-zone-request){: external}.
@@ -134,9 +137,9 @@ ibmcloud cbr zones
 {: #cbr-cli-zones-example-output}
 
 ```sh
-id                                 name      address_count
-9adc34f2867a43452a517b3c2de78b95   test      4
-12ab34cd56ef78ab90cd12ef34ab56cd   example   2
+id                                 name      address_count   excluded_count   
+9adc34f2867a43452a517b3c2de78b95   test      7               0
+12ab34cd56ef78ab90cd12ef34ab56cd   example   2               0
 ```
 {: codeblock}
 
@@ -172,19 +175,19 @@ ibmcloud cbr zone 9adc34f2867a43452a517b3c2de78b95
 {: #cbr-cli-zone-example-output}
 
 ```sh
-id                    9adc34f2867a43452a517b3c2de78b95
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95
-address_count         4
-excluded_count        0
-name                  test
-account_id            0123456789
-description
-addresses             <Array>
-excluded              -
-href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95
-created_at            2024-03-06T22:20:25.000Z
+id                    9adc34f2867a43452a517b3c2de78b95   
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95   
+address_count         7   
+excluded_count        0   
+name                  test   
+account_id            0123456789   
+description              
+Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References                                                                    
+Excluded              No addresses       
+href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95   
+created_at            2024-03-06T22:20:25.000Z   
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-06T22:20:25.000Z
+last_modified_at      2024-03-06T22:20:25.000Z   
 last_modified_by_id   iam-ServiceId-0123456789
 ```
 {: codeblock}
@@ -195,17 +198,17 @@ last_modified_by_id   iam-ServiceId-0123456789
 This operation replaces the network zone that is identified by the specified zone ID. Partial updates are not supported and the entire network zone object is replaced.
 
 ```sh
-ibmcloud cbr zone-update ZONE-ID [--name NAME] [--description DESCRIPTION] [--addresses ADDRESSES] [--excluded EXCLUDED] [--vpc VPC] [--service-ref SERVICE-REF] [--file FILE]
+ibmcloud cbr zone-update ZONE-ID [--name NAME] [--description DESCRIPTION] [--addresses ADDRESSES] [--vpc VPC] [--service-ref SERVICEREF] [--excluded EXCLUDED] [--empty-address-list] [--file FILE]
 ```
 {: codeblock}
 
 #### Example
-{: #cbr-cli-zone-update-example}
+{: #cbr-zone-update-example}
 
 ```shell
-ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name 'Example Zone Name' --addresses 166.22.23.0-166.22.23.108,3ffe:1900:fe21:4545:: --excluded 166.22.23.100 --excluded 166.22.23.100
+ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name 'Example Zone Name' --addresses 166.22.23.0-166.22.23.108,3ffe:1900:fe21:4545:: --excluded 166.22.23.100
 
-ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name example-zone-with-service-ref --service-ref service_name=kms
+ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name example-zone-with-service-ref --service-ref service_name=kms,location=us-south
 
 ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name example-zone-with-vpc --vpc crn:v1:staging:public:is:us-south:a/12ab34cd56ef78ab90cd12ef34ab56cd::vpc:r123-abc456de-f789-abc1-23de-f456abc789ab
 ```
@@ -215,19 +218,19 @@ ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name example-zone-wi
 {: #cbr-cli-zone-update-example-output}
 
 ```sh
-id                    9adc34f2867a43452a517b3c2de78b95
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95
-address_count         2
-excluded_count        0
-name                  test update
-account_id            0123456789
-description
-addresses             <Array>
-excluded              -
-href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95
-created_at            2024-03-06T22:20:25.000Z
+id                    9adc34f2867a43452a517b3c2de78b95   
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95   
+address_count         7   
+excluded_count        0   
+name                  test update   
+account_id            0123456789   
+description              
+Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References                                                                    
+Excluded              No addresses       
+href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95   
+created_at            2024-03-06T22:20:25.000Z   
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-06T22:29:19.000Z
+last_modified_at      2024-03-06T22:29:19.000Z   
 last_modified_by_id   iam-ServiceId-0123456789
 ```
 {: codeblock}
@@ -242,10 +245,7 @@ last_modified_by_id   iam-ServiceId-0123456789
 :   The description of the zone.
 
 `--addresses` (string)
-:   The list of addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma-delimited format. IPv4 and IPv6 are supported.
-
-`--excluded` (string)
-:   The list of excluded addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma-delimited format.
+:   The list of addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma delimited format. IPv4 and IPv6 are supported.
 
 `--service-ref` (string)
 :   The service refs in the zone. Input in the form `name=value,name=value,...`.
@@ -253,9 +253,63 @@ last_modified_by_id   iam-ServiceId-0123456789
 `--vpc` (string)
 :   The VPCs allowed in the zone. Input in the form `value,value,...`.
 
+`--excluded` (string)
+:   The list of excluded addresses in the zone. Only addresses of type `ipAddress`, `ipRange`, and `subnet` are allowed in a comma delimited format.
+
+`--empty-address-list` (bool)
+:   Explicitly specifies that the zone will have no addresses. This cannot be used in tandem with the `addresses`, `service-ref`, `vpc`, or `excluded` flags.
+
 `--file` (string)
 :   The supplied file is used to update the zone. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the zone update API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#replace-zone-request){: external}.
 
+
+### `ibmcloud cbr zone-patch`
+{: #cbr-cli-zone-patch-command}
+
+This operation performs a partial update of the network zone that is identified by the specified zone ID.
+
+```sh
+ibmcloud cbr zone-patch ZONE-ID [--name NAME] [--description DESCRIPTION]
+```
+{: codeblock}
+
+#### Example
+{: #cbr-zone-patch-example}
+
+```shell
+ibmcloud cbr zone-patch 9adc34f2867a43452a517b3c2de78b95 --name 'Example Zone Name' --description updated
+```
+{: codeblock}
+
+#### Example output
+{: #cbr-cli-zone-patch-example-output}
+
+```sh
+id                    9adc34f2867a43452a517b3c2de78b95   
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95   
+address_count         7   
+excluded_count        0   
+name                  test update   
+account_id            0123456789   
+description           updated   
+Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References                                                                    
+Excluded              No addresses       
+href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95   
+created_at            2024-03-06T22:20:25.000Z   
+created_by_id         iam-ServiceId-0123456789
+last_modified_at      2024-03-06T22:29:19.000Z   
+last_modified_by_id   iam-ServiceId-0123456789
+```
+{: codeblock}
+
+#### Command options
+{: #cbr-zone-patch-cli-options}
+
+`--name` (string)
+:   The name of the zone.
+
+`--description` (string)
+:   The description of the zone.
 
 ### `ibmcloud cbr zone-delete`
 {: #cbr-cli-zone-delete-command}
@@ -297,32 +351,32 @@ ibmcloud cbr service-ref-targets
 {: #cbr-cli-service-ref-targets-example-output}
 
 ```sh
-service_name                   service_type       locations
-ace                            -                  -
-apprapp                        -                  na, us, dal
-apprapp-dev                    -                  na, us, dal
-cloud-object-storage           -                  na, us, sjc
-cloudantnosqldb                -                  ap, au, syd, +27
-codeengine                     -                  ap, au, syd, +6
-compliance                     platform_service   na, us, dal, +1
-containers-kubernetes          -                  na, us, dal
-directlink                     -                  -
-event-notifications            -                  na, us, dal
-globalcatalog-collection       -                  -
-iam-groups                     platform_service   -
-is                             -                  eu, es, mad, +4
-kms                            -                  -
-logdna                         -                  ap, au, syd, +17
-logdnaat                       -                  ap, au, syd, +17
-messagehub                     -                  eu, uk, lon, +3
-messagehub-vnext-integration   -                  eu, uk, lon, +3
-schematics                     -                  eu, de, fra, +6
-secrets-manager                -                  -
-server-protect                 -                  eu, es, mad, +4
-sysdig-monitor                 -                  eu, uk, lon, +3
-sysdig-secure                  -                  eu, uk, lon, +3
-toolchain                      -                  ap, au, syd, +6
-user-management                platform_service   -
+service_name                   service_type       locations   
+ace                            -                  -   
+apprapp                        -                  na, us, dal   
+apprapp-dev                    -                  na, us, dal   
+cloud-object-storage           -                  na, us, sjc   
+cloudantnosqldb                -                  ap, au, syd, +27   
+codeengine                     -                  ap, au, syd, +6   
+compliance                     platform_service   na, us, dal, +1   
+containers-kubernetes          -                  na, us, dal   
+directlink                     -                  -   
+event-notifications            -                  na, us, dal   
+globalcatalog-collection       -                  -   
+iam-groups                     platform_service   -   
+is                             -                  eu, es, mad, +4   
+kms                            -                  -   
+logdna                         -                  ap, au, syd, +17   
+logdnaat                       -                  ap, au, syd, +17   
+messagehub                     -                  eu, uk, lon, +3   
+messagehub-vnext-integration   -                  eu, uk, lon, +3   
+schematics                     -                  eu, de, fra, +6   
+secrets-manager                -                  -   
+server-protect                 -                  eu, es, mad, +4   
+sysdig-monitor                 -                  eu, uk, lon, +3   
+sysdig-secure                  -                  eu, uk, lon, +3   
+toolchain                      -                  ap, au, syd, +6   
+user-management                platform_service   -   
 ```
 {: codeblock}
 
@@ -355,14 +409,14 @@ ibmcloud cbr service-ref-target compliance
 {: #cbr-cli-service-ref-target-example-output}
 
 ```sh
-Service Name     compliance
-Service Type:    platform_service
-Locations:
-                 Name               Display Name    Kind
-                 na                 North America   geography
-                 us                 United States   country
-                 dal                Dallas          metro
-                 wdc                Washington DC   metro
+Service Name     compliance         
+Service Type:    platform_service   
+Locations:       
+                 Name               Display Name    Kind   
+                 na                 North America   geography   
+                 us                 United States   country   
+                 dal                Dallas          metro   
+                 wdc                Washington DC   metro   
 ```
 {: codeblock}
 
@@ -377,7 +431,7 @@ Operations on context-based restriction rules.
 This operation creates a rule for the specified account.
 
 ```sh
-ibmcloud cbr rule-create [--description DESCRIPTION] [--context-attributes CONTEXT-ATTRIBUTES] [--resource-attributes RESOURCE-ATTRIBUTES] [--region REGION] [--resource RESOURCE] [--resource-group-id RESOURCE-GROUP-ID] [--resource-type RESOURCE-TYPE] [--service-instance SERVICE-INSTANCE-GUID] [--service-name SERVICE-NAME] [--zone-id ZONE-ID] [--tags TAGS] [--enforcement-mode ENFORCEMENT-MODE] [--file FILE]
+ibmcloud cbr rule-create [--description DESCRIPTION] [--resource-attributes RESOURCES] [--context-attributes CONTEXTS] [--api-types API-TYPES] [--enforcement-mode ENFORCEMENT-MODE] [--service-name SERVICE-NAME] [--service-group-id SERVICE-GROUP-ID] [--service-instance SERVICE-INSTANCE] [--region REGION] [--resource-type RESOURCE-TYPE] [--resource RESOURCE] [--resource-group-id RESOURCE-GROUP-ID] [--tags TAGS] [--zone-id ZONE-ID] [--empty-context-list] [--file FILE]
 ```
 {: codeblock}
 
@@ -386,6 +440,8 @@ ibmcloud cbr rule-create [--description DESCRIPTION] [--context-attributes CONTE
 
 ```sh
 ibmcloud cbr rule-create --description 'Example Rule Description' --service-name kms --context-attributes endpointType=private --zone-id 93de8d3f588ab2c457ff576c364d1145
+
+ibmcloud cbr rule-create --service-name example-service --context-attributes mfa=LEVEL2,endpointType=public,networkZoneId=12ab34cd56ef78ab90cd12ef34ab56cd
 ```
 {: codeblock}
 
@@ -393,18 +449,21 @@ ibmcloud cbr rule-create --description 'Example Rule Description' --service-name
 {: #cbr-cli-rule-create-example-output}
 
 ```sh
-id                    2c54cb0fefb0050c88f72d68c400fbec
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec
-description           test
-operations            <Nested Object>
-contexts              <Array>
-resources             <Array>
-href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec
-created_at            2024-03-07T15:36:52.000Z
+id                    2c54cb0fefb0050c88f72d68c400fbec   
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec   
+description           test   
+operations            1 API Type   
+contexts              1 Context   
+resources                                  
+                      serviceInstance   1234567891234   
+                      serviceName       cloud-object-storage
+  
+href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec   
+created_at            2024-03-07T15:36:52.000Z   
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-07T15:36:52.000Z
+last_modified_at      2024-03-07T15:36:52.000Z   
 last_modified_by_id   iam-ServiceId-0123456789
-enforcement_mode      enabled
+enforcement_mode      enabled   
 
 ```
 {: codeblock}
@@ -416,14 +475,32 @@ enforcement_mode      enabled
 `--description` (string)
 :   The description of the rule.
 
-`--context-attributes` (string)
-:   The context-attributes this rule applies to in the form of `name=value,name=value,...`.
-
 `--resource-attributes` (string)
 :   The resource-attributes this rule applies to in the form of `name=value,name=value,...`.
 
+`--context-attributes` (string)
+:   The context-attributes this rule applies to in the form of `name=value,name=value,...`.
+
+`--api-types` (string)
+:   The APIs a rule applies to. For supported service API types, use the `api-types` command on the resource.
+
+`--enforcement-mode` (string)
+:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+
+`--service-name` (string)
+:   Shorthand for creating IBM Cloud resource attribute `serviceName`.
+
+`--service-group-id` (string)
+:   The `service_group_id` resource attribute.
+
+`--service-instance` (string)
+:   GUID of the service instance. This option is exclusive with the --file option.
+
 `--region` (string)
 :   Shorthand for creating IBM Cloud resource attribute `region`. For supported regions, run `ibmcloud regions`.
+
+`--resource-type` (string)
+:   Shorthand for creating IBM Cloud resource attribute `resourceType`.
 
 `--resource` (string)
 :   Shorthand for creating IBM Cloud resource attribute `resource`.
@@ -431,23 +508,14 @@ enforcement_mode      enabled
 `--resource-group-id` (string)
 :   Shorthand for creating IBM Cloud resource attribute `resourceGroupId`.
 
-`--resource-type` (string)
-:   Shorthand for creating IBM Cloud resource attribute `resourceType`.
-
-`--service-instance SERVICE_INSTANCE_GUID` (string)
-:   GUID of the service instance. This option is exclusive with the --file option.
-
-`--service-name` (string)
-:   Shorthand for creating IBM Cloud resource attribute `serviceName`.
+`--tags` (string)
+:   The access tags of the resource in the form of `name:value,name:value,...`.
 
 `--zone-id` (string)
 :   Shorthand for adding context attribute `networkZoneId` to the first context.
 
-`--tags` (string)
-:   The access tags of the resource in the form of `name:value,name:value,...`.
-
-`--enforcement-mode` (string)
-:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more information about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+`--empty-context-list` (bool)
+:   Explicitly specifies that the rule will have no contexts. This cannot be used in tandem with the `context-attributes` or `zone-id` flags.
 
 `--file` (string)
 :   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-rule-request){: external}.
@@ -459,7 +527,7 @@ enforcement_mode      enabled
 This operation lists rules in the specified account.
 
 ```sh
-ibmcloud cbr rules [--enforcement-mode ENFORCEMENT-MODE] [--region REGION] [--resource RESOURCE] [--resource-type RESOURCE-TYPE] [--service-instance SERVICE-INSTANCE-GUID] [--service-name SERVICE-NAME] [--zone-id ZONE-ID] [--sort SORT]
+ibmcloud cbr rules [--enforcement-mode ENFORCEMENT-MODE] [--service-name SERVICE-NAME] [--service-group-id SERVICE-GROUP-ID] [--service-instance SERVICE-INSTANCE] [--region REGION] [--resource-type RESOURCE-TYPE] [--resource RESOURCE] [--zone-id ZONE-ID] [--sort SORT]
 ```
 {: codeblock}
 
@@ -475,9 +543,9 @@ ibmcloud cbr rules
 {: #cbr-cli-rules-example-output}
 
 ```sh
-id                                 description   enforcement_mode
-2c54cb0fefb0050c88f72d68c400fbec   test          enabled
-a4135a90bb507bf6d96cf4c6f009d151   example       enabled
+id                                 service_name           enforcement   description   
+2c54cb0fefb0050c88f72d68c400fbec   cloud-object-storage   enabled       test   
+a4135a90bb507bf6d96cf4c6f009d151   kms                    disabled       example   
 ```
 {: codeblock}
 
@@ -485,7 +553,7 @@ a4135a90bb507bf6d96cf4c6f009d151   example       enabled
 {: #cbr-rules-cli-options}
 
 `--enforcement-mode` (string)
-:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more information about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
 
 `--region` (string)
 :   The `region` resource attribute.
@@ -496,11 +564,14 @@ a4135a90bb507bf6d96cf4c6f009d151   example       enabled
 `--resource-type` (string)
 :   The `resourceType` resource attribute.
 
-`--service-instance SERVICE_INSTANCE_GUID` (string)
-:   GUID of the service instance. This option is exclusive with the --file option.
+`--service-instance` (string)
+:   The GUID of the service instance.
 
 `--service-name` (string)
 :   The `serviceName` resource attribute.
+
+`--service-group-id` (string)
+:   The `service_group_id` resource attribute.
 
 `--zone-id` (string)
 :   The globally unique ID of the zone.
@@ -531,18 +602,21 @@ ibmcloud cbr rule 30fd58c9b75f40e854b89c432318b4a2
 {: #cbr-cli-rule-example-output}
 
 ```sh
-id                    2c54cb0fefb0050c88f72d68c400fbec
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec
-description           test
-operations            <Nested Object>
-contexts              <Array>
-resources             <Array>
-href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec
-created_at            2024-03-07T15:36:52.000Z
+id                    2c54cb0fefb0050c88f72d68c400fbec   
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec   
+description           test   
+operations            1 API Type   
+contexts              1 Context   
+resources                                  
+                      serviceInstance   1234567891234   
+                      serviceName       cloud-object-storage
+  
+href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec   
+created_at            2024-03-07T15:36:52.000Z   
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-07T15:36:52.000Z
+last_modified_at      2024-03-07T15:36:52.000Z   
 last_modified_by_id   iam-ServiceId-0123456789
-enforcement_mode      enabled
+enforcement_mode      enabled   
 
 ```
 {: codeblock}
@@ -553,7 +627,7 @@ enforcement_mode      enabled
 This operation replaces the rule that is identified by the specified rule ID. Partial updates are not supported and the entire rule object is replaced.
 
 ```sh
-ibmcloud cbr rule-update RULE-ID [--description DESCRIPTION] [--context-attributes CONTEXT-ATTRIBUTES] [--resource-attributes RESOURCE-ATTRIBUTES] [--region REGION] [--resource RESOURCE] [--resource-group-id RESOURCE-GROUP-ID] [--resource-type RESOURCE-TYPE] [--service-instance SERVICE-INSTANCE-GUID] [--service-name SERVICE-NAME] [--zone-id ZONE-ID] [--tags TAGS] [--enforcement-mode ENFORCEMENT-MODE] [--file FILE]
+ibmcloud cbr rule-update RULE-ID [--description DESCRIPTION] [--resource-attributes RESOURCES] [--context-attributes CONTEXTS] [--api-types API-TYPES] [--enforcement-mode ENFORCEMENT-MODE] [--service-name SERVICE-NAME] [--service-instance SERVICE-INSTANCE] [--region REGION] [--resource-type RESOURCE-TYPE] [--resource RESOURCE] [--resource-group-id RESOURCE-GROUP-ID] [--tags TAGS] [--zone-id ZONE-ID] [--empty-context-list] [--file FILE]
 ```
 {: codeblock}
 
@@ -569,16 +643,19 @@ ibmcloud cbr rule-update 30fd58c9b75f40e854b89c432318b4a2 --description 'Example
 {: #cbr-cli-rule-update-example-output}
 
 ```sh
-id                    2c54cb0fefb0050c88f72d68c400fbec
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec
-description           updated
-operations            <Nested Object>
-contexts              <Array>
-resources             <Array>
-href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec
-created_at            2024-03-07T15:36:52.000Z
+id                    2c54cb0fefb0050c88f72d68c400fbec   
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec   
+description           updated   
+operations            1 API Type   
+contexts              1 Context   
+resources                                  
+                      serviceInstance   1234567891234   
+                      serviceName       cloud-object-storage
+  
+href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec   
+created_at            2024-03-07T15:36:52.000Z   
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-07T15:41:18.000Z
+last_modified_at      2024-03-07T15:41:18.000Z   
 last_modified_by_id   iam-ServiceId-0123456789
 enforcement_mode      enabled
 ```
@@ -590,14 +667,32 @@ enforcement_mode      enabled
 `--description` (string)
 :   The description of the rule.
 
-`--context-attributes` (string)
-:   The context-attributes this rule applies to in the form of `name=value,name=value,...`.
-
 `--resource-attributes` (string)
 :   The resource-attributes this rule applies to in the form of `name=value,name=value,...`.
 
+`--context-attributes` (string)
+:   The context-attributes this rule applies to in the form of `name=value,name=value,...`.
+
+`--api-types` (string)
+:   The APIs a rule applies to. For supported service API types, use the `api-types` command on the resource.
+
+`--enforcement-mode` (string)
+:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+
+`--service-name` (string)
+:   Shorthand for creating IBM Cloud resource attribute `serviceName`.
+
+`--service-group-id` (string)
+:   The `service_group_id` resource attribute.
+
+`--service-instance` (string)
+:   GUID of the service instance. This option is exclusive with the --file option.
+
 `--region` (string)
 :   Shorthand for creating IBM Cloud resource attribute `region`. For supported regions, run `ibmcloud regions`.
+
+`--resource-type` (string)
+:   Shorthand for creating IBM Cloud resource attribute `resourceType`.
 
 `--resource` (string)
 :   Shorthand for creating IBM Cloud resource attribute `resource`.
@@ -605,26 +700,67 @@ enforcement_mode      enabled
 `--resource-group-id` (string)
 :   Shorthand for creating IBM Cloud resource attribute `resourceGroupId`.
 
-`--resource-type` (string)
-:   Shorthand for creating IBM Cloud resource attribute `resourceType`.
-
-`--service-instance SERVICE_INSTANCE_GUID` (string)
-:   GUID of the service instance. This option is exclusive with the --file option.
-
-`--service-name` (string)
-:   Shorthand for creating IBM Cloud resource attribute `serviceName`.
+`--tags` (string)
+:   The access tags of the resource in the form of `name:value,name:value,...`.
 
 `--zone-id` (string)
 :   Shorthand for adding context attribute `networkZoneId` to the first context.
 
-`--tags` (string)
-:   The access tags of the resource in the form of `name:value,name:value,...`.
-
-`--enforcement-mode` (string)
-:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more information about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+`--empty-context-list` (bool)
+:   Explicitly specifies that the rule will have no contexts. This cannot be used in tandem with the `context-attributes` or `zone-id` flags.
 
 `--file` (string)
-:   The supplied file is used to update the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule update API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#replace-rule-request){: external}.
+:   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-rule-request){: external}.
+
+
+### `ibmcloud cbr rule-patch`
+{: #cbr-cli-rule-patch-command}
+
+This operation performas a partial update of the rule that is identified by the specified rule ID.
+
+```sh
+ibmcloud cbr rule-patch RULE-ID [--description DESCRIPTION] [--enforcement-mode ENFORCEMENT-MODE]
+```
+{: codeblock}
+
+#### Example
+{: #cbr-cli-rule-patch-example}
+
+```sh
+ibmcloud cbr rule-patch 30fd58c9b75f40e854b89c432318b4a2 --description 'Example rule description' --enforcement-mode disabled
+```
+{: codeblock}
+
+#### Example output
+{: #cbr-cli-rule-patch-example-output}
+
+```sh
+id                    2c54cb0fefb0050c88f72d68c400fbec   
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec   
+description           updated   
+operations            1 API Type   
+contexts              1 Context   
+resources                                  
+                      serviceInstance   1234567891234   
+                      serviceName       cloud-object-storage
+  
+href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec   
+created_at            2024-03-07T15:36:52.000Z   
+created_by_id         iam-ServiceId-0123456789
+last_modified_at      2024-03-07T15:41:18.000Z   
+last_modified_by_id   iam-ServiceId-0123456789
+enforcement_mode      enabled
+```
+{: codeblock}
+
+#### Command options
+{: #cbr-rule-patch-cli-options}
+
+`--description` (string)
+:   The description of the rule.
+
+`--enforcement-mode` (string)
+:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
 
 
 ### `ibmcloud cbr rule-delete`
