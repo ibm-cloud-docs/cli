@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-11-20"
 
 keywords: cli, bmscclient, bmscore sdk, network request, ios, android, studio, cordova, client sdk, sdk
 
@@ -113,7 +113,7 @@ You can use [CocoaPods](https://cocoapods.org){: external} or [Carthage](https:/
    Initialize the `BMSClient` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.cloud_notm}} deployment you're using, for example, `BMSClient.REGION_US_SOUTH`, `BMSClient.REGION_UK`, or `BMSClient.REGION_SYDNEY`.
 
 ## Related Links
-{: #BMSClient-rellinks notoc}
+{: #BMSClient-rellinks-notoc}
 
 * [BMSCore Android SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-core){: external}
 * [BMSCore iOS SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-core){: external}

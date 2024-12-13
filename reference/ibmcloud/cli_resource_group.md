@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-12-09"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
@@ -309,7 +309,7 @@ ibmcloud resource service-instance my-service-instance
 
 Create a service instance.
 ```bash
-ibmcloud resource service-instance-create NAME (SERVICE_NAME | SERVICE_ID) SERVICE_PLAN_NAME LOCATION [-d, --deployment DEPLOYMENT_NAME] [-p, --parameters @JSON_FILE | JSON_STRING ] [-g RESOURCE_GROUP] [--service-endpoints SERVICE_ENDPOINTS_TYPE] [--allow-cleanup] [--lock]
+ibmcloud resource service-instance-create NAME (SERVICE_NAME | SERVICE_ID) SERVICE_PLAN_NAME LOCATION [-d, --deployment DEPLOYMENT_NAME] [-p, --parameters @JSON_FILE | JSON_STRING ] [-g RESOURCE_GROUP] [--service-endpoints SERVICE_ENDPOINTS_TYPE] [--allow-cleanup] [--lock] [--subscription SUBSCRIPTION_ID]
 ```
 {: codeblock}
 
@@ -345,6 +345,9 @@ LOCATION (required)
 
 --lock
 :   Whether to create the service instance with locked state
+
+--subscription
+:   Subscription ID associated with this service and plan
 
 
 
@@ -793,6 +796,49 @@ Search for Classic Infrastructure Hardware resource with the specified tag name 
 ibmcloud resource search "tagReferences.tag.name:name _objectType:SoftLayer_Hardware"
 ```
 {: codeblock}
+
+## ibmcloud resource subscription
+{: #ibmcloud_resource_subscription}
+
+Show details of a subscription.
+
+```bash
+ibmcloud resource subscription SUBSCRIPTION_ID
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_resource_subscription_options}
+
+SUBSCRIPTION_ID (required)
+:   SUBSCRIPTION_ID field of a subscription
+
+
+### Examples
+{: #ibmcloud_resource_subscription_examples}
+
+Show details of subscription `my-subscription-id`:
+```bash
+ibmcloud resource subscription my-subscription-id
+```
+{: codeblock}
+
+## ibmcloud resource subscriptions
+{: #ibmcloud_resource_subscriptions}
+
+List subscriptions for your account
+
+```bash
+ibmcloud resource subscriptions [--output FORMAT] 
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_resource_subscriptions_options}
+
+--output value
+:   Specify the output format. Only JSON is supported now.
+
 
 ## ibmcloud resource tags
 {: #ibmcloud_resource_tags}
