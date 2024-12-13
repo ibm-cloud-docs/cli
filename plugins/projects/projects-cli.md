@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-20"
+lastupdated: "2024-12-13"
 
 subcollection: cli
 
@@ -1373,13 +1373,13 @@ The example response for a request to get project configurations.
 ```
 {: screen}
 
-### `ibmcloud project config-operation`
+### `ibmcloud project config`
 {: #project-cli-config-operation-command}
 
 Retrieve the specified project configuration in a specific project. For more information about project configurations, see [Monitoring the status of a configuration and its resources](/docs/secure-enterprise?topic=secure-enterprise-config-project).
 
 ```sh
-ibmcloud project config-operation --project-id PROJECT-ID --id ID
+ibmcloud project config --project-id PROJECT-ID --id ID
 ```
 
 
@@ -1400,7 +1400,7 @@ ibmcloud project config-operation --project-id PROJECT-ID --id ID
 {: #project-config-operation-examples}
 
 ```sh
-ibmcloud project config-operation \
+ibmcloud project config \
     --project-id exampleString \
     --id exampleString
 ```
