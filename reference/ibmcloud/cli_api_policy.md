@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-12-16"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -342,10 +342,10 @@ ibmcloud iam api-key-update (NAME|UUID) [-n name] [-d description]
 {: #ibmcloud_iam_api_key_update_options}
 
 NAME (required)
-:   The old name of the API key to be updated, exclusive with UUID.
+:   The old name of the API key is to be updated, exclusively with UUID.
 
 UUID (required)
-:   The UUID of the API key to be updated, exclusive with NAME.
+:   The UUID of the API key is to be updated, exclusively with NAME.
 
 -n *NAME* (optional)
 :   The new name of the API key.
@@ -381,10 +381,10 @@ ibmcloud iam api-key-delete (NAME|UUID) [-f, --force]
 {: #ibmcloud_iam_api_key_delete_options}
 
 NAME (required)
-:   Name of the API key to be deleted, exclusive with UUID.
+:   Name of the API key to be deleted, exclusively with UUID.
 
 UUID (required)
-:   UUID of the API key to be deleted, exclusive with NAME.
+:   UUID of the API key to be deleted, exclusively with NAME.
 
 -f, --force
 :   Force deletion without confirmation.
@@ -402,10 +402,10 @@ ibmcloud iam api-key-lock (NAME|UUID) [-f, --force]
 {: #ibmcloud_iam_api_key_lock_options}
 
 NAME (required)
-:   The name of the API key to be locked, exclusive with UUID.
+:   The name of the API key to be locked, exclusively with UUID.
 
 UUID (required)
-:   UUID of the API key to be locked, exclusive with NAME.
+:   UUID of the API key to be locked, exclusively with NAME.
 
 -f, --force
 :   Force lock without confirmation.
@@ -438,10 +438,10 @@ ibmcloud iam api-key-unlock (NAME|UUID) [-f, --force]
 {: #ibmcloud_iam_api_key_unlock_options}
 
 NAME (required)
-:   The name of the API key to be unlocked, exclusive with UUID.
+:   The name of the API key to be unlocked, exclusively with UUID.
 
 UUID (required)
-:   The UUID of the API key to be unlocked, exclusive with NAME.
+:   The UUID of the API key to be unlocked, exclusively with NAME.
 
 -f, --force
 :   Unlock an API key without confirmation.
@@ -474,10 +474,10 @@ ibmcloud iam api-key-disable (NAME|UUID) [-f, --force]
 {: #ibmcloud_iam_api_key_disable_options}
 
 NAME (required)
-:   The name of the API key to be disabled, exclusive with UUID.
+:   The name of the API key to be disabled, exclusively with UUID.
 
 UUID (required)
-:   The UUID of the API key to be disabled, exclusive with NAME.
+:   The UUID of the API key to be disabled, exclusively with NAME.
 
 -f, --force
 :   Force disable without confirmation.
@@ -510,10 +510,10 @@ ibmcloud iam api-key-enable (NAME|UUID) [-f, --force]
 {: #ibmcloud_iam_api_key_enable_options}
 
 NAME (required)
-:   The name of the API key to be enabled, exclusive with UUID.
+:   The name of the API key to be enabled, exclusively with UUID.
 
 UUID (required)
-:   The UUID of the API key to be enabled, exclusive with NAME.
+:   The UUID of the API key to be enabled, exclusively with NAME.
 
 -f, --force
 :   Force enable without confirmation.
@@ -4662,12 +4662,15 @@ ibmcloud iam trusted-profile-assignments --output JSON
 
 List account setting values:
 ```bash
-ibmcloud iam account-settings [--output FORMAT] [-q, --quiet]
+ibmcloud iam account-settings [--show-external-identity] [--output FORMAT] [-q, --quiet]
 ```
 {: codeblock}
 
 ### Command options
 {: #ibmcloud_iam_account_settings_options}
+
+--show-external-identity
+: Show settings for external identities
 
 --output FORMAT
 :   Specify the output format. Only 'JSON' is supported.
@@ -4732,6 +4735,48 @@ Update the number of seconds after which a session expires to default (with `NOT
 
 ```bash
 ibmcloud iam account-settings-update --session-expiration-in-seconds NOT_SET
+```
+{: codeblock}
+
+## ibmcloud iam account-settings-external-interaction-update
+{: #ibmcloud_iam_account_settings_external_interaction_update}
+
+Update external interaction account settings under current account:
+
+```bash
+ibmcloud iam account-settings-external-interaction-update (service | service_id | user) [--state STATE] [--allowed-accounts ACCOUNT_1, ACCOUNT_2, ...] [--output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_account_settings_external_interaction_update_options}
+
+--state STATE
+:   The state of the setting. The options include: `limited`, `enabled`, or `monitor`.
+
+--allowed-accounts ACCOUNT_1, ACCOUNT_2, ...
+:   Comma separated list of account IDs allowed access under the identity type.
+
+--output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_account_settings_external_interaction_update_examples}
+
+Update the user external interaction setting of an account to `monitor`:
+
+```bash
+ibmcloud iam account-settings-external-interaction-update user --state monitor
+```
+{: codeblock}
+
+Update the service external interaction setting of an account with an allowed account `The-Account-ID`:
+
+```bash
+ibmcloud iam account-settings-external-interaction-update service --allowed-accounts The-Account-ID
 ```
 {: codeblock}
 
@@ -5105,7 +5150,7 @@ ibmcloud iam account-settings-assignment-update AccountSettingsAssignment-63d65e
 ## ibmcloud iam account-settings-assignment-delete
 {: #ibmcloud_iam_account_settings_assignment-delete}
 
-Delete an account settings assignment. This action removes any resources that this assignment creates :
+Delete an account settings assignment. This action removes any resources that this assignment creates:
 ```bash
 ibmcloud iam account-settings-assigment-delete ASSIGNMENT_ID [-q, --quiet]
 ```
