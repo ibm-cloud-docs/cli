@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-13"
+  years: 2023, 2025
+lastupdated: "2025-01-06"
 
 subcollection: cli
 
@@ -1484,7 +1484,7 @@ ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEF
 
     The list items must match the regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`. The maximum length is `110` items. The minimum length is `0` items.
 
-[Experimental]{: tag-purple} `--definition-members` ([`StackConfigMember[]`](#cli-stack-config-member-example-schema))
+[Experimental]{: tag-purple} `--definition-members` ([`StackConfigMember[]`](#project-cli-config-update-command))
 :   The member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
@@ -2144,14 +2144,14 @@ ibmcloud project stack-definition-create --project-id PROJECT-ID --id ID [--stac
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--stack-definition=@path/to/file.json`.
 
-`--stack-definition-inputs` ([`StackDefinitionInputVariable[]`](#cli-stack-definition-input-variable-example-schema))
+`--stack-definition-inputs` ([`StackDefinitionInputVariable[]`](#project-stack-definition-update-examples))
 :   Defines the inputs that users need to configure at the stack level. These inputs are included in the catalog entry when the deployable architecture stack is exported to a private catalog. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--stack-definition-inputs=@path/to/file.json`.
 
-`--stack-definition-outputs` ([`StackDefinitionOutputVariable[]`](#cli-stack-definition-output-variable-example-schema))
+`--stack-definition-outputs` ([`StackDefinitionOutputVariable[]`](#project-stack-definition-update-examples))
 :   The outputs associated with this stack definition. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
