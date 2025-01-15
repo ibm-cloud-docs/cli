@@ -43,6 +43,8 @@ toc:
       topics:
       - reference/ibmcloud/bx_cli.md
       - plugins/cbr/context-based-restrictions.md
+      - topic: service-dependency.md
+        navtitle: Service dependency map
       - topicgroup:
           label: IBM Cloud CLI platform commands
           topics:
