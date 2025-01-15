@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-15"
+  years: 2019, 2025
+lastupdated: "2025-01-02"
 
 keywords: cli, catalogs management, catalog
 
@@ -1382,7 +1382,7 @@ Run the following command to retrieve the Security and Compliance Center scans t
 ## ibmcloud catalog offering get-scan-results
 {: #get-scan-results}
 
-Run the following command to generate a report of your version's Code Risk Analyzer and Security and Compliance Center scan results. To generate a full report, you must run the Code Risk Analyzer and Security and Compliance Center scans. For more information, see the [ibmcloud catalog offering version cra](#version-cra) and [ibmcloud catalog offering version scc](#version-scc) commands.
+Run the following command to generate a report of your version's Code Risk Analyzer and Security and Compliance Center scan results. To generate a full report, you must run the Code Risk Analyzer and Security and Compliance Center scans. 
 
 ```bash
 ibmcloud catalog offering get-scan-results [--version-locator LOCATOR]

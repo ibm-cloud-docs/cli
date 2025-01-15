@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-23"
+  years: 2020, 2025
+lastupdated: "2025-01-06"
 
 keywords: command line interface, cli, cli support, cli forum, cli slack, cli chat, cli help, developer tools, ibmcloud dev commands, ic dev commands, commands
 
@@ -34,4 +34,4 @@ Search [Stack Overflow](https://stackoverflow.com/search?q=ibm-cloud){: external
 
 First, check the status of the {{site.data.keyword.cloud_notm}} platform and resources by going to the [Status page](https://cloud.ibm.com/status){: external} to see whether a known incident occurred.
 
-If your problem isn't listed and you can't resolve the problem with help from the community, you can open a support case. For information about opening a support case or case severities and response times, see [Working with support cases](/docs/get-support?topic=get-support-open-case) or [Escalating support cases](/docs/get-support?topic=get-support-managing-support-cases&interface=ui#escalation).
+If your problem isn't listed and you can't resolve the problem with help from the community, you can open a support case. For information about opening a support case or case severities and response times, see [Working with support cases](/docs/account?topic=account-open-case) or [Escalating support cases](/docs/account?topic=account-managing-support-cases&interface=ui#escalation).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: "2024"
-lastupdated: "2024-12-09"
+  years: "2025"
+lastupdated: "2025-01-02"
 
 keywords: cli, context-based restrictions plugin
 
@@ -113,7 +113,7 @@ last_modified_by_id   iam-ServiceId-0123456789
 :   Explicitly specifies that the zone will have no addresses. This cannot be used in tandem with the `addresses`, `service-ref`, `vpc`, or `excluded` flags.
 
 `--file` (string)
-:   The supplied file is used to create the zone. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the zone create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-zone-request){: external}.
+:   The supplied file is used to create the zone. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the zone create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions?code=go#create-zone){: external}.
 
 ### `ibmcloud cbr zones`
 {: #cbr-cli-zones-command}
@@ -260,7 +260,7 @@ last_modified_by_id   iam-ServiceId-0123456789
 :   Explicitly specifies that the zone will have no addresses. This cannot be used in tandem with the `addresses`, `service-ref`, `vpc`, or `excluded` flags.
 
 `--file` (string)
-:   The supplied file is used to update the zone. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the zone update API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#replace-zone-request){: external}.
+:   The supplied file is used to update the zone. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the zone update API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions?code=go#replace-zone){: external}.
 
 
 ### `ibmcloud cbr zone-patch`
@@ -518,7 +518,7 @@ enforcement_mode      enabled
 :   Explicitly specifies that the rule will have no contexts. This cannot be used in tandem with the `context-attributes` or `zone-id` flags.
 
 `--file` (string)
-:   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-rule-request){: external}.
+:   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions?code=go#create-rule){: external}.
 
 
 ### `ibmcloud cbr rules`
@@ -710,6 +710,7 @@ enforcement_mode      enabled
 :   Explicitly specifies that the rule will have no contexts. This cannot be used in tandem with the `context-attributes` or `zone-id` flags.
 
 `--file` (string)
+:   The supplied file is used to update the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule update API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions?code=go#replace-rule-request){: external}.
 :   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-rule-request){: external}.
 
 
