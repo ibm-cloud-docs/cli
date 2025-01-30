@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-12-16"
+  years: 2018, 2025
+lastupdated: "2025-01-30"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -2357,7 +2357,7 @@ ibmcloud iam access-group-users example_group
 
 Add users to an access group:
 ```bash
-ibmcloud iam access-group-user-add GROUP_NAME USER_NAME [USER_NAME2...]
+ibmcloud iam access-group-user-add GROUP_NAME (USER_NAME [USER_NAME2...] | [--iam-ids IAM_ID1,IAM_ID2,...])
 ```
 {: codeblock}
 
@@ -2368,6 +2368,12 @@ Add user `name@example.com` to access group `example_group`:
 ```bash
 ibmcloud iam access-group-user-add example_group name@example.com
 ```
+
+Add user by IAM ID `IAM000000` to access group `example_group`:
+```bash
+ibmcloud iam access-group-user-add example_group --iam-ids IAM000000
+```
+
 {: codeblock}
 
 ## ibmcloud iam access-group-user-remove
