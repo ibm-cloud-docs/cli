@@ -2,7 +2,7 @@
 
 copyright:
   years: "2025"
-lastupdated: "2025-01-02"
+lastupdated: "2025-01-30"
 
 keywords: cli, context-based restrictions plugin
 
@@ -710,8 +710,8 @@ enforcement_mode      enabled
 :   Explicitly specifies that the rule will have no contexts. This cannot be used in tandem with the `context-attributes` or `zone-id` flags.
 
 `--file` (string)
-:   The supplied file is used to update the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule update API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions?code=go#replace-rule-request){: external}.
-:   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-rule-request){: external}.
+:   The supplied file is used to update the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule update API. For more information, see the [Context-based restrictions API](https://cloud.ibm.com/apidocs/context-based-restrictions?code=go#replace-rule-request){: external}.
+:   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](https://cloud.ibm.com/apidocs/context-based-restrictions?code=go#create-rule-request){: external}.
 
 
 ### `ibmcloud cbr rule-patch`
