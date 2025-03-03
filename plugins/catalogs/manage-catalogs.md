@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-02"
+lastupdated: "2025-03-03"
 
 keywords: cli, catalogs management, catalog
 
@@ -15,7 +15,7 @@ subcollection: cli
 # Catalogs management CLI plug-in
 {: #manage-catalogs-plugin}
 
-The {{site.data.keyword.cloud}} catalogs management command-line interface (CLI) provides extra capabilities for working with products in the {{site.data.keyword.cloud_notm}} catalog and the private catalogs in your account. You can use this CLI plug-in to manage your private catalogs, onboard private software products, and manage catalog visibility between the public catalog and your private catalogs.
+The {{site.data.keyword.cloud}} catalogs management command-line interface (CLI) provides additional capabilities for working with products in the {{site.data.keyword.cloud_notm}} catalog and the private catalogs in your account. You can use this CLI plug-in to manage your private catalogs, onboard private software products, and manage catalog visibility between the public catalog and your private catalogs.
 {: shortdesc}
 
 ## Before you begin

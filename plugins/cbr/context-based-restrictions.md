@@ -2,7 +2,7 @@
 
 copyright:
   years: "2025"
-lastupdated: "2025-01-30"
+lastupdated: "2025-03-03"
 
 keywords: cli, context-based restrictions plugin
 
@@ -15,7 +15,7 @@ subcollection: cli
 # Context-based restrictions CLI plug-in
 {: #cbr-plugin}
 
-The {{site.data.keyword.cloud}} context-based restrictions command line interface (CLI) provides extra capabilities for context-based restrictions. You can use this CLI plug-in to manage access restrictions for {{site.data.keyword.cloud}} resources based on the network location of access requests.
+The {{site.data.keyword.cloud}} context-based restrictions command line interface (CLI) provides additional capabilities for context-based restrictions. You can use this CLI plug-in to manage access restrictions for {{site.data.keyword.cloud}} resources based on the network location of access requests.
 {: shortdesc}
 
 ## Before you begin
