@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-11-12"
+  years: 2018, 2025
+lastupdated: "2025-03-12"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud api, ibmcloud, cli commands, regions, target, update, ibmcloud sl
 
@@ -406,6 +406,13 @@ ibmcloud login -a private.cloud.ibm.com
 {: codeblock}
 
 Two regions are supported: `us-south` and `us-east`.
+
+**Log in to a private endpoint with VPC:**
+
+```bash
+ibmcloud login -a private.cloud.ibm.com --vpc
+```
+{: codeblock}
 
 **Log in with a username and password, and set a target account:**
 
