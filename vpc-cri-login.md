@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-15"
+  years: 2022, 2025
+lastupdated: "2025-03-12"
 
 keywords: cli, command line, command-line, login, cli login, compute resource, compute resource identity, compute resource identities, vsi, vpc, trusted profiles, cri
 
@@ -65,7 +65,7 @@ and set the API endpoint to ``private.cloud.ibm.com``. In the example, the trust
    ```
    {: codeblock}
 
-For more information about logging in to the CLI with a private endpoint, see [Logging in to the CLI with a private endpoint](/docs/cli?topic=cli-service-connection#cli-private-vpc).
+For more information about logging in to the CLI with a private endpoint, see [Logging in to the CLI with a private endpoint](/docs/cli?topic=cli-service-connection#cli-private-vpc). For information about configuring a VPC connection to use a private API endpoint, see [Configuring a private endpoint gateway (required for VPC use)](/docs/cli?topic=cli-service-connection#cli-private-vpc).
 
 The resulting login session is valid for 60 minutes.
 {: note}
