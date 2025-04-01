@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2024
-lastupdated: "2024-08-02"
+  years: 2015, 2025
+lastupdated: "2025-04-01"
 
 keywords: command line interface, cli, getting started, getting started with IBM Cloud CLI, getting started with IBM Cloud CLI and developer tools tutorial, IBM Cloud Developer Tools CLI, ibmcloud cli, download cli, cloud cli, cloud command line, developer tools, dev tools, install cloud cli, getting started cli, ibm cloud cli, IBM Cloud CLI installer, installing IBM Cloud CLI, install IBM Cloud CLI
 content-type: tutorial
@@ -36,7 +36,7 @@ Want to start working with the {{site.data.keyword.cloud_notm}} CLI? Try out {{s
 If you need to use a 32-bit version of the CLI, or a previous version other than the latest for {{site.data.keyword.cloud_notm}} dedicated environments, see [{{site.data.keyword.cloud_notm}} CLI releases](https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/){: external}.
 {: note}
 
-## Run the installation command
+## Running the installation command
 {: #step1-install-idt}
 {: step}
 
@@ -68,7 +68,7 @@ The latest version of the {{site.data.keyword.cloud_notm}} CLI is installed when
    curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
    ```
 
-## Verify the installation
+## Verifying the installation
 {: #step2-verify-idt}
 {: step}
 
@@ -80,13 +80,13 @@ ibmcloud help
 
 The output lists the usage instructions, the current version, and the supported commands.
 
-## Install CLI plug-ins and tools
+## Installing CLI plug-ins and tools
 {: #step3-install-idt-manually}
 {: step}
 
 To manually install the CLI plug-ins and tools, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
 
-## Configure your environment
+## Configuring your environment
 {: #step4-configure-idt-env}
 {: step}
 
