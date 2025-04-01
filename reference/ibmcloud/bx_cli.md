@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-11-12"
+  years: 2018, 2025
+lastupdated: "2025-04-01"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud api, ibmcloud, cli commands, regions, target, update, ibmcloud sl
 
@@ -263,6 +263,9 @@ None.
 --sso-otp
 :   Set the style of single sign-on (SSO) one-time passcode (OTP) retrieval. The default value is `manual` and requires user interaction. The `auto` setting will launch the default browser automatically and accept the token.
 
+--alpha-commands
+:   Sort uncategorized commands alphabetically
+
 --trace
 :   Trace HTTP requests to the terminal or specified file. Valid values are `true` or `false`.
 
@@ -319,6 +322,14 @@ Enable automatic SSO one-time passcode acceptance:
 ```bash
 ibmcloud config --sso-otp auto
 ```
+{: codeblock}
+
+Enable sorting uncategorized commands alphabetically
+
+```bash
+ibmcloud config --alpha-commands true
+```
+
 {: codeblock}
 
 ## ibmcloud login
@@ -406,6 +417,13 @@ ibmcloud login -a private.cloud.ibm.com
 {: codeblock}
 
 Two regions are supported: `us-south` and `us-east`.
+
+**Log in to a private endpoint with VPC:**
+
+```bash
+ibmcloud login -a private.cloud.ibm.com --vpc
+```
+{: codeblock}
 
 **Log in with a username and password, and set a target account:**
 

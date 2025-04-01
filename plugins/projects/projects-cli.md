@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-01-06"
+lastupdated: "2025-03-03"
 
 subcollection: cli
 
@@ -15,7 +15,7 @@ keywords: project CLI, project command line , project terminal, project shell
 # Project CLI reference
 {: #projects-cli}
 
-The {{site.data.keyword.cloud}} command-line interface (CLI) provides extra capabilities for service offerings. You can use the {{site.data.keyword.cloud_notm}} CLI to manage projects you have access to.
+The {{site.data.keyword.cloud}} command-line interface (CLI) provides additional capabilities for service offerings. You can use the {{site.data.keyword.cloud_notm}} CLI to manage projects you have access to.
 {: shortdesc}
 
 ## Before you begin
@@ -24,10 +24,10 @@ The {{site.data.keyword.cloud}} command-line interface (CLI) provides extra capa
 * Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started).
 * Install the Project CLI by running the following command:
 
-   ```sh
-   ibmcloud plugin install project
-   ```
-   {: pre}
+```sh
+ibmcloud plugin install project
+```
+{: pre}
 
 You're notified on the command line when updates to the {{site.data.keyword.cloud_notm}} CLI and plug-ins are available. Be sure to keep your CLI up to date so that you can use the latest commands. You can view the current version of all installed plug-ins by running `ibmcloud plugin list`.
 {: tip}

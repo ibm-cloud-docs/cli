@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-12-16"
+  years: 2018, 2025
+lastupdated: "2025-02-03"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -23,7 +23,7 @@ Use the following commands from the {{site.data.keyword.cloud}} Command Line Int
 
 List all service IDs:
 ```bash
-ibmcloud iam service-ids [--uuid]
+ibmcloud iam service-ids [--uuid] [-n, --name STRING] [-d, --description STRING]
 ```
 {: codeblock}
 
@@ -32,6 +32,12 @@ ibmcloud iam service-ids [--uuid]
 
 --uuid
 :   Show UUID of service IDs only.
+
+-d, --description STRING
+:   Filter results to list the service IDs with descriptions that include the supplied string.
+
+-n, --name STRING
+:   Filter results to list the service IDs with names that include the supplied string.
 
 ### Examples
 {: #ibmcloud_iam_service_ids_examples}
@@ -274,7 +280,7 @@ ibmcloud iam service-id-unlock ServiceId-cb258cb9-8de3-4ac0-9aec-b2b2d27ac976
 
 List all {{site.data.keyword.cloud_notm}} platform API keys:
 ```bash
-ibmcloud iam api-keys [--uuid]
+ibmcloud iam api-keys [--uuid] [-n, --name STRING] [-d, --description STRING]
 ```
 {: codeblock}
 
@@ -283,6 +289,12 @@ ibmcloud iam api-keys [--uuid]
 
 --uuid
 :   Show the UUID of the API key.
+
+-d, --description STRING
+:   Filter results to list the API keys with descriptions that include the supplied string.
+
+-n, --name STRING
+:   Filter results to list the API keys with names that include the supplied string.
 
 ## ibmcloud iam api-key-create
 {: #ibmcloud_iam_api_key_create}
@@ -538,7 +550,7 @@ ibmcloud iam api-key-enable ApiKey-18f773b0-db53-43f1-ad68-92c667c218fe --force
 
 List all API keys of a service:
 ```bash
-ibmcloud iam service-api-keys ([-a, --all], SERVICE_ID_NAME|SERVICE_ID_UUID) [-f, --force]
+ibmcloud iam service-api-keys ([-a, --all], SERVICE_ID_NAME|SERVICE_ID_UUID) [-n, --name STRING] [-d, --description STRING] [-f, --force]
 ```
 {: codeblock}
 
@@ -553,6 +565,12 @@ SERVICE_ID_NAME (required)
 
 SERVICE_ID_UUID (required)
 :   The UUID of the service ID, exclusive with SERVICE_ID_NAME.
+
+-d, --description STRING
+:   Filter results to list the service API keys with descriptions that include the supplied string.
+
+-n, --name STRING
+:   Filter results to list the service API keys with names that include the supplied string.
 
 -f, --force
 :   Display service API keys without confirmation.
@@ -2357,7 +2375,7 @@ ibmcloud iam access-group-users example_group
 
 Add users to an access group:
 ```bash
-ibmcloud iam access-group-user-add GROUP_NAME USER_NAME [USER_NAME2...]
+ibmcloud iam access-group-user-add GROUP_NAME (USER_NAME [USER_NAME2...] | [--iam-ids IAM_ID1,IAM_ID2,...])
 ```
 {: codeblock}
 
@@ -2368,6 +2386,12 @@ Add user `name@example.com` to access group `example_group`:
 ```bash
 ibmcloud iam access-group-user-add example_group name@example.com
 ```
+
+Add user by IAM ID `IAM000000` to access group `example_group`:
+```bash
+ibmcloud iam access-group-user-add example_group --iam-ids IAM000000
+```
+
 {: codeblock}
 
 ## ibmcloud iam access-group-user-remove
@@ -3420,7 +3444,7 @@ ibmcloud iam trusted-profile Profile-cb258cb9-8de3-4ac0-9aec-b2b2d27ac976
 
 List trusted profiles under current account
 ```bash
-ibmcloud iam trusted-profiles [--can-assume] [--id | --output FORMAT] [-q, --quiet]
+ibmcloud iam trusted-profiles [--can-assume] [--id | --output FORMAT] [-n, --name STRING] [-d, --description STRING] [-q, --quiet]
 ```
 {: codeblock}
 
@@ -3432,6 +3456,12 @@ ibmcloud iam trusted-profiles [--can-assume] [--id | --output FORMAT] [-q, --qui
 
 --id
 :   Show ID of profiles only.
+
+-d, --description STRING
+:   Filter results to list the trusted proifles with descriptions that include the supplied string.
+
+-n, --name STRING
+:   Filter results to list the trusted profiles with names that include the supplied string.
 
 --output FORMAT
 :   Specify the output format. Only 'JSON' is supported.
