@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-03"
+lastupdated: "2025-04-02"
 
 subcollection: cli
 
@@ -15,7 +15,7 @@ keywords: project CLI, project command line , project terminal, project shell
 # Project CLI reference
 {: #projects-cli}
 
-The {{site.data.keyword.cloud}} command-line interface (CLI) provides additional capabilities for service offerings. You can use the {{site.data.keyword.cloud_notm}} CLI to manage projects you have access to.
+The {{site.data.keyword.cloud}} command-line interface (IBM Cloud CLI) provides additional capabilities for service offerings. You can use the {{site.data.keyword.cloud_notm}} CLI to manage projects you have access to.
 {: shortdesc}
 
 ## Before you begin
