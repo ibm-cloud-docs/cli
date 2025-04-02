@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-02"
 
 keywords: IBM Cloud CLI, ibmcloud cli, ibmcloud, cli, command line, command-line, developer tools, private endpoints, shell, cli private endpoints
 
@@ -15,7 +15,7 @@ subcollection: cli
 # Installing and using private endpoints
 {: #cli-private-endpoints}
 
-To ensure that you have enhanced control and security over your data when you use the {{site.data.keyword.cloud_notm}} Command Line Interface (CLI), you have the option of using private routes to {{site.data.keyword.cloud_notm}} endpoints. Private routes are not accessible or reachable over the internet. By using the {{site.data.keyword.cloud_notm}} private endpoints feature, you can protect your data from threats from the public network and logically extend your private network.
+To ensure that you have enhanced control and security over your data when you use the {{site.data.keyword.cloud_notm}} Command Line Interface (IBM Cloud CLI), you have the option of using private routes to {{site.data.keyword.cloud_notm}} endpoints. Private routes are not accessible or reachable over the internet. By using the {{site.data.keyword.cloud_notm}} private endpoints feature, you can protect your data from threats from the public network and logically extend your private network.
 {: shortdesc}
 
 The CLI uses the private endpoint support that is provided by the {{site.data.keyword.cloud}} platform. Platform services that are used by the core CLI provide private endpoint support.

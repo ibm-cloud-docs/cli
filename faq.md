@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-08-05"
+  years: 2019, 2025
+lastupdated: "2025-04-02"
 
 keywords: cli, cli faq, debug cli, cli help, ibmcloud cli help, ibmcloud help, cli private endpoints
 
@@ -17,7 +17,7 @@ content-type: faq
 # FAQs for the {{site.data.keyword.cloud_notm}} CLI
 {: #ibm-cli-faq}
 
-FAQs for the {{site.data.keyword.cloud}} Command Line Interface include questions about CLI versioning, updates, and working with apps. To find all FAQs for {{site.data.keyword.cloud_notm}}, see the [FAQ library](/docs/faqs).
+FAQs for the {{site.data.keyword.cloud}} Command Line Interface (IBM Cloud CLI) include questions about CLI versioning, updates, and working with apps. To find all FAQs for {{site.data.keyword.cloud_notm}}, see the [FAQ library](/docs/faqs).
 {: shortdesc}
 
 ## Do I have to use the latest version of the {{site.data.keyword.cloud_notm}} CLI?
@@ -112,5 +112,3 @@ Regions that support private endpoints are `us-east` and `us-south`.
 A region must be targeted when a private endpoint is set in the {{site.data.keyword.cloud_notm}} CLI.
 
 For more information about regions, see [Locations for resource deployment](/docs/overview?topic=overview-locations) and [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region).
-
-
