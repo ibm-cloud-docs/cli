@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-08-02"
+  years: 2018, 2025
+lastupdated: "2025-04-21"
 
 keywords: cli, add cli plug-in, remove cli plug-in, cli plug-in, ibmcloud plugin, repo-add, repo-remove, plugin uninstall, plugin update, cli private endpoints
 
@@ -21,7 +21,7 @@ subcollection: cli
 ## ibmcloud plugin repos
 {: #ibmcloud_plugin_repos}
 
-List all plug-in repositories that are registered in {{site.data.keyword.cloud_notm}} CLI.
+To find plug-in repositories that you might want to add, you can list all plug-in repositories that are registered in {{site.data.keyword.cloud_notm}} CLI.
 
 ```bash
 ibmcloud plugin repos
@@ -296,7 +296,7 @@ If no repository is specified, the command uses the default plug-in repository `
 -d, --dest DOWNLOAD_DIRECTORY (optional)
 :   The destination directory for the downloaded plug-in. If not specified, this is the working directory.
 
--f 
+-f
 :   Force downloads the plug-in without confirmation.
 
 The {{site.data.keyword.cloud_notm}} CLI has the official repository name of `IBM Cloud`.
