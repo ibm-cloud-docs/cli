@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-02-03"
+lastupdated: "2025-05-01"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -3372,7 +3372,7 @@ ibmcloud iam access-group-assignments --output JSON
 
 Create a trusted profile:
 ```bash
-ibmcloud iam trusted-profile-create NAME [-d, --description DESCRIPTION] [--output FORMAT] [-q, --quiet]
+ibmcloud iam trusted-profile-create NAME [-d, --description DESCRIPTION] [-e, --email EMAIL_ADDRESS] [--output FORMAT] [-q, --quiet]
 ```
 {: codeblock}
 
@@ -3384,6 +3384,9 @@ NAME (required)
 
 -d, --description DESCRIPTION
 :   Description of the profile.
+
+-e, --email EMAIL_ADDRESS
+:   Email address for this profile.
 
 --output FORMAT
 :   Specify the output format. Only 'JSON' is supported.
@@ -3546,7 +3549,7 @@ ibmcloud iam trusted-profile-leave
 
 Update a trusted profile
 ```bash
-ibmcloud iam trusted-profile-update NAME|ID [-n, --name NEW_NAME] [-d, --description NEW_DESCRIPTION] [--output FORMAT] [-f, --force] [-q, --quiet]
+ibmcloud iam trusted-profile-update NAME|ID [-n, --name NEW_NAME] [-d, --description NEW_DESCRIPTION] [-e, --email NEW_EMAIL_ADDRESS] [--output FORMAT] [-f, --force] [-q, --quiet]
 ```
 {: codeblock}
 
@@ -3561,6 +3564,9 @@ NAME|ID (required)
 
 -d, --description NEW_DESCRIPTION
 :   New description of the profile. Providing an empty description clears the description of the profile.
+
+-e, --email NEW_EMAIL_ADDRESS
+:   New email address for this profile. Providing an empty email clears the email of the profile.
 
 --output FORMAT
 :   Specify the output format. Only 'JSON' is supported.
