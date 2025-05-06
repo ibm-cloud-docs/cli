@@ -724,10 +724,10 @@ ibmcloud resource search LUCENE_QUERY [-o, --offset OFFSET] [-l, --limit LIMIT] 
 -ir, --is-reclaimed
 :   Search for account resources that have been reclaimed. However, by default the search returns only active resources. You can set is-reclaimed to any to search for resources whether they are reclaimed or not. Set this option to `true` to apply the search criteria only to reclaimed resources. Set this option to `false` to search only for active resources. `false` is the default behavior.
 
--o, -offset
+-o, --offset
 :   Starting resource position number
 
--l, -limit
+-l, --limit
 :   Number of resources to return, up to a maximum of 10000.
 
 -s, --sort-by
