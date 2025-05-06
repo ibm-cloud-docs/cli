@@ -2,7 +2,7 @@
 
 copyright:
   years: "2025"
-lastupdated: "2025-03-03"
+lastupdated: "2025-05-06"
 
 keywords: cli, context-based restrictions plugin
 
@@ -15,7 +15,7 @@ subcollection: cli
 # Context-based restrictions CLI plug-in
 {: #cbr-plugin}
 
-The {{site.data.keyword.cloud}} context-based restrictions command line interface (CLI) provides additional capabilities for context-based restrictions. You can use this CLI plug-in to manage access restrictions for {{site.data.keyword.cloud}} resources based on the network location of access requests.
+The {{site.data.keyword.cloud}} context-based restrictions command line interface (CLI) provides extra capabilities for context-based restrictions. You can use this CLI plug-in to manage access restrictions for {{site.data.keyword.cloud}} resources based on the network location of access requests.
 {: shortdesc}
 
 ## Before you begin
@@ -113,7 +113,8 @@ last_modified_by_id   iam-ServiceId-0123456789
 :   Explicitly specifies that the zone will have no addresses. This cannot be used in tandem with the `addresses`, `service-ref`, `vpc`, or `excluded` flags.
 
 `--file` (string)
-:   The supplied file is used to create the zone. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the zone create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions?code=go#create-zone){: external}.
+:   The supplied file is used to create the zone. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the zone create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-zone-request){: external}.
+
 
 ### `ibmcloud cbr zones`
 {: #cbr-cli-zones-command}
@@ -260,7 +261,7 @@ last_modified_by_id   iam-ServiceId-0123456789
 :   Explicitly specifies that the zone will have no addresses. This cannot be used in tandem with the `addresses`, `service-ref`, `vpc`, or `excluded` flags.
 
 `--file` (string)
-:   The supplied file is used to update the zone. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the zone update API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions?code=go#replace-zone){: external}.
+:   The supplied file is used to update the zone. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the zone update API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#replace-zone-request){: external}.
 
 
 ### `ibmcloud cbr zone-patch`
@@ -476,13 +477,13 @@ enforcement_mode      enabled
 :   The description of the rule.
 
 `--resource-attributes` (string)
-:   The resource-attributes this rule applies to in the form of `name=value,name=value,...`.
+:   The resource-attributes this rule applies to in the form of `name=value,name=value,...`. Attribute operators can only be specified using the '--file' flag instead.
 
 `--context-attributes` (string)
 :   The context-attributes this rule applies to in the form of `name=value,name=value,...`.
 
 `--api-types` (string)
-:   The APIs a rule applies to. For supported service API types, use the `api-types` command on the resource.
+:   The APIs a rule applies to. For supported service API types, use the `service` command on the resource.
 
 `--enforcement-mode` (string)
 :   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
@@ -518,7 +519,7 @@ enforcement_mode      enabled
 :   Explicitly specifies that the rule will have no contexts. This cannot be used in tandem with the `context-attributes` or `zone-id` flags.
 
 `--file` (string)
-:   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions?code=go#create-rule){: external}.
+:   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-rule-request){: external}.
 
 
 ### `ibmcloud cbr rules`
@@ -668,13 +669,13 @@ enforcement_mode      enabled
 :   The description of the rule.
 
 `--resource-attributes` (string)
-:   The resource-attributes this rule applies to in the form of `name=value,name=value,...`.
+:   The resource-attributes this rule applies to in the form of `name=value,name=value,...`. Attribute operators can only be specified using the '--file' flag instead.
 
 `--context-attributes` (string)
 :   The context-attributes this rule applies to in the form of `name=value,name=value,...`.
 
 `--api-types` (string)
-:   The APIs a rule applies to. For supported service API types, use the `api-types` command on the resource.
+:   The APIs a rule applies to. For supported service API types, use the `service` command on the resource.
 
 `--enforcement-mode` (string)
 :   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
@@ -710,8 +711,7 @@ enforcement_mode      enabled
 :   Explicitly specifies that the rule will have no contexts. This cannot be used in tandem with the `context-attributes` or `zone-id` flags.
 
 `--file` (string)
-:   The supplied file is used to update the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule update API. For more information, see the [Context-based restrictions API](https://cloud.ibm.com/apidocs/context-based-restrictions?code=go#replace-rule-request){: external}.
-:   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](https://cloud.ibm.com/apidocs/context-based-restrictions?code=go#create-rule-request){: external}.
+:   The supplied file is used to create the rule. This flag is unique and cannot be used with other flags. The file needs to follow the JSON schema for the rule create API. For more information, see the [Context-based restrictions API](/apidocs/context-based-restrictions#create-rule-request){: external}.
 
 
 ### `ibmcloud cbr rule-patch`
@@ -781,3 +781,214 @@ ibmcloud cbr rule-delete RULE-ID
 ibmcloud cbr rule-delete 30fd58c9b75f40e854b89c432318b4a2
 ```
 {: codeblock}
+
+## Services 
+### `ibmcloud cbr services`
+{: #cbr-cli-services-command}
+
+This operation lists services that can create context-based restriction rules.
+
+```sh
+ibmcloud cbr services
+```
+{: codeblock}
+
+#### Example
+{: #cbr-cli-services-example}
+
+```sh
+ibmcloud cbr services
+```
+{: codeblock}
+
+#### Example output
+{: #cbr-cli-services-example-output}
+
+```sh
+Display Name                                         Name                          API Types
+Activity Tracker Event Routing                       atracker                      1 API Type
+All IAM Account Management Services                  IAM                           3 API Types
+App Configuration                                    apprapp                       3 API Types
+Catalog Management                                   globalcatalog-collection      3 API Types
+Cloud Activity Tracker                               logdnaat                      3 API Types
+Cloud Logs                                           logs                          1 API Type
+Cloud Monitoring                                     sysdig-monitor                1 API Type
+Cloud Object Storage                                 cloud-object-storage          1 API Type
+Code Engine                                          codeengine                    3 API Types
+Container Registry                                   container-registry            1 API Type
+Context-Based Restrictions                           context-based-restrictions    1 API Type
+Databases for EDB                                    databases-for-enterprisedb    3 API Types
+Databases for Elasticsearch                          databases-for-elasticsearch   3 API Types
+Databases for etcd                                   databases-for-etcd            3 API Types
+Databases for MongoDB                                databases-for-mongodb         3 API Types
+Databases for MySQL                                  databases-for-mysql           3 API Types
+Databases for PostgreSQL                             databases-for-postgresql      3 API Types
+Databases for Redis                                  databases-for-redis           3 API Types
+Direct Link                                          directlink                    1 API Type
+DNS Services                                         dns-svcs                      3 API Types
+Event Notifications                                  event-notifications           5 API Types
+Event Streams                                        messagehub                    1 API Type
+Hyper Protect Crypto Services                        hs-crypto                     3 API Types
+IAM Access Groups Service                            iam-groups                    1 API Type
+IAM Access Management Service                        iam-access-management         1 API Type
+IAM Identity Service                                 iam-identity                  3 API Types
+Key Protect                                          kms                           3 API Types
+Kubernetes Service                                   containers-kubernetes         3 API Types
+Log Analysis                                         logdna                        3 API Types
+Messages for RabbitMQ                                messages-for-rabbitmq         3 API Types
+MQ                                                   mqcloud                       2 API Types
+Schematics                                           schematics                    1 API Type
+Secrets Manager                                      secrets-manager               3 API Types
+Security and Compliance Center                       compliance                    3 API Types
+Security and Compliance Center Workload Protection   sysdig-secure                 1 API Type
+Tagging Service                                      ghost-tags                    1 API Type
+Transit Gateway                                      transit                       1 API Type
+User Management                                      user-management               1 API Type
+VPC Infrastructure Services                          is                            1 API Type
+```
+{: codeblock}
+
+### `ibmcloud cbr service`
+{: #cbr-cli-service-command}
+
+This operation retrieves a service that can create context-based restriction rules. When querying with a JSON or YAML output, you can view the full list of actions for each API Type.
+
+```sh
+ibmcloud cbr service SERVICE [--resource-type RESOURCE-TYPE]
+```
+{: codeblock}
+
+#### Example
+{: #cbr-cli-service-example}
+
+```sh
+ibmcloud cbr service context-based-restrictions
+```
+{: codeblock}
+
+#### Example output
+{: #cbr-cli-service-example-output}
+
+```sh
+Display Name:     Context-Based Restrictions
+Service Name:     context-based-restrictions
+API Types:     
+                  Name   API Type ID                                                     Type      Actions      Description
+                  All    crn:v1:bluemix:public:context-based-restrictions::::api-type:   service   10 actions   Protects all service APIs.
+Resource Types:
+                  rule
+                  zone
+```
+{: codeblock}
+
+#### Command options
+{: #cbr-service-cli-options}
+
+`--resource-type` (string)
+:   A sub-resource of the service that has additional context-based restriction rule configurations. Note that not all services have additional sub-resource configurations.
+
+### `ibmcloud cbr rule-options`
+{: #cbr-cli-rule-options-command}
+
+This operation gets rule options for a service that can create context-based restriction rules.
+
+```sh
+ibmcloud cbr rule-options SERVICE [--api-types API-TYPES] [--resource-type RESOURCE-TYPE] [--full]
+```
+{: codeblock}
+
+#### Example
+{: #cbr-cli-rule-options-example}
+
+```sh
+ibmcloud cbr rule-options context-based-restrictions --api-types crn:v1:bluemix:public:context-based-restrictions::::api-type: --full
+```
+{: codeblock}
+
+#### Example output
+{: #cbr-cli-service-example-output}
+
+```sh
+Operations:                          
+                       API Types:    
+                                     crn:v1:bluemix:public:context-based-restrictions::::api-type:
+                                     
+Enforcement Modes:     disabled, enabled, report
+Context Attributes:                                        
+                       endpointType                        
+                          values:                          
+                                     private               
+                                     public                
+                       mfa                                 
+                          values:                          
+                                     IAM_ACCOUNT_SETTING   
+                                     LEVEL1                
+                                     LEVEL2                
+                                     LEVEL3                
+                       networkZoneId                       
+Resource Attributes:                                              
+                       accountId                                  
+                       resourceGroupId                            
+                       resourceType                               
+                          values:                                 
+                                     rule                         
+                                     zone                         
+                       serviceName                                
+                          values:                                 
+                                     context-based-restrictions
+```
+{: codeblock}
+
+#### Command options
+{: #cbr-service-cli-options}
+
+`--api-types` (string)
+:   The API types a rule would apply to. Can pass multiple as a comma separated list. This defaults to protecting all service APIs represented by 'crn:v1:bluemix:public:context-based-restrictions::::api-type:' if unspecified.
+
+`--resource-type` (string)
+:   A sub-resource of the service that has additional context-based restriction rule configurations. Note that not all services have additional sub-resource configurations.
+
+`--full` (bool)
+:   Provides a more detailed output for options, such as valid attribute values and attribute operators. If attribute operators are not listed, the stringEquals operator is supported by default.
+
+### `ibmcloud cbr api-types` [Deprecated]{: tag-deprecated}
+{: #cbr-cli-api-types-command}
+
+This command is deprecated. Use [`service`](#ibmcloud-cbr-service) to get API types instead.
+{: deprecated}
+
+[Deprecated] This operation lists all available API types. This operation is now deprecated and it is recommended to use the service command instead.
+
+```sh
+ibmcloud cbr api-types {--service-name SERVICE-NAME | --service-group-id SERVICE-GROUP-ID} [--resource-type RESOURCE-TYPE]
+```
+{: codeblock}
+
+#### Example
+{: #cbr-cli-api-types-example}
+
+```sh
+ibmcloud cbr api-types --service-name context-based-restrictions
+```
+{: codeblock}
+
+#### Example output
+{: #cbr-cli-api-types-example-output}
+
+```sh
+api_type_id                                                     display_name   type      description                  enforcement_modes           actions
+crn:v1:bluemix:public:context-based-restrictions::::api-type:   All            service   Protects all service APIs.   disabled, enabled, report   10 actions
+```
+{: codeblock}
+
+#### Command options
+{: #cbr-api-types-cli-options}
+
+`--service-name` (string)
+:   Specifes the service to lookup API types for.
+
+`--resource-type` (string)
+:   The resource type of the service.
+
+`--service-group-id` (string)
+:   Specifes the service group to lookup API types for.
