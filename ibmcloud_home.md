@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-02-22"
+  years: 2021, 2025
+lastupdated: "2025-05-21"
 
 keywords: IBM Cloud CLI, IBMCLOUD_HOME, ibmcloud cli, ibmcloud
 
@@ -47,4 +47,4 @@ ibmcloud login
 ```
 {: codeblock}
 
-For more information about environment variables for the {{site.data.keyword.cloud_notm}} CLI, see [Tips and Tricks for Using the {{site.data.keyword.cloud_notm}} CLI](https://www.ibm.com/blog/tips-and-tricks-for-using-the-ibm-cloud-cli/){: external} and [{{site.data.keyword.cloud_notm}} CLI (ibmcloud) environment variables](/docs/cli?topic=cli-ibmcloud_env_var).
+For more information about environment variables for the {{site.data.keyword.cloud_notm}} CLI, see [Tips and Tricks for Using the {{site.data.keyword.cloud_notm}} CLI](https://www.ibm.com/think){: external} and [{{site.data.keyword.cloud_notm}} CLI (ibmcloud) environment variables](/docs/cli?topic=cli-ibmcloud_env_var).

@@ -35,3 +35,6 @@ includes:
   - https://github.ibm.com/cloud-docs/vpc-infrastructure-cli-plugin
   - https://github.ibm.com/cloud-docs/watson-query-cli-plugin
   - https://github.ibm.com/cloud-docs/cephaas
+  - https://github.ibm.com/cloud-docs/metrics-router-cli/
+  - https://github.ibm.com/cloud-docs/openshift/
+  - https://github.ibm.com/privileged-access-gateway/
