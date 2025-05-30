@@ -62,7 +62,6 @@ toc:
           label: IBM Cloud CLI container commands
           topics:
           - include: ../containers/cli-ks-plugin.md
-          - include: ../openshift/cli-ks-plugin.md
           - include: ../codeengine/cmd_defs.md
           - include: ../Registry/container-registry-cli.md
       - topicgroup:
