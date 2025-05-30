@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-08-02"
+  years: 2021, 2025
+lastupdated: "2025-05-30"
 
 keywords: cli, command line, command-line, login, cli login, compute resource, token, iks, trusted profiles, cri, IBM Cloud
 
@@ -15,7 +15,7 @@ subcollection: cli
 # Logging in with a Compute Resource Token
 {: #cri-login}
 
-You can use a trusted profile to set up fine-grained authorization for applications that are running in compute resources. As a result, you aren't required to create service IDs or API keys for the compute resources. The {{site.data.keyword.cloud_notm}} CLI supports logging in and authenticating to {{site.data.keyword.cloud_notm}} by using a {{site.data.keyword.cloud_notm}} Kubernetes Service compute resource. For instructions about logging in as a Virtual Server Instance for VPC compute resource by using the {{site.data.keyword.cloud_notm}} CLI, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
+You can use a trusted profile to set up fine-grained authorization for applications that are running in compute resources. As a result, you aren't required to create service IDs or API keys for the compute resources. The {{site.data.keyword.cloud_notm}} CLI supports logging in and authenticating to {{site.data.keyword.cloud_notm}} by using an {{site.data.keyword.cloud_notm}} Kubernetes Service compute resource. For instructions about logging in as a Virtual Server Instance for VPC compute resource by using the {{site.data.keyword.cloud_notm}} CLI, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
 {: shortdesc}
 
 For more information about managing trusted profiles and establishing trust with compute resources, see [Establishing trust with compute resources](/docs/account?topic=account-create-trusted-profile&interface=ui#create-profile-compute).

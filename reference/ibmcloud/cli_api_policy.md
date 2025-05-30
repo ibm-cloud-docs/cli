@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-05-30"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -344,7 +344,7 @@ ibmcloud iam api-key-create test-key --lock
 ## ibmcloud iam api-key-update
 {: #ibmcloud_iam_api_key_update}
 
-Update a {{site.data.keyword.cloud_notm}} platform API key:
+Update an {{site.data.keyword.cloud_notm}} platform API key:
 ```bash
 ibmcloud iam api-key-update (NAME|UUID) [-n name] [-d description]
 ```
@@ -383,7 +383,7 @@ The `iam-identity.apikey.manage` privilege is required for the account when the 
 ## ibmcloud iam api-key-delete
 {: #ibmcloud_iam_api_key_delete}
 
-Delete a {{site.data.keyword.cloud_notm}} platform API key:
+Delete an {{site.data.keyword.cloud_notm}} platform API key:
 ```bash
 ibmcloud iam api-key-delete (NAME|UUID) [-f, --force]
 ```

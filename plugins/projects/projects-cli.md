@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-05-30"
 
 subcollection: cli
 
@@ -1231,7 +1231,12 @@ For more information, see [Creating workspaces and importing your Terraform temp
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The list items must match the regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`. The maximum length is `110` items. The minimum length is `0` items.
+    The maximum length is `110` items. The minimum length is `0` items. The list items must match the following regular expression.
+
+    ```txt
+    /(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/
+    ```
+    {: codeblock}
 
 `--schematics-workspace-crn` (string)
 :   An IBM Cloud resource name that uniquely identifies a resource. This option provides a value for a sub-field of the JSON option 'schematics'. It is mutually exclusive with that option.
@@ -1482,7 +1487,12 @@ ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEF
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The list items must match the regular expression `/(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/`. The maximum length is `110` items. The minimum length is `0` items.
+    The maximum length is `110` items. The minimum length is `0` items. The list items must match the following regular expression.
+
+    ```txt
+    /(?!\\s)(?!.*\\s$)^(crn)[^'"`<>{}\\s\\x00-\\x1F]*/
+    ```
+    {: codeblock}
 
 [Experimental]{: tag-purple} `--definition-members` ([`StackConfigMember[]`](#project-cli-config-update-command))
 :   The member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
