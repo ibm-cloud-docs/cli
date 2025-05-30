@@ -62,6 +62,7 @@ toc:
           label: IBM Cloud CLI container commands
           topics:
           - include: ../containers/cli-ks-plugin.md
+          - include: ../openshift/cli-ks-plugin.md
           - include: ../codeengine/cmd_defs.md
           - include: ../Registry/container-registry-cli.md
       - topicgroup:
@@ -112,7 +113,6 @@ toc:
           topics:
           - include: ../metrics-router-cli/metrics-router-cli.md
           - include: ../monitor-cli-plugin/monitor-cli.md
-          - include: ../openshift/observability-reference.md
       - topicgroup:
           label: IBM Cloud CLI platform automation commands
           topics:
@@ -129,7 +129,7 @@ toc:
           - include: ../security-compliance/security-compliance-cli.md
           - include: ../secrets-manager/secrets-manager-cli.md
           - include: ../key-protect/key-protect-cli-commands.md
-          - include: ../privileged-access-gateway/pag-cli-commands.md
+          - include: ../privileged-access-gateway/pag-cli.md
           - include: ../ContinuousDelivery/cra-cli.md
       - topicgroup:
           label: Additional services
