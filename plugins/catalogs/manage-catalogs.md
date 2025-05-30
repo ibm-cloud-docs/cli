@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-03"
+lastupdated: "2025-05-21"
 
 keywords: cli, catalogs management, catalog
 
@@ -1796,6 +1796,40 @@ Get pricing information for Virtual Server for VPC for a Pay-As-You-Go account.
 ibmcloud catalog pricing is.instance [--price paygo]
 ```
 {: codeblock}
+
+## ibmcloud catalog private-endpoint regions
+{: #catalog-private-endpoint-regions}
+
+Run the following command to retrieve the list of regions that support private endpoints for a specified service.
+
+```bash
+ibmcloud catalog private-endpoint regions [--service ID] 
+```
+{: codeblock}
+
+### Command options
+{: #catalog-private-endpoint-regions-options}
+
+--service
+
+:   Provide the ID or programmatic name of the service to see its regions that support private endpoint
+
+## ibmcloud catalog private-endpoint services
+{: #catalog-private-endpoint-services}
+
+Run the following command to retrieve the list of services that support private endpoints for a specified region.
+
+```bash
+ibmcloud catalog private-endpoint services [--region REGION] 
+```
+{: codeblock}
+
+### Command options
+{: #catalog-private-endpoint-services-options}
+
+--region or -r
+
+:   Provide the REGION to see which services support private endpoints in that region
 
 
 ## ibmcloud catalog utility create-product-from-workspace

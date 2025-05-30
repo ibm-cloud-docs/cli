@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-12"
+lastupdated: "2025-05-30"
 
 keywords: cli, command line, command-line, login, cli login, compute resource, compute resource identity, compute resource identities, vsi, vpc, trusted profiles, cri
 
@@ -15,7 +15,7 @@ subcollection: cli
 # Logging in as a Virtual Server Instance Compute Resource Identity
 {: #vsi-cri-login}
 
-You can use a trusted profile to set up fine-grained authorization for applications that are running in compute resources. As a result, you aren't required to create service IDs or API keys for the compute resources. The {{site.data.keyword.cloud_notm}} CLI supports logging in and authenticating to {{site.data.keyword.cloud_notm}} by using a {{site.data.keyword.cloud_notm}} Virtual Server Instance (VSI) for VPC compute resource.
+You can use a trusted profile to set up fine-grained authorization for applications that are running in compute resources. As a result, you aren't required to create service IDs or API keys for the compute resources. The {{site.data.keyword.cloud_notm}} CLI supports logging in and authenticating to {{site.data.keyword.cloud_notm}} by using an {{site.data.keyword.cloud_notm}} Virtual Server Instance (VSI) for VPC compute resource.
 {: shortdesc}
 
 For more information about managing trusted profiles and establishing trust with compute resources, see [Establishing trust with compute resources](/docs/account?topic=account-create-trusted-profile&interface=ui#create-profile-compute).

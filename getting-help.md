@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-06"
+lastupdated: "2025-05-21"
 
 keywords: command line interface, cli, cli support, cli forum, cli slack, cli chat, cli help, developer tools, ibmcloud dev commands, ic dev commands, commands
 
@@ -27,7 +27,7 @@ Have a casual question or just want to talk about all things CLI? Come chat with
 {: #community-help}
 {: support}
 
-Search [Stack Overflow](https://stackoverflow.com/search?q=ibm-cloud){: external} or [IBM Support Forums](https://community.ibm.com/community/user/community){: external} to see whether other users ran into the same problem. When you use these forums to ask a question, tag your question with `ibm-cloud` and `cli` so that the {{site.data.keyword.cloud_notm}} development teams see it.
+Search [Stack Overflow](https://stackoverflow.com/search?q=ibm-cloud){: external} or [IBM Support Forums](https://community.ibm.com/community/user/my-community){: external} to see whether other users ran into the same problem. When you use these forums to ask a question, tag your question with `ibm-cloud` and `cli` so that the {{site.data.keyword.cloud_notm}} development teams see it.
 
 ## Contacting support
 {: #contacting-support}
