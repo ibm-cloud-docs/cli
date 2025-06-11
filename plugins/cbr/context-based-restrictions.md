@@ -2,7 +2,7 @@
 
 copyright:
   years: "2025"
-lastupdated: "2025-05-06"
+lastupdated: "2025-06-11"
 
 keywords: cli, context-based restrictions plugin
 
@@ -954,7 +954,7 @@ Resource Attributes:
 ### `ibmcloud cbr api-types` [Deprecated]{: tag-deprecated}
 {: #cbr-cli-api-types-command}
 
-This command is deprecated. Use [`service`](#ibmcloud-cbr-service) to get API types instead.
+This command is deprecated. Use `ibmcloud-cbr-service` to get API types instead.
 {: deprecated}
 
 [Deprecated] This operation lists all available API types. This operation is now deprecated and it is recommended to use the service command instead.
