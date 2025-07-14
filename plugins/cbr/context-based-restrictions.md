@@ -2,7 +2,7 @@
 
 copyright:
   years: "2025"
-lastupdated: "2025-06-11"
+lastupdated: "2025-07-14"
 
 keywords: cli, context-based restrictions plugin
 
@@ -15,7 +15,7 @@ subcollection: cli
 # Context-based restrictions CLI plug-in
 {: #cbr-plugin}
 
-The {{site.data.keyword.cloud}} context-based restrictions command line interface (CLI) provides extra capabilities for context-based restrictions. You can use this CLI plug-in to manage access restrictions for {{site.data.keyword.cloud}} resources based on the network location of access requests.
+The {{site.data.keyword.cloud}} context-based restrictions command line interface (CLI) provides more capabilities for context-based restrictions. You can use this CLI plug-in to manage access restrictions for {{site.data.keyword.cloud}} resources based on the network location of access requests.
 {: shortdesc}
 
 ## Before you begin
@@ -906,7 +906,7 @@ ibmcloud cbr rule-options context-based-restrictions --api-types crn:v1:bluemix:
 {: codeblock}
 
 #### Example output
-{: #cbr-cli-service-example-output}
+{: #cbr-cli-rule-example-output}
 
 ```sh
 Operations:                          
@@ -940,7 +940,7 @@ Resource Attributes:
 {: codeblock}
 
 #### Command options
-{: #cbr-service-cli-options}
+{: #cbr-rule-cli-options}
 
 `--api-types` (string)
 :   The API types a rule would apply to. Can pass multiple as a comma separated list. This defaults to protecting all service APIs represented by 'crn:v1:bluemix:public:context-based-restrictions::::api-type:' if unspecified.
@@ -954,7 +954,7 @@ Resource Attributes:
 ### `ibmcloud cbr api-types` [Deprecated]{: tag-deprecated}
 {: #cbr-cli-api-types-command}
 
-This command is deprecated. Use `ibmcloud-cbr-service` to get API types instead.
+This command is deprecated. Use `ibmcloud cbr service` to get API types instead.
 {: deprecated}
 
 [Deprecated] This operation lists all available API types. This operation is now deprecated and it is recommended to use the service command instead.

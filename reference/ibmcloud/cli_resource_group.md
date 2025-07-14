@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-12-09"
+  years: 2018, 2025
+lastupdated: "2025-07-14"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
@@ -262,7 +262,7 @@ List service instances of service `test-service`:
 ibmcloud resource service-instances --service-name test-service
 ```
 
-List next page of service instances with page size of 10
+List next page of service instances with 10 records per page.
 ```bash
 ibmcloud resource service-instances --offset 1 --limit 10
 ```
