@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-14"
+lastupdated: "2025-07-16"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
@@ -911,7 +911,7 @@ This command is only valid for access management tags. For example:
 
 Attach one or more tags to a resource:
 ```bash
-ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --resource-id RESOURCE_ID ) [--resource-type RESOURCE_TYPE] [--tag-type TAG_TYPE] [--account-id ACCOUNT_ID] [--replace] [--update]
+ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --resource-id RESOURCE_ID | --resources-query RESOURCES_QUERY) [--resource-type RESOURCE_TYPE] [--tag-type TAG_TYPE] [--account-id ACCOUNT_ID] [--replace] [--update]
 ```
 {: codeblock}
 
@@ -920,6 +920,9 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 
 --tag-names value
 :   Comma-separated list of tag names.
+
+--resources-query value
+:   Global Search query string to retrieve the resources on which the tags should be attached
 
 --resource-name value
 :   The name of the resource on which the tags must be attached.
@@ -948,7 +951,7 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 ### Examples
 {: #ibmcloud_resource_tag_attach_examples}
 
-* To attach the user tag `MyTag` to a Kubernetes cluster named `MyCluster`, first look for the CRN of the cluster you would like to tag:
+* To attach `my-tag` user tag to a Kubernetes cluster named `MyCluster`, first identify the CRN of the cluster:
     ```bash
     ibmcloud resource search 'type:k8\-cluster AND name:MyCluster'
     ```
@@ -962,17 +965,26 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 
     To attach the tag, run the following command:
     ```bash
-    ibmcloud resource tag-attach --tag-names MyTag --resource-id rn:v1:bluemix:public:containers-kubernetes:us-south:a/a27a4741a57dcf5c965939adb66fe1c7:a46242e638ca47b09f10e9a3cbe5687a::
+    ibmcloud resource tag-attach --tag-names my-tag --resource-id rn:v1:bluemix:public:containers-kubernetes:us-south:a/a27a4741a57dcf5c965939adb66fe1c7:a46242e638ca47b09f10e9a3cbe5687a::
     ```
     {: codeblock}
 
-* To attach the user tag `MyTag` to a resource named `MyResource`:
+* To attach `my-tag` user tag to a resource named `MyResource`:
     ```bash
-    ibmcloud resource tag-attach --tag-name MyTag --resource-name  'MyResource'
+    ibmcloud resource tag-attach --tag-name my-tag --resource-name  'MyResource'
     ```
     {: codeblock}
 
-* To attach the user tag `MyTag` to a classic infrastructure virtual guest named `MyVM`, first look for the ID of the virtual guest you would like to tag:
+* To attach `my-tag-1` and `my-tag-2` user tags to all the Kubernetes clusters deployed in `us-south`, run the following command:
+    ```bash
+    ibmcloud resource tag-attach --tag-names my-tag-1,my-tag-2 --resources-query 'service_name:containers-kubernetes AND region:us-south'
+    ```
+    {: codeblock}
+
+    The command initially retrieves all Kubernetes clusters in us-south that you can view, and subsequently attaches the two specified tags to each.
+    It then displays the outcome of the operation for every Kubernetes cluster.
+
+* To attach `my-tag` user tag to a classic infrastructure virtual guest named `MyVM`, identify the virtual guest's ID:
     ```bash
     ibmcloud resource search 'fullyQualifiedDomainName:MyVM  _objectType:SoftLayer_Virtual_Guest' -p classic-infrastructure
     ```
@@ -982,7 +994,7 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 
     To attach the tag, run the following command:
     ```bash
-    ibmcloud resource tag-attach --tag-names MyTag --resource-id 48373549 --resource-type SoftLayer_Virtual_Guest
+    ibmcloud resource tag-attach --tag-names my-tag --resource-id 48373549 --resource-type SoftLayer_Virtual_Guest
     ```
     {: codeblock}
 
@@ -1025,7 +1037,7 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 
 Detaching one or more tags from a resource:
 ```bash
-ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --resource-id RESOURCE_ID ) [--resource-type RESOURCE_TYPE] [--tag-type TAG_TYPE] [--account-id ACCOUNT_ID]
+ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --resource-id RESOURCE_ID | --resources-query RESOURCES_QUERY) [--resource-type RESOURCE_TYPE] [--tag-type TAG_TYPE] [--account-id ACCOUNT_ID]
 ```
 {: codeblock}
 
@@ -1034,6 +1046,9 @@ ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --res
 
 --tag-names value
 :   Comma-separated list of tag names.
+
+--resources-query value
+:   Global Search query string to retrieve the resources on which the tags should be detached
 
 --resource-name value
 :   The name of the resource on which the tags should be attached.
@@ -1056,7 +1071,7 @@ ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --res
 ### Examples
 {: #ibmcloud_resource_tag_detach_examples}
 
-* To detach the user tag `MyTag` from a Kubernetes cluster named `MyCluster`, first look for the CRN of the cluster you would like to detach the tag from:
+* To detach `my-tag` user tag from a Kubernetes cluster named `MyCluster`, first identify the CRN of the cluster:
     ```bash
     ibmcloud resource search 'type:k8\-cluster AND name:MyCluster'
     ```
@@ -1068,19 +1083,28 @@ ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --res
     ```
     {: screen}
 
-* To detach the tag, run the following command:
+    To detach the tag, run the following command:
     ```bash
-    ibmcloud resource tag-detach --tag-names MyTag --resource-id rn:v1:bluemix:public:containers-kubernetes:us-south:a/a27a4741a57dcf5c965939adb66fe1c7:a46242e638ca47b09f10e9a3cbe5687a::
+    ibmcloud resource tag-detach --tag-names my-tag --resource-id crn:v1:bluemix:public:containers-kubernetes:us-south:a/a27a4741a57dcf5c965939adb66fe1c7:a46242e638ca47b09f10e9a3cbe5687a::
     ```
     {: codeblock}
 
-* To detach the user tag `MyTag` to a resource named `MyResource`:
+* To detach `my-tag` user tag from a resource named `MyResource`:
     ```bash
-    ibmcloud resource tag-detach --tag-name MyTag --resource-name 'MyResource'
+    ibmcloud resource tag-detach --tag-name my-tag --resource-name 'MyResource'
     ```
     {: codeblock}
 
-* To detach the user tag `MyTag` to a classic infrastructure virtual guest named `MyVM`, first look for the ID of the virtual guest you would like to detach the tag from:
+* To detach the user tags `my-tag-1` and `my-tag-2` from all the Kubernetes clusters deployed in `us-south`, run the following command:
+    ```bash
+    ibmcloud resource tag-detach --tag-names my-tag-1,my-tag-2 --resources-query 'service_name:containers-kubernetes AND region:us-south'
+    ```
+    {: codeblock}
+
+    The command initially retrieves all Kubernetes clusters in us-south that you can view, and subsequently detaches the two specified tags from each.
+    It then displays the outcome of the operation for every Kubernetes cluster.
+
+* To detach `my-tag` user tag from a classic infrastructure virtual guest named `MyVM`, first look for the ID of the virtual guest you would like to detach the tag from:
     ```bash
     ibmcloud resource search 'fullyQualifiedDomainName:MyVM  _objectType:SoftLayer_Virtual_Guest' -p classic-infrastructure
     ```
@@ -1088,9 +1112,9 @@ ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --res
 
     Take a note of the ID, which is a string similar to `48373549`.
 
-* To detach the tag, run the following command:
+    To detach the tag, run the following command:
     ```bash
-    ibmcloud resource tag-detach --tag-names MyTag --resource-id 48373549 --resource-type SoftLayer_Virtual_Guest
+    ibmcloud resource tag-detach --tag-names my-tag --resource-id 48373549 --resource-type SoftLayer_Virtual_Guest
     ```
     {: codeblock}
 
@@ -1154,9 +1178,9 @@ A tag can be deleted only if it isn't attached to any resource.
 ### Examples
 {: #ibmcloud_resource_tag_delete_examples}
 
-* To delete the user tag `MyTag` from the account:
+* To delete the user tag `my-tag` from the account:
     ```bash
-    ibmcloud resource tag-delete --tag-name "MyTag"
+    ibmcloud resource tag-delete --tag-name "my-tag"
     ```
     {: codeblock}
 

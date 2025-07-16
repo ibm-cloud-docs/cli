@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-14"
+lastupdated: "2025-07-16"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -4720,7 +4720,7 @@ ibmcloud iam account-settings [--show-external-identity] [--output FORMAT] [-q, 
 Update settings under current account:
 
 ```bash
-ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_SETTING] [--restrict-create-platform-apikey RESTRICTION_SETTING] [--allowed-ip-addresses ADDRESS_LIST] [--unset-allowed-ip-addresses] [--mfa MFA] [--session-expiration-in-seconds SECONDS_EXP] [--session-invalidation-in-seconds SECONDS_INV] [--max-sessions-per-identity SESSIONS_MAX] [--output FORMAT] [-q, --quiet]
+ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_SETTING] [--restrict-create-platform-apikey RESTRICTION_SETTING] [--allowed-ip-addresses ADDRESS_LIST] [--unset-allowed-ip-addresses] [--mfa MFA] [--session-expiration-in-seconds SECONDS_EXP] [--session-invalidation-in-seconds SECONDS_INV] [--max-sessions-per-identity SESSIONS_MAX] [--access-token-expiration-in-seconds SECONDS_EXP] [--refresh-token-expiration-in-seconds SECONDS_EXP] [--output FORMAT] [-q, --quiet]
 ```
 {: codeblock}
 
@@ -4744,6 +4744,12 @@ ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_S
 
 --session-invalidation-in-seconds SECONDS_INV
 :   The number of seconds of inactivity after which a session is invalidated (can also be "NOT_SET", which resets the value to default).
+
+--access-token-expiration-in-seconds SECONDS_EXP
+:   The number of seconds after which the access token expires (can also be `NOT_SET`, which resets the value to default).
+
+--refresh-token-expiration-in-seconds SECONDS_EXP
+:   The number of seconds after which the refresh token expires (can also be `NOT_SET`, which resets the value to default).
 
 --max-sessions-per-identity SESSIONS_MAX
 :   The maximum number of sessions per identity on the account (can also be `NOT_SET`, which resets the value to default).
