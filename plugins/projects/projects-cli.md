@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-05-30"
+lastupdated: "2025-06-11"
 
 subcollection: cli
 
@@ -1221,7 +1221,7 @@ For more information, see [Creating workspaces and importing your Terraform temp
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example `--definition-settings=@path/to/file.json`.
 
-[Experimental]{: tag-purple} `--definition-members` ([`StackConfigMember[]`](#cli-stack-config-member-example-schema))
+[Experimental]{: tag-purple} `--definition-members` (StackConfigMember[])
 :   The member deployable architectures that are included in your stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.

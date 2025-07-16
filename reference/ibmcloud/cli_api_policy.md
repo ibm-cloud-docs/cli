@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-05-30"
+lastupdated: "2025-07-16"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -1573,7 +1573,7 @@ ibmcloud iam roles [--service SERVICE_NAME [--resource-type RESOURCE_TYPE] [--so
 {: #ibmcloud_iam_roles_options}
 
 --resource-type
-:   Resource type of the service. '--service' must be set along with this option.
+:   Resource type of the service. `--service` must be set along with this option.
 
 --roles ROLE_NAME1,ROLE_NAME2...
 :   Show details of specific roles
@@ -2116,7 +2116,7 @@ ROLE_NAME1,ROLE_NAME2...
 :   Account GUID of source service, mutually exclusive with `--source-service-instance-name`. Use this option if source service is from another account.
 
 --source-resource-group-id RESOURCE_GROUP_ID
-:   Source resource group ID, mutually exclusive with '--source-service-instance-id'.
+:   Source resource group ID, mutually exclusive with `--source-service-instance-id'.
 
 --source-resource-type
 :   Resource type of source service.
@@ -2130,7 +2130,7 @@ ROLE_NAME1,ROLE_NAME2...
 :   Target service instance ID, mutually exclusive with `--target-service-instance-name`. If not specified, all instances of the target service are authorized to access.
 
 --target-resource-group-id RESOURCE_GROUP_ID
-:   Target resource group ID, mutually exclusive with '--target-service-instance-id'.
+:   Target resource group ID, mutually exclusive with `--target-service-instance-id'.
 
 --target-resource-type
 :   Resource type of target service.
@@ -3397,7 +3397,7 @@ NAME (required)
 ### Examples
 {: #ibmcloud_iam_trusted_profile_create_examples}
 
-Create a trusted profile with name `sample-test` and description "sample trusted profile":
+Create a trusted profile with name `sample-test` and description **sample trusted profile**:
 ```bash
 ibmcloud iam trusted-profile-create sample-test -d "sample trusted profile"
 ```
@@ -3656,31 +3656,31 @@ NAME|ID (required)
 :   Specify the output format. Only 'JSON' is supported.
 
 --region REGION
-:   Region of the policy definition. This option is exclusive with '--file'. For supported regions, run 'ibmcloud regions'.
+:   Region of the policy definition. This option is exclusive with `--file`. For supported regions, run `ibmcloud regions`.
 
 --resource RESOURCE
-:   Resource of the policy definition. This option is exclusive with '--file'.
+:   Resource of the policy definition. This option is exclusive with `--file`.
 
 --resource-group-id RESOURCE_GROUP_ID
-:   ID of the resource group. '*' means all resource groups. This option is exclusive with '--file' and '--resource-group-name'.
+:   ID of the resource group. '*' means all resource groups. This option is exclusive with `--file` and `--resource-group-name`.
 
 --resource-group-name RESOURCE_GROUP_NAME
-:   Name of the resource group. '*' means all resource groups. This option is exclusive with '--file' and '--resource-group-id'.
+:   Name of the resource group. '*' means all resource groups. This option is exclusive with `--file` and `--resource-group-id`.
 
 --resource-type RESOURCE_TYPE
-:   Resource type of the policy definition. This option is exclusive with '--file'.
+:   Resource type of the policy definition. This option is exclusive with `--file`.
 
 --roles ROLE_NAME1,ROLE_NAME2...
-:   Role names of the policy definition. For supported roles of a specific service, run 'ibmcloud iam roles --service SERVICE_NAME'. This option is exclusive with '--file'.
+:   Role names of the policy definition. For supported roles of a specific service, run 'ibmcloud iam roles --service SERVICE_NAME'. This option is exclusive with `--file`.
 
 -q, --quiet
 :   Suppress verbose output.
 
 --service-instance SERVICE_INSTANCE_GUID
-:   GUID of service instance of the policy definition. This option is exclusive with '--file'.
+:   GUID of service instance of the policy definition. This option is exclusive with `--file`.
 
 --service-name SERVICE_NAME
-:   Service name of the policy definition. This option is exclusive with '--file'.
+:   Service name of the policy definition. This option is exclusive with `--file`.
 
 --tags name1:value1,name2:value2...
 :   Access tags of the resource.
@@ -3815,28 +3815,28 @@ POLICY_ID (required)
 :   Specify the output format. Only 'JSON' is supported.
 
 --region REGION
-:   Region of the policy definition. This option is exclusive with '--file'. For supported regions, run 'ibmcloud regions'.
+:   Region of the policy definition. This option is exclusive with `--file`. For supported regions, run 'ibmcloud regions'.
 
 --resource RESOURCE
-:   Resource of the policy definition. This option is exclusive with '--file'.
+:   Resource of the policy definition. This option is exclusive with `--file`.
 
 --resource-group-id RESOURCE_GROUP_ID
-:   ID of the resource group. '*' means all resource groups. This option is exclusive with '--file' and '--resource-group-name'.
+:   ID of the resource group. '*' means all resource groups. This option is exclusive with `--file` and `--resource-group-name`.
 
 --resource-group-name RESOURCE_GROUP_NAME
-:   Name of the resource group. '*' means all resource groups. This option is exclusive with '--file' and '--resource-group-id'.
+:   Name of the resource group. '*' means all resource groups. This option is exclusive with `--file` and `--resource-group-id`.
 
 --resource-type RESOURCE_TYPE
-:   Resource type of the policy definition. This option is exclusive with '--file'.
+:   Resource type of the policy definition. This option is exclusive with `--file`.
 
 --roles ROLE_NAME1,ROLE_NAME2...
-:   Role names of the policy definition. For supported roles of a specific service, run 'ibmcloud iam roles --service SERVICE_NAME'. This option is exclusive with '--file'.
+:   Role names of the policy definition. For supported roles of a specific service, run `ibmcloud iam roles --service SERVICE_NAME`. This option is exclusive with `--file`.
 
 --service-instance SERVICE_INSTANCE_GUID
-:   GUID of service instance of the policy definition. This option is exclusive with '--file'.
+:   GUID of service instance of the policy definition. This option is exclusive with `--file`.
 
 --service-name SERVICE_NAME
-:   Service name of the policy definition. This option is exclusive with '--file'.
+:   Service name of the policy definition. This option is exclusive with `--file`.
 
 --tags name1:value1,name2:value2...
 :   Access tags of the resource.
@@ -4720,7 +4720,7 @@ ibmcloud iam account-settings [--show-external-identity] [--output FORMAT] [-q, 
 Update settings under current account:
 
 ```bash
-ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_SETTING] [--restrict-create-platform-apikey RESTRICTION_SETTING] [--allowed-ip-addresses ADDRESS_LIST] [--unset-allowed-ip-addresses] [--mfa MFA] [--session-expiration-in-seconds SECONDS_EXP] [--session-invalidation-in-seconds SECONDS_INV] [--max-sessions-per-identity SESSIONS_MAX] [--output FORMAT] [-q, --quiet]
+ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_SETTING] [--restrict-create-platform-apikey RESTRICTION_SETTING] [--allowed-ip-addresses ADDRESS_LIST] [--unset-allowed-ip-addresses] [--mfa MFA] [--session-expiration-in-seconds SECONDS_EXP] [--session-invalidation-in-seconds SECONDS_INV] [--max-sessions-per-identity SESSIONS_MAX] [--access-token-expiration-in-seconds SECONDS_EXP] [--refresh-token-expiration-in-seconds SECONDS_EXP] [--output FORMAT] [-q, --quiet]
 ```
 {: codeblock}
 
@@ -4744,6 +4744,12 @@ ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_S
 
 --session-invalidation-in-seconds SECONDS_INV
 :   The number of seconds of inactivity after which a session is invalidated (can also be "NOT_SET", which resets the value to default).
+
+--access-token-expiration-in-seconds SECONDS_EXP
+:   The number of seconds after which the access token expires (can also be `NOT_SET`, which resets the value to default).
+
+--refresh-token-expiration-in-seconds SECONDS_EXP
+:   The number of seconds after which the refresh token expires (can also be `NOT_SET`, which resets the value to default).
 
 --max-sessions-per-identity SESSIONS_MAX
 :   The maximum number of sessions per identity on the account (can also be `NOT_SET`, which resets the value to default).
