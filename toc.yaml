@@ -123,12 +123,11 @@ toc:
       - topicgroup:
           label: IBM Cloud CLI security commands
           topics:
-          - include: ../hs-crypto/oncloud/hs-crypto-cli.md
+          - include: ../hs-crypto/hs-crypto-cli.md
           - include: ../hp-virtual-servers/hpvs_cli.md
           - include: ../security-compliance/security-compliance-cli.md
           - include: ../secrets-manager/secrets-manager-cli.md
           - include: ../key-protect/key-protect-cli-commands.md
-          - include: ../privileged-access-gateway/pag-cli.md
           - include: ../ContinuousDelivery/cra-cli.md
       - topicgroup:
           label: Additional services
