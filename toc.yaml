@@ -75,7 +75,7 @@ toc:
           topics:
           - include: ../cis/cis-cli-plugin.md
           - include: ../cloud-object-storage/cloud-object-storage-cli-reference.md
-          - include: ../dl-cli-plugin/direct-link-cli.md
+          - include: ../dl/dl-cli-plugin.md
           - include: ../dns-svcs/cli.md
           - reference/ibmcloud/cli_dns.md
           - include: ../transit-gateway/transit-gateway-cli.md
@@ -123,12 +123,11 @@ toc:
       - topicgroup:
           label: IBM Cloud CLI security commands
           topics:
-          - include: ../hs-crypto/oncloud/hs-crypto-cli.md
+          - include: ../hs-crypto/hs-crypto-cli.md
           - include: ../hp-virtual-servers/hpvs_cli.md
           - include: ../security-compliance/security-compliance-cli.md
           - include: ../secrets-manager/secrets-manager-cli.md
           - include: ../key-protect/key-protect-cli-commands.md
-          - include: ../privileged-access-gateway/pag-cli.md
           - include: ../ContinuousDelivery/cra-cli.md
       - topicgroup:
           label: Additional services
