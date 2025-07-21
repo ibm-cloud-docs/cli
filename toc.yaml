@@ -75,7 +75,7 @@ toc:
           topics:
           - include: ../cis/cis-cli-plugin.md
           - include: ../cloud-object-storage/cloud-object-storage-cli-reference.md
-          - include: ../dl-cli-plugin/direct-link-cli.md
+          - include: ../dl/dl-cli-plugin.md
           - include: ../dns-svcs/cli.md
           - reference/ibmcloud/cli_dns.md
           - include: ../transit-gateway/transit-gateway-cli.md
