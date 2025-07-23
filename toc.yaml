@@ -124,7 +124,6 @@ toc:
           label: IBM Cloud CLI security commands
           topics:
           - include: ../hs-crypto/hs-crypto-cli.md
-          - include: ../hp-virtual-servers/hpvs_cli.md
           - include: ../security-compliance/security-compliance-cli.md
           - include: ../secrets-manager/secrets-manager-cli.md
           - include: ../key-protect/key-protect-cli-commands.md
