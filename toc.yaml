@@ -68,7 +68,7 @@ toc:
           label: IBM Cloud CLI databases commands
           topics:
           - include: ../databases-cli-plugin/cloud-databases-cli.md
-          - include: ../Cloudant-cli-plugin/cloudant-cli.md
+          - include: ../Cloudant/cli/cloudant-cli.md
           - include: ../EventStreams/eventstreams-cli.md
       - topicgroup:
           label: IBM Cloud CLI infrastructure commands
