@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-08-13"
 
 keywords: cli, cli faq, debug cli, cli help, ibmcloud cli help, ibmcloud help, cli private endpoints
 
@@ -102,13 +102,15 @@ ibmcloud plugin install http://example.com/downloads/my-plugin
 
 To find out which installed CLI plug-ins support private endpoints, use the [`ibmcloud plugin list`](/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_list) command.
 
-## Which regions support private endpoints?
+## Which regions support classic private endpoints?
 {: #cli-private-endpoint-faq}
 {: faq}
 {: support}
 
-Regions that support private endpoints are `us-east` and `us-south`.
+Regions that support classic private endpoints are `us-east` and `us-south`.
 
 A region must be targeted when a private endpoint is set in the {{site.data.keyword.cloud_notm}} CLI.
 
 For more information about regions, see [Locations for resource deployment](/docs/overview?topic=overview-locations) and [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region).
+
+For more information about private endpoints including VPC private endpoints, see [Securing your connection when using the IBM Cloud CLI](/docs/cli?topic=cli-service-connection).
