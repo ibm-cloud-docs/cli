@@ -342,7 +342,7 @@ Run a Tekton pipeline.
 
 Usage:
 ```bash
-ibmcloud dev tekton-trigger PIPELINE_ID --trigger-name triggerName [--trigger-properties propertiesJSON] [--secure-trigger-properties securePropertiesJSON] [--trigger-headers headerJSON] [--trigger-body bodyJSON] [--output JSON]
+ibmcloud dev tekton-trigger PIPELINE_ID --trigger-name triggerName [--description "a description"] [--trigger-properties propertiesJSON] [--secure-trigger-properties securePropertiesJSON] [--trigger-headers headerJSON] [--trigger-body bodyJSON] [--output JSON]
 ```
 {: codeblock}
 
@@ -357,17 +357,23 @@ The following parameters can be used with the `tekton-trigger` command.
 * Use this parameter to indicate the trigger to be run.
 * Usage: `ibmcloud dev tekton-trigger PIPELINE_ID --trigger-name triggerName`
 
+#### `description` (optional)
+{: #tekton-trigger-description}
+
+* Optional. Use this parameter to specify a description for the created Tekton pipelineRun.
+* Usage: `ibmcloud dev tekton-trigger PIPELINE_ID --trigger-name triggerName --description "My description"`
+
 #### `trigger-properties` (optional)
 {: #tekton-trigger-properties}
 
 * Optional. Use this parameter to override or append to defined trigger properties. For example,`'{"pipeline-debug":"true"}'`.
-* Usage: `ibmcloud dev tekton-trigger pipePIPELINE_IDlineID --trigger-name triggerName --trigger-properties propertiesJSON`
+* Usage: `ibmcloud dev tekton-trigger PIPELINE_ID --trigger-name triggerName --trigger-properties propertiesJSON`
 
 #### `secure-trigger-properties` (optional)
 {: #tekton-secure-trigger-properties}
 
 * Optional. Use this parameter to override or append to defined trigger properties whose values should be concealed behind dots or asterisks in later outputs. For example, `'{"deployer-api-key":"s0mEThING_v3Ry_s3CReT"}'`
-* Usage: `ibmcloud dev tekton-trigger pipePIPELINE_IDlineID --trigger-name triggerName --secure-trigger-properties securePropertiesJSON`
+* Usage: `ibmcloud dev tekton-trigger PIPELINE_ID --trigger-name triggerName --secure-trigger-properties securePropertiesJSON`
 
 
 #### `trigger-headers` (optional)
