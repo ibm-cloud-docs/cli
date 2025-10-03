@@ -1,8 +1,8 @@
 ---
 
 copyright: 
-  years: 2017, 2023
-lastupdated: "2023-06-01"
+  years: 2017, 2025
+lastupdated: "2025-09-03"
 
 keywords: cli, ibmcloud dev commands, developer cli, dev commands, devtools, developer tools, dev tools, ic dev commands, cli private endpoints, tekton pipelines, classic pipelines, toolchains
 
@@ -15,7 +15,7 @@ subcollection: cli
 # {{site.data.keyword.cloud_notm}} CLI {{site.data.keyword.dev_cli_short}} (`ibmcloud dev`) commands
 {: #idt-cli}
 
-The {{site.data.keyword.cloud}} Command Line Interface includes the {{site.data.keyword.dev_cli_short}} (`ibmcloud dev`) or (`ic dev`) commands to manage classic pipelines, Tekton pipelines, and toolchains.
+The {{site.data.keyword.cloud}} Command Line Interface includes the {{site.data.keyword.dev_cli_short}} (`ibmcloud dev`) commands to manage classic pipelines, Tekton pipelines, and toolchains.
 {: shortdesc}
 
 
