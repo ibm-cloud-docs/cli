@@ -219,8 +219,6 @@ ibmcloud sl vs capture IDENTIFIER [flags]
 
 Create virtual server instance
 
-ibmcloud sl vs create [OPTIONS]
-
 **Examples**:
 
    ibmcloud sl vs create -H myvsi -D ibm.com -c 4 -m 4096 -d dal10 -o UBUNTU_16_64 --disk 100 --disk 1000 --vlan-public 413
@@ -283,6 +281,9 @@ ibmcloud sl vs create [flags]
 
 --like
 :    Use the configuration from an existing virtual server
+
+--local
+:    Use local disk storage.
 
 --m, memory
 :    Memory in megabytes [required]
@@ -905,11 +906,8 @@ Upgrade a virtual server instance
 
 Note: This virtual server will be rebooted once the upgrade order is placed.
 The instance is halted until the upgrade transaction is completed. However for Network, no reboot is required.
-
-**Examples**:
-
-	ibmcloud sl vs upgrade 12345678 -c 8 -m 8192 --network 1000
-	This commands upgrades virtual server instance with ID 12345678 and set number of CPU cores to 8, memory to 8192M, network port speed to 1000 Mbps.
+The -c and -m options are for dedicated VSI upgrade, most VSIs will need to upgrade with --flavor.
+See 'ibmcloud sl vs options' for flavor keyNames to use.
 
 ```bash
 ibmcloud sl vs upgrade IDENTIFIER [flags]

@@ -6,12 +6,14 @@
 
 Authorize hosts to access a given volume.
 
-ibmcloud sl block access-authorize VOLUME_ID [OPTIONS]
-
 **Examples**:
 
    ibmcloud sl block access-authorize 12345678 --virtual-id 87654321
    This command authorizes virtual server with ID 87654321 to access volume with ID 12345678.
+
+   ibmcloud sl block access-authorize 5555 --subnet-id 1111
+   This command adds subnet with id 1111 to the Allowed Host with id 5555. Use 'access-list' to find this id.
+   SoftLayer_Account::iscsiIsolationDisabled must be False for this command to do anything.
 
 ```bash
 ibmcloud sl block access-authorize IDENTIFIER [flags]
@@ -30,6 +32,9 @@ ibmcloud sl block access-authorize IDENTIFIER [flags]
 --i, ip-address-id
 :    The ID of one IP address to authorize.
 
+--s, subnet-id
+:    A Subnet Id. With this option IDENTIFIER should be an 'allowed_host_id' from the access-list command.
+
 --v, virtual-id
 :    The ID of one virtual server to authorize.
 
@@ -38,8 +43,7 @@ ibmcloud sl block access-authorize IDENTIFIER [flags]
 
 List hosts that are authorized to access the volume.
 
-ibmcloud sl block access-list VOLUME_ID [OPTIONS]
-
+Access Hosts marked 'IN ACL' belong to a parent Access Host with the same allowed_host_id.
 **Examples**:
 
    ibmcloud sl block access-list 12345678 --sortby id 
@@ -54,7 +58,7 @@ ibmcloud sl block access-list IDENTIFIER [flags]
 **Command options**:
 
 --column
-:    Column to display. Options are: id, name, type, private_ip_address, source_subnet, host_iqn, username, password, allowed_host_id. This option can be specified multiple times.
+:    Column to display. Options are: id, name, type, private_ip_address, source_subnet, host_iqn, username, password, allowed_host_id.
 
 --sortby
 :    Column to sort by. Options are: id, name, type, private_ip_address, source_subnet, host_iqn, username, password, allowed_host_id.
@@ -84,12 +88,13 @@ ibmcloud sl block access-password IDENTIFIER
 
 Revoke authorization for hosts that are accessing a specific volume.
 
-ibmcloud sl block access-revoke VOLUME_ID [OPTIONS]
-
 **Examples**:
 
    ibmcloud sl block access-revoke 12345678 --virtual-id 87654321
    This command revokes access of virtual server with ID 87654321 to volume with ID 12345678.
+
+   ibmcloud sl block access-revoke 5555 --subnet-id 1111
+   This command removes subnet with id 1111 from the Allowed Host with id 5555. Use 'access-list' to find this id.
 
 ```bash
 ibmcloud sl block access-revoke IDENTIFIER [flags]
@@ -107,6 +112,9 @@ ibmcloud sl block access-revoke IDENTIFIER [flags]
 
 --i, ip-address-id
 :    The ID of one IP address to revoke
+
+--s, subnet-id
+:    A Subnet Id. With this option IDENTIFIER should be an 'allowed_host_id' from the access-list command.
 
 --v, virtual-id
 :    The ID of one virtual server to revoke
@@ -207,8 +215,6 @@ ibmcloud sl block replica-failback IDENTIFIER
 
 Failover a block volume to the given replica volume
 
-ibmcloud sl block replica-failover VOLUME_ID REPLICA_ID
-
 **Examples**:
 
    ibmcloud sl block replica-failover 12345678 87654321
@@ -241,8 +247,6 @@ ibmcloud sl block replica-locations IDENTIFIER
 {: #sl_block_replica_order}
 
 Order a block storage replica volume
-
-ibmcloud sl block replica-order VOLUME_ID [OPTIONS]
 
 **Examples**:
 
@@ -280,8 +284,6 @@ ibmcloud sl block replica-order IDENTIFIER [flags]
 
 List existing replicant volumes for a block volume
 
-ibmcloud sl block replica-partners VOLUME_ID [OPTIONS]
-
 **Examples**:
 
    ibmcloud sl block replica-partners 12345678
@@ -297,8 +299,6 @@ ibmcloud sl block replica-partners IDENTIFIER
 {: #sl_block_snapshot_cancel}
 
 Cancel existing snapshot space for a given volume
-
-ibmcloud sl block snapshot-cancel SNAPSHOT_ID [OPTIONS]
 
 **Examples**:
 
@@ -788,7 +788,9 @@ ibmcloud sl block volume-list [flags]
 
 Modify an existing block storage volume
 
-ibmcloud sl block volume-modify VOLUME_ID [OPTIONS]
+Valid size and iops options can be found here:
+https://cloud.ibm.com/docs/BlockStorage/index.html#provisioning-considerations
+https://cloud.ibm.com/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=cli
 
    **Examples**:
 
@@ -818,18 +820,19 @@ ibmcloud sl block volume-modify IDENTIFIER [flags]
 
 --t, new-tier
 :    Endurance Storage Tier (IOPS per GB) [only for endurance volumes] ***If no tier is specified, the original tier of the volume will be used.***
+Tiers: [0.25, 2, 4, 10]
 
 ## ibmcloud sl block volume-options
 {: #sl_block_volume_options}
 
-List all options for ordering a block storage
+List all options for ordering a block or file storage volume
 
-ibmcloud sl block volume-options
+List all options for ordering a block or file storage volume
 
-**Examples**:
+See Also:
+	https://cloud.ibm.com/docs/BlockStorage/index.html#provisioning-considerations
+	https://cloud.ibm.com/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=cli
 
-   ibmcloud sl block volume-options
-   This command lists all options for creating a block storage volume, including storage type, volume size, OS type, IOPS, tier level, datacenter, and snapshot size.
 
 ```bash
 ibmcloud sl block volume-options [flags]
@@ -846,8 +849,6 @@ ibmcloud sl block volume-options [flags]
 {: #sl_block_volume_order}
 
 Order a block storage volume
-
-ibmcloud sl block volume-order [OPTIONS]
 
 **Examples**:
 

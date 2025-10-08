@@ -230,7 +230,7 @@ ibmcloud sl order quote IDENTIFIER [flags]
 :    hostname.domain.name.tld formatted name to use. Specify one fqdn per server (multiple occurrence permitted)  [required]
 
 --image
-:    Image ID. See: **ibmcloud sl image** list for reference
+:    Image ID. See: 'ibmcloud sl image list' for reference
 
 --key
 :    SSH key Id's to add to the root user. See: 'ibmcloud sl security sshkey-list' for reference (multiple occurrence permitted)

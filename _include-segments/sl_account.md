@@ -157,7 +157,7 @@ ibmcloud sl account invoice-detail IDENTIFIER [flags]
 
 List invoices.
 
-
+Lists the most recent invoices in the OPEN status.
 
 ```bash
 ibmcloud sl account invoices [flags]
@@ -234,4 +234,3 @@ Prints some various bits of information about an account.
 ibmcloud sl account summary
 ```
 {: codeblock}
-
