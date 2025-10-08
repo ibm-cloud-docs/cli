@@ -41,8 +41,7 @@ ibmcloud sl file access-authorize IDENTIFIER [flags]
 
 List hosts that are authorized to access the volume.
 
-ibmcloud sl file access-list VOLUME_ID [OPTIONS]
-
+Access Hosts marked 'IN ACL' belong to a parent Access Host with the same allowed_host_id.
 **Examples**:
 
    ibmcloud sl file access-list 12345678 --sortby id 
@@ -57,7 +56,7 @@ ibmcloud sl file access-list IDENTIFIER [flags]
 **Command options**:
 
 --column
-:    Column to display. Options are: id, name, type, private_ip_address, source_subnet, host_iqn, username, password, allowed_host_id. This option can be specified multiple times.
+:    Column to display. Options are: id, name, type, private_ip_address, source_subnet, host_iqn, username, password, allowed_host_id.
 
 --sortby
 :    Column to sort by. Options are: id, name, type, private_ip_address, source_subnet, host_iqn, username, password, allowed_host_id.
@@ -154,8 +153,6 @@ ibmcloud sl file replica-failback IDENTIFIER
 
 Failover a file volume to the given replica volume
 
-ibmcloud sl file replica-failover VOLUME_ID REPLICA_ID
-
 **Examples**:
 
    ibmcloud sl file replica-failover 12345678 87654321
@@ -223,8 +220,6 @@ ibmcloud sl file replica-order IDENTIFIER [flags]
 {: #sl_file_replica_partners}
 
 List existing replicant volumes for a block volume
-
-ibmcloud sl file replica-partners VOLUME_ID [OPTIONS]
 
 **Examples**:
 
@@ -697,27 +692,30 @@ ibmcloud sl file volume-modify IDENTIFIER [flags]
 ## ibmcloud sl file volume-options
 {: #sl_file_volume_options}
 
-List all options for ordering a file storage
+List all options for ordering a block or file storage volume
 
-ibmcloud sl file volume-options
+List all options for ordering a block or file storage volume
 
-**Examples**:
+See Also:
+	https://cloud.ibm.com/docs/BlockStorage/index.html#provisioning-considerations
+	https://cloud.ibm.com/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=cli
 
-   ibmcloud sl file volume-options
-   This command lists all options for creating a file storage volume, including storage type, volume size, IOPS, tier level, datacenter, and snapshot size.
 
 ```bash
-ibmcloud sl file volume-options
+ibmcloud sl file volume-options [flags]
 ```
 {: codeblock}
 
+
+**Command options**:
+
+--prices
+:    Show prices in the storage, snapshot and iops range tables.
 
 ## ibmcloud sl file volume-order
 {: #sl_file_volume_order}
 
 Order a file storage volume
-
-ibmcloud sl file volume-order [OPTIONS]
 
 **Examples**:
 

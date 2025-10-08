@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-09-19"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
@@ -860,7 +860,7 @@ ibmcloud resource tags [-o, --offset OFFSET] [-l, --limit LIMIT]  [-p, --provide
 :   Number of resources to return (maximum 1000) (default: 100).
 
 --provider value, -p value
-:   Display Classic Infrastructure resources, the only value that is allowed is: classic-infrastructure. Use it for resources of type SoftLayer_Hardware, SoftLayer_Network_Application_Delivery_Controller, SoftLayer_Network_Subnet_IpAddress or SoftLayer_Network_Vlan.
+:   Displays tags that are associated with the Classic Infrastructure resources. The only permitted value is: classic-infrastructure. Use the command to get the tags that are defined in the Classic Infrastructure.
 
 --details value, -d value
 :   Show additional attributes for each tag, only value allowed is true.
@@ -931,7 +931,7 @@ ibmcloud resource tag-attach --tag-names TAG_NAMES (--resource-name NAME | --res
 :   CRN of the resource on which the tags should be attached (for Classic Infrastructure resource, it is the ID of the resource).
 
 --resource-type value
-:   Type of the tag. Only allowed values are: user, service or access (default value : user).
+:   Resource type to which tags must be applied. This is required only for Classic Infrastructure resources of the these types: SoftLayer_Hardware_Server, SoftLayer_Hardware, SoftLayer_Virtual_Guest, SoftLayer_Network_Vlan_Firewall, SoftLayer_Network_Application_Delivery_Controller, SoftLayer_Network_Vlan, SoftLayer_Virtual_DedicatedHost, SoftLayer_Network_Component_Firewall, and SoftLayer_Network_Firewall_Module_Context.
 
 --tag-type value
 :   The type of the tag. The only allowed values are `user` or `service`. The default value is `user`.
@@ -1057,7 +1057,7 @@ ibmcloud resource tag-detach --tag-names TAG_NAMES (--resource-name NAME | --res
 :   CRN of the resource on which the tags should be attached (for Classic Infrastructure resource, it is the ID of the resource).
 
 --resource-type value
-:   Resource type on which the tags should be attached (required for Classic Infrastructure resource of type SoftLayer_Hardware, SoftLayer_Network_Application_Delivery_Controller, SoftLayer_Network_Subnet_IpAddress or SoftLayer_Network_Vlan only).
+:   Resource type on which the tags must be removed. This is required only for Classic Infrastructure resources of the these types: SoftLayer_Hardware_Server, SoftLayer_Hardware, SoftLayer_Virtual_Guest, SoftLayer_Network_Vlan_Firewall, SoftLayer_Network_Application_Delivery_Controller, SoftLayer_Network_Vlan, SoftLayer_Virtual_DedicatedHost, SoftLayer_Network_Component_Firewall, and SoftLayer_Network_Firewall_Module_Context.
 
 --tag-type value
 :   Type of the tag. Only allowed values are: user, service, or access (default value : user).
@@ -1154,7 +1154,7 @@ ibmcloud resource tag-delete (--tag-name TAG_NAME | -a, --all  [-f, --force]) [-
 :   Tag name to be deleted.
 
 --provider value, -p value
-:   Delete the tag in the specified provider (the only supported value is classic-infrastructure). Use it for resources of type SoftLayer_Hardware, SoftLayer_Network_Application_Delivery_Controller, SoftLayer_Network_Subnet_IpAddress or SoftLayer_Network_Vlan.
+:   Deletes the tags that are associated with the specified provider. The only permitted value is: classic-infrastructure. Use the command to delete the Classic Infrastructure tags.
 
 --tag-type value
 :   Type of the tag. Only allowed values are: user, service, or access (default value : user).

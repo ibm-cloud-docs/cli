@@ -68,8 +68,6 @@ ibmcloud sl tags list [flags]
 
 Set Tags.
 
-ibmcloud sl tags set [OPTIONS]
-
 **Examples**:
 
 	ibmcloud sl tags set --tags 'tag1,tag2' --key-name HARDWARE --resource-id 123456
@@ -84,10 +82,10 @@ ibmcloud sl tags set [flags]
 **Command options**:
 
 --key-name
-:    Key name of a tag type e.g. GUEST, HARDWARE. See slcli tags taggable output.  [required]
+:    Key name of a tag type e.g. GUEST, HARDWARE. See slcli tags taggable output.
 
 --resource-id
-:    ID of the object being tagged  [required]
+:    ID of the object being tagged
 
 --tags
-:    Comma seperated list of tags, enclosed in quotes. 'tag1,tag2'  [required]
+:    Comma seperated list of tags, enclosed in quotes. 'tag1,tag2'

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-10-03"
 
 keywords:
 
@@ -38,10 +38,10 @@ The following table provides the dependency listing of this service following a 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
+| IBM Cloud Classic DNS Servers | Availability, Change management | No | Both |  Same data center  |
 | IBM Cloud Classic Infrastructure Resource Management | Availability, Change management | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Public IP Address Management | Availability, Change management | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Identity and Access Management | Availability, Change management, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud Classic DNS Servers | Availability, Change management | No | Both |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloud CLI  service dependency information - Critical dependencies" caption-side="top"}
 {: tab-title="Critical dependencies"}
@@ -53,7 +53,6 @@ The following table provides the dependency listing of this service following a 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | IBM Cloud Object Storage | Availability, Change management, Disaster recovery | No | Both |  Same region  |
-| IBM Cloud Content Delivery Network | Availability | No | Both |  us-south  |
 | IBM Cloud Classic NTP Servers | Availability, Change management | No | Both |  Same data center  |
 | IBM Cloud Internet Services | Availability | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}

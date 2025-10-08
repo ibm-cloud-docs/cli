@@ -66,8 +66,6 @@ ibmcloud sl vlan create [flags]
 
 Get details about a VLAN
 
-ibmcloud sl vlan detail IDENTIFIER [OPTIONS]
-
 **Examples**:
 
    ibmcloud sl vlan detail 12345678	--no-vs --no-hardware
@@ -115,8 +113,6 @@ ibmcloud sl vlan edit IDENTIFIER [flags]
 
 List all the VLANs on your account
 
-ibmcloud sl vlan list [OPTIONS]
-
 **Examples**:
 
    ibmcloud sl vlan list -d dal09 --sortby number
@@ -158,4 +154,3 @@ List all the options for creating VLAN
 ibmcloud sl vlan options
 ```
 {: codeblock}
-

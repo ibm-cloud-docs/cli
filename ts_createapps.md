@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2024
-lastupdated: "2024-10-15"
+  years: 2015, 2025
+lastupdated: "2025-10-08"
 
 keywords: cli, troubleshoot cli, debug app cli, developer tools debug, ibmcloud cli debug, ibmcloud help, ibmcloud dev help, cli debug, command line, command-line, developer tools troubleshoot
 
@@ -102,3 +102,37 @@ The `ibmcloud catalog search` command was moved to a separate plug-in in v1.0.0.
 
 To use this command, you must install the catalogs-management plug-in. For more information, see the [Catalogs management CLI plug-in](/docs/cli?topic=cli-manage-catalogs-plugin).
 {: tsResolve}
+
+## Why does the ibmcloud resources command respond with an error 400: Requested result window is too large?
+{: #ts-cli-resources-large}
+{: troubleshoot}
+
+Running the `ibmcloud resources --output json` command displays the following error:
+
+```text
+FAILED
+Error response from server. Status code: 400; description: error: {code: GST407E, message: Requested result window is too large, offset +  limit  must be less than or equal to: [ 10000 ] but was [ 11000 ], details: }.
+```
+{: screen}
+{: tsSymptoms}
+
+This error occurs for accounts with a large number of resources because there is a maximum of 10,000 resources to return with this command.
+{: tsCauses}
+
+When you need to fetch more than 10,000 resource items, use the `ibmcloud resource search` command with the offset option incremented in units of one thousand, which allows for pagination of results.
+{: tsResolve}
+
+**Example**
+
+Search and list resources in batches of 1,000:
+
+```bash
+ibmcloud resource search "*"
+
+# Fetch the next 1000 resources
+ibmcloud resource search "*" --offset 1001
+
+# Fetch the next 1000 resources
+ibmcloud resource search "*" --offset 2001
+```
+{: codeblock}
