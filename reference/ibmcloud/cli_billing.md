@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-10-14"
 
 keywords: cli, ibmcloud billing, view account, view usage, account usage, resource groups, resources, org-usage
 
@@ -16,12 +16,18 @@ subcollection: cli
 {: #ibmcloud_billing}
 
 Use the following commands from the {{site.data.keyword.cloud}} Command Line Interface to retrieve resource usage and billing information. You can use these commands for viewing the monthly usage information for an account, enterprise, and even for a specific resource group.
+
+For more information, see [Viewing your usage](/docs/account?topic=account-viewingusage).
+
 {: shortdesc}
 
 ## ibmcloud billing account-usage
 {: #ibmcloud_billing_account_usage}
 
-Show monthly usage of the current account (account admin only):
+Show monthly usage of all the resources and plans in an account (account admin only). 
+
+To learn more about the account usage summary API, see [Get account usage](/apidocs/metering-reporting#get-account-usage).
+
 
 ```bash
 ibmcloud billing account-usage [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
@@ -42,16 +48,28 @@ ibmcloud billing account-usage [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
 ### Examples
 {: #ibmcloud_billing_account_usage_examples}
 
-Get the account's usage report that you're currently logged into for the month of June 2024 (2024-06):
+
+Show the current account's usage and cost report for June 2024:
 
 ```bash
 ibmcloud billing account-usage -d 2024-06
 ```
+{: pre}
+
+Show current account's usage and cost report for March 2025 and output to CSV format:
+
+```bash
+ibmcloud billing account-usage -d 2024-06 --output CSV
+```
+{: pre}
 
 ## ibmcloud billing resource-group-usage
 {: #ibmcloud_billing_resource_group_usage}
 
-Show monthly usage for resources in a specific resource group (account admin or resource group admin only):
+Show monthly usage of all the resources and plans for a resource group (account admin or resource group admin only). 
+
+To learn more about the resource group usage API, see [Get resource group usage](/apidocs/metering-reporting#get-resource-group-usage).
+
 
 ```bash
 ibmcloud billing resource-group-usage GROUP_NAME [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
@@ -75,16 +93,27 @@ GROUP_NAME (required)
 ### Examples
 {: #ibmcloud_billing_resource_group_usage_examples}
 
-If you have a resource group named `devteam`, you can use the following command to view the current month's usage for the resources that are in the `devteam` resource group in your account:
+Show the usage for the `dev-test` resource group for the current month and output to JSON format:
 
 ```bash
-ibmcloud billing resource-group-usage devteam
+ibmcloud billing resource-group-usage dev-test --output JSON
 ```
+{: pre}
+
+Show the usage for the `dev-test` resource group for July 2025:
+```bash
+ibmcloud billing resource-group-usage dev-test -d 2025-07
+```
+{: pre}
+
 
 ## ibmcloud billing resource-instances-usage
 {: #ibmcloud_billing_resource_instances_usage}
 
-Show monthly resource instances usage under the current account:
+Show monthly resource instances usage under the current account.
+
+To learn more about the resource instances usage API, see [Get resource instance usage in an account](/apidocs/metering-reporting#get-resource-usage-account).
+
 ```bash
 ibmcloud billing resource-instances-usage [-o ORG] [-g RESOURCE_GROUP] [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
 ```
@@ -107,10 +136,21 @@ ibmcloud billing resource-instances-usage [-o ORG] [-g RESOURCE_GROUP] [-d YYYY-
 -q, --quiet (optional)
 :   Suppress verbose output.
 
+### Examples
+{: #ibmcloud_billing_resource_instances_usage_examples}
+
+Show the usage for resource instances and output to JSON format:
+
+```bash
+ibmcloud billing resource-instances-usage --output JSON
+```
+{: pre}
+
 ## ibmcloud billing enterprise-usage
 {: #ibmcloud_billing_enterprise_usage}
 
-Show enterprise usage reports:
+Show monthly resource usage for an enterprise, a specific account group, or a child account under the enterprise. For more information, see [Viewing usage in an enterprise](/docs/enterprise-management?topic=enterprise-management-enterprise-usage).
+
 ```bash
 ibmcloud billing enterprise-usage [--account-group ACCOUNT_GROUP_NAME | --account-group-id ACCOUNT_GROUP_ID | --account ACCOUNT_NAME | --account-id ACCOUNT_ID] [--month MONTH] [--children] [--output FORMAT] [-q, --quiet]
 ```
@@ -141,3 +181,20 @@ ibmcloud billing enterprise-usage [--account-group ACCOUNT_GROUP_NAME | --accoun
 
 -q, --quiet (optional)
 :   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_billing_enterprise_usage_examples}
+
+Show the current month's usage for an enterprise, including usage from child accounts, and output to JSON format.
+
+```bash
+ibmcloud billing enterprise-usage --children --output JSON
+```
+{: pre}
+
+View usage for the Development account group for July 2024.
+
+```bash
+ibmcloud billing enterprise-usage --account-group Development --month 2024-07
+```
+{: pre}
