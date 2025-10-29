@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-10-29"
 
 keywords: cli, ibmcloud billing, view account, view usage, account usage, resource groups, resources, org-usage
 
@@ -86,14 +86,11 @@ ibmcloud billing resource-group-usage devteam
 
 Show monthly resource instances usage under the current account:
 ```bash
-ibmcloud billing resource-instances-usage [-o ORG] [-g RESOURCE_GROUP] [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
+ibmcloud billing resource-instances-usage [-g RESOURCE_GROUP] [-d YYYY-MM] [--output FORMAT] [-q, --quiet]
 ```
 
 ### Command options
 {: #ibmcloud_billing_resource_instances_usage_options}
-
--o {ORG_NAME} (optional)
-:   Filter instances by organization.
 
 -g {GROUP_NAME}
 :   Filter instance by resource group.

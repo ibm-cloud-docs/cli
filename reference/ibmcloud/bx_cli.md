@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-10-28"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud api, ibmcloud, cli commands, regions, target, update, ibmcloud sl
 
@@ -110,6 +110,8 @@ ibmcloud help dev
 ## ibmcloud assist
 {: #ibmcloud_assist}
 
+Alias: `ai`
+
 Ask a question to the AI assistant that uses watsonx. For more information about the capabilities and limitations, see [Getting help from the AI assistant](/docs/overview?topic=overview-ask-ai-assistant).
 
 ```bash
@@ -143,6 +145,8 @@ If you're using quotations or exclamation marks as part of your query, make sure
 
 ## ibmcloud version
 {: #ibmcloud_version}
+
+Alias: `v`
 
 Print the version of the {{site.data.keyword.cloud_notm}} CLI.
 
