@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-10-31"
 
 keywords: IBM Cloud CLI, ibmcloud cli, ibmcloud, cli, command line, command-line, developer tools, private endpoints, shell, cli private endpoints
 
@@ -37,25 +37,25 @@ If you don't want to install from the shell because it might use root permission
 
 * For **Mac**, copy and paste the following command to a command line and run it:
    ```curl
-   curl -fsSL https://ibm-cloud-cli-installer-scripts.s3.private.us.cloud-object-storage.appdomain.cloud/osx_private | sh
+   curl -fsSL https://ibm-cloud-cli-installer-scripts-dn.s3.private.us.cloud-object-storage.appdomain.cloud/osx_private | sh
    ```
    {: codeblock}
 
 * For **Mac**, from an {{site.data.keyword.cloud_notm}} Virtual Private Cloud, copy and paste the following command to a command line and run it:
    ```curl
-   curl -fsSL https://ibm-cloud-cli-installer-scripts.s3.direct.us.cloud-object-storage.appdomain.cloud/osx_vpc | sh
+   curl -fsSL https://ibm-cloud-cli-installer-scripts-dn.s3.direct.us.cloud-object-storage.appdomain.cloud/osx_vpc | sh
    ```
    {: codeblock}
 
 * For **Linux&trade;**, copy and paste the following command to a command line and run it:
    ```curl
-   curl -fsSL https://ibm-cloud-cli-installer-scripts.s3.private.us.cloud-object-storage.appdomain.cloud/linux_private | sh
+   curl -fsSL https://ibm-cloud-cli-installer-scripts-dn.s3.private.us.cloud-object-storage.appdomain.cloud/linux_private | sh
    ```
    {: codeblock}
 
 * For **Linux**, from an {{site.data.keyword.cloud_notm}} Virtual Private Cloud, copy and paste the following command to a command line and run it:
    ```curl
-   curl -fsSL https://ibm-cloud-cli-installer-scripts.s3.direct.us.cloud-object-storage.appdomain.cloud/linux_vpc | sh
+   curl -fsSL https://ibm-cloud-cli-installer-scripts-dn.s3.direct.us.cloud-object-storage.appdomain.cloud/linux_vpc | sh
    ```
    {: codeblock}
 
@@ -63,7 +63,7 @@ If you don't want to install from the shell because it might use root permission
 * For **Windows&trade;**, copy and paste the following command to a [Windows&trade; PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.4){: external} command prompt and run it:
 
    ```bash
-   iex (New-Object Net.WebClient).DownloadString('https://ibm-cloud-cli-installer-scripts.s3.private.us.cloud-object-storage.appdomain.cloud/powershell_private')
+   iex (New-Object Net.WebClient).DownloadString('https://ibm-cloud-cli-installer-scripts-dn.s3.private.us.cloud-object-storage.appdomain.cloud/powershell_private')
    ```
    {: codeblock}
 
@@ -77,7 +77,7 @@ If you don't want to install from the shell because it might use root permission
 
 * For **Windows&trade;**, from an {{site.data.keyword.cloud_notm}} Virtual Private Cloud, copy and paste the following command to a [Windows&trade; PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.4){: external} command prompt and run it:
    ```bash
-   iex (New-Object Net.WebClient).DownloadString('https://ibm-cloud-cli-installer-scripts.s3.direct.us.cloud-object-storage.appdomain.cloud/powershell_vpc')
+   iex (New-Object Net.WebClient).DownloadString('https://ibm-cloud-cli-installer-scripts-dn.s3.direct.us.cloud-object-storage.appdomain.cloud/powershell_vpc')
    ```
    {: codeblock}
 
@@ -100,15 +100,15 @@ Use the following steps to install the latest stand-alone {{site.data.keyword.cl
    * For Linux&trade;, extract the package and run the `install` script.
 
    **Installers:**
-   - [Mac OS X 64-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/IBM_Cloud_CLI_2.33.0.pkg)
-   - [Mac OS X M1/ARM](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/IBM_Cloud_CLI_2.33.0_arm64.pkg) 
-   - [Windows&trade; 64-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/IBM_Cloud_CLI_2.33.0_amd64.exe)
-   - [Windows&trade; 32-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/IBM_Cloud_CLI_2.33.0_386.exe)
-   - [Linux&trade; 64-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/IBM_Cloud_CLI_2.33.0_amd64.tar.gz)
-   - [Linux&trade; 64-bit ARM](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/IBM_Cloud_CLI_2.33.0_arm64.tar.gz)
-   - [Linux&trade; 32-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/IBM_Cloud_CLI_2.33.0_386.tar.gz)
-   - [PowerLinux&trade; 64-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/IBM_Cloud_CLI_2.33.0_ppc64le.tar.gz)
-   - [System/390 Linux&trade; 64-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/IBM_Cloud_CLI_2.33.0_s390x.tar.gz)
+   - [Mac OS X 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/IBM_Cloud_CLI_2.37.1.pkg)
+   - [Mac OS X M1/ARM](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/IBM_Cloud_CLI_2.37.1_arm64.pkg) 
+   - [Windows&trade; 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/IBM_Cloud_CLI_2.37.1_amd64.exe)
+   - [Windows&trade; 32-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/IBM_Cloud_CLI_2.37.1_386.exe)
+   - [Linux&trade; 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/IBM_Cloud_CLI_2.37.1_amd64.tar.gz)
+   - [Linux&trade; 64-bit ARM](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/IBM_Cloud_CLI_2.37.1_arm64.tar.gz)
+   - [Linux&trade; 32-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/IBM_Cloud_CLI_2.37.1_386.tar.gz)
+   - [PowerLinux&trade; 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/IBM_Cloud_CLI_2.37.1_ppc64le.tar.gz)
+   - [System/390 Linux&trade; 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/IBM_Cloud_CLI_2.37.1_s390x.tar.gz)
 
 3. Log in to {{site.data.keyword.cloud_notm}} by using the CLI:
    ```bash
@@ -132,7 +132,7 @@ To view previous releases, access the official [ibm-cloud-cli-releases](https://
 {: #cli-private-endpoints-mac64}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>.pkg
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>.pkg
    ```
    {: codeblock}
 
@@ -140,7 +140,7 @@ To view previous releases, access the official [ibm-cloud-cli-releases](https://
 {: #cli-private-endpoints-windows64}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_amd64.exe
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_amd64.exe
    ```
    {: codeblock}
 
@@ -148,7 +148,7 @@ To view previous releases, access the official [ibm-cloud-cli-releases](https://
 {: #cli-private-endpoints-windows32}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_386.exe
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_386.exe
    ```
    {: codeblock}
 
@@ -156,7 +156,7 @@ To view previous releases, access the official [ibm-cloud-cli-releases](https://
 {: #cli-private-endpoints-linux64}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_amd64.tar.gz
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_amd64.tar.gz
    ```
    {: codeblock}
 
@@ -164,7 +164,7 @@ To view previous releases, access the official [ibm-cloud-cli-releases](https://
 {: #cli-private-endpoints-linux32}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_386.tar.gz
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_386.tar.gz
    ```
    {: codeblock}
 
@@ -172,7 +172,7 @@ To view previous releases, access the official [ibm-cloud-cli-releases](https://
 {: #cli-private-endpoints-powerlinux64}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_ppc64le.tar.gz
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_ppc64le.tar.gz
    ```
    {: codeblock}
 
@@ -180,7 +180,7 @@ To view previous releases, access the official [ibm-cloud-cli-releases](https://
 {: #cli-private-endpoints-s390linux64}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_s390x.tar.gz
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/IBM_Cloud_CLI_<release_tag>_s390x.tar.gz
    ```
    {: codeblock}
 
@@ -226,14 +226,14 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 ### Binary files
 {: #install-custom-binary-files}
 
-   - [Mac OS X 64-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/binaries/IBM_Cloud_CLI_2.33.0_macos.tgz)
-   - [Windows&trade; 64-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/binaries/IBM_Cloud_CLI_2.33.0_windows_amd64.zip)
-   - [Windows&trade; 32-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/binaries/IBM_Cloud_CLI_2.33.0_windows_386.zip)
-   - [Linux&trade; 64-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/binaries/IBM_Cloud_CLI_2.33.0_linux_amd64.tgz)
-   - [Linux&trade; 64-bit ARM](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/binaries/IBM_Cloud_CLI_2.33.0_linux_arm64.tgz)
-   - [Linux&trade; 32-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/binaries/IBM_Cloud_CLI_2.33.0_linux_386.tgz)
-   - [PowerLinux&trade; 64-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/binaries/IBM_Cloud_CLI_2.33.0_linux_ppc64le.tgz)
-   - [System/390 Linux&trade; 64-bit](https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/2.33.0/binaries/IBM_Cloud_CLI_2.33.0_linux_s390x.tgz)
+   - [Mac OS X 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/binaries/IBM_Cloud_CLI_2.37.1_macos.tgz)
+   - [Windows&trade; 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/binaries/IBM_Cloud_CLI_2.37.1_windows_amd64.zip)
+   - [Windows&trade; 32-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/binaries/IBM_Cloud_CLI_2.37.1_windows_386.zip)
+   - [Linux&trade; 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/binaries/IBM_Cloud_CLI_2.37.1_linux_amd64.tgz)
+   - [Linux&trade; 64-bit ARM](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/binaries/IBM_Cloud_CLI_2.37.1_linux_arm64.tgz)
+   - [Linux&trade; 32-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/binaries/IBM_Cloud_CLI_2.37.1_linux_386.tgz)
+   - [PowerLinux&trade; 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/binaries/IBM_Cloud_CLI_2.37.1_linux_ppc64le.tgz)
+   - [System/390 Linux&trade; 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.37.1/binaries/IBM_Cloud_CLI_2.37.1_linux_s390x.tgz)
 
    If you want to install binaries from previous releases, follow this template to construct the private endpoint link of the binary that you want to download, replacing *release_tag* with the release version that you want to download.
 
@@ -243,7 +243,7 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 {: #binary-mac64}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_macos.tgz
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_macos.tgz
    ```
    {: codeblock}
 
@@ -251,7 +251,7 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 {: #binary-windows64}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_windows_amd64.zip
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_windows_amd64.zip
    ```
    {: codeblock}
 
@@ -259,7 +259,7 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 {: #binary-windows32}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_windows_386.zip
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_windows_386.zip
    ```
    {: codeblock}
 
@@ -267,7 +267,7 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 {: #binary-linux64}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_linux_amd64.tgz
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_linux_amd64.tgz
    ```
    {: codeblock}
 
@@ -275,7 +275,7 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 {: #binary-linux32}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_linux_386.tgz
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_linux_386.tgz
    ```
    {: codeblock}
 
@@ -283,7 +283,7 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 {: #binary-powerlinux64}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_linux_ppc64le.tgz
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_linux_ppc64le.tgz
    ```
    {: codeblock}
 
@@ -291,7 +291,7 @@ If you install the {{site.data.keyword.cloud_notm}} CLI to a custom directory, t
 {: #binary-s390linux64}
 
    ```bash
-   https://ibm-cloud-cli.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_linux_s390x.tgz
+   https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/<release_tag>/binaries/IBM_Cloud_CLI_<release_tag>_linux_s390x.tgz
    ```
    {: codeblock}
 
