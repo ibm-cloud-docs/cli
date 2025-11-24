@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-11-24"
 
 subcollection: cli
 
@@ -1478,7 +1478,7 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 ### `ibmcloud project config`
 {: #project-cli-config-command}
 
-Retrieve the specified project configuration in a specific project. For more information about project configurations, see [Monitoring the status of a configuration and its resources](/docs/secure-enterprise?topic=secure-enterprise-monitor-status-projects).
+Retrieve the specified project configuration in a specific project.
 
 ```sh
 ibmcloud project config --project-id PROJECT-ID --id ID
