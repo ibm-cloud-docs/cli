@@ -1,6 +1,7 @@
 includes:
 - https://github.ibm.com/cloud-docs/analytics-engine-cli-plugin
 - https://github.ibm.com/cloud-docs/app-configuration
+- https://github.ibm.com/cloud-docs/atracker
 - https://github.ibm.com/cloud-docs/cephaas
 - https://github.ibm.com/cloud-docs/cis
 - https://github.ibm.com/cloud-docs/cloud-object-storage
@@ -9,7 +10,7 @@ includes:
 - https://github.ibm.com/cloud-docs/ContinuousDelivery
 - https://github.ibm.com/cloud-docs/containers
 - https://github.ibm.com/cloud-docs/data-virtualization
-- https://github.ibm.com/cloud-docs/databases-cli-plugin
+- https://github.ibm.com/cloud-docs/cloud-databases
 - https://github.ibm.com/cloud-docs/dl
 - https://github.ibm.com/cloud-docs/dns-svcs
 - https://github.ibm.com/cloud-docs/event-notifications
@@ -17,8 +18,8 @@ includes:
 - https://github.ibm.com/cloud-docs/hs-crypto
 - https://github.ibm.com/cloud-docs/hp-virtual-servers
 - https://github.ibm.com/cloud-docs/key-protect
-- https://github.ibm.com/cloud-docs/metrics-router-cli
-- https://github.ibm.com/cloud-docs/monitor-cli-plugin
+- https://github.ibm.com/cloud-docs/metrics-router
+- https://github.ibm.com/cloud-docs/monitoring
 - https://github.ibm.com/cloud-docs/openpages
 - https://github.ibm.com/cloud-docs/privileged-access-gateway
 - https://github.ibm.com/cloud-docs/Registry
