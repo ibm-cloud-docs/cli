@@ -66,7 +66,7 @@ toc:
       - topicgroup:
           label: IBM Cloud CLI databases commands
           topics:
-          - include: ../databases-cli-plugin/cloud-databases-cli.md
+          - include: ../cloud-databases/cloud-databases-cli.md
           - include: ../Cloudant/cli/cloudant-cli.md
           - include: ../EventStreams/eventstreams-cli.md
       - topicgroup:
@@ -109,8 +109,9 @@ toc:
       - topicgroup:
           label: IBM Cloud CLI observability commands
           topics:
-          - include: ../metrics-router-cli/metrics-router-cli.md
-          - include: ../monitor-cli-plugin/monitor-cli.md
+          - include: ../metrics-router/metrics-router-cli.md
+          - include: ../monitoring/monitor-cli.md
+          - include: ../atracker/cli/atracker-cli-v2.md
       - topicgroup:
           label: IBM Cloud CLI platform automation commands
           topics:
