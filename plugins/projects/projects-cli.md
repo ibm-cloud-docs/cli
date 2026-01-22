@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-11-24"
+  years: 2023, 2026
+lastupdated: "2026-01-22"
 
 subcollection: cli
 
@@ -878,7 +878,7 @@ The sample environment response.
   },
   "created_at" : "2023-06-29T03:28:14.709Z",
   "modified_at" : "2023-06-29T03:28:14.709Z",
-  "href" : "https://projects.api.test.cloud.ibm.com/v1/projects/6fd53106-7ce6-429e-8c57-f22e832d0c4b/environments/2102afed-94c7-46fe-90f2-7fff290637b4"
+  "href" : "https://projects.api.cloud.ibm.com/v1/projects/6fd53106-7ce6-429e-8c57-f22e832d0c4b/environments/2102afed-94c7-46fe-90f2-7fff290637b4"
 }
 ```
 {: screen}
@@ -971,7 +971,7 @@ The sample environment response for a list.
     },
     "created_at" : "2023-06-29T03:28:14.709Z",
     "modified_at" : "2023-06-29T03:28:14.709Z",
-    "href" : "https://projects.api.test.cloud.ibm.com/v1/projects/6fd53106-7ce6-429e-8c57-f22e832d0c4b/environments/2102afed-94c7-46fe-90f2-7fff290637b4"
+    "href" : "https://projects.api.cloud.ibm.com/v1/projects/6fd53106-7ce6-429e-8c57-f22e832d0c4b/environments/2102afed-94c7-46fe-90f2-7fff290637b4"
   } ]
 }
 ```
@@ -1047,7 +1047,7 @@ The sample environment response.
   },
   "created_at" : "2023-06-29T03:28:14.709Z",
   "modified_at" : "2023-06-29T03:28:14.709Z",
-  "href" : "https://projects.api.test.cloud.ibm.com/v1/projects/6fd53106-7ce6-429e-8c57-f22e832d0c4b/environments/2102afed-94c7-46fe-90f2-7fff290637b4"
+  "href" : "https://projects.api.cloud.ibm.com/v1/projects/6fd53106-7ce6-429e-8c57-f22e832d0c4b/environments/2102afed-94c7-46fe-90f2-7fff290637b4"
 }
 ```
 {: screen}
@@ -1166,7 +1166,7 @@ The sample environment response.
   },
   "created_at" : "2023-06-29T03:28:14.709Z",
   "modified_at" : "2023-06-29T03:28:14.709Z",
-  "href" : "https://projects.api.test.cloud.ibm.com/v1/projects/6fd53106-7ce6-429e-8c57-f22e832d0c4b/environments/2102afed-94c7-46fe-90f2-7fff290637b4"
+  "href" : "https://projects.api.cloud.ibm.com/v1/projects/6fd53106-7ce6-429e-8c57-f22e832d0c4b/environments/2102afed-94c7-46fe-90f2-7fff290637b4"
 }
 ```
 {: screen}
