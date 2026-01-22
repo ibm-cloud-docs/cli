@@ -33,6 +33,7 @@ toc:
       - ha-dr.md
       - cri-token-login.md
       - vpc-cri-login.md
+      - reference/ibmcloud/ibmcloud-cli-proxy.md
   - navgroup:
       id: reference
       links:

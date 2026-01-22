@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-10-08"
+  years: 2015, 2026
+lastupdated: "2026-01-22"
 
 keywords: cli, troubleshoot cli, debug app cli, developer tools debug, ibmcloud cli debug, ibmcloud help, ibmcloud dev help, cli debug, command line, command-line, developer tools troubleshoot
 
@@ -64,6 +64,50 @@ There are multiple resolutions depending on your scenario:
 - If the temp folder on your system lacks executable privileges and cannot be modified, specify a different temp folder during plug-in installation or update. Set the environment variable `$TMPDIR` for Mac or Linux, and `%TMP%` for Windows.
 {: tsResolve}
 
+## Why does login fail with unsupported protocol scheme on MacOS?
+{: #ts-cli-macos-login-failure}
+{: troubleshoot}
+{: support}
+
+When the MacOS has not restarted for some period of time, the networking on the machine can begin to produce the following types of problems:
+{: tsSymptoms}
+
+First example:  **ibmcloud login**
+
+```text
+ibmcloud login
+API endpoint: https://cloud.ibm.com
+Logging in with API key from environment variable...
+Authenticating...
+Post "iam.cloud.ibm.com/identity/token": unsupported protocol scheme ""
+                
+API endpoint:   https://cloud.ibm.com
+Region:         
+Not logged in.
+FAILED
+Unable to authenticate.
+```
+
+Second example:  **ibmcloud login --sso**
+
+```text
+ibmcloud login --sso
+API endpoint: https://cloud.ibm.com
+                
+API endpoint:   https://cloud.ibm.com
+Region:         
+Not logged in.
+FAILED
+Could not get IAM configuration: Get "iam.cloud.ibm.com/identity/.well-known/openid-configuration": unsupported protocol scheme ""
+```
+
+{: screen}
+
+This error is caused by the networking in the MacOS.
+{: tsCauses}
+
+Restart the MacOS system to resolve the issue.
+{: tsResolve}
 
 ## Why do I get a service broker error when I add the {{site.data.keyword.objectstorageshort}} capability?
 {: #ts-cli-object-storage}
