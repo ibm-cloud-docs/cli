@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-07-16"
+  years: 2018, 2026
+lastupdated: "2026-02-02"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -1557,6 +1557,15 @@ ibmcloud iam logins
 Retrieve and display the OAuth tokens for the current session:
 ```bash
 ibmcloud iam oauth-tokens
+```
+{: codeblock}
+
+## ibmcloud iam bearer-token
+{: #ibmcloud_iam_bearer_token}
+
+Retrieve and display the unadorned Bearer token for the current session:
+```bash
+ibmcloud iam bearer-token
 ```
 {: codeblock}
 
