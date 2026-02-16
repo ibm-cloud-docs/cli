@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-11-13"
+  years: 2018, 2026
+lastupdated: "2026-02-16"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
@@ -1260,6 +1260,9 @@ ibmcloud resource reclamation daf12d343ef
 
 ## ibmcloud resource reclamation-restore
 {: #ibmcloud_resource_reclamation_restore}
+
+The amount of time that a deleted resource can be reclaimed is dependent upon the service involved. Check service specific documentation to determine the service's support for reclamation and if supported, the reclamation period.
+{: note}
 
 Restore a reclaimed resource so that the resource is available again:
 ```bash
