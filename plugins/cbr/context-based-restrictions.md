@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: "2025"
-lastupdated: "2025-07-14"
+  years: 2022, 2026
+lastupdated: "2026-03-25"
 
 keywords: cli, context-based restrictions plugin
 
@@ -70,19 +70,19 @@ ibmcloud cbr zone-create --name example-zone-with-vpc --vpc crn:v1:staging:publi
 {: #cbr-cli-zone-create-example-output}
 
 ```sh
-id                    9adc34f2867a43452a517b3c2de78b95   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95   
-address_count         7   
-excluded_count        0   
-name                  test   
-account_id            0123456789   
-description              
-Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References                                                                    
-Excluded              No addresses       
-href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95   
-created_at            2024-03-06T22:20:25.000Z   
+id                    9adc34f2867a43452a517b3c2de78b95
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95
+address_count         7
+excluded_count        0
+name                  test
+account_id            0123456789
+description
+Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References
+Excluded              No addresses
+href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95
+created_at            2024-03-06T22:20:25.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-06T22:20:25.000Z   
+last_modified_at      2024-03-06T22:20:25.000Z
 last_modified_by_id   iam-ServiceId-0123456789
 ```
 {: codeblock}
@@ -138,7 +138,7 @@ ibmcloud cbr zones
 {: #cbr-cli-zones-example-output}
 
 ```sh
-id                                 name      address_count   excluded_count   
+id                                 name      address_count   excluded_count
 9adc34f2867a43452a517b3c2de78b95   test      7               0
 12ab34cd56ef78ab90cd12ef34ab56cd   example   2               0
 ```
@@ -176,19 +176,19 @@ ibmcloud cbr zone 9adc34f2867a43452a517b3c2de78b95
 {: #cbr-cli-zone-example-output}
 
 ```sh
-id                    9adc34f2867a43452a517b3c2de78b95   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95   
-address_count         7   
-excluded_count        0   
-name                  test   
-account_id            0123456789   
-description              
-Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References                                                                    
-Excluded              No addresses       
-href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95   
-created_at            2024-03-06T22:20:25.000Z   
+id                    9adc34f2867a43452a517b3c2de78b95
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95
+address_count         7
+excluded_count        0
+name                  test
+account_id            0123456789
+description
+Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References
+Excluded              No addresses
+href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95
+created_at            2024-03-06T22:20:25.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-06T22:20:25.000Z   
+last_modified_at      2024-03-06T22:20:25.000Z
 last_modified_by_id   iam-ServiceId-0123456789
 ```
 {: codeblock}
@@ -219,19 +219,19 @@ ibmcloud cbr zone-update 9adc34f2867a43452a517b3c2de78b95 --name example-zone-wi
 {: #cbr-cli-zone-update-example-output}
 
 ```sh
-id                    9adc34f2867a43452a517b3c2de78b95   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95   
-address_count         7   
-excluded_count        0   
-name                  test update   
-account_id            0123456789   
-description              
-Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References                                                                    
-Excluded              No addresses       
-href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95   
-created_at            2024-03-06T22:20:25.000Z   
+id                    9adc34f2867a43452a517b3c2de78b95
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95
+address_count         7
+excluded_count        0
+name                  test update
+account_id            0123456789
+description
+Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References
+Excluded              No addresses
+href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95
+created_at            2024-03-06T22:20:25.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-06T22:29:19.000Z   
+last_modified_at      2024-03-06T22:29:19.000Z
 last_modified_by_id   iam-ServiceId-0123456789
 ```
 {: codeblock}
@@ -286,19 +286,19 @@ ibmcloud cbr zone-patch 9adc34f2867a43452a517b3c2de78b95 --name 'Example Zone Na
 {: #cbr-cli-zone-patch-example-output}
 
 ```sh
-id                    9adc34f2867a43452a517b3c2de78b95   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95   
-address_count         7   
-excluded_count        0   
-name                  test update   
-account_id            0123456789   
-description           updated   
-Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References                                                                    
-Excluded              No addresses       
-href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95   
-created_at            2024-03-06T22:20:25.000Z   
+id                    9adc34f2867a43452a517b3c2de78b95
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::zone:9adc34f2867a43452a517b3c2de78b95
+address_count         7
+excluded_count        0
+name                  test update
+account_id            0123456789
+description           updated
+Addresses             1 IP Address, 1 IP Range, 1 Subnet, 2 VPCs, 2 Service References
+Excluded              No addresses
+href                  https://cbr.cloud.ibm.com/v1/zones/9adc34f2867a43452a517b3c2de78b95
+created_at            2024-03-06T22:20:25.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-06T22:29:19.000Z   
+last_modified_at      2024-03-06T22:29:19.000Z
 last_modified_by_id   iam-ServiceId-0123456789
 ```
 {: codeblock}
@@ -352,32 +352,32 @@ ibmcloud cbr service-ref-targets
 {: #cbr-cli-service-ref-targets-example-output}
 
 ```sh
-service_name                   service_type       locations   
-ace                            -                  -   
-apprapp                        -                  na, us, dal   
-apprapp-dev                    -                  na, us, dal   
-cloud-object-storage           -                  na, us, sjc   
-cloudantnosqldb                -                  ap, au, syd, +27   
-codeengine                     -                  ap, au, syd, +6   
-compliance                     platform_service   na, us, dal, +1   
-containers-kubernetes          -                  na, us, dal   
-directlink                     -                  -   
-event-notifications            -                  na, us, dal   
-globalcatalog-collection       -                  -   
-iam-groups                     platform_service   -   
-is                             -                  eu, es, mad, +4   
-kms                            -                  -   
-logdna                         -                  ap, au, syd, +17   
-logdnaat                       -                  ap, au, syd, +17   
-messagehub                     -                  eu, uk, lon, +3   
-messagehub-vnext-integration   -                  eu, uk, lon, +3   
-schematics                     -                  eu, de, fra, +6   
-secrets-manager                -                  -   
-server-protect                 -                  eu, es, mad, +4   
-sysdig-monitor                 -                  eu, uk, lon, +3   
-sysdig-secure                  -                  eu, uk, lon, +3   
-toolchain                      -                  ap, au, syd, +6   
-user-management                platform_service   -   
+service_name                   service_type       locations
+ace                            -                  -
+apprapp                        -                  na, us, dal
+apprapp-dev                    -                  na, us, dal
+cloud-object-storage           -                  na, us, sjc
+cloudantnosqldb                -                  ap, au, syd, +27
+codeengine                     -                  ap, au, syd, +6
+compliance                     platform_service   na, us, dal, +1
+containers-kubernetes          -                  na, us, dal
+directlink                     -                  -
+event-notifications            -                  na, us, dal
+globalcatalog-collection       -                  -
+iam-groups                     platform_service   -
+is                             -                  eu, es, mad, +4
+kms                            -                  -
+logdna                         -                  ap, au, syd, +17
+logdnaat                       -                  ap, au, syd, +17
+messagehub                     -                  eu, uk, lon, +3
+messagehub-vnext-integration   -                  eu, uk, lon, +3
+schematics                     -                  eu, de, fra, +6
+secrets-manager                -                  -
+server-protect                 -                  eu, es, mad, +4
+sysdig-monitor                 -                  eu, uk, lon, +3
+sysdig-secure                  -                  eu, uk, lon, +3
+toolchain                      -                  ap, au, syd, +6
+user-management                platform_service   -
 ```
 {: codeblock}
 
@@ -410,14 +410,14 @@ ibmcloud cbr service-ref-target compliance
 {: #cbr-cli-service-ref-target-example-output}
 
 ```sh
-Service Name     compliance         
-Service Type:    platform_service   
-Locations:       
-                 Name               Display Name    Kind   
-                 na                 North America   geography   
-                 us                 United States   country   
-                 dal                Dallas          metro   
-                 wdc                Washington DC   metro   
+Service Name     compliance
+Service Type:    platform_service
+Locations:
+                 Name               Display Name    Kind
+                 na                 North America   geography
+                 us                 United States   country
+                 dal                Dallas          metro
+                 wdc                Washington DC   metro
 ```
 {: codeblock}
 
@@ -450,21 +450,21 @@ ibmcloud cbr rule-create --service-name example-service --context-attributes mfa
 {: #cbr-cli-rule-create-example-output}
 
 ```sh
-id                    2c54cb0fefb0050c88f72d68c400fbec   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec   
-description           test   
-operations            1 API Type   
-contexts              1 Context   
-resources                                  
-                      serviceInstance   1234567891234   
+id                    2c54cb0fefb0050c88f72d68c400fbec
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec
+description           test
+operations            1 API Type
+contexts              1 Context
+resources
+                      serviceInstance   1234567891234
                       serviceName       cloud-object-storage
-  
-href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec   
-created_at            2024-03-07T15:36:52.000Z   
+
+href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec
+created_at            2024-03-07T15:36:52.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-07T15:36:52.000Z   
+last_modified_at      2024-03-07T15:36:52.000Z
 last_modified_by_id   iam-ServiceId-0123456789
-enforcement_mode      enabled   
+enforcement_mode      enabled
 
 ```
 {: codeblock}
@@ -544,9 +544,9 @@ ibmcloud cbr rules
 {: #cbr-cli-rules-example-output}
 
 ```sh
-id                                 service_name           enforcement   description   
-2c54cb0fefb0050c88f72d68c400fbec   cloud-object-storage   enabled       test   
-a4135a90bb507bf6d96cf4c6f009d151   kms                    disabled       example   
+id                                 service_name           enforcement   description
+2c54cb0fefb0050c88f72d68c400fbec   cloud-object-storage   enabled       test
+a4135a90bb507bf6d96cf4c6f009d151   kms                    disabled       example
 ```
 {: codeblock}
 
@@ -603,21 +603,21 @@ ibmcloud cbr rule 30fd58c9b75f40e854b89c432318b4a2
 {: #cbr-cli-rule-example-output}
 
 ```sh
-id                    2c54cb0fefb0050c88f72d68c400fbec   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec   
-description           test   
-operations            1 API Type   
-contexts              1 Context   
-resources                                  
-                      serviceInstance   1234567891234   
+id                    2c54cb0fefb0050c88f72d68c400fbec
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec
+description           test
+operations            1 API Type
+contexts              1 Context
+resources
+                      serviceInstance   1234567891234
                       serviceName       cloud-object-storage
-  
-href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec   
-created_at            2024-03-07T15:36:52.000Z   
+
+href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec
+created_at            2024-03-07T15:36:52.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-07T15:36:52.000Z   
+last_modified_at      2024-03-07T15:36:52.000Z
 last_modified_by_id   iam-ServiceId-0123456789
-enforcement_mode      enabled   
+enforcement_mode      enabled
 
 ```
 {: codeblock}
@@ -644,19 +644,19 @@ ibmcloud cbr rule-update 30fd58c9b75f40e854b89c432318b4a2 --description 'Example
 {: #cbr-cli-rule-update-example-output}
 
 ```sh
-id                    2c54cb0fefb0050c88f72d68c400fbec   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec   
-description           updated   
-operations            1 API Type   
-contexts              1 Context   
-resources                                  
-                      serviceInstance   1234567891234   
+id                    2c54cb0fefb0050c88f72d68c400fbec
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec
+description           updated
+operations            1 API Type
+contexts              1 Context
+resources
+                      serviceInstance   1234567891234
                       serviceName       cloud-object-storage
-  
-href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec   
-created_at            2024-03-07T15:36:52.000Z   
+
+href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec
+created_at            2024-03-07T15:36:52.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-07T15:41:18.000Z   
+last_modified_at      2024-03-07T15:41:18.000Z
 last_modified_by_id   iam-ServiceId-0123456789
 enforcement_mode      enabled
 ```
@@ -736,19 +736,19 @@ ibmcloud cbr rule-patch 30fd58c9b75f40e854b89c432318b4a2 --description 'Example 
 {: #cbr-cli-rule-patch-example-output}
 
 ```sh
-id                    2c54cb0fefb0050c88f72d68c400fbec   
-crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec   
-description           updated   
-operations            1 API Type   
-contexts              1 Context   
-resources                                  
-                      serviceInstance   1234567891234   
+id                    2c54cb0fefb0050c88f72d68c400fbec
+crn                   crn:v1:bluemix:public:cbr:global:a/0123456789::rule:2c54cb0fefb0050c88f72d68c400fbec
+description           updated
+operations            1 API Type
+contexts              1 Context
+resources
+                      serviceInstance   1234567891234
                       serviceName       cloud-object-storage
-  
-href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec   
-created_at            2024-03-07T15:36:52.000Z   
+
+href                  https://cbr.cloud.ibm.com/v1/rules/2c54cb0fefb0050c88f72d68c400fbec
+created_at            2024-03-07T15:36:52.000Z
 created_by_id         iam-ServiceId-0123456789
-last_modified_at      2024-03-07T15:41:18.000Z   
+last_modified_at      2024-03-07T15:41:18.000Z
 last_modified_by_id   iam-ServiceId-0123456789
 enforcement_mode      enabled
 ```
@@ -782,7 +782,7 @@ ibmcloud cbr rule-delete 30fd58c9b75f40e854b89c432318b4a2
 ```
 {: codeblock}
 
-## Services 
+## Services
 ### `ibmcloud cbr services`
 {: #cbr-cli-services-command}
 
@@ -872,7 +872,7 @@ ibmcloud cbr service context-based-restrictions
 ```sh
 Display Name:     Context-Based Restrictions
 Service Name:     context-based-restrictions
-API Types:     
+API Types:
                   Name   API Type ID                                                     Type      Actions      Description
                   All    crn:v1:bluemix:public:context-based-restrictions::::api-type:   service   10 actions   Protects all service APIs.
 Resource Types:
@@ -906,35 +906,35 @@ ibmcloud cbr rule-options context-based-restrictions --api-types crn:v1:bluemix:
 {: codeblock}
 
 #### Example output
-{: #cbr-cli-rule-example-output}
+{: #cbr-cli-rule-options-example-output}
 
 ```sh
-Operations:                          
-                       API Types:    
+Operations:
+                       API Types:
                                      crn:v1:bluemix:public:context-based-restrictions::::api-type:
-                                     
+
 Enforcement Modes:     disabled, enabled, report
-Context Attributes:                                        
-                       endpointType                        
-                          values:                          
-                                     private               
-                                     public                
-                       mfa                                 
-                          values:                          
-                                     IAM_ACCOUNT_SETTING   
-                                     LEVEL1                
-                                     LEVEL2                
-                                     LEVEL3                
-                       networkZoneId                       
-Resource Attributes:                                              
-                       accountId                                  
-                       resourceGroupId                            
-                       resourceType                               
-                          values:                                 
-                                     rule                         
-                                     zone                         
-                       serviceName                                
-                          values:                                 
+Context Attributes:
+                       endpointType
+                          values:
+                                     private
+                                     public
+                       mfa
+                          values:
+                                     IAM_ACCOUNT_SETTING
+                                     LEVEL1
+                                     LEVEL2
+                                     LEVEL3
+                       networkZoneId
+Resource Attributes:
+                       accountId
+                       resourceGroupId
+                       resourceType
+                          values:
+                                     rule
+                                     zone
+                       serviceName
+                          values:
                                      context-based-restrictions
 ```
 {: codeblock}
