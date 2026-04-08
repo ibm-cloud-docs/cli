@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-02"
+lastupdated: "2026-04-08"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -1550,6 +1550,283 @@ Retrieve and display recent login history:
 ibmcloud iam logins
 ```
 {: codeblock}
+
+## ibmcloud iam identity-provider
+{: #ibmcloud_iam_identity_provider}
+
+Show details of an identity provider:
+```bash
+ibmcloud iam identity-provider (PROVIDER_NAME|PROVIDER_ID) [--history] [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_provider_options}
+
+PROVIDER_NAME|PROVIDER_ID (required)
+:   Name or ID of the identity provider.
+
+--history
+:   Show the history of the identity provider.
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+## ibmcloud iam identity-providers
+{: #ibmcloud_iam_identity_providers}
+
+List all identity providers:
+```bash
+ibmcloud iam identity-providers [--history] [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_providers_options}
+
+--history
+:   Show the history of identity providers.
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+## ibmcloud iam identity-provider-create
+{: #ibmcloud_iam_identity_provider_create}
+
+Create an identity provider:
+```bash
+ibmcloud iam identity-provider-create --file JSON_FILE [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_provider_create_options}
+
+--file JSON_FILE (required)
+:   JSON file containing the identity provider configuration.
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+## ibmcloud iam identity-provider-update
+{: #ibmcloud_iam_identity_provider_update}
+
+Update an identity provider:
+```bash
+ibmcloud iam identity-provider-update (PROVIDER_NAME|PROVIDER_ID) (--file JSON_FILE | --active true|false) [-f, --force] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_provider_update_options}
+
+PROVIDER_NAME|PROVIDER_ID (required)
+:   Name or ID of the identity provider to update.
+
+--file JSON_FILE
+:   JSON file containing the identity provider configuration.
+
+--active true|false
+:   Set the identity provider as active or inactive.
+
+-f, --force
+:   Force the update without confirmation.
+
+-q, --quiet
+:   Suppress verbose output.
+
+## ibmcloud iam identity-provider-delete
+{: #ibmcloud_iam_identity_provider_delete}
+
+Delete an identity provider:
+```bash
+ibmcloud iam identity-provider-delete (PROVIDER_NAME|PROVIDER_ID) [-f, --force] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_provider_delete_options}
+
+PROVIDER_NAME|PROVIDER_ID (required)
+:   Name or ID of the identity provider to delete.
+
+-f, --force
+:   Force the deletion without confirmation.
+
+-q, --quiet
+:   Suppress verbose output.
+
+## ibmcloud iam identity-provider-account-setting
+{: #ibmcloud_iam_identity_provider_account_setting}
+
+Show account setting for an identity provider:
+```bash
+ibmcloud iam identity-provider-account-setting (PROVIDER_NAME|PROVIDER_ID) [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_provider_account_setting_options}
+
+PROVIDER_NAME|PROVIDER_ID (required)
+:   Name or ID of the identity provider.
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+## ibmcloud iam identity-provider-account-settings
+{: #ibmcloud_iam_identity_provider_account_settings}
+
+List all account settings for identity providers:
+```bash
+ibmcloud iam identity-provider-account-settings [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_provider_account_settings_options}
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+## ibmcloud iam identity-provider-account-setting-create
+{: #ibmcloud_iam_identity_provider_account_setting_create}
+
+Create an account setting for an identity provider:
+```bash
+ibmcloud iam identity-provider-account-setting-create (PROVIDER_NAME|PROVIDER_ID) --cloud-user-strategy STRATEGY [--active true|false] [--ui-default true|false] [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_provider_account_setting_create_options}
+
+PROVIDER_NAME|PROVIDER_ID (required)
+:   Name or ID of the identity provider.
+
+--cloud-user-strategy STRATEGY (required)
+:   Cloud user strategy for the identity provider.
+
+--active true|false
+:   Set the account setting as active (true) or inactive (false).
+
+--ui-default true|false
+:   Set as the default UI identity provider (true) or not (false).
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+## ibmcloud iam identity-provider-account-setting-update
+{: #ibmcloud_iam_identity_provider_account_setting_update}
+
+Update an account setting for an identity provider:
+```bash
+ibmcloud iam identity-provider-account-setting-update (PROVIDER_NAME|PROVIDER_ID) [--cloud-user-strategy STRATEGY] [--active true|false] [--ui-default true|false] [-o, --output FORMAT] [-f, --force] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_provider_account_setting_update_options}
+
+PROVIDER_NAME|PROVIDER_ID (required)
+:   Name or ID of the identity provider.
+
+--cloud-user-strategy STRATEGY
+:   Cloud user strategy for the identity provider.
+
+--active true|false
+:   Set the account setting as active (true) or inactive (false).
+
+--ui-default true|false
+:   Set as the default UI identity provider (true) or not (false).
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-f, --force
+:   Force the update without confirmation.
+
+-q, --quiet
+:   Suppress verbose output.
+
+## ibmcloud iam identity-provider-account-setting-delete
+{: #ibmcloud_iam_identity_provider_account_setting_delete}
+
+Delete an account setting for an identity provider:
+```bash
+ibmcloud iam identity-provider-account-setting-delete (PROVIDER_NAME|PROVIDER_ID) [-f, --force] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_provider_account_setting_delete_options}
+
+PROVIDER_NAME|PROVIDER_ID (required)
+:   Name or ID of the identity provider.
+
+-f, --force
+:   Force the deletion without confirmation.
+
+-q, --quiet
+:   Suppress verbose output.
+
+## ibmcloud iam identity-provider-account-alias
+{: #ibmcloud_iam_identity_provider_account_alias}
+
+Show the account alias for identity providers:
+```bash
+ibmcloud iam identity-provider-account-alias [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_provider_account_alias_options}
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+## ibmcloud iam identity-provider-account-alias-update
+{: #ibmcloud_iam_identity_provider_account_alias_update}
+
+Update the account alias for identity providers:
+```bash
+ibmcloud iam identity-provider-account-alias-update ALIAS [-f, --force] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_provider_account_alias_update_options}
+
+ALIAS (required)
+:   New account alias for identity providers.
+
+-f, --force
+:   Force the update without confirmation.
+
+-q, --quiet
+:   Suppress verbose output.
+
 
 ## ibmcloud iam oauth-tokens
 {: #ibmcloud_iam_oauth_tokens}

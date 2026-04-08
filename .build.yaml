@@ -26,6 +26,5 @@ includes:
 - https://github.ibm.com/cloud-docs/satellite
 - https://github.ibm.com/cloud-docs/schematics
 - https://github.ibm.com/cloud-docs/secrets-manager
-- https://github.ibm.com/cloud-docs/security-compliance
 - https://github.ibm.com/cloud-docs/transit-gateway
 - https://github.ibm.com/cloud-docs/vpc-infrastructure-cli-plugin

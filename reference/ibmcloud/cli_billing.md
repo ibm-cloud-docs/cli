@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-10-29"
+  years: 2018, 2026
+lastupdated: "2026-03-25"
 
 keywords: cli, ibmcloud billing, view account, view usage, account usage, resource groups, resources, org-usage
 
@@ -103,6 +103,7 @@ ibmcloud billing resource-instances-usage [-g RESOURCE_GROUP] [-d YYYY-MM] [--ou
 
 -q, --quiet (optional)
 :   Suppress verbose output.
+
 
 ## ibmcloud billing enterprise-usage
 {: #ibmcloud_billing_enterprise_usage}
