@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-08"
+lastupdated: "2026-04-15"
 
-keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
+keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, roles, templates, assignments, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
 subcollection: cli
 
@@ -5194,7 +5194,7 @@ ibmcloud iam account-settings-template-create TEMPLATE_NAME [-d, --description D
 Create an account settings template on your current account
 
 ```bash
-ibmcloud iam account-settings-template-create AccountSettingsEditorTemplate --fie /path/to/account_settings_template.json
+ibmcloud iam account-settings-template-create AccountSettingsEditorTemplate --file /path/to/account_settings_template.json
 ```
 {: codeblock}
 
@@ -5222,7 +5222,7 @@ ibmcloud iam account-settings-template-version (TEMPLATE_ID | TEMPLATE_NAME) TEM
 Show version `1` of account settings template `AccountSettingsEditorTemplate`
 
 ```bash
-ibmcloud iam account-settings-template-create AccountSettingsEditorTemplate 1
+ibmcloud iam account-settings-template-version AccountSettingsEditorTemplate 1
 ```
 {: codeblock}
 
@@ -5497,5 +5497,398 @@ Delete account settings assignment `AccountSettingsAssignment-63d65ed159ff463b8e
 
 ```bash
 ibmcloud iam account-settings-assignment-delete AccountSettingsAssignment-63d65ed159ff463b8ec09ea77d22a05b
+```
+{: codeblock}
+
+## ibmcloud iam role-template
+{: #ibmcloud_iam_role_template}
+
+Show details of a role template:
+```bash
+ibmcloud iam role-template (TEMPLATE_ID|TEMPLATE_NAME) [-o, --output JSON] [-q,--quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_template_options}
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_role_template_examples}
+
+Show details for a role template `RoleTemplate`
+
+```bash
+ibmcloud iam role-template RoleTemplate
+```
+{: codeblock}
+
+## ibmcloud iam role-templates
+{: #ibmcloud_iam_role_templates}
+
+List the latest role templates
+```bash
+ibmcloud iam role-templates [-o, --output JSON][-q,--quiet] 
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_templates_options}
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_role_templates_examples}
+
+List role templates on your current account
+
+```bash
+ibmcloud iam role-templates
+```
+{: codeblock}
+
+## ibmcloud iam role-template-create
+{: #ibmcloud_iam_role_template-create}
+
+Create a role template
+```bash
+ibmcloud iam role-template-create [--file JSON_FILE] [-q,--quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_template_create_options}
+
+--file JSON_FILE
+:   JSON file of the role template definition
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_role_template_create_examples}
+
+Create a role template on your current account
+
+```bash
+ibmcloud iam role-template-create --file /path/to/role_template.json
+```
+{: codeblock}
+
+## ibmcloud iam role-template-version
+{: #ibmcloud_iam_role_template_version}
+
+Show details of a role template version
+```bash
+ibmcloud iam role-template-version (TEMPLATE_ID | TEMPLATE_NAME) TEMPLATE_VERSION [-o, --output JSON] [-q,--quiet] 
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_template_version_options}
+
+--output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+
+### Examples
+{: #ibmcloud_iam_role_template_version_examples}
+
+Show version `1` of role template `RoleTemplate`
+
+```bash
+ibmcloud iam role-template-version RoleTemplate 1
+```
+{: codeblock}
+
+## ibmcloud iam role-template-versions
+{: #ibmcloud_iam_role_template_versions}
+
+List all versions of a role template
+```bash
+ibmcloud iam role-template-versions (TEMPLATE_ID | TEMPLATE_NAME) [-o, --output JSON] [-q,--quiet] 
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_template_versions_options}
+
+--output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_role_template_versions_examples}
+
+List versions of role template `RoleTemplate`
+
+```bash
+ibmcloud iam role-template-versions RoleTemplate
+```
+{: codeblock}
+
+## ibmcloud iam role-template-version-create
+{: #ibmcloud_iam_role_template_version_create}
+
+Create a role template version
+```bash
+ibmcloud iam role-template-version-create (TEMPLATE_ID |TEMPLATE_NAME) --file JSON_FILE} [-q,--quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_template_version_create_options}
+
+--file JSON_FILE
+:   JSON file of template version definition
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_role_template_version_create_examples}
+
+Create a new version of the role template `RoleTemplate`
+
+```bash
+ibmcloud iam role-template-version-create RoleTemplate --file /path/to/role_template.json
+```
+{: codeblock}
+
+## ibmcloud iam role-template-version-update
+{: #ibmcloud_iam_role_template-version-update}
+
+Update an existing role template version 
+```bash
+ibmcloud iam role-template-version-update (TEMPLATE_ID|TEMPLATE_NAME) TEMPLATE_VERSION --file JSON_FILE [-f, --force] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_template_version_update_options}
+
+--file JSON_FILE
+:   JSON file of role template version definition
+
+-f, --force
+: Update without confirmation
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_role_version_update_examples}
+
+Update version `1` of role template `RoleTemplate`
+
+```bash
+ibmcloud iam role-template-version-update RoleTemplate 1 --file /path/to/role_template.json
+```
+{: codeblock}
+
+## ibmcloud iam role-template-version-delete
+{: #ibmcloud_iam_role_template-version-delete}
+
+Delete a role template version
+```bash
+ibmcloud iam role-template-version-delete (TEMPLATE_ID|TEMPLATE_NAME) TEMPLATE_VERSION [-f, --force] [-q,--quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_template_version_delete_options}
+
+-f, --force
+: Force deletion without confirmation
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_role_template_version_delete}
+
+Delete version `2` of role template `RoleTemplate`
+
+```bash
+ibmcloud iam role-template-delete RoleTemplate 2
+```
+{: #codeblock}
+
+## ibmcloud iam role-template-version-commit
+{: #ibmcloud_iam_role_template-version-commit}
+
+Commit a version for role template
+```bash
+ibmcloud iam role-template-commit (TEMPLATE_ID|TEMPLATE_NAME) TEMPLATE_VERSION [-q,--quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_template_version_commit_options}
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_role_template_version_commit_examples}
+
+Commit version `1` of role template `RoleTemplate`
+
+```bash
+ibmcloud iam role-template-version-commit RoleTemplate 1
+```
+{: codeblock}
+
+## ibmcloud iam role-assignments
+{: #ibmcloud_iam_role_assignments}
+
+List role assignments
+```bash
+ibmcloud iam role-assignments [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_assignments_options}
+
+-q, --quiet
+:   Suppress verbose output.
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+### Examples
+{: #ibmcloud_iam_role_assignments_examples}
+
+List assignments in current account
+```bash
+ibmcloud iam role-assignments
+```
+{: codeblock}
+
+## ibmcloud iam role-assignment
+{: #ibmcloud_iam_role_assignment}
+
+Show details of a role assignment
+```bash
+ibmcloud iam role-assignment ASSIGNMENT_ID [-o, --output FORMAT] [-q,--quiet]
+``` 
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_assignment_options}
+
+-o, --output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+--output FORMAT
+:   Specify the output format. Only 'JSON' is supported.
+
+### Examples
+{: #ibmcloud_iam_role_assignment_examples}
+
+Get role assignment `roleAssignment-083b0773-0b2a-4b2f-9d1f-4e1077a94d88`
+```bash
+ibmcloud iam role-assignment roleAssignment-083b0773-0b2a-4b2f-9d1f-4e1077a94d88
+```
+{: codeblock}
+
+## ibmcloud iam role-assignment-create
+{: #ibmcloud_iam_role_assignment_create}
+
+Create a role assignment
+```bash
+ibmcloud iam role-assignment-create (TEMPLATE_ID|TEMPLATE_NAME) TEMPLATE_VERSION --target-type TYPE --target TARGET [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_template_assignment_create_options}
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_role_template_assignment_create_examples}
+
+Assign role template to account
+```bash
+ibmcloud iam role-assignment-create RoleTemplateTest 1 --target-type Account --target f7fc6938256e46e1a25ee09e14ca9c20
+```
+{: codeblock}
+
+Assign role template to account group
+```bash
+ibmcloud iam role-assignment-create RoleTemplateTest 1 --target-type AccountGroup --target 955fc2274567474f8da802d5c376504b
+```
+{: codeblock}
+
+## ibmcloud iam role-assignment-update
+{: #ibmcloud_iam_role_assignment-update}
+
+Update a role assignment
+```bash
+ibmcloud iam role-assigment-update ASSIGNMENT_ID TEMPLATE_VERSION [-q,--quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_assignment_update_options}
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_role_assignment_update_examples}
+
+Update role assignment `roleAssignment-57910cb5-e8b9-43dd-87fb-fe2ee1801e9b` to a template version 2
+
+```bash
+ibmcloud iam role-assignment-update roleAssignment-57910cb5-e8b9-43dd-87fb-fe2ee1801e9b 2
+```
+{: codeblock}
+
+## ibmcloud iam role-assignment-delete
+{: #ibmcloud_iam_role_assignment-delete}
+
+Delete an role assignment. This action removes any resources that this assignment creates:
+```bash
+ibmcloud iam role-assigment-delete ASSIGNMENT_ID [-f, --force] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_role_assignment_delete_options}
+
+-f, --force
+:   Force deletion without confirmation
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_role_assignment_delete_examples}
+
+Delete role assignment `roleAssignment-ff2e9e03-ee31-4aa8-9356-1a2e3e210e4c`
+
+```bash
+ibmcloud iam role-assignment-delete roleAssignment-ff2e9e03-ee31-4aa8-9356-1a2e3e210e4c
 ```
 {: codeblock}
