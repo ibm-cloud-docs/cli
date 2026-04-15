@@ -1418,7 +1418,7 @@ For more information, see [Creating workspaces and importing the Terraform templ
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The list items must match regular expression `/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/`. The maximum length is `110` items. The minimum length is `0` items.
+    The list items must match regular expression ``/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/``. The maximum length is `110` items. The minimum length is `0` items.
 
 `--schematics-workspace-crn` (string)
 :   An IBM Cloud resource name that uniquely identifies a resource. This option provides a value for a sub-field of the JSON option 'schematics'. It is mutually exclusive with that option.
@@ -1735,7 +1735,7 @@ ibmcloud project config-update --id ID {--definition DEFINITION | --definition-c
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The list items must match regular expression `/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/`. The maximum length is `110` items. The minimum length is `0` items.
+    The list items must match regular expression ``/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/``. The maximum length is `110` items. The minimum length is `0` items.
 
 `--output` (string)
 :   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
@@ -2207,7 +2207,7 @@ For more information, see [Creating workspaces and importing the Terraform templ
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The list items must match regular expression `/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/`. The maximum length is `110` items. The minimum length is `0` items.
+    The list items must match regular expression ``/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/``. The maximum length is `110` items. The minimum length is `0` items.
 
 `--schematics-workspace-crn` (string)
 :   An IBM Cloud resource name that uniquely identifies a resource. This option provides a value for a sub-field of the JSON option 'schematics'. It is mutually exclusive with that option.
