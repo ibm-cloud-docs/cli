@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-04-15"
 
 subcollection: cli
 
@@ -37,13 +37,62 @@ You're notified on the command line when updates to the {{site.data.keyword.clou
 
 Commands for Projects resource.
 
+### `ibmcloud project select`
+{: #project-cli-select-command}
+
+Alias: `target`
+
+Select a project as the current context.
+
+```sh
+ibmcloud project select PROJECT_ID|PROJECT_NAME [--unset-project] [--output FORMAT] [-q, --quiet]
+```
+
+
+#### Examples
+{: #project-select-examples}
+
+```sh
+ibmcloud project select db4da927-80bc-4161-960d-7ce2b5e1be96
+```
+
+{:pre}
+
+Alternatively, you can select by project name
+
+```sh
+ibmcloud project select ProjectA
+```
+
+To unselect a project
+```sh
+ibmcloud project select --unset-project
+```
+
+#### Command options
+{: #project-select-cli-options}
+
+`--unset-project` (bool)
+:   Unset targeted project
+
+`--output` (string)
+:   Choose an output format - can be 'json' or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
+
+```sh
+ibmcloud project select --unset-project
+```
+
+
 ### `ibmcloud project create`
 {: #project-cli-create-command}
 
 Create a project and asynchronously setup the tools to manage it. Add a deployable architecture by customizing the configuration. After the changes are validated and approved, deploy the resources that the project configures. For more information, see [Creating a project](/docs/secure-enterprise?topic=secure-enterprise-setup-project&interface=ui).
 
 ```sh
-ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-description DEFINITION-DESCRIPTION --definition-auto-deploy-mode DEFINITION-AUTO-DEPLOY-MODE --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-store DEFINITION-STORE --definition-terraform-engine DEFINITION-TERRAFORM-ENGINE --definition-auto-deploy=DEFINITION-AUTO-DEPLOY] --location LOCATION --resource-group RESOURCE-GROUP [--configs CONFIGS] [--environments ENVIRONMENTS]
+ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-description DEFINITION-DESCRIPTION --definition-auto-deploy-mode DEFINITION-AUTO-DEPLOY-MODE --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-store DEFINITION-STORE --definition-terraform-engine DEFINITION-TERRAFORM-ENGINE --definition-auto-deploy=DEFINITION-AUTO-DEPLOY] --location LOCATION --resource-group RESOURCE-GROUP [--configs CONFIGS] [--environments ENVIRONMENTS] [--output FORMAT] [-q, --quiet]
 ```
 
 
@@ -121,6 +170,12 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
 
     The default value is `false`.
 
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
+
 #### Examples
 {: #project-create-examples}
 
@@ -159,7 +214,7 @@ List existing projects. Projects are sorted by ID.
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud project list [--token TOKEN] [--limit LIMIT]
+ibmcloud project list [--token TOKEN] [--limit LIMIT] [--output FORMAT] [-q, --quiet]
 ```
 
 
@@ -178,6 +233,12 @@ ibmcloud project list [--token TOKEN] [--limit LIMIT]
 
 `--all-pages` (bool)
 :   Invoke multiple requests to display all pages of the collection for list.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-list-examples}
@@ -272,7 +333,7 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 Get information about a project.
 
 ```sh
-ibmcloud project get --id ID
+ibmcloud project get [--id ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
@@ -280,7 +341,7 @@ ibmcloud project get --id ID
 {: #project-get-cli-options}
 
 `--id` (string)
-:   The unique project ID. Required.
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -483,7 +544,7 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 Update a project by specifying its ID.
 
 ```sh
-ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-description DEFINITION-DESCRIPTION --definition-auto-deploy-mode DEFINITION-AUTO-DEPLOY-MODE --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-store DEFINITION-STORE --definition-terraform-engine DEFINITION-TERRAFORM-ENGINE --definition-auto-deploy=DEFINITION-AUTO-DEPLOY]
+ibmcloud project update [--id ID] {--definition DEFINITION | --definition-name DEFINITION-NAME --definition-description DEFINITION-DESCRIPTION --definition-auto-deploy-mode DEFINITION-AUTO-DEPLOY-MODE --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-store DEFINITION-STORE --definition-terraform-engine DEFINITION-TERRAFORM-ENGINE --definition-auto-deploy=DEFINITION-AUTO-DEPLOY} [--output FORMAT] [-q, --quiet]
 ```
 
 
@@ -491,7 +552,7 @@ ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEF
 {: #project-update-cli-options}
 
 `--id` (string)
-:   The unique project ID. Required.
+:   The unique project ID. Required if project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -535,6 +596,12 @@ ibmcloud project update --id ID [--definition DEFINITION | --definition-name DEF
 
 `--definition-auto-deploy` (bool)
 :   A boolean flag to enable deploying configurations automatically. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Examples
 {: #project-update-examples}
@@ -733,7 +800,7 @@ A sample response for retrieving a project with configurations.
 Delete a project document by specifying the ID. A project can be deleted only after deleting all of its resources.
 
 ```sh
-ibmcloud project delete --id ID
+ibmcloud project delete [--id ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
@@ -741,7 +808,7 @@ ibmcloud project delete --id ID
 {: #project-delete-cli-options}
 
 `--id` (string)
-:   The unique project ID. Required.
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -777,7 +844,7 @@ Commands for Environments resource.
 Create an environment to group related configurations together and share values across them for easier deployment. For more information, see [Creating an environment](/docs/secure-enterprise?topic=secure-enterprise-create-env).
 
 ```sh
-ibmcloud project environment-create --project-id PROJECT-ID [--definition DEFINITION | --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE]
+ibmcloud project environment-create [--project-id PROJECT-ID] [--definition DEFINITION | --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE]
 ```
 
 
@@ -785,7 +852,7 @@ ibmcloud project environment-create --project-id PROJECT-ID [--definition DEFINI
 {: #project-environment-create-cli-options}
 
 `--project-id` (string)
-:   The unique project ID. Required.
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -818,6 +885,13 @@ ibmcloud project environment-create --project-id PROJECT-ID [--definition DEFINI
 :   The profile that is required for compliance. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-compliance-profile=@path/to/file.json`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
+
 
 #### Examples
 {: #project-environment-create-examples}
@@ -890,7 +964,7 @@ List all available environments. For more information, see [Creating an environm
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud project environments --project-id PROJECT-ID [--token TOKEN] [--limit LIMIT]
+ibmcloud project environments [--project-id PROJECT-ID] [--token TOKEN] [--limit LIMIT] [--output FORMAT] [-q, --quiet]
 ```
 
 
@@ -898,7 +972,7 @@ ibmcloud project environments --project-id PROJECT-ID [--token TOKEN] [--limit L
 {: #project-environments-cli-options}
 
 `--project-id` (string)
-:   The unique project ID. Required.
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -914,6 +988,12 @@ ibmcloud project environments --project-id PROJECT-ID [--token TOKEN] [--limit L
 
 `--all-pages` (bool)
 :   Invoke multiple requests to display all pages of the collection for environments.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-environments-examples}
@@ -983,22 +1063,29 @@ The sample environment response for a list.
 Get an environment. [Learn more](/docs/secure-enterprise?topic=secure-enterprise-create-env).
 
 ```sh
-ibmcloud project environment --project-id PROJECT-ID --id ID
+ibmcloud project environment --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-environment-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
-
 `--id` (string)
 :   The environment ID. Required.
 
     The maximum length is `256` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$).+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
+
 
 #### Example
 {: #project-environment-examples}
@@ -1058,22 +1145,22 @@ The sample environment response.
 Update an environment by specifying its ID. [Learn more](/docs/secure-enterprise?topic=secure-enterprise-create-env).
 
 ```sh
-ibmcloud project environment-update --project-id PROJECT-ID --id ID [--definition DEFINITION | --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE]
+ibmcloud project environment-update [--project-id PROJECT-ID] --id ID [--definition DEFINITION | --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-environment-update-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
-
 `--id` (string)
 :   The environment ID. Required.
 
     The maximum length is `256` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$).+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--definition` ([`EnvironmentDefinitionPropertiesPatch`](#cli-environment-definition-properties-patch-example-schema))
 :   The environment definition that is used for updates. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
@@ -1104,6 +1191,12 @@ ibmcloud project environment-update --project-id PROJECT-ID --id ID [--definitio
 :   The profile that is required for compliance. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-compliance-profile=@path/to/file.json`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Examples
 {: #project-environment-update-examples}
@@ -1177,22 +1270,28 @@ The sample environment response.
 Delete an environment in a project by specifying its ID.
 
 ```sh
-ibmcloud project environment-delete --project-id PROJECT-ID --id ID
+ibmcloud project environment-delete --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-environment-delete-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
-
 `--id` (string)
 :   The environment ID. Required.
 
     The maximum length is `256` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$).+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-environment-delete-examples}
@@ -1227,7 +1326,7 @@ Commands for Configurations resource.
 Add a new configuration to a project.
 
 ```sh
-ibmcloud project config-create --project-id PROJECT-ID [--definition DEFINITION | --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE --definition-locator-id DEFINITION-LOCATOR-ID --definition-members DEFINITION-MEMBERS --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-settings DEFINITION-SETTINGS --definition-environment-id DEFINITION-ENVIRONMENT-ID --definition-resource-crns DEFINITION-RESOURCE-CRNS] [--schematics SCHEMATICS | --schematics-workspace-crn SCHEMATICS-WORKSPACE-CRN]
+ibmcloud project config-create [--project-id PROJECT-ID] [--definition DEFINITION | --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE --definition-locator-id DEFINITION-LOCATOR-ID --definition-members DEFINITION-MEMBERS --definition-uses DEFINITION-USES --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-settings DEFINITION-SETTINGS --definition-environment-id DEFINITION-ENVIRONMENT-ID --definition-resource-crns DEFINITION-RESOURCE-CRNS] [--schematics SCHEMATICS | --schematics-workspace-crn SCHEMATICS-WORKSPACE-CRN] [--output FORMAT] [-q, --quiet]
 ```
 
 
@@ -1235,7 +1334,7 @@ ibmcloud project config-create --project-id PROJECT-ID [--definition DEFINITION 
 {: #project-config-create-cli-options}
 
 `--project-id` (string)
-:   The unique project ID. Required.
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -1279,6 +1378,13 @@ For more information, see [Creating workspaces and importing the Terraform templ
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-members=@path/to/file.json`.
 
+`--definition-uses` ([`ProjectConfigUses[]`](#cli-project-config-uses-example-schema))
+:   The depending deployabe architectures that are referenced by this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+
+    The maximum length is `100` items. The minimum length is `0` items.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-uses=@path/to/file.json`.
+
 `--definition-description` (string)
 :   A project configuration description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
@@ -1290,7 +1396,7 @@ For more information, see [Creating workspaces and importing the Terraform templ
     The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9][a-zA-Z0-9-_ ]*$/`.
 
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
-:   The authorization details. You can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The authorization details. It can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-authorizations=@path/to/file.json`.
 
@@ -1319,6 +1425,12 @@ For more information, see [Creating workspaces and importing the Terraform templ
 
     The maximum length is `512` characters. The minimum length is `4` characters. The value must match regular expression `/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/`.
 
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
+
 #### Examples
 {: #project-config-create-examples}
 
@@ -1337,6 +1449,7 @@ ibmcloud project config-create \
     --definition-compliance-profile projectComplianceProfile \
     --definition-locator-id exampleString \
     --definition-members '[stackMember]' \
+    --definition-uses '[projectConfigUses]' \
     --definition-description exampleString \
     --definition-name exampleString \
     --definition-authorizations projectConfigAuth \
@@ -1354,7 +1467,7 @@ Retrieve the collection of configurations.
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud project configs --project-id PROJECT-ID [--token TOKEN] [--limit LIMIT]
+ibmcloud project configs [--project-id PROJECT-ID] [--token TOKEN] [--limit LIMIT] [--output FORMAT] [-q, --quiet]
 ```
 
 
@@ -1362,7 +1475,7 @@ ibmcloud project configs --project-id PROJECT-ID [--token TOKEN] [--limit LIMIT]
 {: #project-configs-cli-options}
 
 `--project-id` (string)
-:   The unique project ID. Required.
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -1378,6 +1491,12 @@ ibmcloud project configs --project-id PROJECT-ID [--token TOKEN] [--limit LIMIT]
 
 `--all-pages` (bool)
 :   Invoke multiple requests to display all pages of the collection for configs.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-configs-examples}
@@ -1481,20 +1600,20 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 Retrieve the specified project configuration in a specific project.
 
 ```sh
-ibmcloud project config --project-id PROJECT-ID --id ID
+ibmcloud project config --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q,--quiet]
 ```
 
 
 #### Command options
 {: #project-config-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
+`--id` (string)
+:   The unique configuration ID. Required.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
-`--id` (string)
-:   The unique configuration ID. Required.
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -1532,7 +1651,7 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 Update a configuration in a project by specifying the ID. [Learn more](/docs/secure-enterprise?topic=secure-enterprise-config-project).
 
 ```sh
-ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEFINITION | --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE --definition-locator-id DEFINITION-LOCATOR-ID --definition-members DEFINITION-MEMBERS --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-settings DEFINITION-SETTINGS --definition-environment-id DEFINITION-ENVIRONMENT-ID --definition-resource-crns DEFINITION-RESOURCE-CRNS]
+ibmcloud project config-update --id ID {--definition DEFINITION | --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE --definition-locator-id DEFINITION-LOCATOR-ID --definition-members DEFINITION-MEMBERS --definition-uses DEFINITION-USES --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-settings DEFINITION-SETTINGS --definition-environment-id DEFINITION-ENVIRONMENT-ID --definition-resource-crns DEFINITION-RESOURCE-CRNS} [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
@@ -1540,7 +1659,7 @@ ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEF
 {: #project-config-update-cli-options}
 
 `--project-id` (string)
-:   The unique project ID. Required.
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -1575,6 +1694,13 @@ ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEF
     The maximum length is `100` items. The minimum length is `0` items.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-members=@path/to/file.json`.
+
+`--definition-uses` ([`ProjectConfigUses[]`](#cli-project-config-uses-example-schema))
+:   The depending deployabe architectures that are referenced by this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+
+    The maximum length is `100` items. The minimum length is `0` items.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-uses=@path/to/file.json`.
 
 `--definition-description` (string)
 :   A project configuration description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -1611,6 +1737,12 @@ ibmcloud project config-update --project-id PROJECT-ID --id ID [--definition DEF
 
     The list items must match regular expression `/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/`. The maximum length is `110` items. The minimum length is `0` items.
 
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
+
 #### Examples
 {: #project-config-update-examples}
 
@@ -1630,6 +1762,7 @@ ibmcloud project config-update \
     --definition-compliance-profile projectComplianceProfile \
     --definition-locator-id exampleString \
     --definition-members '[stackMember]' \
+    --definition-uses '[projectConfigUses]' \
     --definition-description exampleString \
     --definition-name exampleString \
     --definition-authorizations projectConfigAuth \
@@ -1645,20 +1778,21 @@ ibmcloud project config-update \
 Delete a configuration in a project by specifying its ID.
 
 ```sh
-ibmcloud project config-delete --project-id PROJECT-ID --id ID
+ibmcloud project config-delete --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-config-delete-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--id` (string)
 :   The unique configuration ID. Required.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -1690,7 +1824,7 @@ The example response to a request to delete a configuration.
 Force approve configuration edits to the main configuration with an approving comment.
 
 ```sh
-ibmcloud project config-force-approve --project-id PROJECT-ID --id ID --comment COMMENT
+ibmcloud project config-force-approve --id ID --comment COMMENT [--project-id PROJECT-ID]
 ```
 
 
@@ -1698,7 +1832,7 @@ ibmcloud project config-force-approve --project-id PROJECT-ID --id ID --comment 
 {: #project-config-force-approve-cli-options}
 
 `--project-id` (string)
-:   The unique project ID. Required.
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -1711,6 +1845,12 @@ ibmcloud project config-force-approve --project-id PROJECT-ID --id ID --comment 
 :   Notes on the project draft action. If this action is a force approve on the draft configuration, it must include a nonempty comment. Required.
 
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-config-force-approve-examples}
@@ -1781,17 +1921,12 @@ The example response to a request for a deployable architecture configuration dr
 Approve and merge configuration edits to the main configuration.
 
 ```sh
-ibmcloud project config-approve --project-id PROJECT-ID --id ID [--comment COMMENT]
+ibmcloud project config-approve --id ID --comment COMMENT [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-config-approve-cli-options}
-
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--id` (string)
 :   The unique configuration ID. Required.
@@ -1802,6 +1937,17 @@ ibmcloud project config-approve --project-id PROJECT-ID --id ID [--comment COMME
 :   Notes on the project draft action. If this action is a force approve on the draft configuration, it must include a nonempty comment.
 
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-config-approve-examples}
@@ -1872,22 +2018,29 @@ The example response to a request for a deployable architecture configuration dr
 Run a validation check on a specific configuration in the project. The check includes creating or updating the associated Schematics workspace with a plan job, running the CRA scans, and cost estimation.
 
 ```sh
-ibmcloud project config-validate --project-id PROJECT-ID --id ID
+ibmcloud project config-validate --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet] 
 ```
 
 
 #### Command options
 {: #project-config-validate-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--id` (string)
 :   The unique configuration ID. Required.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-config-validate-examples}
@@ -1957,20 +2110,20 @@ The example response to a request for a deployable architecture configuration dr
 Run a validation check a configuration passed via the API. The check includes creating a Schematics workspace with a plan job, running the CRA scans, and cost estimation.
 
 ```sh
-ibmcloud project config-prevalidate --project-id PROJECT-ID --id ID [--definition DEFINITION | --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE --definition-locator-id DEFINITION-LOCATOR-ID --definition-members DEFINITION-MEMBERS --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-settings DEFINITION-SETTINGS --definition-environment-id DEFINITION-ENVIRONMENT-ID --definition-resource-crns DEFINITION-RESOURCE-CRNS] [--schematics SCHEMATICS | --schematics-workspace-crn SCHEMATICS-WORKSPACE-CRN]
+ibmcloud project config-prevalidate --id ID [--project-id PROJECT-ID] {--definition DEFINITION | --definition-compliance-profile DEFINITION-COMPLIANCE-PROFILE --definition-locator-id DEFINITION-LOCATOR-ID --definition-members DEFINITION-MEMBERS --definition-uses DEFINITION-USES --definition-description DEFINITION-DESCRIPTION --definition-name DEFINITION-NAME --definition-authorizations DEFINITION-AUTHORIZATIONS --definition-inputs DEFINITION-INPUTS --definition-settings DEFINITION-SETTINGS --definition-environment-id DEFINITION-ENVIRONMENT-ID --definition-resource-crns DEFINITION-RESOURCE-CRNS} [--schematics SCHEMATICS | --schematics-workspace-crn SCHEMATICS-WORKSPACE-CRN] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-config-prevalidate-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
+`--id` (string)
+:   The unique configuration ID. Required.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
-`--id` (string)
-:   The unique configuration ID. Required.
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -2014,6 +2167,13 @@ For more information, see [Creating workspaces and importing the Terraform templ
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-members=@path/to/file.json`.
 
+`--definition-uses` ([`ProjectConfigUses[]`](#cli-project-config-uses-example-schema))
+:   The depending deployabe architectures that are referenced by this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+
+    The maximum length is `100` items. The minimum length is `0` items.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-uses=@path/to/file.json`.
+
 `--definition-description` (string)
 :   A project configuration description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
@@ -2054,6 +2214,12 @@ For more information, see [Creating workspaces and importing the Terraform templ
 
     The maximum length is `512` characters. The minimum length is `4` characters. The value must match regular expression `/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/`.
 
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
+
 #### Examples
 {: #project-config-prevalidate-examples}
 
@@ -2074,6 +2240,7 @@ ibmcloud project config-prevalidate \
     --definition-compliance-profile projectComplianceProfile \
     --definition-locator-id exampleString \
     --definition-members '[stackMember]' \
+    --definition-uses '[projectConfigUses]' \
     --definition-description exampleString \
     --definition-name exampleString \
     --definition-authorizations projectConfigAuth \
@@ -2102,17 +2269,12 @@ The result object for prevalidate.
 Retrieve the prevalidate results using a key.
 
 ```sh
-ibmcloud project get-prevalidate --project-id PROJECT-ID --id ID --result-id RESULT-ID
+ibmcloud project get-prevalidate --id ID --result-id RESULT-ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-get-prevalidate-cli-options}
-
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--id` (string)
 :   The unique configuration ID. Required.
@@ -2123,6 +2285,18 @@ ibmcloud project get-prevalidate --project-id PROJECT-ID --id ID --result-id RES
 :   The unique identifier to get prevalidate events. Required.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
+
 
 #### Example
 {: #project-get-prevalidate-examples}
@@ -2160,7 +2334,7 @@ A response example for get prevalidate results.
       "destroy_messages" : { }
     }
   },
-  "result" : "passed"
+  "result" : "succeeded"
 }
 ```
 {: screen}
@@ -2171,22 +2345,29 @@ A response example for get prevalidate results.
 Deploy a project's configuration. This operation is asynchronous and can be tracked by using the get project configuration API with full metadata.
 
 ```sh
-ibmcloud project config-deploy --project-id PROJECT-ID --id ID
+ibmcloud project config-deploy --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-config-deploy-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
-
 `--id` (string)
 :   The unique configuration ID. Required.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
+
 
 #### Example
 {: #project-config-deploy-examples}
@@ -2256,22 +2437,28 @@ The example response to a request for a deployable architecture configuration dr
 Undeploy a project's configuration resources. The operation undeploys all the resources that are deployed with the specific configuration. The configuration resources can be tracked by using the get project configuration API with full metadata.
 
 ```sh
-ibmcloud project config-undeploy --project-id PROJECT-ID --id ID
+ibmcloud project config-undeploy --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-config-undeploy-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
-
 `--id` (string)
 :   The unique configuration ID. Required.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-config-undeploy-examples}
@@ -2341,17 +2528,12 @@ The example response to a request for a deployable architecture configuration dr
 Sync a project configuration by analyzing the associated pipeline runs and Schematics workspace logs to get the configuration back to a working state.
 
 ```sh
-ibmcloud project config-sync --project-id PROJECT-ID --id ID [--schematics SCHEMATICS | --schematics-workspace-crn SCHEMATICS-WORKSPACE-CRN]
+ibmcloud project config-sync --id ID [--schematics SCHEMATICS | --schematics-workspace-crn SCHEMATICS-WORKSPACE-CRN] [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-config-sync-cli-options}
-
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--id` (string)
 :   The unique configuration ID. Required.
@@ -2375,6 +2557,17 @@ For more information, see [Creating workspaces and importing the Terraform templ
 :   An IBM Cloud resource name that uniquely identifies a resource. This option provides a value for a sub-field of the JSON option 'schematics'. It is mutually exclusive with that option.
 
     The maximum length is `512` characters. The minimum length is `4` characters. The value must match regular expression `/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Examples
 {: #project-config-sync-examples}
@@ -2409,15 +2602,21 @@ ibmcloud project config-resources --project-id PROJECT-ID --id ID
 #### Command options
 {: #project-config-resources-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
-
 `--id` (string)
 :   The unique configuration ID. Required.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-config-resources-examples}
@@ -2472,17 +2671,12 @@ The example response to a request to get project configuration resources.
 Defines inputs at the stack level that users need to configure along with input values at the member level. These values are included in the catalog entry when the deployable architecture stack is exported to a private catalog and are required for the deployable architecture stack to deploy. A reference can be added to a value, or add the value explicitly at the member level.
 
 ```sh
-ibmcloud project stack-definition-create --project-id PROJECT-ID --id ID [--stack-definition STACK-DEFINITION | --stack-definition-inputs STACK-DEFINITION-INPUTS --stack-definition-outputs STACK-DEFINITION-OUTPUTS]
+ibmcloud project stack-definition-create --id ID {--stack-definition STACK-DEFINITION | --stack-definition-inputs STACK-DEFINITION-INPUTS --stack-definition-outputs STACK-DEFINITION-OUTPUTS} [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-stack-definition-create-cli-options}
-
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--id` (string)
 :   The unique configuration ID. Required.
@@ -2507,6 +2701,17 @@ ibmcloud project stack-definition-create --project-id PROJECT-ID --id ID [--stac
     The maximum length is `100` items. The minimum length is `0` items.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-outputs=@path/to/file.json`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Examples
 {: #project-stack-definition-create-examples}
@@ -2597,22 +2802,28 @@ Sample response from a create stack template operation.
 Retrieve the stack definition that is associated to the configuration.
 
 ```sh
-ibmcloud project stack-definition --project-id PROJECT-ID --id ID
+ibmcloud project stack-definition --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-stack-definition-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
-
 `--id` (string)
 :   The unique configuration ID. Required.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-stack-definition-examples}
@@ -2692,17 +2903,12 @@ Sample response from a create stack template operation.
 Update the stack definition that is associated with the configuration.
 
 ```sh
-ibmcloud project stack-definition-update --project-id PROJECT-ID --id ID [--stack-definition STACK-DEFINITION | --stack-definition-inputs STACK-DEFINITION-INPUTS --stack-definition-outputs STACK-DEFINITION-OUTPUTS]
+ibmcloud project stack-definition-update --id ID {--stack-definition STACK-DEFINITION | --stack-definition-inputs STACK-DEFINITION-INPUTS --stack-definition-outputs STACK-DEFINITION-OUTPUTS} [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-stack-definition-update-cli-options}
-
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--id` (string)
 :   The unique configuration ID. Required.
@@ -2727,6 +2933,17 @@ ibmcloud project stack-definition-update --project-id PROJECT-ID --id ID [--stac
     The maximum length is `100` items. The minimum length is `0` items.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-outputs=@path/to/file.json`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Examples
 {: #project-stack-definition-update-examples}
@@ -2800,17 +3017,13 @@ Sample response from a patch stack template operation.
 Exports the deployable architecture stack to a private catalog. All member deployable architectures within the stack must be validated and deployed before the stack is exported. The stack definition must also exist before the stack is exported. The stack can be exported as a new product, or as a new version of an existing product.
 
 ```sh
-ibmcloud project stack-definition-export --project-id PROJECT-ID --id ID [--settings SETTINGS | --settings-catalog-id SETTINGS-CATALOG-ID --settings-target-version SETTINGS-TARGET-VERSION --settings-variation SETTINGS-VARIATION --settings-label SETTINGS-LABEL --settings-tags SETTINGS-TAGS --settings-product-id SETTINGS-PRODUCT-ID]
+ibmcloud project stack-definition-export --id ID [--settings SETTINGS | --settings-catalog-id SETTINGS-CATALOG-ID --settings-target-version SETTINGS-TARGET-VERSION --settings-variation SETTINGS-VARIATION --settings-label SETTINGS-LABEL --settings-tags SETTINGS-TAGS --settings-product-id SETTINGS-PRODUCT-ID] [--project-id PROJECT_ID] [--output FORMAT] [-q, --quiet]
+
 ```
 
 
 #### Command options
 {: #project-stack-definition-export-cli-options}
-
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--id` (string)
 :   The unique configuration ID. Required.
@@ -2851,6 +3064,17 @@ ibmcloud project stack-definition-export --project-id PROJECT-ID --id ID [--sett
 :   The product ID to publish. This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
 
     The maximum length is `36` characters. The value must match regular expression `/^[\\-0-9a-zA-Z]+$/`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Examples
 {: #project-stack-definition-export-examples}
@@ -2899,7 +3123,7 @@ Sample response from exporting a stack definition to the private catalog
 Retrieve a list of previous and current versions of a project configuration in a specific project.
 
 ```sh
-ibmcloud project config-versions --project-id PROJECT-ID --id ID
+ibmcloud project config-versions --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
@@ -2907,7 +3131,7 @@ ibmcloud project config-versions --project-id PROJECT-ID --id ID
 {: #project-config-versions-cli-options}
 
 `--project-id` (string)
-:   The unique project ID. Required.
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
@@ -2915,6 +3139,9 @@ ibmcloud project config-versions --project-id PROJECT-ID --id ID
 :   The unique configuration ID. Required.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-config-versions-examples}
@@ -2976,7 +3203,7 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 Retrieve a specific version of a configuration in a project.
 
 ```sh
-ibmcloud project config-version --project-id PROJECT-ID --id ID --version VERSION
+ibmcloud project config-version [--project-id PROJECT-ID] --id ID --version VERSION
 ```
 
 
@@ -2997,6 +3224,9 @@ ibmcloud project config-version --project-id PROJECT-ID --id ID --version VERSIO
 :   The configuration version. Required.
 
     The maximum value is `10000`. The minimum value is `0`.
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-config-version-examples}
@@ -3020,7 +3250,7 @@ Commands for V2Configurations resource.
 Delete a configuration version by specifying the project ID.
 
 ```sh
-ibmcloud project config-version-delete --project-id PROJECT-ID --id ID --version VERSION
+ibmcloud project config-version-delete [--project-id PROJECT-ID] --id ID --version VERSION
 ```
 
 
@@ -3028,7 +3258,7 @@ ibmcloud project config-version-delete --project-id PROJECT-ID --id ID --version
 {: #project-config-version-delete-cli-options}
 
 `--project-id` (string)
-:   The unique project ID. Required.
+:   The unique project ID. Required if the project is not selected.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
