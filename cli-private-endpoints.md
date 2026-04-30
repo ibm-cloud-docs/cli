@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-02-02"
+lastupdated: "2026-04-30"
 
 keywords: IBM Cloud CLI, ibmcloud cli, ibmcloud, cli, command line, command-line, developer tools, private endpoints, shell, cli private endpoints
 
@@ -101,7 +101,7 @@ Use the following steps to install the latest stand-alone {{site.data.keyword.cl
 
    **Installers:**
    - [Mac OS X 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.41.0/IBM_Cloud_CLI_2.41.0.pkg)
-   - [Mac OS X M1/ARM](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.41.0/IBM_Cloud_CLI_2.41.0_arm64.pkg) 
+   - [Mac OS X M1/ARM](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.41.0/IBM_Cloud_CLI_2.41.0_arm64.pkg)
    - [Windows&trade; 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.41.0/IBM_Cloud_CLI_2.41.0_amd64.exe)
    - [Windows&trade; 32-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.41.0/IBM_Cloud_CLI_2.41.0_386.exe)
    - [Linux&trade; 64-bit](https://ibm-cloud-cli-dn.s3.private.us.cloud-object-storage.appdomain.cloud/2.41.0/IBM_Cloud_CLI_2.41.0_amd64.tar.gz)
@@ -118,7 +118,7 @@ Use the following steps to install the latest stand-alone {{site.data.keyword.cl
 
    Now, you're ready to manage {{site.data.keyword.cloud_notm}} resources. Enter `ibmcloud help` to view the command descriptions.
 
-   If you're using a federated ID, [log in with a one-time passcode or an API key](/docs/account?topic=account-federated_id).
+   If you're using a federated ID, [log in with a one-time passcode or an API key](/docs/iam?topic=iam-federated_id&interface=ui).
    {: tip}
 
 ## Installing packages from previous releases for private endpoints

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-15"
+  years: 2018, 2026
+lastupdated: "2026-04-30"
 
 keywords: cli, ibmcloud account cli, managing accounts cli, managing users cli, account, account update command
 
@@ -36,7 +36,7 @@ ibmcloud account show
 ```
 {: codeblock}
 
-## ibmcloud account list 
+## ibmcloud account list
 {: #ibmcloud_account_list}
 
 ### List accounts
@@ -50,7 +50,7 @@ ibmcloud account list [--active | --exclude EXCLUDE_STATES] [-o, --output FORMAT
 ### Command options
 {: #ibmcloud_account_list_options}
 
---active 
+--active
 :   Active. List only the accounts that are active. Exclude states: `CANCEL_PENDING`, `CANCELED`, and `SUSPENDED`
 
 --exclude value *EXCLUDE_VALUE*
@@ -225,7 +225,7 @@ USER_EMAIL (required)
 :   Region name. Defaults to current region if not specified.
 
 
-If you aren't ready to assign access, or want to assign an IAM policy, you can invite a user and assign it later. For more information about assigning access to users, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
+If you aren't ready to assign access, or want to assign an IAM policy, you can invite a user and assign it later. For more information about assigning access to users, see [Managing access to resources](/docs/iam?topic=iam-assign-access-resources&interface=ui).
 {: tip}
 
 ## ibmcloud account user-reinvite

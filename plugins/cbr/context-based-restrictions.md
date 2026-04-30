@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-25"
+lastupdated: "2026-04-30"
 
 keywords: cli, context-based restrictions plugin
 
@@ -486,7 +486,7 @@ enforcement_mode      enabled
 :   The APIs a rule applies to. For supported service API types, use the `service` command on the resource.
 
 `--enforcement-mode` (string)
-:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/iam?topic=iam-context-restrictions-whatis#rule-enforcement).
 
 `--service-name` (string)
 :   Shorthand for creating IBM Cloud resource attribute `serviceName`.
@@ -554,7 +554,7 @@ a4135a90bb507bf6d96cf4c6f009d151   kms                    disabled       example
 {: #cbr-rules-cli-options}
 
 `--enforcement-mode` (string)
-:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/iam?topic=iam-context-restrictions-whatis#rule-enforcement).
 
 `--region` (string)
 :   The `region` resource attribute.
@@ -678,7 +678,7 @@ enforcement_mode      enabled
 :   The APIs a rule applies to. For supported service API types, use the `service` command on the resource.
 
 `--enforcement-mode` (string)
-:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/iam?topic=iam-context-restrictions-whatis#rule-enforcement).
 
 `--service-name` (string)
 :   Shorthand for creating IBM Cloud resource attribute `serviceName`.
@@ -761,7 +761,7 @@ enforcement_mode      enabled
 :   The description of the rule.
 
 `--enforcement-mode` (string)
-:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/account?topic=account-context-restrictions-whatis#rule-enforcement).
+:   How the rule is enforced. The CLI accepts the values `enabled` (default), `disabled`, and `report`. For more informaiton about enforcement, see [Rule enforcement](/docs/iam?topic=iam-context-restrictions-whatis#rule-enforcement).
 
 
 ### `ibmcloud cbr rule-delete`

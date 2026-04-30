@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-15"
+lastupdated: "2026-04-30"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, roles, templates, assignments, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
@@ -377,7 +377,7 @@ ibmcloud iam api-key-update MyKey -d "the new description of my key"
 ```
 {: codeblock}
 
-The `iam-identity.apikey.manage` privilege is required for the account when the NAME and UUID command options are used. For more information, see [Managing user API keys](/docs/account?topic=account-userapikey&interface=ui#manage-user-keys) and [IAM Identity Service](/docs/account?topic=account-iam-service-roles-actions#iam-identity-roles).
+The `iam-identity.apikey.manage` privilege is required for the account when the NAME and UUID command options are used. For more information, see [Managing user API keys](/docs/iam?topic=iam-userapikey&interface=ui#manage-user-keys) and [IAM Identity Service](/docs/iam?topic=iam-iam-service-roles-actions#iam-identity-roles).
 {: note}
 
 ## ibmcloud iam api-key-delete
@@ -967,7 +967,7 @@ USER_NAME (required)
 :   Username to whom the policy belongs.
 
 --file *FILE* (optional)
-:   JSON file of policy definition. You can use advanced operators in a JSON policy document to grant access to resources that satisfy specific naming conventions. For more information about using advanced operators to create wildcard policies, see [Assigning access by using wildcard policies](/docs/account?topic=account-wildcard).
+:   JSON file of policy definition. You can use advanced operators in a JSON policy document to grant access to resources that satisfy specific naming conventions. For more information about using advanced operators to create wildcard policies, see [Assigning access by using wildcard policies](/docs/iam?topic=iam-wildcard).
 
 --roles *ROLE_NAME1,ROLE_NAME2...* (optional)
 :   Role names of the policy definition. For supported roles of a specific service, run `ibmcloud iam roles --service SERVICE_NAME`. This option is exclusive with the `--file` option.
@@ -1309,7 +1309,7 @@ SERVICE_ID (required)
 :   Name or UUID of service ID.
 
 --file
-:   JSON file of policy definition. This option is exclusive with the `-r, --roles`, `--service-name`, `--service-instance`, `--region`, `--resource-type`, `--resource`, `--resource-group-name` and `--resource-group-id` options.  You can use advanced operators in a JSON policy document to grant access to resources that satisfy specific naming conventions. For more information about using advanced operators to create wildcard policies, see [Assigning access by using wildcard policies](/docs/account?topic=account-wildcard).
+:   JSON file of policy definition. This option is exclusive with the `-r, --roles`, `--service-name`, `--service-instance`, `--region`, `--resource-type`, `--resource`, `--resource-group-name` and `--resource-group-id` options.  You can use advanced operators in a JSON policy document to grant access to resources that satisfy specific naming conventions. For more information about using advanced operators to create wildcard policies, see [Assigning access by using wildcard policies](/docs/iam?topic=iam-wildcard).
 
 -r, --roles
 :   Role names of the policy definition. For supported roles of a specific service, run `ibmcloud iam roles --service SERVICE_NAME` option. This option is exclusive with the `--file` option.
@@ -1935,7 +1935,7 @@ ibmcloud iam role-create ROLE_NAME --display-name DISPLAY_NAME --service-name SE
 :   The name of the service.
 
 -a, --actions ROLE_ACTION1,ROLE_ACTION2...
-:   The actions of the role. For more information, see [IAM roles and actions](/docs/account?topic=account-iam-service-roles-actions).
+:   The actions of the role. For more information, see [IAM roles and actions]().
 
 -d, --description DESCRIPTION
 :   The description of the role.
@@ -3011,7 +3011,7 @@ ibmcloud iam access-group-policy-create GROUP_NAME {--file @JSON_FILE | --roles 
 {: #ibmcloud_iam_access_group_policy_create_options}
 
 --file
-:   JSON file of policy definition. You can use advanced operators in a JSON policy document to grant access to resources that satisfy specific naming conventions. For more information about using advanced operators to create wildcard policies, see [Assigning access by using wildcard policies](/docs/account?topic=account-wildcard).
+:   JSON file of policy definition. You can use advanced operators in a JSON policy document to grant access to resources that satisfy specific naming conventions. For more information about using advanced operators to create wildcard policies, see [Assigning access by using wildcard policies](/docs/iam?topic=iam-wildcard).
 
 -roles
 :   Role names of the policy definition. For supported roles of a specific service, run `ibmcloud iam roles --service SERVICE_NAME`. This option is exclusive with the `--file` option.
@@ -4449,7 +4449,7 @@ ibmcloud iam trusted-profile-rule-create (NAME|UUID) --name RULE_NAME --type RUL
 ```
 {: codeblock}
 
-To view a full list of valid operators and claim attribute options for `--conditions`, see [IAM condition properties](/docs/account?topic=account-iam-condition-properties).
+To view a full list of valid operators and claim attribute options for `--conditions`, see [IAM condition properties](/docs/iam?topic=iam-iam-condition-properties).
 {: note}
 
 ### Command options
@@ -4550,7 +4550,7 @@ ibmcloud iam trusted-profile-rule-update (NAME|ID) (RULE_NAME|RULE_ID) --name RU
 ```
 {: codeblock}
 
-To view a full list of valid operators and claim attribute options for `--conditions`, see [IAM condition properties](/docs/account?topic=account-iam-condition-properties).
+To view a full list of valid operators and claim attribute options for `--conditions`, see [IAM condition properties](/docs/iam?topic=iam-iam-condition-properties).
 {: note}
 
 ### Command options
@@ -5023,7 +5023,7 @@ ibmcloud iam account-settings-update [--restrict-create-service-id RESTRICTION_S
 :   The IP addresses and subnets from which IAM tokens can be created (the default is "").
 
 --unset-allowed-ip-addresses
-:   Clear all IP address restrictions 
+:   Clear all IP address restrictions
 
 --session-expiration-in-seconds SECONDS_EXP
 :   The number of seconds after which the session expires (can also be `NOT_SET`, which resets the value to default).
@@ -5533,7 +5533,7 @@ ibmcloud iam role-template RoleTemplate
 
 List the latest role templates
 ```bash
-ibmcloud iam role-templates [-o, --output JSON][-q,--quiet] 
+ibmcloud iam role-templates [-o, --output JSON][-q,--quiet]
 ```
 {: codeblock}
 
@@ -5589,7 +5589,7 @@ ibmcloud iam role-template-create --file /path/to/role_template.json
 
 Show details of a role template version
 ```bash
-ibmcloud iam role-template-version (TEMPLATE_ID | TEMPLATE_NAME) TEMPLATE_VERSION [-o, --output JSON] [-q,--quiet] 
+ibmcloud iam role-template-version (TEMPLATE_ID | TEMPLATE_NAME) TEMPLATE_VERSION [-o, --output JSON] [-q,--quiet]
 ```
 {: codeblock}
 
@@ -5618,7 +5618,7 @@ ibmcloud iam role-template-version RoleTemplate 1
 
 List all versions of a role template
 ```bash
-ibmcloud iam role-template-versions (TEMPLATE_ID | TEMPLATE_NAME) [-o, --output JSON] [-q,--quiet] 
+ibmcloud iam role-template-versions (TEMPLATE_ID | TEMPLATE_NAME) [-o, --output JSON] [-q,--quiet]
 ```
 {: codeblock}
 
@@ -5672,7 +5672,7 @@ ibmcloud iam role-template-version-create RoleTemplate --file /path/to/role_temp
 ## ibmcloud iam role-template-version-update
 {: #ibmcloud_iam_role_template-version-update}
 
-Update an existing role template version 
+Update an existing role template version
 ```bash
 ibmcloud iam role-template-version-update (TEMPLATE_ID|TEMPLATE_NAME) TEMPLATE_VERSION --file JSON_FILE [-f, --force] [-q, --quiet]
 ```
@@ -5786,7 +5786,7 @@ ibmcloud iam role-assignments
 Show details of a role assignment
 ```bash
 ibmcloud iam role-assignment ASSIGNMENT_ID [-o, --output FORMAT] [-q,--quiet]
-``` 
+```
 {: codeblock}
 
 ### Command options

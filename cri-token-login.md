@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-05-30"
+  years: 2021, 2026
+lastupdated: "2026-04-30"
 
 keywords: cli, command line, command-line, login, cli login, compute resource, token, iks, trusted profiles, cri, IBM Cloud
 
@@ -18,7 +18,7 @@ subcollection: cli
 You can use a trusted profile to set up fine-grained authorization for applications that are running in compute resources. As a result, you aren't required to create service IDs or API keys for the compute resources. The {{site.data.keyword.cloud_notm}} CLI supports logging in and authenticating to {{site.data.keyword.cloud_notm}} by using an {{site.data.keyword.cloud_notm}} Kubernetes Service compute resource. For instructions about logging in as a Virtual Server Instance for VPC compute resource by using the {{site.data.keyword.cloud_notm}} CLI, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
 {: shortdesc}
 
-For more information about managing trusted profiles and establishing trust with compute resources, see [Establishing trust with compute resources](/docs/account?topic=account-create-trusted-profile&interface=ui#create-profile-compute).
+For more information about managing trusted profiles and establishing trust with compute resources, see [Establishing trust with compute resources](/docs/iam?topic=iam-create-trusted-profile#create-profile-compute).
 
 ## Using the CLI to log in
 {: #cri-cli-login}
@@ -49,13 +49,13 @@ You can log in with a compute resource token with the CLI in any of the followin
    ibmcloud login --cr-token @token_file_name --profile <profile_id_name_or_crn_string>
    ```
    {: codeblock}
-  
-* Set the `IBMCLOUD_CR_TOKEN` environment variable. 
-  
+
+* Set the `IBMCLOUD_CR_TOKEN` environment variable.
+
    Additionally, you can set the environment variable on your system. For example, set `IBMCLOUD_CR_TOKEN=token_string`, where `token_string` is the custom value of the compute resource token, or `IBMCLOUD_CR_TOKEN=@token_file_name`, where `@token_file_name` is the file path of a compute resource token file that contains the contents of the token. After the environment variable is set, you can simply specify `ibmcloud login --profile <profile_id_name_or_crn_string>` from the CLI.
 
 * Set both `IBMCLOUD_CR_TOKEN` and `IBMCLOUD_CR_PROFILE` environment variables.
-  
+
    Additionally, you can set both environment variables on your system. For example, `IBMCLOUD_CR_TOKEN=token_string`, where `token_string` is the custom value of the compute resource token, and `IBMCLOUD_CR_PROFILE=profile_id_name_or_crn_string`, where `profile_id_name_or_crn_string` is the ID, name, or CRN of the IAM trusted profile that the cluster is linked to. After both environment variables are set, you can simply specify `ibmcloud login` from the CLI.
 
 The resulting login session is valid for 60 minutes.
