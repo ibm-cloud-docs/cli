@@ -2,11 +2,13 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-30"
+lastupdated: "2026-05-01"
 
 keywords: cli, context-based restrictions plugin
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

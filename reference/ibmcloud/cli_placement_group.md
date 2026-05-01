@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2021-12-15"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, placement group management, ibmcloud sl placement-group, classic infrastructure, placement group, placement group cli, manage placement group cli
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

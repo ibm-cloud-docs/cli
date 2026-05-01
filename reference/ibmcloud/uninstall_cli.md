@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-10-05"
+  years: 2019, 2026
+lastupdated: "2026-05-01"
 
 keywords: uninstall, stand-alone cli, install cli, uninstall cli, cli, command line, command-line, windows powershell, linux, macos, installer, standalone cli
 
@@ -42,34 +42,34 @@ The uninstallation steps are different depending on the version of the CLI that 
 1. Run the uninstallation commands for your version of the CLI.
 
    * To uninstall versions `0.9.0` and later, run the following command:
-   
+
       ```sh
       /usr/local/ibmcloud/uninstall
       ```
       {: pre}
 
    * To uninstall versions earlier than `0.9.0`, run all of the following commands:
-   
+
       ```sh
       rm -rf /usr/local/ibmcloud
       ```
       {: pre}
-      
+
       ```sh
       rm -f /usr/local/bin/ibmcloud
       ```
       {: pre}
-      
+
       ```sh
       rm -f /usr/local/bin/bluemix
       ```
       {: pre}
-      
+
       ```sh
       rm -f /usr/local/bin/bx
       ```
       {: pre}
-      
+
       ```sh
       rm -f /usr/local/bin/ibmcloud-analytics
       ```

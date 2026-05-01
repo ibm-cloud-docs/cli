@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-04-10"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: classic infrastructure, block storage, mpio, ibmcloud sl block, volume-options, snapshot, datacenter, replica, cli, storage type, size
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

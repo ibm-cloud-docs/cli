@@ -2,9 +2,11 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-15"
+lastupdated: "2026-05-01"
 
 subcollection: cli
+
+content-type: cli-docs
 
 keywords: project CLI, project command line , project terminal, project shell
 

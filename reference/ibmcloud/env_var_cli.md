@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-08-02"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud, cli commands, update, environment variables
 
@@ -26,7 +26,7 @@ ibmcloud --help
 ```
 {: codeblock}
 
-In your shell, set the following environment variables by using a `VARIABLE_NAME=VALUE` pair directly in front of the shell command, or by using `export VARIABLE_NAME=VALUE` as a separate command before you run the shell command. 
+In your shell, set the following environment variables by using a `VARIABLE_NAME=VALUE` pair directly in front of the shell command, or by using `export VARIABLE_NAME=VALUE` as a separate command before you run the shell command.
 
 ## IBMCLOUD_COLOR=false
 {: #IBMCLOUD_COLOR}
@@ -66,12 +66,12 @@ The custom server URL to use when obtaining an instance identity token and IAM t
 ## IBMCLOUD_TRACE=true
 {: #IBMCLOUD_TRACE}
 
-Prints API request diagnostics to stdout. Use this variable to investigate how CLI commands are run. This variable prints many useful details to the standard output (your terminal). Use it to investigate how the CLI commands interact with the IBM Cloud platform and service APIs. 
+Prints API request diagnostics to stdout. Use this variable to investigate how CLI commands are run. This variable prints many useful details to the standard output (your terminal). Use it to investigate how the CLI commands interact with the IBM Cloud platform and service APIs.
 
 ## IBMCLOUD_TRACE=path/to/trace.log
 {: #IBMCLOUD_TRACE_PATH}
 
-Appends API request diagnostics to a log file. This variable prints many useful details to the specified log file. 
+Appends API request diagnostics to a log file. This variable prints many useful details to the specified log file.
 
 ## IBMCLOUD_HOME=path/to/dir
 {: #IBMCLOUD_PATH_TO_DIR}

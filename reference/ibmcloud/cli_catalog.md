@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-07-14"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, catalog offerings, search catalog, ibmcloud catalog, ibmcloud catalog search, catalog entry, query templates, runtimes, geolocations, datacenter, catalog template, catalog locations
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

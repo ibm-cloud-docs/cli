@@ -2,11 +2,13 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-30"
+lastupdated: "2026-05-01"
 
 keywords: cli, general commands, ibmcloud commands, ibmcloud api, ibmcloud, cli commands, regions, target, update, ibmcloud sl
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

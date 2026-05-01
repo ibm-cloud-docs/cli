@@ -2,11 +2,13 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-30"
+lastupdated: "2026-05-01"
 
 keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, roles, templates, assignments, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

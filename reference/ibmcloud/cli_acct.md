@@ -2,11 +2,13 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-30"
+lastupdated: "2026-05-01"
 
 keywords: cli, ibmcloud account cli, managing accounts cli, managing users cli, account, account update command
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

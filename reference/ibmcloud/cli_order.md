@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-8-19"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, classic cli, orders, quotes, ibmcloud sl order, item-list, package-locations, manage orders cli, manage quotes cli
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 
