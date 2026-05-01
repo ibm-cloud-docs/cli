@@ -140,7 +140,7 @@ toc:
       - topicgroup:
           label: Additional services
           topics:
-          - include: ../analytics-engine-cli-plugin/analytics-engine-serverless-cli.md
+          - include: ../AnalyticsEngine/analytics-engine-serverless-cli.md
           - include: ../data-virtualization/watson-query-cli.md
           - include: ../openpages/openpages_cli.md
       - topicgroup:
