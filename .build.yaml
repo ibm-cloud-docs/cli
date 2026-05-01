@@ -2,6 +2,7 @@ includes:
 - https://github.ibm.com/cloud-docs/analytics-engine-cli-plugin
 - https://github.ibm.com/cloud-docs/app-configuration
 - https://github.ibm.com/cloud-docs/atracker
+- https://github.ibm.com/cloud-docs/backup-recovery
 - https://github.ibm.com/cloud-docs/cephaas
 - https://github.ibm.com/cloud-docs/cis
 - https://github.ibm.com/cloud-docs/cloud-object-storage
@@ -10,6 +11,7 @@ includes:
 - https://github.ibm.com/cloud-docs/ContinuousDelivery
 - https://github.ibm.com/cloud-docs/containers
 - https://github.ibm.com/cloud-docs/data-virtualization
+- https://github.ibm.com/cloud-docs/dr-automation-powervs
 - https://github.ibm.com/cloud-docs/cloud-databases
 - https://github.ibm.com/cloud-docs/dl
 - https://github.ibm.com/cloud-docs/dns-svcs
@@ -17,10 +19,13 @@ includes:
 - https://github.ibm.com/cloud-docs/EventStreams
 - https://github.ibm.com/cloud-docs/hs-crypto
 - https://github.ibm.com/cloud-docs/hp-virtual-servers
+- https://github.ibm.com/cloud-docs/instructlab
 - https://github.ibm.com/cloud-docs/key-protect
+- https://github.ibm.com/cloud-docs/logs-router
 - https://github.ibm.com/cloud-docs/metrics-router
 - https://github.ibm.com/cloud-docs/monitoring
 - https://github.ibm.com/cloud-docs/openpages
+- https://github.ibm.com/cloud-docs/power-iaas
 - https://github.ibm.com/cloud-docs/privileged-access-gateway
 - https://github.ibm.com/cloud-docs/Registry
 - https://github.ibm.com/cloud-docs/satellite

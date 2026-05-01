@@ -59,6 +59,10 @@ toc:
           - plugins/projects/projects-cli.md
           - include: ../satellite/satellite-cli-reference-v2.md
       - topicgroup:
+          label: IBM Cloud CLI AI and machine learning commands
+          topics:
+          - include: ../instructlab/ilab-cli.md
+      - topicgroup:
           label: IBM Cloud CLI container commands
           topics:
           - include: ../containers/cli-ks-plugin.md
@@ -73,11 +77,15 @@ toc:
       - topicgroup:
           label: IBM Cloud CLI infrastructure commands
           topics:
+          - include: ../backup-recovery/backup-recovery-cli-v2.md
           - include: ../cis/cis-cli-plugin.md
           - include: ../cloud-object-storage/cloud-object-storage-cli-reference.md
           - include: ../dl/dl-cli-plugin.md
           - include: ../dns-svcs/cli.md
           - reference/ibmcloud/cli_dns.md
+          - include: ../power-iaas/cli-power-iaas-v1.md
+          - include: ../power-iaas/cli-power-iaas-onprem.md
+          - include: ../dr-automation-powervs/command-reference.md
           - include: ../transit-gateway/transit-gateway-cli.md
           - include: ../vpc-infrastructure-cli-plugin/vpc-cli-reference.md
           - reference/ibmcloud/cli_block_storage.md
@@ -110,9 +118,10 @@ toc:
       - topicgroup:
           label: IBM Cloud CLI observability commands
           topics:
+          - include: ../atracker/cli/atracker-cli-v2.md
+          - include: ../logs-router/logs-router-cli.md
           - include: ../metrics-router/metrics-router-cli.md
           - include: ../monitoring/monitor-cli.md
-          - include: ../atracker/cli/atracker-cli-v2.md
       - topicgroup:
           label: IBM Cloud CLI platform automation commands
           topics:
