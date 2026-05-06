@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-05-01"
+lastupdated: "2026-05-06"
 
-keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, roles, templates, assignments, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints
+keywords: iam, iam access, api keys, service ids, access groups, trusted profiles, authorization policy, roles, templates, assignments, ibmcloud iam, cli, manage keys, manage service ids, manage iam users cli, iam cli, cli private endpoints, usage, limits
 
 subcollection: cli
 
@@ -5892,5 +5892,290 @@ Delete role assignment `roleAssignment-ff2e9e03-ee31-4aa8-9356-1a2e3e210e4c`
 
 ```bash
 ibmcloud iam role-assignment-delete roleAssignment-ff2e9e03-ee31-4aa8-9356-1a2e3e210e4c
+```
+{: codeblock}
+
+## ibmcloud iam identity-limits
+{: #ibmcloud_iam_identity-limits}
+
+Retrieve limits for IAM identities within an account
+```bash
+ibmcloud iam identity-limits [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_identity_limits_options}
+
+-o, --output
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_identity_limits_examples}
+
+List IAM identity limits
+
+```bash
+ibmcloud iam identity-limits
+```
+{: codeblock}
+
+## ibmcloud iam access-groups-usage
+{: #ibmcloud_iam_access-groups-usage}
+
+Retrieve summary of access groups usage for the account
+```bash
+ibmcloud iam access-groups-usage --ids GROUP_ID1, GROUP_ID2, GROUP_ID3... [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_access-groups-usage-options}
+
+--ids (Required)
+:   Comma-delimited list of access group IDs. When specified, returns the usage per specific access group
+
+-o, --output
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_access-groups-usage-examples}
+
+List usage for access group `AccessGroupId-cbd220ee-7645-4682-b5da-28ef0d579ab0`
+
+```bash
+ibmcloud iam access-groups-usage --id AccessGroupId-cbd220ee-7645-4682-b5da-28ef0d579ab0
+```
+{: codeblock}
+
+## ibmcloud iam api-keys-usage
+{: #ibmcloud_iam_api-keys-usage}
+
+
+Retrieve the summary of API keys usage for the account
+```bash
+ibmcloud iam api-keys-usage --ids IAM_ID1, IAM_ID2, IAM_ID3... [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_api-keys-usage-options}
+
+--ids (Required)
+:   Comma-delimited list of IAM IDs. When specified, returns the usage per specified IAM identifier
+
+-o, --output
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_api-keys-usage-examples}
+
+List usage for api key `APIKey-cbd220ee-7645-4682-b5da-28ef0d579ab0`
+
+```bash
+ibmcloud iam api-keys-usage --ids APIKey-cbd220ee-7645-4682-b5da-28ef0d579ab0
+```
+{: codeblock}
+
+## ibmcloud iam cr-links-usage
+{: #ibmcloud_iam_cr-links-usage}
+
+Retrieve the summary of compute resource links usage for the account
+```bash
+ibmcloud iam cr-links-usage [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_cr-links-usage-options}
+
+-o, --output
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_cr-links-usage-examples}
+
+List usage for compute resource links
+
+```bash
+ibmcloud iam cr-links-usage
+```
+{: codeblock}
+
+## ibmcloud iam cr-rules-usage
+{: #ibmcloud_iam_cr-rules-usage}
+
+
+Retrieve the summary of compute resource rules usage for the account
+```bash
+ibmcloud iam cr-rules-usage [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_cr-rules-usage-options}
+
+-o, --output
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_cr-rules-usage-examples}
+
+List usage for compute resource rules
+
+```bash
+ibmcloud iam cr-rules-usage
+```
+{: codeblock}
+
+## ibmcloud iam identity-providers-usage
+{: #ibmcloud_iam_idps-usage}
+
+Retrieve the summary of identity providers usage for the account
+```bash
+ibmcloud iam identity-providers-usage [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_idps-usage-options}
+
+-o, --output
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_idps-usage-examples}
+
+List usage for identity providers
+
+```bash
+ibmcloud iam identity-providers-usage
+```
+{: codeblock}
+
+## ibmcloud iam service-id-groups-usage
+{: #ibmcloud_iam_service-id-groups-usage}
+
+Retrieve the summary of service ID groups usage for the account
+
+```bash
+ibmcloud iam service-id-groups-usage [--ids GROUP_ID1, GROUP_ID2, GROUP_ID3...] [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_service-id-groups-usage-options}
+
+
+--ids value               
+:   Comma-delimited list of service ID group IDs. When specified, returns the usage of service IDs per specified group
+
+-o, --output
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_service-id-groups-usage-examples}
+
+List usage for service ID group `ServiceIdGroup-ee2cf3fa-e89e-4b4f-8657-739fbee795d2`
+
+```bash
+ibmcloud iam service-id-groups-usage ServiceIdGroup-ee2cf3fa-e89e-4b4f-8657-739fbee795d2
+```
+
+List usage for all service ID groups in account.
+
+```bash
+ibmcloud iam service-id-groups-usage
+```
+{: codeblock}
+
+## ibmcloud iam templates-usage
+{: #ibmcloud_iam_templates-usage}
+
+Retrieve the summary of templates usage for the account
+
+```bash
+ibmcloud iam templates-usage [--ids TEMPLATE_ID1, TEMPLATE_ID2, TEMPLATE_ID3...] [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_templates-usage-options}
+
+--ids value               
+:   Comma-delimited list of Template IDs. When specified, returns the usage per specified template
+
+-o, --output
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_template-usage-examples}
+
+List usage for account settings template `AccountSettingsTemplate-ee2cf3fa-e89e-4b4f-8657-739fbee795d2`
+
+```bash
+ibmcloud iam templates-usage AccountSettingsTemplate-ee2cf3fa-e89e-4b4f-8657-739fbee795d2
+```
+{: codeblock}
+
+## ibmcloud iam trusted-profiles-usage
+{: #ibmcloud_iam_trusted-profiles-usage}
+
+Retrieve the summary of trusted profiles usage for the account
+
+```bash
+ibmcloud iam trusted-profiles-usage [--ids PROFILE_ID1, PROFILE_ID2, PROFILE_ID3...] [-o, --output FORMAT] [-q, --quiet]
+```
+{: codeblock}
+
+### Command options
+{: #ibmcloud_iam_trusted-profiles-usage-options}
+
+--ids value               
+:   Comma-delimited list of trusted profile ID. When specified, returns the usage per specified profile
+
+-o, --output
+:   Specify the output format. Only 'JSON' is supported.
+
+-q, --quiet
+:   Suppress verbose output.
+
+### Examples
+{: #ibmcloud_iam_trusted-profiles-usage-examples}
+
+List usage for Trusted Profile `Profile-179c2b1e-6489-4b61-80af-4c37f88b5e19`
+
+```bash
+ibmcloud iam trusted-profiles-usage --ids Profile-179c2b1e-6489-4b61-80af-4c37f88b5e19
+```
+
+List usages for all trusted profiles in account.
+
+```bash
+ibmcloud iam trusted-profiles-usage
 ```
 {: codeblock}
