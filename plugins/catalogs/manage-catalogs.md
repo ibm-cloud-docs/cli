@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-05-21"
+  years: 2019, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, catalogs management, catalog
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

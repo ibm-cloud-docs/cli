@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-10-30"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, ibmcloud sl call-api, classic infrastructure, API endpoints
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

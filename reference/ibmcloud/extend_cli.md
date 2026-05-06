@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2024
-lastupdated: "2024-10-15"
+  years: 2015, 2026
+lastupdated: "2026-05-01"
 
 keywords: extend cli, ibmcloud repo-plugins, repo-plugins, plug-in, plugin, ibmcloud cli, ibmcloud, cli, command line, command-line, developer tools, plugin install
 
@@ -37,9 +37,9 @@ ibmcloud plugin repo-plugins
 {: codeblock}
 
 ```text
-Status             Name                                        Versions                       Description   
-Update Available   container-service/kubernetes-service        0.3.49, 0.3.47, 0.3.34...      IBM Cloud Kubernetes Service for management of Kubernetes clusters   
-Update Available   cloud-functions                             1.0.32, 1.0.30, 1.0.29...      Manage Cloud Functions 
+Status             Name                                        Versions                       Description
+Update Available   container-service/kubernetes-service        0.3.49, 0.3.47, 0.3.34...      IBM Cloud Kubernetes Service for management of Kubernetes clusters
+Update Available   cloud-functions                             1.0.32, 1.0.30, 1.0.29...      Manage Cloud Functions
 ...
 ```
 {: screen}

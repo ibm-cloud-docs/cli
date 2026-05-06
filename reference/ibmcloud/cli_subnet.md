@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-12-15"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, manage subnet cli, classic infrastructure cli, subnet cli, ibmcloud sl subnet, subnet cli, network cli
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

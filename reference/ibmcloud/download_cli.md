@@ -42,10 +42,10 @@ Use the following steps to install the latest stand-alone {{site.data.keyword.cl
    ibmcloud login
    ```
    {: codeblock}
-   
+
    Now, you're ready to manage {{site.data.keyword.cloud_notm}} resources. Enter `ibmcloud help` to view the command descriptions.
 
-   If you're using a federated ID, [log in with a one-time passcode or an API key](/docs/account?topic=account-federated_id).
+   If you're using a federated ID, [log in with a one-time passcode or an API key](/docs/iam?topic=iam-federated_id&interface=ui).
    {: tip}
 
 ## Installing from the shell
@@ -75,7 +75,7 @@ To install the latest CLI for your OS from the shell manually, use the following
    {: codeblock}
 
    If you encounter errors like `The underlying connection was closed: An unexpected error occurred on a send`, make sure that you have .Net Framework 4.5 or later installed. Also try to enable TLS 1.2 protocol by running the following command:
-  
+
    ```bash
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    ```

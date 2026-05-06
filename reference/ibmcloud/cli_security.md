@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-08-02"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, security cli, ssh keys cli, ssl cli, ibmcloud sl security, certificate cli, ibmcloud sl, sshkey-add, manage security cli
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

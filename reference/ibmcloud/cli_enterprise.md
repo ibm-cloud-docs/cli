@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-15"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, ibmcloud enterprise, view enterprise, view enterprise account, view enterprise account group., enterprise, account-group, account-group-create, account-group-update, account-delete
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

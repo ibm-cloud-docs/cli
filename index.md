@@ -1,12 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2025
-lastupdated: "2025-04-01"
+  years: 2015, 2026
+lastupdated: "2026-04-30"
 
 keywords: command line interface, cli, getting started, getting started with IBM Cloud CLI, getting started with IBM Cloud CLI and developer tools tutorial, IBM Cloud Developer Tools CLI, ibmcloud cli, download cli, cloud cli, cloud command line, developer tools, dev tools, install cloud cli, getting started cli, ibm cloud cli, IBM Cloud CLI installer, installing IBM Cloud CLI, install IBM Cloud CLI
 content-type: tutorial
-services: 
+services:
 account-plan: lite
 completion-time: 30m
 subcollection: cli
@@ -17,8 +17,8 @@ subcollection: cli
 
 # Getting started with the {{site.data.keyword.cloud_notm}} CLI
 {: #getting-started}
-{: toc-content-type="tutorial"} 
-{: toc-services=""} 
+{: toc-content-type="tutorial"}
+{: toc-services=""}
 {: toc-completion-time="30m"}
 
 In this tutorial, you install the latest version of the stand-alone {{site.data.keyword.cloud}} Command Line Interface.
@@ -96,7 +96,7 @@ Log in to {{site.data.keyword.cloud_notm}} with your IBMid. If you have multiple
    ```
    {: codeblock}
 
-If your credentials are rejected, you might be using a federated ID. To log in with a federated ID, use the `--sso` flag. See [Logging in with a federated ID](/docs/account?topic=account-federated_id) for more details.
+If your credentials are rejected, you might be using a federated ID. To log in with a federated ID, use the `--sso` flag. See [Logging in with a federated ID](/docs/iam?topic=iam-federated_id&interface=ui) for more details.
 {: tip}
 
 ## Next steps

@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-04-21"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, add cli plug-in, remove cli plug-in, cli plug-in, ibmcloud plugin, repo-add, repo-remove, plugin uninstall, plugin update, cli private endpoints
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

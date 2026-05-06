@@ -2,11 +2,13 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-16"
+lastupdated: "2026-05-01"
 
 keywords: cli, manage resources, resource group, ibmcloud resource group, ibmcloud resource, service-instance, quotas, resource group cli, resource cli
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

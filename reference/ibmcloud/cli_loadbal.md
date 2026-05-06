@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-08"
+  years: 2020, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, classic infrastructure, load balancer, loadbal
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

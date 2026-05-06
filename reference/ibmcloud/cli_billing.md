@@ -2,11 +2,13 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-25"
+lastupdated: "2026-05-01"
 
 keywords: cli, ibmcloud billing, view account, view usage, account usage, resource groups, resources, org-usage
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

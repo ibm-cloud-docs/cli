@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-08-02"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, classic infrastructure cli, ibmcloud sl vs, virtual server cli, virtual server commands
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 

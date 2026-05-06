@@ -1,12 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-04-10"
+  years: 2018, 2026
+lastupdated: "2026-05-01"
 
 keywords: cli, classic infrastructure, file storage service, ibmcloud sl file, snapshot, file storage, storage, nfs, nas, iops, volume, datacenter, file storage cli
 
 subcollection: cli
+
+content-type: cli-docs
 
 ---
 
