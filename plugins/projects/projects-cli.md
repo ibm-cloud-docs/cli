@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-01"
+lastupdated: "2026-05-22"
 
 subcollection: cli
 
@@ -58,7 +58,7 @@ ibmcloud project select PROJECT_ID|PROJECT_NAME [--unset-project] [--output FORM
 ibmcloud project select db4da927-80bc-4161-960d-7ce2b5e1be96
 ```
 
-{:pre}
+{: pre}
 
 Alternatively, you can select by project name
 
@@ -2020,7 +2020,7 @@ The example response to a request for a deployable architecture configuration dr
 Run a validation check on a specific configuration in the project. The check includes creating or updating the associated Schematics workspace with a plan job, running the CRA scans, and cost estimation.
 
 ```sh
-ibmcloud project config-validate --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet] 
+ibmcloud project config-validate --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
