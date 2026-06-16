@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-01"
+lastupdated: "2026-06-16"
 
 subcollection: cli
 
@@ -42,9 +42,7 @@ Commands for Projects resource.
 ### `ibmcloud project select`
 {: #project-cli-select-command}
 
-Alias: `target`
-
-Select a project as the current context.
+Select a project as the current context
 
 ```sh
 ibmcloud project select PROJECT_ID|PROJECT_NAME [--unset-project] [--output FORMAT] [-q, --quiet]
@@ -87,11 +85,10 @@ ibmcloud project select --unset-project
 ibmcloud project select --unset-project
 ```
 
-
 ### `ibmcloud project create`
 {: #project-cli-create-command}
 
-Create a project and asynchronously setup the tools to manage it. Add a deployable architecture by customizing the configuration. After the changes are validated and approved, deploy the resources that the project configures. For more information, see [Creating a project](/docs/secure-enterprise?topic=secure-enterprise-setup-project&interface=ui).
+Create a new project and asynchronously setup the tools to manage it. Add a deployable architecture by customizing the configuration. After the changes are validated and approved, deploy the resources that the project configures. For more information, see [Creating a project](/docs/secure-enterprise?topic=secure-enterprise-setup-project&interface=ui/docs-draft/secure-enterprise?topic=secure-enterprise-setup-project).
 
 ```sh
 ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-description DEFINITION-DESCRIPTION --definition-auto-deploy-mode DEFINITION-AUTO-DEPLOY-MODE --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-store DEFINITION-STORE --definition-terraform-engine DEFINITION-TERRAFORM-ENGINE --definition-auto-deploy=DEFINITION-AUTO-DEPLOY] --location LOCATION --resource-group RESOURCE-GROUP [--configs CONFIGS] [--environments ENVIRONMENTS] [--output FORMAT] [-q, --quiet]
@@ -101,11 +98,6 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
 #### Command options
 {: #project-create-cli-options}
 
-`--definition` ([`ProjectPrototypeDefinition`](#cli-project-prototype-definition-example-schema))
-:   The definition of the project. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
-
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
-
 `--location` (string)
 :   The IBM Cloud location where a resource is deployed. Required.
 
@@ -114,31 +106,36 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
 `--resource-group` (string)
 :   The resource group name where the project's data and tools are created. Required.
 
-    The maximum length is `64` characters. The minimum length is `0` characters. The value must match regular expression ``/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]*$/``.
+    The maximum length is `64` characters. The minimum length is `0` characters. The value must match regular expression `/^(?!\s)(?!.*\s$)[^'"<>{}\x00-\x1F]*$/`.
+
+`--definition` ([`ProjectPrototypeDefinition`](#cli-project-prototype-definition-example-schema))
+:   The definition of the project. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition=@path/to/file.json`.
 
 `--configs` ([`ProjectConfigPrototype[]`](#cli-project-config-prototype-example-schema))
 :   The project configurations. These configurations are included in the response of creating a project only if a configuration array is specified in the request payload.
 
     The default value is `[]`. The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--configs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--configs=@path/to/file.json`.
 
 `--environments` ([`EnvironmentPrototype[]`](#cli-environment-prototype-example-schema))
 :   The project environment. These environments are included in the response of creating a project only if an environment array is specified in the request payload.
 
     The default value is `[]`. The maximum length is `20` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--environments=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--environments=@path/to/file.json`.
 
 `--definition-name` (string)
 :   The name of the project.  It's unique within the account across regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression ``/^(?!\\s)(?!.*\\s$)[^'"`\/<>{}\\x00-\\x1F]+$/``.
+    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\s)(?!.*\s$)[^'"\/<>{}\x00-\x1F]+$/`.
 
 `--definition-description` (string)
 :   A brief explanation of the project's use in the configuration of a deployable architecture. A project can be created without providing a description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The default value is ``. The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
+    The default value is ``. The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\s)(?!.*\s$)[^\x00-\x1F]*$/`.
 
 `--definition-auto-deploy-mode` (string)
 :   This is an advanced setting to auto deploy to tell how auto deploy should behave when it is enabled. There are 2 options:
@@ -160,12 +157,17 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
 `--definition-store` ([`ProjectDefinitionStore`](#cli-project-definition-store-example-schema))
 :   The details required to custom store project configs. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-store=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-store=@path/to/file.json`.
 
 `--definition-terraform-engine` ([`ProjectTerraformEngineSettings`](#cli-project-terraform-engine-settings-example-schema))
 :   Experimental schema - this is for prototyping purposes. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-terraform-engine=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-terraform-engine=@path/to/file.json`.
+
+`--definition-owner` (string)
+:   The owner of the project. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+
+    The maximum length is `256` characters. The minimum length is `0` characters. The value must match regular expression `/^(?!\s)(?!.*\s$)[^'"<>{}\x00-\x1F]*$/`.
 
 `--definition-auto-deploy` (bool)
 :   A boolean flag to enable deploying configurations automatically. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -183,10 +185,10 @@ ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-
 
 ```sh
 ibmcloud project create \
-    --definition '{"name": "acme-microservice", "description": "A microservice to deploy on top of ACME infrastructure.", "auto_deploy_mode": "manual_approval", "monitoring_enabled": false, "destroy_on_delete": true, "store": {"type": "gh", "url": "exampleString", "token": "exampleString", "config_directory": "exampleString"}, "terraform_engine": {"id": "exampleString", "type": "terraform-enterprise"}, "auto_deploy": false}' \
+    --definition '{"name": "acme-microservice", "description": "A microservice to deploy on top of ACME infrastructure.", "auto_deploy_mode": "manual_approval", "monitoring_enabled": false, "destroy_on_delete": true, "store": {"type": "gh", "url": "exampleString", "token": "exampleString", "config_directory": "exampleString"}, "terraform_engine": {"id": "exampleString", "type": "terraform-enterprise"}, "owner": "exampleString", "auto_deploy": false}' \
     --location us-south \
     --resource-group Default \
-    --configs '[{"definition": {"compliance_profile": {}, "locator_id": "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global", "members": [{"name": "exampleString", "config_id": "exampleString"}], "description": "The stage account configuration.", "name": "account-stage", "authorizations": {"trusted_profile_id": "exampleString", "method": "exampleString", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}, "environment_id": "exampleString"}, "schematics": {"workspace_crn": "crn:v1:staging:public:project:us-south:a/4e1c48fcf8ac33c0a2441e4139f189ae:bf40ad13-b107-446a-8286-c6d576183bb1::"}}]' \
+    --configs '[{"definition": {"compliance_profile": {}, "locator_id": "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global", "members": [{"name": "exampleString", "config_id": "exampleString"}], "uses": [{"config_id": "exampleString", "project_id": "exampleString"}], "description": "The stage account configuration.", "name": "account-stage", "authorizations": {"trusted_profile_id": "exampleString", "method": "exampleString", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}, "environment_id": "exampleString"}, "schematics": {"workspace_crn": "crn:v1:staging:public:project:us-south:a/4e1c48fcf8ac33c0a2441e4139f189ae:bf40ad13-b107-446a-8286-c6d576183bb1::"}}]' \
     --environments '[{"definition": {"description": "exampleString", "name": "exampleString", "authorizations": {"trusted_profile_id": "exampleString", "method": "exampleString", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "compliance_profile": {}}}]'
 ```
 {: pre}
@@ -205,6 +207,7 @@ ibmcloud project create \
     --definition-destroy-on-delete=true \
     --definition-store projectDefinitionStore \
     --definition-terraform-engine projectTerraformEngineSettings \
+    --definition-owner exampleString \
     --definition-auto-deploy=false
 ```
 {: pre}
@@ -226,7 +229,7 @@ ibmcloud project list [--token TOKEN] [--limit LIMIT] [--output FORMAT] [-q, --q
 `--token` (string)
 :   The server uses this parameter to determine the first entry that is returned on the next page. If this parameter is not specified, the logical first page is returned.
 
-    The default value is ``. The maximum length is `1536` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
+    The default value is ``. The maximum length is `1536` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\s)(?!.*\s$)[^\x00-\x1F]*$/`.
 
 `--limit` (int64)
 :   The maximum number of resources to return. The number of resources that are returned is the same, except for the last page.
@@ -320,11 +323,11 @@ You can see the condition for each default JMESPath query in the following table
 | Response | Output | Query |
 | -------- | ------ | ----- |
 | Success | Default | - |
-|  | Table | `projects[].{id: id, name: definition.name, state: state}` |
+| | Table | `projects[].{id: id, name: definition.name, state: state}` |
 | Error | Default | - |
-|  | Table | `projects[].{id: id, name: definition.name, state: state}` |
+| | Table | `projects[].{id: id, name: definition.name, state: state}` |
 | All pages | Default | - |
-|  | Table | `projects[].{id: id, name: definition.name, state: state}` |
+| | Table | `projects[].{id: id, name: definition.name, state: state}` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -345,7 +348,7 @@ ibmcloud project get [--id ID] [--output FORMAT] [-q, --quiet]
 `--id` (string)
 :   The unique project ID. Required if the project is not selected.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 #### Example
 {: #project-get-examples}
@@ -373,7 +376,8 @@ A sample response for retrieving a project with configurations.
     "auto_deploy_mode" : "manual_approval",
     "auto_deploy" : false,
     "destroy_on_delete" : true,
-    "monitoring_enabled" : false
+    "monitoring_enabled" : false,
+    "owner" : "IBMid-31982730TY"
   },
   "configs" : [ {
     "id" : "673d79e4-52bf-4184-b8e9-d3ca3c110f96",
@@ -531,11 +535,11 @@ You can see the condition for each default JMESPath query in the following table
 | Response | Output | Query |
 | -------- | ------ | ----- |
 | Success | Default | - |
-|  | Table | `{id: id, name: definition.name, state: state}` |
+| | Table | `{id: id, name: definition.name, state: state}` |
 | Error | Default | - |
-|  | Table | `{id: id, name: definition.name, state: state}` |
+| | Table | `{id: id, name: definition.name, state: state}` |
 | All pages | Default | - |
-|  | Table | `{id: id, name: definition.name, state: state}` |
+| | Table | `{id: id, name: definition.name, state: state}` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -556,22 +560,22 @@ ibmcloud project update [--id ID] {--definition DEFINITION | --definition-name D
 `--id` (string)
 :   The unique project ID. Required if project is not selected.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--definition` ([`ProjectDefinitionPatch`](#cli-project-definition-patch-example-schema))
 :   The definition of the project. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition=@path/to/file.json`.
 
 `--definition-name` (string)
 :   The name of the project.  It's unique within the account across regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression ``/^(?!\\s)(?!.*\\s$)[^'"`\/<>{}\\x00-\\x1F]+$/``.
+    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\s)(?!.*\s$)[^'"\/<>{}\x00-\x1F]+$/`.
 
 `--definition-description` (string)
 :   A brief explanation of the project's use in the configuration of a deployable architecture. A project can be created without providing a description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
+    The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\s)(?!.*\s$)[^\x00-\x1F]*$/`.
 
 `--definition-auto-deploy-mode` (string)
 :   This is an advanced setting to auto deploy to tell how auto deploy should behave when it is enabled. There are 2 options:
@@ -589,12 +593,17 @@ ibmcloud project update [--id ID] {--definition DEFINITION | --definition-name D
 `--definition-store` ([`ProjectDefinitionStore`](#cli-project-definition-store-example-schema))
 :   The details required to custom store project configs. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-store=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-store=@path/to/file.json`.
 
 `--definition-terraform-engine` ([`ProjectTerraformEngineSettings`](#cli-project-terraform-engine-settings-example-schema))
 :   Experimental schema - this is for prototyping purposes. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-terraform-engine=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-terraform-engine=@path/to/file.json`.
+
+`--definition-owner` (string)
+:   The owner of the project. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+
+    The maximum length is `256` characters. The minimum length is `0` characters. The value must match regular expression `/^(?!\s)(?!.*\s$)[^'"<>{}\x00-\x1F]*$/`.
 
 `--definition-auto-deploy` (bool)
 :   A boolean flag to enable deploying configurations automatically. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
@@ -611,7 +620,7 @@ ibmcloud project update [--id ID] {--definition DEFINITION | --definition-name D
 ```sh
 ibmcloud project update \
     --id exampleString \
-    --definition '{"name": "acme-microservice", "description": "A microservice to deploy on top of ACME infrastructure.", "auto_deploy_mode": "auto_approval", "monitoring_enabled": true, "destroy_on_delete": true, "store": {"type": "gh", "url": "exampleString", "token": "exampleString", "config_directory": "exampleString"}, "terraform_engine": {"id": "exampleString", "type": "terraform-enterprise"}, "auto_deploy": true}'
+    --definition '{"name": "acme-microservice", "description": "A microservice to deploy on top of ACME infrastructure.", "auto_deploy_mode": "auto_approval", "monitoring_enabled": true, "destroy_on_delete": true, "store": {"type": "gh", "url": "exampleString", "token": "exampleString", "config_directory": "exampleString"}, "terraform_engine": {"id": "exampleString", "type": "terraform-enterprise"}, "owner": "IBMid-31982730TY", "auto_deploy": true}'
 ```
 {: pre}
 
@@ -626,6 +635,7 @@ ibmcloud project update \
     --definition-destroy-on-delete=true \
     --definition-store projectDefinitionStore \
     --definition-terraform-engine projectTerraformEngineSettings \
+    --definition-owner exampleString \
     --definition-auto-deploy=true
 ```
 {: pre}
@@ -647,7 +657,8 @@ A sample response for retrieving a project with configurations.
     "auto_deploy_mode" : "manual_approval",
     "auto_deploy" : false,
     "destroy_on_delete" : true,
-    "monitoring_enabled" : false
+    "monitoring_enabled" : false,
+    "owner" : "IBMid-31982730TY"
   },
   "configs" : [ {
     "id" : "673d79e4-52bf-4184-b8e9-d3ca3c110f96",
@@ -812,7 +823,7 @@ ibmcloud project delete [--id ID] [--output FORMAT] [-q, --quiet]
 `--id` (string)
 :   The unique project ID. Required if the project is not selected.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 #### Example
 {: #project-delete-examples}
@@ -856,37 +867,37 @@ ibmcloud project environment-create [--project-id PROJECT-ID] [--definition DEFI
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--definition` ([`EnvironmentDefinitionRequiredProperties`](#cli-environment-definition-required-properties-example-schema))
 :   The environment definition. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition=@path/to/file.json`.
 
 `--definition-description` (string)
 :   The description of the environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The default value is ``. The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
+    The default value is ``. The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\s)(?!.*\s$)[^\x00-\x1F]*$/`.
 
 `--definition-name` (string)
 :   The name of the environment. It's unique within the account across projects and regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression ``/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]+$/``.
+    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\s)(?!.*\s$)[^'"<>{}\x00-\x1F]+$/`.
 
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
-:   The authorization details. You can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The authorization details. It can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-authorizations=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-authorizations=@path/to/file.json`.
 
 `--definition-inputs` (generic map)
 :   The input variables that are used for configuration definition and environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-inputs=@path/to/file.json`.
 
 `--definition-compliance-profile` ([`ProjectComplianceProfile`](#cli-project-compliance-profile-example-schema))
 :   The profile that is required for compliance. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-compliance-profile=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-compliance-profile=@path/to/file.json`.
 
 `--output` (string)
 :   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
@@ -976,12 +987,12 @@ ibmcloud project environments [--project-id PROJECT-ID] [--token TOKEN] [--limit
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--token` (string)
 :   The server uses this parameter to determine the first entry that is returned on the next page. If this parameter is not specified, the logical first page is returned.
 
-    The default value is ``. The maximum length is `1536` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
+    The default value is ``. The maximum length is `1536` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\s)(?!.*\s$)[^\x00-\x1F]*$/`.
 
 `--limit` (int64)
 :   The maximum number of resources to return. The number of resources that are returned is the same, except for the last page.
@@ -1075,7 +1086,7 @@ ibmcloud project environment --id ID [--project-id PROJECT-ID] [--output FORMAT]
 `--id` (string)
 :   The environment ID. Required.
 
-    The maximum length is `256` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$).+$/`.
+    The maximum length is `256` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\s)(?!.*\s$).+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -1157,7 +1168,7 @@ ibmcloud project environment-update [--project-id PROJECT-ID] --id ID [--definit
 `--id` (string)
 :   The environment ID. Required.
 
-    The maximum length is `256` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$).+$/`.
+    The maximum length is `256` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\s)(?!.*\s$).+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -1167,32 +1178,32 @@ ibmcloud project environment-update [--project-id PROJECT-ID] --id ID [--definit
 `--definition` ([`EnvironmentDefinitionPropertiesPatch`](#cli-environment-definition-properties-patch-example-schema))
 :   The environment definition that is used for updates. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition=@path/to/file.json`.
 
 `--definition-description` (string)
 :   The description of the environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
+    The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\s)(?!.*\s$)[^\x00-\x1F]*$/`.
 
 `--definition-name` (string)
 :   The name of the environment. It's unique within the account across projects and regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression ``/^(?!\\s)(?!.*\\s$)[^'"`<>{}\\x00-\\x1F]+$/``.
+    The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\s)(?!.*\s$)[^'"<>{}\x00-\x1F]+$/`.
 
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
-:   The authorization details. You can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The authorization details. It can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-authorizations=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-authorizations=@path/to/file.json`.
 
 `--definition-inputs` (generic map)
 :   The input variables that are used for configuration definition and environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-inputs=@path/to/file.json`.
 
 `--definition-compliance-profile` ([`ProjectComplianceProfile`](#cli-project-compliance-profile-example-schema))
 :   The profile that is required for compliance. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-compliance-profile=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-compliance-profile=@path/to/file.json`.
 
 `--output` (string)
 :   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
@@ -1282,7 +1293,7 @@ ibmcloud project environment-delete --id ID [--project-id PROJECT-ID] [--output 
 `--id` (string)
 :   The environment ID. Required.
 
-    The maximum length is `256` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$).+$/`.
+    The maximum length is `256` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\s)(?!.*\s$).+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -1338,12 +1349,12 @@ ibmcloud project config-create [--project-id PROJECT-ID] [--definition DEFINITIO
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--definition` ([`ProjectConfigDefinitionPrototype`](#cli-project-config-definition-prototype-example-schema))
 :   This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition=@path/to/file.json`.
 
 `--schematics` ([`SchematicsWorkspace`](#cli-schematics-workspace-example-schema))
 :   A Schematics workspace to use for deploying this deployable architecture.
@@ -1356,12 +1367,12 @@ There are 3 scenarios:
 >
 For more information, see [Creating workspaces and importing the Terraform template](/docs/schematics?topic=schematics-sch-create-wks). This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--schematics=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--schematics=@path/to/file.json`.
 
 `--definition-compliance-profile` ([`ProjectComplianceProfile`](#cli-project-compliance-profile-example-schema))
 :   The profile that is required for compliance. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-compliance-profile=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-compliance-profile=@path/to/file.json`.
 
 `--definition-locator-id` (string)
 :   A unique concatenation of the catalog ID and the version ID that identify the deployable architecture in the catalog. If importing from an existing Schematics workspace that is not backed by cart, a `locator_id` is required. If using a Schematics workspace that is backed by cart, a `locator_id` is not necessary because the Schematics workspace has one.
@@ -1374,58 +1385,58 @@ For more information, see [Creating workspaces and importing the Terraform templ
     The maximum length is `512` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[\\.0-9a-z-A-Z_-]+$/`.
 
 `--definition-members` ([`StackMember[]`](#cli-stack-member-example-schema))
-:   The member deployable architectures that are included in the stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The member deployabe architectures that are included in the stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-members=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-members=@path/to/file.json`.
 
 `--definition-uses` ([`ProjectConfigUses[]`](#cli-project-config-uses-example-schema))
 :   The depending deployabe architectures that are referenced by this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-uses=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-uses=@path/to/file.json`.
 
 `--definition-description` (string)
-:   A project configuration description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   A project configuration description or a project configuration description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The default value is ``. The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
 
 `--definition-name` (string)
-:   The configuration name. It's unique within the account across projects and regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The configuration name. It's unique within the account across projects and regions or the configuration name. It's unique within the account across projects and regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9][a-zA-Z0-9-_ ]*$/`.
 
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
 :   The authorization details. It can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-authorizations=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-authorizations=@path/to/file.json`.
 
 `--definition-inputs` (generic map)
 :   The input variables that are used for configuration definition and environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-inputs=@path/to/file.json`.
 
 `--definition-settings` (generic map)
 :   The Schematics environment variables to use to deploy the configuration. Settings are only available if they are specified when the configuration is initially created. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-settings=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-settings=@path/to/file.json`.
 
 `--definition-environment-id` (string)
-:   The ID of the project environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The ID of the project environment or the ID of the project environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The list items must match regular expression ``/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/``. The maximum length is `110` items. The minimum length is `0` items.
+    The list items must match regular expression `/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/`. The maximum length is `110` items. The minimum length is `0` items.
 
 `--schematics-workspace-crn` (string)
 :   An IBM Cloud resource name that uniquely identifies a resource. This option provides a value for a sub-field of the JSON option 'schematics'. It is mutually exclusive with that option.
 
-    The maximum length is `512` characters. The minimum length is `4` characters. The value must match regular expression ``/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/``.
+    The maximum length is `512` characters. The minimum length is `4` characters. The value must match regular expression `/^(?!\s)(?!.*\s$)(crn)[^'"<>{}\s\x00-\x1F]*$/`.
 
 `--output` (string)
 :   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
@@ -1439,7 +1450,7 @@ For more information, see [Creating workspaces and importing the Terraform templ
 ```sh
 ibmcloud project config-create \
     --project-id exampleString \
-    --definition '{"compliance_profile": {}, "locator_id": "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global", "members": [{"name": "exampleString", "config_id": "exampleString"}], "description": "The stage environment configuration.", "name": "env-stage", "authorizations": {"trusted_profile_id": "exampleString", "method": "exampleString", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}, "environment_id": "exampleString"}' \
+    --definition '{"compliance_profile": {}, "locator_id": "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global", "members": [{"name": "exampleString", "config_id": "exampleString"}], "uses": [{"config_id": "exampleString", "project_id": "exampleString"}], "description": "The stage environment configuration.", "name": "env-stage", "authorizations": {"trusted_profile_id": "exampleString", "method": "exampleString", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}, "environment_id": "exampleString"}' \
     --schematics '{"workspace_crn": "crn:v1:staging:public:project:us-south:a/4e1c48fcf8ac33c0a2441e4139f189ae:bf40ad13-b107-446a-8286-c6d576183bb1::"}'
 ```
 {: pre}
@@ -1479,12 +1490,12 @@ ibmcloud project configs [--project-id PROJECT-ID] [--token TOKEN] [--limit LIMI
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--token` (string)
 :   The server uses this parameter to determine the first entry that is returned on the next page. If this parameter is not specified, the logical first page is returned.
 
-    The default value is ``. The maximum length is `1536` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
+    The default value is ``. The maximum length is `1536` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\s)(?!.*\s$)[^\x00-\x1F]*$/`.
 
 `--limit` (int64)
 :   The maximum number of resources to return. The number of resources that are returned is the same, except for the last page.
@@ -1587,19 +1598,19 @@ You can see the condition for each default JMESPath query in the following table
 | Response | Output | Query |
 | -------- | ------ | ----- |
 | Success | Default | - |
-|  | Table | `configs[].{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
+| | Table | `configs[].{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
 | Error | Default | - |
-|  | Table | `configs[].{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
+| | Table | `configs[].{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
 | All pages | Default | - |
-|  | Table | `configs[].{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
+| | Table | `configs[].{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
 
-### `ibmcloud project config`
-{: #project-cli-config-command}
+### `ibmcloud project config-operation`
+{: #project-cli-config-operation-command}
 
-Retrieve the specified project configuration in a specific project.
+Retrieve the specified project configuration in a specific project. For more information about project configurations, see [Monitoring the status of a configuration and its resources](/docs/secure-enterprise?topic=secure-enterprise-monitor-status-projects).
 
 ```sh
 ibmcloud project config --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q,--quiet]
@@ -1607,30 +1618,30 @@ ibmcloud project config --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q,
 
 
 #### Command options
-{: #project-config-cli-options}
+{: #project-config-operation-cli-options}
 
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 #### Example
-{: #project-config-examples}
+{: #project-config-operation-examples}
 
 ```sh
-ibmcloud project config \
+ibmcloud project config-operation \
     --project-id exampleString \
     --id exampleString
 ```
 {: pre}
 
 #### Default JMESPath
-{: #project-config-default-jmespath}
+{: #project-config-operation-default-jmespath}
 
 A JMESPath query will be applied to this output of this command by default, if one is not provided by the user. The exact query will depend on the scenario and the output format requested.
 You can see the condition for each default JMESPath query in the following table:
@@ -1638,11 +1649,11 @@ You can see the condition for each default JMESPath query in the following table
 | Response | Output | Query |
 | -------- | ------ | ----- |
 | Success | Default | - |
-|  | Table | `{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
+| | Table | `{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
 | Error | Default | - |
-|  | Table | `{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
+| | Table | `{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
 | All pages | Default | - |
-|  | Table | `{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
+| | Table | `{id: id, name: definition.name, project_name: project.definition.name, state: state, state_code: state_code, version: version}` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -1663,22 +1674,22 @@ ibmcloud project config-update --id ID {--definition DEFINITION | --definition-c
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--definition` ([`ProjectConfigDefinitionPatch`](#cli-project-config-definition-patch-example-schema))
 :   This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition=@path/to/file.json`.
 
 `--definition-compliance-profile` ([`ProjectComplianceProfile`](#cli-project-compliance-profile-example-schema))
 :   The profile that is required for compliance. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-compliance-profile=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-compliance-profile=@path/to/file.json`.
 
 `--definition-locator-id` (string)
 :   A unique concatenation of the catalog ID and the version ID that identify the deployable architecture in the catalog. If importing from an existing Schematics workspace that is not backed by cart, a `locator_id` is required. If using a Schematics workspace that is backed by cart, a `locator_id` is not necessary because the Schematics workspace has one.
@@ -1691,53 +1702,53 @@ ibmcloud project config-update --id ID {--definition DEFINITION | --definition-c
     The maximum length is `512` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[\\.0-9a-z-A-Z_-]+$/`.
 
 `--definition-members` ([`StackMember[]`](#cli-stack-member-example-schema))
-:   The member deployable architectures that are included in the stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The member deployabe architectures that are included in the stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-members=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-members=@path/to/file.json`.
 
 `--definition-uses` ([`ProjectConfigUses[]`](#cli-project-config-uses-example-schema))
 :   The depending deployabe architectures that are referenced by this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-uses=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-uses=@path/to/file.json`.
 
 `--definition-description` (string)
-:   A project configuration description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   A project configuration description or a project configuration description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
 
 `--definition-name` (string)
-:   The configuration name. It's unique within the account across projects and regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The configuration name. It's unique within the account across projects and regions or the configuration name. It's unique within the account across projects and regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9][a-zA-Z0-9-_ ]*$/`.
 
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
-:   The authorization details. You can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The authorization details. It can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-authorizations=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-authorizations=@path/to/file.json`.
 
 `--definition-inputs` (generic map)
 :   The input variables that are used for configuration definition and environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-inputs=@path/to/file.json`.
 
 `--definition-settings` (generic map)
 :   The Schematics environment variables to use to deploy the configuration. Settings are only available if they are specified when the configuration is initially created. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-settings=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-settings=@path/to/file.json`.
 
 `--definition-environment-id` (string)
-:   The ID of the project environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The ID of the project environment or the ID of the project environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The list items must match regular expression ``/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/``. The maximum length is `110` items. The minimum length is `0` items.
+    The list items must match regular expression `/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/`. The maximum length is `110` items. The minimum length is `0` items.
 
 `--output` (string)
 :   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
@@ -1752,7 +1763,7 @@ ibmcloud project config-update --id ID {--definition DEFINITION | --definition-c
 ibmcloud project config-update \
     --project-id exampleString \
     --id exampleString \
-    --definition '{"compliance_profile": {}, "locator_id": "exampleString", "members": [{"name": "exampleString", "config_id": "exampleString"}], "description": "exampleString", "name": "env-stage", "authorizations": {"trusted_profile_id": "exampleString", "method": "exampleString", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}, "environment_id": "exampleString"}'
+    --definition '{"compliance_profile": {}, "locator_id": "exampleString", "members": [{"name": "exampleString", "config_id": "exampleString"}], "uses": [{"config_id": "exampleString", "project_id": "exampleString"}], "description": "exampleString", "name": "env-stage", "authorizations": {"trusted_profile_id": "exampleString", "method": "exampleString", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}, "environment_id": "exampleString"}'
 ```
 {: pre}
 
@@ -1791,7 +1802,7 @@ ibmcloud project config-delete --id ID [--project-id PROJECT-ID] [--output FORMA
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -1836,17 +1847,17 @@ ibmcloud project config-force-approve --id ID --comment COMMENT [--project-id PR
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--comment` (string)
 :   Notes on the project draft action. If this action is a force approve on the draft configuration, it must include a nonempty comment. Required.
 
-    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]+$/`.
+    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\s)(?!.*\s$)[^\x00-\x1F]+$/`.
 
 `--output` (string)
 :   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
@@ -1933,12 +1944,12 @@ ibmcloud project config-approve --id ID --comment COMMENT [--project-id PROJECT-
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--comment` (string)
 :   Notes on the project draft action. If this action is a force approve on the draft configuration, it must include a nonempty comment.
 
-    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]+$/`.
+    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\s)(?!.*\s$)[^\x00-\x1F]+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -2031,7 +2042,7 @@ ibmcloud project config-validate --id ID [--project-id PROJECT-ID] [--output FOR
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -2122,17 +2133,17 @@ ibmcloud project config-prevalidate --id ID [--project-id PROJECT-ID] {--definit
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--definition` ([`ProjectConfigDefinitionPrototype`](#cli-project-config-definition-prototype-example-schema))
 :   This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition=@path/to/file.json`.
 
 `--schematics` ([`SchematicsWorkspace`](#cli-schematics-workspace-example-schema))
 :   A Schematics workspace to use for deploying this deployable architecture.
@@ -2145,12 +2156,12 @@ There are 3 scenarios:
 >
 For more information, see [Creating workspaces and importing the Terraform template](/docs/schematics?topic=schematics-sch-create-wks). This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--schematics=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--schematics=@path/to/file.json`.
 
 `--definition-compliance-profile` ([`ProjectComplianceProfile`](#cli-project-compliance-profile-example-schema))
 :   The profile that is required for compliance. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-compliance-profile=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-compliance-profile=@path/to/file.json`.
 
 `--definition-locator-id` (string)
 :   A unique concatenation of the catalog ID and the version ID that identify the deployable architecture in the catalog. If importing from an existing Schematics workspace that is not backed by cart, a `locator_id` is required. If using a Schematics workspace that is backed by cart, a `locator_id` is not necessary because the Schematics workspace has one.
@@ -2163,58 +2174,58 @@ For more information, see [Creating workspaces and importing the Terraform templ
     The maximum length is `512` characters. The minimum length is `1` character. The value must match regular expression `/^(?!\\s)(?!.*\\s$)[\\.0-9a-z-A-Z_-]+$/`.
 
 `--definition-members` ([`StackMember[]`](#cli-stack-member-example-schema))
-:   The member deployable architectures that are included in the stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The member deployabe architectures that are included in the stack. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-members=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-members=@path/to/file.json`.
 
 `--definition-uses` ([`ProjectConfigUses[]`](#cli-project-config-uses-example-schema))
 :   The depending deployabe architectures that are referenced by this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-uses=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-uses=@path/to/file.json`.
 
 `--definition-description` (string)
-:   A project configuration description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   A project configuration description or a project configuration description. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The default value is ``. The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/^$|^(?!\\s)(?!.*\\s$)[^\\x00-\\x1F]*$/`.
 
 `--definition-name` (string)
-:   The configuration name. It's unique within the account across projects and regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The configuration name. It's unique within the account across projects and regions or the configuration name. It's unique within the account across projects and regions. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `128` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9][a-zA-Z0-9-_ ]*$/`.
 
 `--definition-authorizations` ([`ProjectConfigAuth`](#cli-project-config-auth-example-schema))
-:   The authorization details. You can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The authorization details. It can authorize by using a trusted profile or an API key in Secrets Manager. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-authorizations=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-authorizations=@path/to/file.json`.
 
 `--definition-inputs` (generic map)
 :   The input variables that are used for configuration definition and environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-inputs=@path/to/file.json`.
 
 `--definition-settings` (generic map)
 :   The Schematics environment variables to use to deploy the configuration. Settings are only available if they are specified when the configuration is initially created. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--definition-settings=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--definition-settings=@path/to/file.json`.
 
 `--definition-environment-id` (string)
-:   The ID of the project environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
+:   The ID of the project environment or the ID of the project environment. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
     The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--definition-resource-crns` ([]string)
 :   The CRNs of the resources that are associated with this configuration. This option provides a value for a sub-field of the JSON option 'definition'. It is mutually exclusive with that option.
 
-    The list items must match regular expression ``/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/``. The maximum length is `110` items. The minimum length is `0` items.
+    The list items must match regular expression `/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/`. The maximum length is `110` items. The minimum length is `0` items.
 
 `--schematics-workspace-crn` (string)
 :   An IBM Cloud resource name that uniquely identifies a resource. This option provides a value for a sub-field of the JSON option 'schematics'. It is mutually exclusive with that option.
 
-    The maximum length is `512` characters. The minimum length is `4` characters. The value must match regular expression ``/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/``.
+    The maximum length is `512` characters. The minimum length is `4` characters. The value must match regular expression `/^(?!\s)(?!.*\s$)(crn)[^'"<>{}\s\x00-\x1F]*$/`.
 
 `--output` (string)
 :   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
@@ -2229,7 +2240,7 @@ For more information, see [Creating workspaces and importing the Terraform templ
 ibmcloud project config-prevalidate \
     --project-id exampleString \
     --id exampleString \
-    --definition '{"compliance_profile": {}, "locator_id": "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global", "members": [{"name": "exampleString", "config_id": "exampleString"}], "description": "The stage environment configuration.", "name": "env-stage", "authorizations": {"trusted_profile_id": "exampleString", "method": "exampleString", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}, "environment_id": "exampleString"}' \
+    --definition '{"compliance_profile": {}, "locator_id": "1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.018edf04-e772-4ca2-9785-03e8e03bef72-global", "members": [{"name": "exampleString", "config_id": "exampleString"}], "uses": [{"config_id": "exampleString", "project_id": "exampleString"}], "description": "The stage environment configuration.", "name": "env-stage", "authorizations": {"trusted_profile_id": "exampleString", "method": "exampleString", "api_key": "exampleString"}, "inputs": {"anyKey": "anyValue"}, "settings": {"anyKey": "anyValue"}, "environment_id": "exampleString"}' \
     --schematics '{"workspace_crn": "crn:v1:staging:public:project:us-south:a/4e1c48fcf8ac33c0a2441e4139f189ae:bf40ad13-b107-446a-8286-c6d576183bb1::"}'
 ```
 {: pre}
@@ -2281,12 +2292,12 @@ ibmcloud project get-prevalidate --id ID --result-id RESULT-ID [--project-id PRO
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--result-id` (string)
 :   The unique identifier to get prevalidate events. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -2357,7 +2368,7 @@ ibmcloud project config-deploy --id ID [--project-id PROJECT-ID] [--output FORMA
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -2449,7 +2460,7 @@ ibmcloud project config-undeploy --id ID [--project-id PROJECT-ID] [--output FOR
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -2540,7 +2551,7 @@ ibmcloud project config-sync --id ID [--schematics SCHEMATICS | --schematics-wor
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--schematics` ([`SchematicsWorkspace`](#cli-schematics-workspace-example-schema))
 :   A Schematics workspace to use for deploying this deployable architecture.
@@ -2553,12 +2564,12 @@ There are 3 scenarios:
 >
 For more information, see [Creating workspaces and importing the Terraform template](/docs/schematics?topic=schematics-sch-create-wks). This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--schematics=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--schematics=@path/to/file.json`.
 
 `--schematics-workspace-crn` (string)
 :   An IBM Cloud resource name that uniquely identifies a resource. This option provides a value for a sub-field of the JSON option 'schematics'. It is mutually exclusive with that option.
 
-    The maximum length is `512` characters. The minimum length is `4` characters. The value must match regular expression ``/^(?!\\s)(?!.*\\s$)(crn)[^'"`<>{}\\s\\x00-\\x1F]*$/``.
+    The maximum length is `512` characters. The minimum length is `4` characters. The value must match regular expression `/^(?!\s)(?!.*\s$)(crn)[^'"<>{}\s\x00-\x1F]*$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -2597,7 +2608,7 @@ ibmcloud project config-sync \
 List resources that are deployed by a configuration.
 
 ```sh
-ibmcloud project config-resources --project-id PROJECT-ID --id ID
+ibmcloud project config-resources --project-id PROJECT-ID --id ID [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -2607,7 +2618,7 @@ ibmcloud project config-resources --project-id PROJECT-ID --id ID
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -2683,26 +2694,26 @@ ibmcloud project stack-definition-create --id ID {--stack-definition STACK-DEFIN
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--stack-definition` ([`StackDefinitionBlockPrototype`](#cli-stack-definition-block-prototype-example-schema))
 :   The definition block for a stack definition. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--stack-definition=@path/to/file.json`.
 
 `--stack-definition-inputs` ([`StackDefinitionInputVariable[]`](#cli-stack-definition-input-variable-example-schema))
 :   Defines the inputs that users need to configure at the stack level. These inputs are included in the catalog entry when the deployable architecture stack is exported to a private catalog. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `300` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--stack-definition-inputs=@path/to/file.json`.
 
 `--stack-definition-outputs` ([`StackDefinitionOutputVariable[]`](#cli-stack-definition-output-variable-example-schema))
 :   The outputs associated with this stack definition. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-outputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--stack-definition-outputs=@path/to/file.json`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -2814,7 +2825,7 @@ ibmcloud project stack-definition --id ID [--project-id PROJECT-ID] [--output FO
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -2915,26 +2926,26 @@ ibmcloud project stack-definition-update --id ID {--stack-definition STACK-DEFIN
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--stack-definition` ([`StackDefinitionBlockPrototype`](#cli-stack-definition-block-prototype-example-schema))
 :   The definition block for a stack definition. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--stack-definition=@path/to/file.json`.
 
 `--stack-definition-inputs` ([`StackDefinitionInputVariable[]`](#cli-stack-definition-input-variable-example-schema))
 :   Defines the inputs that users need to configure at the stack level. These inputs are included in the catalog entry when the deployable architecture stack is exported to a private catalog. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `300` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-inputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--stack-definition-inputs=@path/to/file.json`.
 
 `--stack-definition-outputs` ([`StackDefinitionOutputVariable[]`](#cli-stack-definition-output-variable-example-schema))
 :   The outputs associated with this stack definition. This option provides a value for a sub-field of the JSON option 'stack-definition'. It is mutually exclusive with that option.
 
     The maximum length is `100` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--stack-definition-outputs=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--stack-definition-outputs=@path/to/file.json`.
 
 `--project-id` (string)
 :   The unique project ID. Required if the project is not selected.
@@ -2946,7 +2957,6 @@ ibmcloud project stack-definition-update --id ID {--stack-definition STACK-DEFIN
 
 `-q, --quiet` (bool)
 :   Suppresses verbose messages.
-
 #### Examples
 {: #project-stack-definition-update-examples}
 
@@ -3020,7 +3030,7 @@ Exports the deployable architecture stack to a private catalog. All member deplo
 
 ```sh
 ibmcloud project stack-definition-export --id ID [--settings SETTINGS | --settings-catalog-id SETTINGS-CATALOG-ID --settings-target-version SETTINGS-TARGET-VERSION --settings-variation SETTINGS-VARIATION --settings-label SETTINGS-LABEL --settings-tags SETTINGS-TAGS --settings-product-id SETTINGS-PRODUCT-ID] [--project-id PROJECT_ID] [--output FORMAT] [-q, --quiet]
-
+y
 ```
 
 
@@ -3030,12 +3040,12 @@ ibmcloud project stack-definition-export --id ID [--settings SETTINGS | --settin
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--settings` ([`StackDefinitionExportRequest`](#cli-stack-definition-export-request-example-schema))
 :   The payload for the private catalog export request. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--settings=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--settings=@path/to/file.json`.
 
 `--settings-catalog-id` (string)
 :   The catalog ID to publish. This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
@@ -3085,7 +3095,7 @@ ibmcloud project stack-definition-export --id ID [--settings SETTINGS | --settin
 ibmcloud project stack-definition-export \
     --project-id exampleString \
     --id exampleString \
-    --settings '{"catalog_id": "01e1a9ad-534b-4ab9-996a-b8f2a8653d5c", "target_version": "exampleString", "variation": "exampleString", "label": "Stack Deployable Architecture", "tags": []}'
+    --settings '{"catalog_id": "01e1a9ad-534b-4ab9-996a-b8f2a8653d5c", "target_version": "exampleString", "variation": "exampleString", "label": "Stack Deployable Architecture", "tags": ["exampleString","anotherTestString"]}'
 ```
 {: pre}
 
@@ -3098,7 +3108,7 @@ ibmcloud project stack-definition-export \
     --settings-target-version exampleString \
     --settings-variation exampleString \
     --settings-label exampleString \
-    --settings-tags '[]'
+    --settings-tags exampleString,anotherTestString
 ```
 {: pre}
 
@@ -3132,15 +3142,14 @@ ibmcloud project config-versions --id ID [--project-id PROJECT-ID] [--output FOR
 #### Command options
 {: #project-config-versions-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required if the project is not selected.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
 
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
 
 `-q, --quiet` (bool)
 :   Suppresses verbose messages.
@@ -3190,11 +3199,11 @@ You can see the condition for each default JMESPath query in the following table
 | Response | Output | Query |
 | -------- | ------ | ----- |
 | Success | Default | - |
-|  | Table | `versions` |
+| | Table | `versions` |
 | Error | Default | - |
-|  | Table | `versions` |
+| | Table | `versions` |
 | All pages | Default | - |
-|  | Table | `versions` |
+| | Table | `versions` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -3205,27 +3214,30 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 Retrieve a specific version of a configuration in a project.
 
 ```sh
-ibmcloud project config-version [--project-id PROJECT-ID] --id ID --version VERSION
+ibmcloud project config-version --id ID --version VERSION [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
 #### Command options
 {: #project-config-version-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
-
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--version` (int64)
 :   The configuration version. Required.
 
     The maximum value is `10000`. The minimum value is `0`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
 
 `-q, --quiet` (bool)
 :   Suppresses verbose messages.
@@ -3252,27 +3264,33 @@ Commands for V2Configurations resource.
 Delete a configuration version by specifying the project ID.
 
 ```sh
-ibmcloud project config-version-delete [--project-id PROJECT-ID] --id ID --version VERSION
+ibmcloud project config-version-delete --id ID --id ID --version VERSION --project-id PROJECT-ID 
 ```
 
 
 #### Command options
 {: #project-config-version-delete-cli-options}
 
-`--project-id` (string)
-:   The unique project ID. Required if the project is not selected.
-
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
-
 `--id` (string)
 :   The unique configuration ID. Required.
 
-    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+    The maximum length is `128` characters. The value must match regular expression `/^[\.\-0-9a-zA-Z]+$/`.
 
 `--version` (int64)
 :   The configuration version. Required.
 
     The maximum value is `10000`. The minimum value is `0`.
+
+`--project-id` (string)
+:   The unique project ID. Required if the project is not selected.
+
+    The maximum length is `128` characters. The value must match regular expression `/^[\\.\\-0-9a-zA-Z]+$/`.
+
+`--output` (string)
+:   Choose an output format - can be 'json', 'yaml', 'tui', or 'table'. (default 'table')
+
+`-q, --quiet` (bool)
+:   Suppresses verbose messages.
 
 #### Example
 {: #project-config-version-delete-examples}
@@ -3452,6 +3470,10 @@ The following example shows the format of the ProjectConfigDefinitionPatch objec
     "name" : "exampleString",
     "config_id" : "exampleString"
   } ],
+  "uses" : [ {
+    "config_id" : "exampleString",
+    "project_id" : "exampleString"
+  } ],
   "description" : "exampleString",
   "name" : "env-stage",
   "authorizations" : {
@@ -3483,6 +3505,10 @@ The following example shows the format of the ProjectConfigDefinitionPrototype o
   "members" : [ {
     "name" : "exampleString",
     "config_id" : "exampleString"
+  } ],
+  "uses" : [ {
+    "config_id" : "exampleString",
+    "project_id" : "exampleString"
   } ],
   "description" : "The stage environment configuration.",
   "name" : "env-stage",
@@ -3517,6 +3543,10 @@ The following example shows the format of the ProjectConfigPrototype[] object.
       "name" : "exampleString",
       "config_id" : "exampleString"
     } ],
+    "uses" : [ {
+      "config_id" : "exampleString",
+      "project_id" : "exampleString"
+    } ],
     "description" : "The stage account configuration.",
     "name" : "account-stage",
     "authorizations" : {
@@ -3536,6 +3566,20 @@ The following example shows the format of the ProjectConfigPrototype[] object.
     "workspace_crn" : "crn:v1:staging:public:project:us-south:a/4e1c48fcf8ac33c0a2441e4139f189ae:bf40ad13-b107-446a-8286-c6d576183bb1::"
   }
 } ]
+```
+{: codeblock}
+
+### ProjectConfigUses
+{: #cli-project-config-uses-example-schema}
+
+The following example shows the format of the ProjectConfigUses object.
+
+```json
+
+{
+  "config_id" : "exampleString",
+  "project_id" : "exampleString"
+}
 ```
 {: codeblock}
 
@@ -3562,6 +3606,7 @@ The following example shows the format of the ProjectDefinitionPatch object.
     "id" : "exampleString",
     "type" : "terraform-enterprise"
   },
+  "owner" : "IBMid-31982730TY",
   "auto_deploy" : true
 }
 ```
@@ -3606,6 +3651,7 @@ The following example shows the format of the ProjectPrototypeDefinition object.
     "id" : "exampleString",
     "type" : "terraform-enterprise"
   },
+  "owner" : "exampleString",
   "auto_deploy" : false
 }
 ```
@@ -3674,7 +3720,7 @@ The following example shows the format of the StackDefinitionExportRequest objec
   "target_version" : "exampleString",
   "variation" : "exampleString",
   "label" : "Stack Deployable Architecture",
-  "tags" : [ ]
+  "tags" : [ "exampleString", "anotherExampleString" ]
 }
 ```
 {: codeblock}
