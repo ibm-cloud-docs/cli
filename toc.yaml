@@ -136,6 +136,7 @@ toc:
           - include: ../hs-crypto/hs-crypto-cli.md
           - include: ../secrets-manager/secrets-manager-cli.md
           - include: ../key-protect/key-protect-cli-commands.md
+          - include: ../privileged-access-gateway/pag-cli.md
           - include: ../ContinuousDelivery/cra-cli.md
       - topicgroup:
           label: Additional services
