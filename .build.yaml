@@ -18,15 +18,13 @@ includes:
 - https://github.ibm.com/cloud-docs/event-notifications
 - https://github.ibm.com/cloud-docs/EventStreams
 - https://github.ibm.com/cloud-docs/hs-crypto
-- https://github.ibm.com/cloud-docs/hp-virtual-servers
-- https://github.ibm.com/cloud-docs/instructlab
+- https://github.ibm.com/cloud-docs/inference
 - https://github.ibm.com/cloud-docs/key-protect
 - https://github.ibm.com/cloud-docs/logs-router
 - https://github.ibm.com/cloud-docs/metrics-router
 - https://github.ibm.com/cloud-docs/monitoring
 - https://github.ibm.com/cloud-docs/openpages
 - https://github.ibm.com/cloud-docs/power-iaas
-- https://github.ibm.com/cloud-docs/privileged-access-gateway
 - https://github.ibm.com/cloud-docs/Registry
 - https://github.ibm.com/cloud-docs/satellite
 - https://github.ibm.com/cloud-docs/schematics

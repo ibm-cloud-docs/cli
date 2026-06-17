@@ -61,7 +61,7 @@ toc:
       - topicgroup:
           label: IBM Cloud CLI AI and machine learning commands
           topics:
-          - include: ../instructlab/ilab-cli.md
+          - include: ../inference/ilab-cli.md
       - topicgroup:
           label: IBM Cloud CLI container commands
           topics:
@@ -88,6 +88,7 @@ toc:
           - include: ../dr-automation-powervs/command-reference.md
           - include: ../transit-gateway/transit-gateway-cli.md
           - include: ../vpc-infrastructure-cli-plugin/vpc-cli-reference.md
+          - include: ../cephaas/sds-cli-reference.md
           - reference/ibmcloud/cli_block_storage.md
           - reference/ibmcloud/cli_call_api.md
           - reference/ibmcloud/cli_file_storage.md
@@ -136,7 +137,6 @@ toc:
           - include: ../hs-crypto/hs-crypto-cli.md
           - include: ../secrets-manager/secrets-manager-cli.md
           - include: ../key-protect/key-protect-cli-commands.md
-          - include: ../privileged-access-gateway/pag-cli.md
           - include: ../ContinuousDelivery/cra-cli.md
       - topicgroup:
           label: Additional services
