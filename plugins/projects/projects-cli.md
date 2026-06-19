@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-19"
 
 subcollection: cli
 
@@ -88,7 +88,7 @@ ibmcloud project select --unset-project
 ### `ibmcloud project create`
 {: #project-cli-create-command}
 
-Create a new project and asynchronously setup the tools to manage it. Add a deployable architecture by customizing the configuration. After the changes are validated and approved, deploy the resources that the project configures. For more information, see [Creating a project](/docs/secure-enterprise?topic=secure-enterprise-setup-project&interface=ui/docs-draft/secure-enterprise?topic=secure-enterprise-setup-project).
+Create a new project and asynchronously setup the tools to manage it. Add a deployable architecture by customizing the configuration. After the changes are validated and approved, deploy the resources that the project configures. For more information, see [Creating a project](/docs/secure-enterprise?topic=secure-enterprise-setup-project&interface=ui).
 
 ```sh
 ibmcloud project create [--definition DEFINITION | --definition-name DEFINITION-NAME --definition-description DEFINITION-DESCRIPTION --definition-auto-deploy-mode DEFINITION-AUTO-DEPLOY-MODE --definition-monitoring-enabled=DEFINITION-MONITORING-ENABLED --definition-destroy-on-delete=DEFINITION-DESTROY-ON-DELETE --definition-store DEFINITION-STORE --definition-terraform-engine DEFINITION-TERRAFORM-ENGINE --definition-auto-deploy=DEFINITION-AUTO-DEPLOY] --location LOCATION --resource-group RESOURCE-GROUP [--configs CONFIGS] [--environments ENVIRONMENTS] [--output FORMAT] [-q, --quiet]
@@ -1610,7 +1610,7 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 ### `ibmcloud project config-operation`
 {: #project-cli-config-operation-command}
 
-Retrieve the specified project configuration in a specific project. For more information about project configurations, see [Monitoring the status of a configuration and its resources](/docs/secure-enterprise?topic=secure-enterprise-monitor-status-projects).
+Retrieve the specified project configuration in a specific project.
 
 ```sh
 ibmcloud project config --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q,--quiet]
@@ -2031,7 +2031,7 @@ The example response to a request for a deployable architecture configuration dr
 Run a validation check on a specific configuration in the project. The check includes creating or updating the associated Schematics workspace with a plan job, running the CRA scans, and cost estimation.
 
 ```sh
-ibmcloud project config-validate --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet] 
+ibmcloud project config-validate --id ID [--project-id PROJECT-ID] [--output FORMAT] [-q, --quiet]
 ```
 
 
@@ -3264,7 +3264,7 @@ Commands for V2Configurations resource.
 Delete a configuration version by specifying the project ID.
 
 ```sh
-ibmcloud project config-version-delete --id ID --id ID --version VERSION --project-id PROJECT-ID 
+ibmcloud project config-version-delete --id ID --id ID --version VERSION --project-id PROJECT-ID
 ```
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-04"
+lastupdated: "2026-06-17"
 
 keywords: cli, ibmcloud billing, view account, view usage, account usage, resource groups, resources, org-usage
 
@@ -119,19 +119,19 @@ ibmcloud billing enterprise-usage [--account-group ACCOUNT_GROUP_NAME | --accoun
 {: #ibmcloud_billing_enterprise_usage_options}
 
 --account {ACCOUNT_NAME} (optional)
-:   Name of target account.
+:   Name of target account. Exclusive with account-id, account-group, account-group-id and children options.
 
 --account-id {ACCOUNT_ID} (optional)
-:   ID of target account.
+:   ID of target account. Exclusive with account, account-group, account-group-id and children options.
 
 --account-group {ACCOUNT_GROUP_NAME} (optional)
-:   Name of target account group.
+:   Name of target account group. Exclusive with account, account-id and account-group-id options.
 
 --account-group-id {ACCOUNT_GROUP_ID} (optional)
-:   ID of target account group. Exclusive with account, account-group and the children option.
+:   ID of target account group. Exclusive with account, account-id and account-group options.
 
 --children (optional)
-:   Show children usage reports. Exclusive with account and account-group options.
+:   Show children usage reports. Exclusive with account and account-id options.
 
 --month {MONTH} (optional)
 :   Target month. Default to the current month.
