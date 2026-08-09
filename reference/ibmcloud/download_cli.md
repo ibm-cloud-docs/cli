@@ -64,7 +64,7 @@ To install the latest CLI for your OS from the shell manually, use the following
 
 * For **Linux&trade;**, copy and paste the following command to a terminal and run it:
    ```bash
-   curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+   curl -fsSL https://clis.cloud.ibm.com/install/linux | sudo sh
    ```
    {: codeblock}
 
