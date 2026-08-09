@@ -24,6 +24,23 @@ If your deployment uses the VPC environment of {{site.data.keyword.cloud_notm}},
 * `us-south`
 * `us-east`
 
+## Log in using One time passcode
+{: #cli-passcode}
+
+You can access a one-time passcode to log into your IBM Cloud account from the command line. You will need to have [installed the CLI](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli) or [OpenShift CLI](https://www.ibm.com/docs/en/software-hub/5.1.x?topic=workstation-installing-openshift-cli) in your development console.
+
+To use the passcode:
+
+1. Log in to your IBM Cloud account
+2. Under your profile icon in the upper right of the IBM Cloud home page, select the **Log in to CLI or API** menu item.
+3. Copy the command line and paste into your developer console.
+
+To streamline your login, you may want to add your prefered region and target resource group to the command line, such as:
+
+```sh
+ibmcloud login -a https://cloud.ibm.com -u passcode -p thepasscode -r us-south -g MyResourceGroup
+```
+
 ## Enabling virtual routing and forwarding
 {: #cli-private-vrf}
 
