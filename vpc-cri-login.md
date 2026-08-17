@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-05-30"
+  years: 2022, 2026
+lastupdated: "2026-08-17"
 
 keywords: cli, command line, command-line, login, cli login, compute resource, compute resource identity, compute resource identities, vsi, vpc, trusted profiles, cri
 
@@ -40,7 +40,7 @@ You can log in as a VSI compute resource by using the CLI in any of the followin
    2. Specify the `--profile` option with the `ibmcloud login` command, and provide the ID or CRN of the trusted IAM profile that the instance is linked to.
 
    ```bash
-   ibmcloud login --vpc-cri --profile <profile_id_or_crn_string>
+   ibmcloud login --vpc-cri --profile PROFILE_ID_OR_CRN_STRING
    ```
    {: codeblock}
 

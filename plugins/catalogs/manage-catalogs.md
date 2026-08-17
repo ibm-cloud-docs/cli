@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-01"
+lastupdated: "2026-08-17"
 
 keywords: cli, catalogs management, catalog
 
@@ -165,7 +165,7 @@ Target a resource group to create a catalog because the catalog exists in the co
 {: important}
 
 ```bash
-ibmcloud catalog create --name CATALOG [--catalog-description "DESCRIPTION"]
+ibmcloud catalog create --name CATALOG [--description "DESCRIPTION"]
 ```
 {: codeblock}
 
@@ -176,7 +176,7 @@ ibmcloud catalog create --name CATALOG [--catalog-description "DESCRIPTION"]
 
 :   The catalog name.
 
---catalog-description DESCRIPTION (optional)
+--description DESCRIPTION (optional)
 
 :   Short description for the new catalog.
 
@@ -187,7 +187,7 @@ ibmcloud catalog create --name CATALOG [--catalog-description "DESCRIPTION"]
 Create a catalog called `dev-catalog` with the description `a catalog for development and testing purpsoses`.
 
 ```bash
-ibmcloud catalog create --name dev-catalog --catalog-description "a catalog for development and testing purposes"
+ibmcloud catalog create --name dev-catalog --description "a catalog for development and testing purposes"
 ```
 {: codeblock}
 
