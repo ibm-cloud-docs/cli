@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-01"
+lastupdated: "2026-08-17"
 
 keywords: cli, context-based restrictions plugin
 
@@ -819,9 +819,7 @@ Cloud Object Storage                                 cloud-object-storage       
 Code Engine                                          codeengine                    3 API Types
 Container Registry                                   container-registry            1 API Type
 Context-Based Restrictions                           context-based-restrictions    1 API Type
-Databases for EDB                                    databases-for-enterprisedb    3 API Types
 Databases for Elasticsearch                          databases-for-elasticsearch   3 API Types
-Databases for etcd                                   databases-for-etcd            3 API Types
 Databases for MongoDB                                databases-for-mongodb         3 API Types
 Databases for MySQL                                  databases-for-mysql           3 API Types
 Databases for PostgreSQL                             databases-for-postgresql      3 API Types

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-05-01"
+lastupdated: "2026-08-17"
 
-keywords: cli, catalog offerings, search catalog, ibmcloud catalog, ibmcloud catalog search, catalog entry, query templates, runtimes, geolocations, datacenter, catalog template, catalog locations
+keywords: cli, catalog offerings, search catalog, ibmcloud catalog, ibmcloud catalog search, catalog entry, geolocations, datacenter, catalog locations
 
 subcollection: cli
 
@@ -17,7 +17,7 @@ content-type: cli-docs
 # Searching and managing the {{site.data.keyword.cloud_notm}} catalog (ibmcloud catalog)
 {: #ibmcloud_catalog}
 
-Use the following commands from the {{site.data.keyword.cloud}} Command Line Interface to manage the {{site.data.keyword.cloud_notm}} catalog entries, query templates, runtimes, and geolocations of data centers.
+Use the following commands from the {{site.data.keyword.cloud}} Command Line Interface to manage the {{site.data.keyword.cloud_notm}} catalog entries and geolocations of data centers.
 {: shortdesc}
 
 You can use more CLI commands and capabilities for catalogs. Use the Catalogs management CLI plug-in to manage your private catalogs and onboard new private software. For more information, see the [Catalogs management CLI plug-in](/docs/cli?topic=cli-manage-catalogs-plugin). 
@@ -254,45 +254,6 @@ ibmcloud catalog service container-kubernetes
 ```
 {: codeblock}
 
-## ibmcloud catalog templates
-{: #ibmcloud_catalog_templates}
-
-View the boilerplate templates on {{site.data.keyword.cloud_notm}}.
-```bash
-ibmcloud catalog templates [-d]
-```
-
-### Command options
-{: #ibmcloud_catalog_templates_options}
-
- -d (optional)
- :   If the *-d* option is specified, the description of each template is also displayed. Otherwise, only the ID and name of each template is shown.
- 
-
-## ibmcloud catalog template
-{: #ibmcloud_catalog_template}
-
-View the detailed information of a specified boilerplate template.
-```bash
-ibmcloud catalog template TEMPLATE_ID
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_catalog_template_options}
-
- TEMPLATE_ID (required)
- :   The ID of the boilerplate template. Use *ibmcloud templates* to view all templates' IDs.
-
-### Examples
-{: #ibmcloud_catalog_template_examples}
-
-View details of the template `mobileBackendStarter`:
-```bash
-ibmcloud catalog template mobileBackendStarter
-```
-{: codeblock}
-
 ## ibmcloud catalog locations
 {: #ibmcloud_catalog_locations}
 
@@ -319,45 +280,3 @@ ibmcloud catalog locations [-i, --id ID] [-k, --kind KIND] [--col COLUMNS] [--gl
 
 --csv
 :   Output CSV file
-
-## ibmcloud catalog runtime
-{: #ibmcloud_catalog_runtime}
-
-View the details of a runtime. This command is only available for public cloud.
-```bash
-ibmcloud catalog runtime RUNTIME_ID
-```
-{: codeblock}
-
-### Examples
-{: #ibmcloud_catalog_locations_examples}
-
-Show details of runtime "nodejsHelloWorld":
-```bash
-ibmcloud catalog runtime nodejsHelloWorld
-```
-{: codeblock}
-
-## ibmcloud catalog runtimes
-{: #ibmcloud_catalog_runtimes}
-
-List all runtimes. This command is only available for public cloud.
-```bash
-ibmcloud catalog runtimes [-d]
-```
-{: codeblock}
-
-### Command options
-{: #ibmcloud_catalog_runtimes_options}
-
--d
-:   Show the description of each runtime
-
-### Examples
-{: #ibmcloud_catalog_runtimes_examples}
-
-List all runtimes along with their descriptions:
-```bash
-ibmcloud catalog runtimes -d
-```
-{: codeblock}
