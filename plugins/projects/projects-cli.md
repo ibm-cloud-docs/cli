@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-19"
+lastupdated: "2026-11-06"
 
 subcollection: cli
 
@@ -3058,7 +3058,7 @@ y
     The maximum length is `60` characters. The minimum length is `5` characters. The value must match regular expression `/^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$/`.
 
 `--settings-variation` (string)
-:   The variation of the current software being onboarded. Only valid if the Product kind is module or solution. See `flavor` in [Catalog's import offering](/apidocs/resource-catalog/private-catalog#import-offering). This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
+:   The variation of the current software being onboarded. Only valid if the Product kind is module or solution. See `flavor` in [Catalog's import offering](/docs/apis/resource-catalog/private-catalog#import-offering). This option provides a value for a sub-field of the JSON option 'settings'. It is mutually exclusive with that option.
 
     The maximum length is `128` characters. The value must match regular expression `/^[a-zA-Z0-9][a-zA-Z0-9-_ ]*$/`.
 
